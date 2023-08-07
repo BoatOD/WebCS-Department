@@ -8,6 +8,14 @@ services:
       - "3000:3000"
     depends_on:
       - app
+    volumes:
+      - ./client:/app/client
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
   app:
     build:
@@ -17,6 +25,14 @@ services:
       - "8080:8080"
     depends_on:
       - db
+    volumes:
+      - ./server:/app/server
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
   db:
     image: postgres:13-alpine
@@ -27,5 +43,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=csproject
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 volumes:
   postgres_data:

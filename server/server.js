@@ -43,6 +43,13 @@ app.get('/', async (req, res) => {
     }
 });
 
+// Handle SIGTERM signal gracefully
+process.on('SIGTERM', async () => {
+    console.log('Received SIGTERM. Closing the database connection...');
+    await client.end(); // Close the PostgreSQL client connection gracefully
+    process.exit(0); // Exit the process gracefully
+});
+
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 })

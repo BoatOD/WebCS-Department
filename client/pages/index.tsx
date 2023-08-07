@@ -22,6 +22,7 @@ function index() {
 
   return (
     <div>
+      <div>Frontend works</div>
       <div>{message}</div>
 
       {
