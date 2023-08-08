@@ -1,13 +1,13 @@
 # server/Dockerfile
 FROM node:16-alpine
 
-WORKDIR /app
+WORKDIR /app/server
 
 COPY package.json package-lock.json ./
 
 RUN npm install
 
-COPY . .
+COPY . /app/server
 
 EXPOSE 8080
 
