@@ -1,38 +1,34 @@
-version: '3.9'
+version: '3.5'
+
 services:
   web:
     build:
       context: ./client
       dockerfile: Dockerfile
+    container_name: web
     ports:
-      - "3000:3000"
+      - '3000:3000'
     depends_on:
       - app
     volumes:
-      - ./client:/app/client
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-        reservations:
-          memory: 256M
+      # Required to sync file changes.
+      - ./client:/usr/src/web
+      # Required to not break node modules.
+      - /usr/src/web/node_modules
+      # Required for next to do it's thing.
+      - /usr/src/web/.next
 
   app:
     build:
       context: ./server
       dockerfile: Dockerfile
+    container_name: app
     ports:
       - "8080:8080"
     depends_on:
       - db
     volumes:
       - ./server:/app/server
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-        reservations:
-          memory: 256M
 
   db:
     image: postgres:13-alpine
@@ -40,32 +36,23 @@ services:
     user: root
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    container_name: db
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=csproject
     ports:
       - "5432:5432"
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-        reservations:
-          memory: 256M
 
   pgadmin:
     image: dpage/pgadmin4
     restart: always
+    container_name: pgadmin
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "5050:80"
-    deploy:
-      resources:
-        limits:
-          memory: 512M
-        reservations:
-          memory: 256M
+
 volumes:
   postgres_data:
