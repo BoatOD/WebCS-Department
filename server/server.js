@@ -35,6 +35,19 @@ app.get('/api/home', async (req, res) => {
     }
 });
 
+// Define an API endpoint to fetch data
+app.get('/api/data', async (req, res) => {
+    try {
+      const result = await client.query('SELECT * FROM EMPLOYEE ORDER BY ssn');
+      const data = result.rows;
+  
+      res.json(data);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+
 app.get('/', async (req, res) => {
     try {
         res.send('Backend works.');
