@@ -12,7 +12,7 @@ services:
       - app
     volumes:
       # Required to sync file changes.
-      - ./client:/app
+      - ./client:/usr/src/web
       # Required to not break node modules.
       - /usr/src/web/node_modules
       # Required for next to do it's thing.
