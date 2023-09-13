@@ -1,0 +1,75 @@
+import React from "react";
+
+type Props = {};
+
+const Footer = (props: Props) => {
+  return (
+    <>
+      <footer className="bg-white dark:bg-gray-900">
+        <div className="mx-auto w-full max-w-screen-xl">
+          <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-3">
+            <div>
+              <h1 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                COMPUTER SCIENCS
+              </h1>
+              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <p>
+                  ภาควิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยเชียงใหม่
+                  239 ถ. ห้วยแก้ว ต.สุเทพ อ. เมือง จ. เชียงใหม่ 50200
+                </p>
+              </ul>
+            </div>
+            <div>
+              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <li className="mb-4">
+                  <p>
+                    โทรศัพท์ : 0-5394-3412-16 , 063-080-7969
+                    <br></br>ธุรการ : กด 0 หรือ 101
+                    <br></br>หลักสูตรปริญญาตรี : กด 103
+                    <br></br>หลักสูตรปริญญาโท-เอก : กด 105
+                    <br></br>E-mail : compsci@cmu.ac.th
+                    <br></br>Line ID : cscmu
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                Social Media
+              </h2>
+              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <li className="mb-4">
+                  <a
+                    href="https://www.facebook.com/compscicmu/"
+                    className="hover:underline"
+                  >
+                    Facebook Computer Science CMU
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a
+                    href="https://www.facebook.com/cscmuhomecoming/"
+                    className="hover:underline"
+                  >
+                    Facebook Page ศิษย์เก่า
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a
+                    href="https://www.google.com/maps/d/u/0/viewer?mid=1XzZUWuQlmVJeZC2dcBxA2yKIXO8&ll=18.80376300042011%2C98.95247199999993&z=20"
+                    className="hover:underline"
+                  >
+                    Location
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+      </footer>
+    </>
+  );
+};
+export default Footer;

@@ -14,7 +14,6 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Link,
-  Switch,
   Listbox,
   ListboxItem,
   Input,
@@ -42,7 +41,7 @@ const NavbarHeader = (props: Props) => {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="md:hidden"
           />
-          <NavbarBrand className="justify-start">
+          <NavbarBrand className="justify-start hidden md:flex">
             <Image
               className="hidden md:block"
               src={"/cs-cmu-logo.svg"}
@@ -51,17 +50,27 @@ const NavbarHeader = (props: Props) => {
               height="90"
             />
             <div>
-              <h2 className="font-semibold text-base md:text-xl">
+              <h2 className="font- text-base md:text-xl">
                 Department of
               </h2>
-              <h2 className="font-semibold text-base md:text-xl">
+              <h2 className="font-semibold text-base md:text-3xl">
                 Computer science
               </h2>
             </div>
           </NavbarBrand>
+
+          <NavbarBrand className="justify-center flex md:hidden">
+            <div>
+              <h2 className="font-semibold text-base md:text-xl">
+                Department of Computer science
+              </h2>
+              
+            </div>
+          </NavbarBrand>
+          
         </NavbarContent>
-        <NavbarContent className=" hidden md:flex pl-5" justify="end">
-          <div className="w-50 mr-8">
+        {/* <NavbarContent className=" hidden md:flex pl-5" justify="end">
+          <div className="w-50 mr-8 pt-5">
             <Input
               label="Search"
               isClearable
@@ -84,7 +93,7 @@ const NavbarHeader = (props: Props) => {
               }}
             />
           </div>
-        </NavbarContent>
+        </NavbarContent> */}
         <NavbarMenu className="uppercase bg-[#F4F4F4] gap-0">
           {navItems.map((item, index) =>
             item.type === "dropdown" ? (
