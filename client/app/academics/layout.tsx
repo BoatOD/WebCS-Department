@@ -19,8 +19,8 @@ export default function aboutLayout({
 }) {
   return (
     <>
-      {children}
-      <div className="flex flex-col md:flex-row mx-auto max-w-7xl px-2 mt-4 sm:px-6 pt-5 gap-5">
+    {children}
+     <div className="flex flex-col md:flex-row mx-auto max-w-7xl px-2 mt-4 sm:px-6 pt-5 gap-5">
         <div className="w-full md:w-2/3">
           <div className="flex pb-5">
             <div className="flex flex-col space-y-2 mt-7">
@@ -46,6 +46,7 @@ export default function aboutLayout({
           <div className="overflow-y-auto h-[28rem] pt-6"></div>
         </div>
       </div>
+      {children}
     </>
   );
 }
