@@ -7,7 +7,7 @@ export const navItems: navbar[] = [
     options: [
       {
         title: "Undergraduate",
-        href: "/program/master-degree",
+        href: "/academics/undergraduate",
       },
       {
         title: "Master",
