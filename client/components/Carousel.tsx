@@ -16,8 +16,9 @@ const Carousel = ({ images }: { images: CarouselProps[] }) => {
         delay: 5000,
         disableOnInteraction: false,
       }}
+      slidesPerView={1}
       modules={[Autoplay]}
-      className="mySwiper"
+      className="mySwiper "
     >
       {images.map((item, index) => (
         <SwiperSlide>
@@ -26,7 +27,7 @@ const Carousel = ({ images }: { images: CarouselProps[] }) => {
               <Image
                 src={item.images}
                 fill
-                className="object-scale-down sm:object-none "
+                className="w-full h-60 object-cover rounded-lg sm:h-52"
                 alt="asdasdasdasdad"
               />
               <div className="absolute bottom-0 px-4 py-3 bg-gray-500/50 w-full">

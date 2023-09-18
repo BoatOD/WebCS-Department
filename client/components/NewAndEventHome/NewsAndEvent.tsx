@@ -18,13 +18,13 @@ const NewsAndEvent = (props: Props) => {
       content: "ขอแสดงความยินดีกับนักศึกษาและคณาจารย์จากภาควิชาวิทยาการคอมพิวเตอร์ที่ได้รับคัดเลือกผลงานไปนำเสนอในงานประชุมวิชาการระดับนานาชาติ",
     },
     {
-      images: "/banner1.svg",
+      images: "/pic.png",
       href: "#",
       title: "string",
       content: "string",
     },
     {
-      images: "/banner1.svg",
+      images: "/pic.png",
       href: "#",
       title: "string",
       content: "string",

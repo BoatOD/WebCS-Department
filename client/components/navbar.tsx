@@ -17,6 +17,7 @@ import {
   Listbox,
   ListboxItem,
   Input,
+  Menu,
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
@@ -31,69 +32,54 @@ const NavbarHeader = (props: Props) => {
 
   return (
     <>
-      <Navbar position="static"
-        className="md:py-5 "
+      <Navbar
+        className="md:py-5  shouldHideOnScroll md:static"
         maxWidth="2xl"
         aria-label="navbar"
-        height="3.5rem">
+        height="3.5rem"
+      >
         <NavbarContent justify="start">
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="md:hidden"
           />
           <NavbarBrand className="justify-start hidden md:flex">
-            <Image
-              className="hidden md:block"
-              src={"/cs-cmu-logo.svg"}
-              alt="Logo CSCMU"
-              width="90"
-              height="90"
-            />
-            <div>
-              <h2 className="font- text-base md:text-xl">
-                Department of
-              </h2>
-              <h2 className="font-semibold text-base md:text-3xl">
-                Computer science
-              </h2>
-            </div>
+            <Link href="http://localhost:3000/">
+              <Image
+                className="hidden md:block"
+                src={"/cs-cmu-logo.svg"}
+                alt="Logo CSCMU"
+                width="90"
+                height="90"
+              />
+            </Link>
+            <Link href="http://localhost:3000/">
+              <div>
+                <h2 className="font- text-base md:text-xl text-black">
+                  Department of
+                </h2>
+                <h2 className="font-semibold text-base md:text-3xl text-black">
+                  Computer science
+                </h2>
+              </div>
+            </Link>
           </NavbarBrand>
 
           <NavbarBrand className="justify-center flex md:hidden">
-            <div>
-              <h2 className="font-semibold text-base md:text-xl">
-                Department of Computer science
-              </h2>
-              
-            </div>
+            <Link href="http://localhost:3000/">
+              <div>
+                <h2 className="font-semibold text-base sm:text-xl text-center text-black">
+                  Department of
+                </h2>
+
+                <h2 className="font-semibold text-base sm:text-xl text-center text-black">
+                  Computer science
+                </h2>
+              </div>
+            </Link>
           </NavbarBrand>
-          
         </NavbarContent>
-        {/* <NavbarContent className=" hidden md:flex pl-5" justify="end">
-          <div className="w-50 mr-8 pt-5">
-            <Input
-              label="Search"
-              isClearable
-              classNames={{
-                innerWrapper: "bg-transparent",
-                inputWrapper: [
-                  "group-data-[focus=true]:bg-[#F29D35]/80",
-                  "data-[hover=true]:bg-[#F29D35]/90",
-                  "shadow-xl",
-                  "bg-[#F29D35]",
-                  "dark:bg-[#F29D35]",
-                  "backdrop-blur-xl",
-                  "backdrop-saturate-200",
-                  "hover:bg-[#F29D35]",
-                  "dark:hover:bg-[#F29D35]",
-                  "group-data-[focused=true]:bg-[#F29D35]",
-                  "dark:group-data-[focused=true]:bg-[#F29D35]",
-                  "!cursor-text",
-                ],
-              }}
-            />
-          </div>
-        </NavbarContent> */}
+
         <NavbarMenu className="uppercase bg-[#F4F4F4] gap-0">
           {navItems.map((item, index) =>
             item.type === "dropdown" ? (
@@ -120,8 +106,6 @@ const NavbarHeader = (props: Props) => {
                 </Listbox>
               </NavbarMenuItem>
             ) : (
-              
-
               <NavbarMenuItem key={item.title}>
                 <Link
                   className="w-full text-black"
@@ -133,7 +117,7 @@ const NavbarHeader = (props: Props) => {
               </NavbarMenuItem>
             )
           )}
-          <div className="w-30 pt-3">
+          {/* <div className="w-30 pt-3">
             <Input
               label="Search"
               isClearable
@@ -155,7 +139,7 @@ const NavbarHeader = (props: Props) => {
                 ],
               }}
             />
-          </div>
+          </div> */}
         </NavbarMenu>
       </Navbar>
       <Navbar
@@ -164,7 +148,6 @@ const NavbarHeader = (props: Props) => {
         maxWidth="2xl"
         aria-label="navbar"
       >
-        
         <NavbarContent className="hidden md:flex gap-0 px-3" justify="end">
           {navItems.map((item, index) =>
             item.type === "dropdown" ? (
@@ -224,7 +207,6 @@ const NavbarHeader = (props: Props) => {
             )
           )}
         </NavbarContent>
-        
       </Navbar>
     </>
   );
