@@ -19,12 +19,12 @@ export const navItems: navbar[] = [
       },
       {
         title: "Lifelong Education",
-        href: "/program/phd",
+        href: "/academics/lifelong_education",
       }
       ,
       {
         title: "Non Degree",
-        href: "/program/phd",
+        href: "/academics/nondegree",
       }
     ],
   },
@@ -127,6 +127,6 @@ export const navItems: navbar[] = [
   {
     title: "FAQs",
     type: "button",
-    href: "/KEN"
+    href: "/faqs"
 },
 ];

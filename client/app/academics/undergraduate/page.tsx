@@ -1,58 +1,10 @@
-"use client";
-import { Sidebar } from "flowbite-react";
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-} from "react-icons/hi";
-import type { CustomFlowbiteTheme } from "flowbite-react";
-import React, { useEffect } from "react";
-import Image from "next/image";
+'use client';
+import React from "react";
+import Undergraduate from "@/components/AcademicPage/Undergraduate";
 
 type Props = {};
 
-export default function undergraduate({}: Props) {
-  const customTheme: CustomFlowbiteTheme["sidebar"] = {
-    root: {
-      inner: "bg-white",
-    },
-    collapse: {
-      button: "text-2xl",
-    },
-  };
-  const navItems: navbar[] = [
-    {
-      title: "ACADEMICS",
-      type: "dropdown",
-      options: [
-        {
-          title: "Undergraduate",
-          href: "/academics/undergraduate",
-        },
-        {
-          title: "Master",
-          href: "/academics/master",
-        },
-        {
-          title: "Doctoral",
-          href: "/program/phd",
-        },
-        {
-          title: "Lifelong Education",
-          href: "/program/phd",
-        },
-        {
-          title: "Non Degree",
-          href: "/program/phd",
-        },
-      ],
-    },
-  ];
-
+export default function page({}: Props) {
   return (
     <>
       <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
@@ -68,7 +20,7 @@ export default function undergraduate({}: Props) {
                 height="0"
                 sizes="100vw"
                 alt="academic-image"
-                className="w-auto h-auto "
+                className="w-auto h-auto object-scale-down  "
               />
             </div>
             <div className="p-5">
