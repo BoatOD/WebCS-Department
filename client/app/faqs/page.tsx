@@ -3,8 +3,8 @@ import React from 'react'
 
 type Props = {}
 
-export default function Master({}: Props) {
+export default function FAQs({}: Props) {
   return (
-    <div>Master</div>
+    <div>page</div>
   )
 }
