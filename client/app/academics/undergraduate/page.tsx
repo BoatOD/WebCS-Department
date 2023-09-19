@@ -1,6 +1,9 @@
-'use client';
+"use client"
 import React from "react";
 import Undergraduate from "@/components/AcademicPage/Undergraduate";
+import { Sidebar } from "flowbite-react";
+import Image from "next/image";
+import { SidebarCustomTheme } from "@/theme";
 
 type Props = {};
 
@@ -41,7 +44,7 @@ export default function page({}: Props) {
         <div className="w-full md:w-1/3 order-first md:order-last ">
           <div className="flex flex-col space-y-2 mt-7">
             <div className="px-8 py-0.5 bg-black w-full"></div>
-            <Sidebar theme={customTheme} className="w-full">
+            <Sidebar theme={SidebarCustomTheme} className="w-full">
               <Sidebar.Items className="bg-white p-0">
                 <Sidebar.ItemGroup className="bg-white p-0">
                   <Sidebar.Item href="#">
