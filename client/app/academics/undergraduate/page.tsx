@@ -68,7 +68,7 @@ export default function undergraduate({}: Props) {
                 height="0"
                 sizes="100vw"
                 alt="academic-image"
-                className="w-auto h-auto object-scale-down  "
+                className="w-auto h-auto "
               />
             </div>
             <div className="p-5">

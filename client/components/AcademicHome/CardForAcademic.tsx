@@ -9,7 +9,7 @@ const CardForAcademic = ({ posts }: { posts: CardOfEventProps[] }) => {
   return (
     <>
       {posts.map((item, index) => (
-        <Link href={item.href ?? "#"}>
+        <Link key={index} href={item.href ?? "#"}>
           <div className="p-1 snap-center">
             <div className="max-w-full  shadow-lg min-h-full ">
               <Image
