@@ -2,6 +2,7 @@
 import React from 'react'
 import { Sidebar } from "flowbite-react";
 import { SidebarCustomTheme } from "@/theme";
+import Banner from '@/components/AcademicPage/Banner';
 import './non.css'
 
 type Props = {}
@@ -9,6 +10,17 @@ type Props = {}
 export default function Master({ }: Props) {
   return (
     <>
+      <Banner
+        imageSrc="/academic_banner.png" // Adjust the image path for this page
+        altText="Image Alt Text"
+        title="ACADEMIC"
+        subtitle="NON DEGREE"
+        customStyles={{
+          width: '375px',  // Custom width for this page
+          height: '100px',  // Custom height for this page
+          bottom: '-15px', // Custom bottom attribute for this page
+        }}
+      />
       <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
         <div className="w-full md:w-2/3 order-last md:order-first ">
           <div className="flex flex-col space-y-2 mt-20">
