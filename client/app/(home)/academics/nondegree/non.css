@@ -1,0 +1,42 @@
+.App {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+table {
+    border-collapse: collapse;
+    width: 800px;
+    height: 200px;
+
+}
+ 
+th {
+    border-bottom: 1px solid #F29D35;
+    background-color: #F29D35;
+}
+ 
+td {
+    text-align:left;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+.left {
+    width: 200px;
+    text-align:center;
+
+}
+
+.border {
+    border: 1px solid #000;
+}
+
+.border-1 {
+    border: 2px solid #000;
+}
+
