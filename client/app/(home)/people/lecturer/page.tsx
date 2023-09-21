@@ -32,7 +32,7 @@ export default function lecturer({ }: Props) {
               <div className="md:flex">
                 <div className="md:shrink-0">
                   <Image
-                    src={"/personal/Arisa.JPG"}
+                    src={"/personal/lecturers/Wijak.JPG"}
                     width="0"
                     height="0"
                     sizes="100vm"
@@ -40,10 +40,41 @@ export default function lecturer({ }: Props) {
                     className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
                   />
                 </div>
-                <div className="pl-8 pr-8 pb-8 pt-3">
-                  <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Company retreats</div>
-                  <a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accommodation for your team</a>
-                  <p className="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.</p>
+                <div className="pl-8 pr-8 pt-1 sm:text-center md:text-left">
+                  <a href="https://www2.cs.science.cmu.ac.th/staff/wss/" className="block mt-1 text-xl leading-tight font-semibold text-slate-700 ">ผู้ช่วยศาสตราจารย์ ดร.วิจักษณ์ ศรีสัจจะเลิศวาจา รักษาการแทนหัวหน้าภาควิชาวิทยาการคอมพิวเตอร์ 
+                  ผู้ช่วยคณบดีฝ่ายเทคโนโลยีสารสนเทศ คณะวิทยาศาสตร์</a>
+                  <ul className='list-none text-slate-600 mt-3 mb-4 text-base font-normal'>
+                    <li>Assistant Professor Dr.Wijak Srisujjalertwaja</li>
+                    <li>Tel: 053-943412 ต่อ 124 </li>
+                    <li>Email: wijak.cscmu@gmail.com </li>
+                    <li>Research Interests: Recommender System</li>
+                  </ul>
+                  <a href="https://www2.cs.science.cmu.ac.th/staff/wss/" className="block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2 pt-2  hover:text-slate-500">Personal Website</a>
+                </div>
+              </div>
+            </div>
+            <div className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
+              <div className="md:flex">
+                <div className="md:shrink-0">
+                  <Image
+                    src={"/personal/lecturers/Ratsameetip.JPG"}
+                    width="0"
+                    height="0"
+                    sizes="100vm"
+                    alt=""
+                    className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
+                  />
+                </div>
+                <div className="pl-8 pr-8 pt-1 sm:text-center md:text-left">
+                  <a href="https://www2.cs.science.cmu.ac.th/staff/ratsameetip/" className="block mt-1 text-xl leading-tight font-semibold text-slate-700 ">
+ผู้ช่วยศาสตราจารย์ ดร.รัศมีทิพย์ วิตา รักษาการแทนรองหัวหน้าภาควิชาวิทยาการคอมพิวเตอร์</a>
+                  <ul className='list-none text-slate-600 mt-3 mb-4 text-base font-normal'>
+                    <li>Dr.Ratsameetip Wita</li>
+                    <li>Tel: 053-943412 ต่อ 215 </li>
+                    <li>Email: ratsameetip.w@cmu.ac.th </li>
+                    <li>Research Interests: Security management, webservice, ontology and semantic </li>
+                  </ul>
+                  <a href="https://www2.cs.science.cmu.ac.th/staff/ratsameetip/" className="block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2 pt-2  hover:text-slate-500">Personal Website</a>
                 </div>
               </div>
             </div>
