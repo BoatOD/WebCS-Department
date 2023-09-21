@@ -5,14 +5,14 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <>
-      <footer className="bg-white dark:bg-gray-900">
+      <footer className="bg-[#F29D35]">
         <div className="mx-auto w-full max-w-screen-xl">
           <div className="grid grid-cols-1 md:grid-cols-3  gap-8 px-4 py-6 lg:py-8 ">
             <div>
               <h1 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 COMPUTER SCIENCS CMU
               </h1>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="dark:text-white font-medium">
                 <p>
                   ภาควิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยเชียงใหม่
                   239 ถ. ห้วยแก้ว ต.สุเทพ อ. เมือง จ. เชียงใหม่ 50200
@@ -60,7 +60,7 @@ const Footer = (props: Props) => {
               </ul>
             </div>
             <div className=" hidden md:flex">
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="dark:text-white font-medium">
                 <li className="mb-4">
                   <p>
                     โทรศัพท์ : 0-5394-3412-16 , 063-080-7969
@@ -78,7 +78,7 @@ const Footer = (props: Props) => {
                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                   Social Media
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <ul className="dark:text-white font-medium">
                   <li className="mb-4">
                     <a
                       href="https://www.facebook.com/compscicmu/"

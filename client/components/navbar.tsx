@@ -33,7 +33,7 @@ const NavbarHeader = (props: Props) => {
   return (
     <>
       <Navbar
-        className="md:py-5  shouldHideOnScroll md:static"
+        className="md:py-5  shouldHideOnScroll md:static bg-[#F4F4F4]"
         maxWidth="2xl"
         aria-label="navbar"
         height="3.5rem"
@@ -43,7 +43,7 @@ const NavbarHeader = (props: Props) => {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="md:hidden"
           />
-          <NavbarBrand className="justify-start hidden md:flex">
+          <NavbarBrand className="justify-start hidden md:flex bg-[#F4F4F4]">
             <Link href="http://localhost:3000/">
               <Image
                 className="hidden md:block"
@@ -65,7 +65,7 @@ const NavbarHeader = (props: Props) => {
             </Link>
           </NavbarBrand>
 
-          <NavbarBrand className="justify-center flex md:hidden">
+          <NavbarBrand className="justify-center flex md:hidden bg-[#F4F4F4]">
             <Link href="http://localhost:3000/">
               <div>
                 <h2 className="font-semibold text-base sm:text-xl text-center text-black">
