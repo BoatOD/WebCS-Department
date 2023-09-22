@@ -27,7 +27,7 @@ const Carousel = ({ images }: { images: CarouselProps[] }) => {
               <Image
                 src={item.images}
                 fill
-                className="w-full h-60 object-cover rounded-lg sm:h-52"
+                className="w-full h-full object-fill  rounded-lg sm:h-52"
                 alt="asdasdasdasdad"
               />
               <div className="absolute bottom-0 px-4 py-3 bg-gray-500/50 w-full">
