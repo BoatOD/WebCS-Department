@@ -1,9 +1,6 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const mongoose = require('mongoose')
-const axios = require('axios');
-const pdf = require('pdf-parse');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 8080;
@@ -11,30 +8,32 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 
 // Import the dbconnect module
-const { connectToDatabase } = require('./dbconnect');
+const connectToDatabase = require('./dbconnect');
 
-app.use(async (req, res, next) => {
+app.get('/api/lecturer', async (req, res) => {
   try {
-    // Connect to the database before processing the request
+    // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
-    req.db = db; // Make the database connection available in the request object
-    next(); // Continue processing the request
+    
+    // Access a collection and retrieve data
+    const usersCollection = db.collection('people');
+    const users = await usersCollection.find({job_type: "L"}).toArray();
+
+    res.json(users);
   } catch (error) {
-    console.error('Error connecting to MongoDB Atlas:', error);
+    console.error('Error fetching data from MongoDB Atlas:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-app.get('/api/users', async (req, res) => {
+app.get('/api/staff', async (req, res) => {
   try {
-    // Access the database connection from the request object
-    const db = req.db;
-
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+    
     // Access a collection and retrieve data
-    const usersCollection = db.collection('inventory');
-    // Return specific field
-    const projection = { _id: 0};
-    const users = await usersCollection.find({qty: {$lt: 50}}).project(projection).toArray();
+    const usersCollection = db.collection('people');
+    const users = await usersCollection.find({job_type: "S"}).toArray();
 
     res.json(users);
   } catch (error) {
@@ -46,14 +45,6 @@ app.get('/api/users', async (req, res) => {
 app.get('/', async (req, res) => {
   try {
     res.send('Backend works.');
-  } catch (err) {
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
-app.get('/api/home', async (req, res) => {
-  try {
-    res.json({ message: 'Like this video!', people: ['Arpan', 'Jack', 'Barry'] });
   } catch (err) {
     res.status(500).json({ error: 'Internal server error' });
   }
