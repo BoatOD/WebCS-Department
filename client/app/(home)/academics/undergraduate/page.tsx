@@ -1,24 +1,233 @@
-"use client"
+"use client";
 import React from "react";
-import Banner from '@/components/AcademicPage/Banner';
-import { Sidebar } from "flowbite-react";
+import Banner from "@/components/AcademicPage/Banner";
+
 import Image from "next/image";
-import { SidebarCustomTheme } from "@/theme";
+
+import { SidebarProps } from "@/types/sidebar";
+import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {};
 
 export default function undergraduate({}: Props) {
+  const sidebarItem: SidebarProps[] = [
+    {
+      content: "UNDERGRADUATE PROGRAMS",
+      type: "header",
+      href: "/academics/undergraduate",
+    },
+    {
+      content: "Couses",
+      href: "/academics/undergraduate/couses",
+      type: "singleItem",
+    },
+    {
+      content: "Undergraduate 64+",
+      type: "multiItem",
+      SidebarOption: [
+        {
+          title: "Study Plan",
+          href: "#",
+          type: "NotHave",
+        },
+        {
+          title: "Required Courses",
+          href: "#",
+          type: "NotHave",
+        },
+        {
+          title: "Core Courses",
+          href: "#",
+          type: "NotHave",
+        },
+        {
+          title: "Elective Courses",
+          type: "Have",
+          SideBarSubOption: [
+            {
+              title: "Free Elective Courses",
+              href: "#",
+            },
+            {
+              title: "GE Elective Courses",
+              href: "#",
+            },
+            {
+              title: "Major Elective Courses",
+              href: "#",
+            },
+          ],
+        },
+        {
+          title: "Compulsory Courses",
+          type: "Have",
+          SideBarSubOption: [
+            {
+              title: "Organization Issues and Information System",
+              href: "#",
+            },
+            {
+              title: "Technology for Application",
+              href: "#",
+            },
+            {
+              title: "Technology and System Methodology",
+              href: "#",
+            },
+            {
+              title: "System of Fundamental Structure",
+              href: "#",
+            },
+            {
+              title: "Hardware and Computer Architecture",
+              href: "#",
+            },
+          ],
+        },
+        {
+          title: "Plan-Specific Compulsory Courses",
+          type: "Have",
+          SideBarSubOption: [
+            {
+              title: "Regular Plan",
+              href: "#",
+            },
+            {
+              title: "Co-Operative Education Plan",
+              href: "#",
+            },
+            {
+              title: "Honors Plan",
+              href: "#",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      content: "Undergraduate 59(63)",
+      type: "multiItem",
+      SidebarOption: [
+        {
+          title: "Study Plan",
+          href: "#",
+        },
+        {
+          title: "Required Courses",
+          href: "#",
+        },
+        {
+          title: "Core Courses",
+          href: "#",
+        },
+        {
+          title: "Elective Courses",
+          type: "Have",
+          SideBarSubOption: [
+            {
+              title: "Free Elective Courses",
+              href: "#",
+            },
+            {
+              title: "GE Elective Courses",
+              href: "#",
+            },
+            {
+              title: "Major Elective Courses",
+              href: "#",
+            },
+          ],
+        },
+        {
+          title: "Compulsory Courses",
+          type: "Have",
+          SideBarSubOption: [
+            {
+              title: "Organization Issues and Information System",
+              href: "#",
+            },
+            {
+              title: "Technology for Application",
+              href: "#",
+            },
+            {
+              title: "Technology and System Methodology",
+              href: "#",
+            },
+            {
+              title: "System of Fundamental Structure",
+              href: "#",
+            },
+            {
+              title: "Hardware and Computer Architecture",
+              href: "#",
+            },
+          ],
+        },
+        {
+          title: "Plan-Specific Compulsory Courses",
+          type: "Have",
+          SideBarSubOption: [
+            {
+              title: "Regular Plan",
+              href: "#",
+            },
+            {
+              title: "Co-Operative Education Plan",
+              href: "#",
+            },
+            {
+              title: "Honors Plan",
+              href: "#",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      content: "Student portal",
+      type: "multiItem",
+      SidebarOption: [
+        {
+          title: "Score Report",
+          href: "#",
+          type: "NotHave",
+        },
+        {
+          title: "Assignment Submission",
+          href: "#",
+          type: "NotHave",
+        },
+        {
+          title: "Student Research",
+          href: "#",
+          type: "NotHave",
+        },
+        {
+          title: "Phone Number",
+          href: "#",
+          type: "NotHave",
+        },
+        {
+          title: "Line Chat Bot",
+          href: "#",
+          type: "NotHave",
+        },
+      ],
+    },
+  ];
+
   return (
     <>
-    <Banner
+      <Banner
         imageSrc="/academic_banner.png" // Adjust the image path for this page
         altText="Image Alt Text"
         title="ACADEMIC"
         subtitle="UNDERGRADUATE"
         customStyles={{
-          width: '500px',  // Custom width for this page
-          height: '100px',  // Custom height for this page
-          bottom: '-15px', // Custom bottom attribute for this page
+          width: "500px", // Custom width for this page
+          height: "100px", // Custom height for this page
+          bottom: "-15px", // Custom bottom attribute for this page
         }}
       />
       <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
@@ -55,7 +264,7 @@ export default function undergraduate({}: Props) {
         <div className="w-full md:w-1/3 order-first md:order-last ">
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full"></div>
-            <Sidebar theme={SidebarCustomTheme} className="w-full">
+            {/* <Sidebar theme={SidebarCustomTheme} className="w-full">
               <Sidebar.Items className="p-0">
                 <Sidebar.ItemGroup className="p-0">
                   <Sidebar.Item className="text-lg font-bold hover:bg-transparent">
@@ -106,7 +315,8 @@ export default function undergraduate({}: Props) {
                   <div className="border-b border-black my-2"></div>
                 </Sidebar.ItemGroup>
               </Sidebar.Items>
-            </Sidebar>
+            </Sidebar> */}
+            <Sidebar1 sidebarItem={sidebarItem}></Sidebar1>
           </div>
         </div>
       </div>
