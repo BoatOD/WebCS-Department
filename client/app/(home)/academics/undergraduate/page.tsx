@@ -220,7 +220,7 @@ export default function undergraduate({}: Props) {
   return (
     <>
       <Banner
-        imageSrc="/academic_banner.png" // Adjust the image path for this page
+        imageSrc="/all_page_banner.png" // Adjust the image path for this page
         altText="Image Alt Text"
         title="ACADEMIC"
         subtitle="UNDERGRADUATE"
