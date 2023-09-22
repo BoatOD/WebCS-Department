@@ -41,9 +41,9 @@ export default function Master({ }: Props) {
                   />
                 </div>
                 <div className=" pl-8 pr-8 pt-1 md:text-left sm:text-center">
-                  <p className="block mt-1 text-2xl leading-tight font-semibold text-slate-700 ">
+                  <p className="block mt-1 text-xl leading-tight font-semibold text-slate-700 ">
                     นางอริษา ทาทอง </p>
-                  <p className="block mt-1 text-2xl leading-tight font-semibold text-slate-700 pb-3">
+                  <p className="block mt-1 text-xl leading-tight font-semibold text-slate-700 pb-3">
                     พนักงานปฏิบัติงาน </p>
                   <ul className='list-none text-slate-600 mt-3 mb-4 text-base font-normal'>
                     <li>Tel: 053-943412 ต่อ 101 </li>
@@ -65,9 +65,9 @@ export default function Master({ }: Props) {
                   />
                 </div>
                 <div className=" pl-8 pr-8 pt-1 md:text-left sm:text-center">
-                  <p className="block mt-1 text-2xl leading-tight font-semibold text-slate-700 ">
+                  <p className="block mt-1 text-xl leading-tight font-semibold text-slate-700 ">
                     นางสาวณัฐศิธธาอัญญ์ ฟูตระกูล  </p>
-                  <p className="block mt-1 text-2xl leading-tight font-semibold text-slate-700 pb-3">
+                  <p className="block mt-1 text-xl leading-tight font-semibold text-slate-700 pb-3">
                     พนักงานปฏิบัติงาน </p>
                   <ul className='list-none text-slate-600 mt-3 mb-4 text-base font-normal'>
                     <li>Tel: 053-943412 ต่อ 105  </li>
