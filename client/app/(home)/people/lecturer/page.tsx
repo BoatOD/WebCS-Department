@@ -32,7 +32,7 @@ export default function lecturer({ }: Props) {
               <div className="md:flex">
                 <div className="md:shrink-0">
                   <Image
-                    src={"/personal/lecturers/Wijak.JPG"}
+                    src={"/personal/lecturers/p1.JPG"}
                     width="0"
                     height="0"
                     sizes="100vm"
@@ -57,7 +57,7 @@ export default function lecturer({ }: Props) {
               <div className="md:flex">
                 <div className="md:shrink-0">
                   <Image
-                    src={"/personal/lecturers/Ratsameetip.JPG"}
+                    src={"/personal/lecturers/p2.JPG"}
                     width="0"
                     height="0"
                     sizes="100vm"
