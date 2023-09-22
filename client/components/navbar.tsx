@@ -44,7 +44,7 @@ const NavbarHeader = (props: Props) => {
             className="md:hidden"
           />
           <NavbarBrand className="justify-start hidden md:flex bg-[#F4F4F4]">
-            <Link href="http://localhost:3000/">
+            <Link href="/">
               <Image
                 className="hidden md:block"
                 src={"/cs-cmu-logo.svg"}
@@ -53,7 +53,7 @@ const NavbarHeader = (props: Props) => {
                 height="90"
               />
             </Link>
-            <Link href="http://localhost:3000/">
+            <Link href="/">
               <div>
                 <h2 className="font- text-base md:text-xl text-black">
                   Department of
@@ -66,7 +66,7 @@ const NavbarHeader = (props: Props) => {
           </NavbarBrand>
 
           <NavbarBrand className="justify-center flex md:hidden bg-[#F4F4F4]">
-            <Link href="http://localhost:3000/">
+            <Link href="/">
               <div>
                 <h2 className="font-semibold text-base sm:text-xl text-center text-black">
                   Department of

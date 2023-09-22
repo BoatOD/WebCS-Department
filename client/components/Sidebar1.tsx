@@ -41,7 +41,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
               item.type === "header" ? (
                 <>
                   <Sidebar.Item
-                    href="#"
+                  className="text-lg font-bold hover:bg-transparent"
                     onClick={() => {
                       router.push(
                         pathname +
@@ -54,33 +54,29 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                     <h1>{item.content}</h1>
                   </Sidebar.Item>
 
-                  <div className="flex flex-col space-y-1 mt-7">
-                    <div className="border-b border-black border-3 my-2"></div>
-                  </div>
+                  <div className="border-b border-black border-3 my-2"></div>
                 </>
               ) : item.type === "singleItem" ? (
                 <>
-                  <Sidebar.Item href={item.href} key={item.content}>
+                  <Sidebar.Item className="hover:bg-[#e8e8e8]" href={item.href} key={item.content}>
                     <p>{item.content}</p>
                   </Sidebar.Item>
 
-                  <div className="flex flex-col space-y-1 mt-7">
-                    <div className="border-b border-black border-3 my-2"></div>
-                  </div>
+                  <div className="border-b border-black my-2"></div>
                 </>
               ) : item.type === "multiItem" ? (
                 <>
-                  <Sidebar.Collapse label={item.content} key={item.content}>
+                  <Sidebar.Collapse className="hover:bg-[#e8e8e8]" label={item.content} key={item.content}>
                     {item.SidebarOption ? (
                       item.SidebarOption.map((value, index) =>
                         value.type === "Have" ? (
                           <>
                             <div className="ml-5">
-                              <Sidebar.Collapse label={value.title}>
+                              <Sidebar.Collapse className="hover:bg-[#e8e8e8]" label={value.title}>
                                 {value.SideBarSubOption?.map(
                                   (value2, index) => (
                                     <>
-                                      <Sidebar.Item href="#">
+                                      <Sidebar.Item className="hover:bg-[#e8e8e8]" href="#">
                                         <div className="ml-2">
                                           {value2.title}
                                         </div>
@@ -93,7 +89,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                           </>
                         ) : (
                           <>
-                            <Sidebar.Item href="#">{value.title}</Sidebar.Item>
+                            <Sidebar.Item className="hover:bg-[#e8e8e8]" href="#">{value.title}</Sidebar.Item>
                           </>
                         )
                       )
@@ -101,9 +97,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                       <></>
                     )}
                   </Sidebar.Collapse>
-                  <div className="flex flex-col space-y-1 mt-7">
-                    <div className="border-b border-black border-3 my-2"></div>
-                  </div>
+                  <div className="border-b border-black my-2"></div>
                 </>
               ) : (
                 <></>

@@ -1,17 +1,59 @@
 'use client'
 import React from 'react'
-import { Sidebar } from "flowbite-react";
-import { SidebarCustomTheme } from "@/theme";
 import Banner from '@/components/AcademicPage/Banner';
-import './non.css'
+
+import { SidebarProps } from "@/types/sidebar";
+import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {}
 
-export default function Master({ }: Props) {
+export default function nondegree({ }: Props) {
+  const sidebarItem: SidebarProps[] = [
+    {
+      content: "NON DEGREE",
+      type: "header",
+      href: "/academics/nondegree",
+    },
+    {
+      content: "การวิเคราะห์ข้อมูลอัจฉริยะ",
+      href: "#analysis",
+      type: "singleItem",
+    },
+    {
+      content: "วัตถุประสงค์ของหลักสูตร",
+      href: "#obj",
+      type: "singleItem",
+    },
+    {
+      content: "คุณสมบัติของผู้สมัคร",
+      href: "#quali",
+      type: "singleItem",
+    },
+    {
+      content: "กระบวนการรับสมัคร",
+      href: "#process",
+      type: "singleItem",
+    },
+    {
+      content: "การสมัครและเอกสารที่ใช้",
+      href: "#candidacy",
+      type: "singleItem",
+    },
+    {
+      content: "วิธีจัดการเรียนการสอนกระบวนวิชา",
+      href: "#thc",
+      type: "singleItem",
+    },
+    {
+      content: "แผนการศึกษา",
+      href: "#studyplan",
+      type: "singleItem",
+    },
+  ];
   return (
     <>
       <Banner
-        imageSrc="/academic_banner.png" // Adjust the image path for this page
+        imageSrc="/all_page_banner.png" // Adjust the image path for this page
         altText="Image Alt Text"
         title="ACADEMIC"
         subtitle="NON DEGREE"
@@ -237,44 +279,7 @@ export default function Master({ }: Props) {
         <div className="w-full md:w-1/3 order-first md:order-last ">
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full"></div>
-            <Sidebar theme={SidebarCustomTheme} className="w-full">
-              <Sidebar.Items className="p-0">
-                <Sidebar.ItemGroup className="p-0">
-                  <Sidebar.Item className="text-lg font-bold hover:bg-transparent">
-                    NON DEGREE
-                  </Sidebar.Item>
-                  <div className="border-b border-black border-3 my-2"></div>
-                  <Sidebar.Item className="hover:bg-[#e8e8e8] " href="#analysis">
-                    <p>การวิเคราะห์ข้อมูลอัจฉริยะ</p>
-                  </Sidebar.Item>
-                  <div className="border-b border-black my-2"></div>
-                  <Sidebar.Item className="hover:bg-[#e8e8e8] " href="#obj" >
-                    <p>วัตถุประสงค์ของหลักสูตร</p>
-                  </Sidebar.Item>
-                  <div className="border-b border-black my-2"></div>
-                  <Sidebar.Item className="hover:bg-[#e8e8e8] " href="#quali">
-                    <p>คุณสมบัติของผู้สมัคร</p>
-                  </Sidebar.Item>
-                  <div className="border-b border-black my-2"></div>
-                  <Sidebar.Item className="hover:bg-[#e8e8e8] " href="#process">
-                    <p>กระบวนการรับสมัคร</p>
-                  </Sidebar.Item>
-                  <div className="border-b border-black my-2"></div>
-                  <Sidebar.Item className="hover:bg-[#e8e8e8] " href="#candidacy">
-                    <p>การสมัครและเอกสารที่ใช้</p>
-                  </Sidebar.Item>
-                  <div className="border-b border-black my-2"></div>
-                  <Sidebar.Item className="hover:bg-[#e8e8e8] " href="#thc">
-                    <p>วิธีจัดการเรียนการสอนกระบวนวิชา</p>
-                  </Sidebar.Item>
-                  <div className="border-b border-black my-2"></div>
-                  <Sidebar.Item className="hover:bg-[#e8e8e8] " href="#studyplan">
-                    <p>แผนการศึกษา</p>
-                  </Sidebar.Item>
-                  <div className="border-b border-black my-2"></div>
-                </Sidebar.ItemGroup>
-              </Sidebar.Items>
-            </Sidebar>
+            <Sidebar1 sidebarItem={sidebarItem}></Sidebar1>
           </div>
         </div>
       </div>
