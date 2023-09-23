@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Banner from '@/components/AcademicPage/Banner';
+import Banner from '@/components/Banner';
 
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";

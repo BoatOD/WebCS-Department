@@ -1,6 +1,6 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import Banner from "@/components/AcademicPage/Banner";
+'use client'
+import React, { useEffect, useState } from 'react'
+import Banner from '@/components/Banner';
 import Image from "next/image";
 
 import { SidebarProps } from "@/types/sidebar";
@@ -8,7 +8,7 @@ import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {};
 
-export default function Lecturer({}: Props) {
+export default function Lecturer({ }: Props) {
   const sidebarItem: SidebarProps[] = [
     {
       content: "PEOPLE",

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Banner from "@/components/AcademicPage/Banner";
+import Banner from "@/components/Banner";
 
 import Image from "next/image";
 
