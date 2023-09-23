@@ -9,7 +9,7 @@ const Footer = (props: Props) => {
         <div className="mx-auto w-full max-w-screen-xl">
           <div className="grid grid-cols-1 md:grid-cols-3  gap-8 px-4 py-6 lg:py-8 ">
             <div>
-              <h1 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h1 className="mb-6 text-sm font-bold text-bold uppercase dark:text-white">
                 COMPUTER SCIENCS CMU
               </h1>
               <ul className="dark:text-white font-medium">
@@ -29,7 +29,7 @@ const Footer = (props: Props) => {
                   </p>
                 </div>
                 <br></br>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white flex md:hidden">
+                <h2 className="mb-6 text-sm font-bold uppercase dark:text-white flex md:hidden">
                   Social Media
                 </h2>
 
