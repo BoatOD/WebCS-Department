@@ -30,11 +30,13 @@ const Carousel = ({ images }: { images: CarouselProps[] }) => {
                 className="w-full h-full object-fill  rounded-lg sm:h-52"
                 alt="asdasdasdasdad"
               />
-              <div className="absolute bottom-0 px-4 py-3 bg-gray-500/50 w-full">
-                <h1 className="text-white font-semibold text-5auto">
+              <div className="absolute bottom-0 bg-[#3B3A3AA6] py-7 pl-[9rem] pr-7 rounded-lg">
+                <h1 className="text-[#F29D35] font-bold text-5xl text-right">
                   {item.title}
                 </h1>
-                <p className="text-gray-200 pr-9">{item.content}</p>
+                <p className="text-[#F29D35] text-right text-4xl font-semibold">
+                  {item.content}
+                </p>
               </div>
             </div>
           </Link>

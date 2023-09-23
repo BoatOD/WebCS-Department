@@ -47,7 +47,7 @@ const NavbarHeader = (props: Props) => {
             <Link href="/">
               <Image
                 className="hidden md:block"
-                src={"/cs-cmu-logo.svg"}
+                src={"/logo_cs_cmu.svg"}
                 alt="Logo CSCMU"
                 width="90"
                 height="90"

@@ -57,6 +57,7 @@ export default function Staff({ }: Props) {
   }, []);
   return (
     <>
+    
       <Banner
         imageSrc="/all_page_banner.png" // Adjust the image path for this page
         altText="Image Alt Text"

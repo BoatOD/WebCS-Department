@@ -7,19 +7,13 @@ import { CarouselProps } from "@/types/carousel";
 export default function Home() {
   const images: CarouselProps[] = [
     {
-      images: "/12-8-2023.png",
-      href: "#",
-      title: "วันแม่แห่งชาติ",
-      content: "ปัจจุบันตรงกับวันที่ 12 สิงหาคม ของทุกปี ซึ่งตรงกับวันคล้ายวันพระราชสมภพของสมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง",
-    },
-    {
-      images: "/banner1.svg",
+      images: "/bg2.jpg",
       href: "#",
       title: "COMPUTER SCIENCE",
       content: "CMU",
     },
     {
-      images: "/banner1.svg",
+      images: "/bg1.jpg",
       href: "#",
       title: "COMPUTER SCIENCE",
       content: "CMU",
@@ -27,7 +21,10 @@ export default function Home() {
   ];
   return (
     <div>
-      <Carousel images={images} />
+      <div className="!hidden sm:!block">
+        <Carousel images={images} />
+      </div>
+
       <AcademicFirstPage></AcademicFirstPage>
       <NewsAndEvent></NewsAndEvent>
     </div>

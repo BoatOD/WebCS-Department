@@ -1,14 +1,14 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import Banner from '@/components/AcademicPage/Banner';
+"use client";
+import React, { useEffect, useState } from "react";
+import Banner from "@/components/AcademicPage/Banner";
 import Image from "next/image";
 
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";
 
-type Props = {}
+type Props = {};
 
-export default function Lecturer({ }: Props) {
+export default function Lecturer({}: Props) {
   const sidebarItem: SidebarProps[] = [
     {
       content: "PEOPLE",
@@ -45,12 +45,11 @@ export default function Lecturer({ }: Props) {
     personal_web: string;
   }
 
-
   const [data, setData] = useState<Lecturer[]>([]);
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch('http://localhost:8080/api/lecturer')
+    fetch("http://localhost:8080/api/lecturer")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
@@ -64,9 +63,9 @@ export default function Lecturer({ }: Props) {
         title="PEOPLE"
         subtitle="LECTURERS"
         customStyles={{
-          width: '350px',  // Custom width for this page
-          height: '100px',  // Custom height for this page
-          bottom: '-15px', // Custom bottom attribute for this page
+          width: "350px", // Custom width for this page
+          height: "100px", // Custom height for this page
+          bottom: "-15px", // Custom bottom attribute for this page
         }}
       />
       <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
@@ -90,30 +89,51 @@ export default function Lecturer({ }: Props) {
                     />
                   </div>
                   <div className="pl-8 pt-1 sm:text-center md:text-left">
-                    <a href={item.personal_web} className="block mt-1 text-xl leading-tight font-semibold text-slate-700 ">{item.affiliation} {item.title}{item.name} {item.position.join(' ')}</a>
-                    <ul className='list-none text-slate-600 mt-3 mb-4 text-base font-normal'>
-                      <li>{item.e_affiliation} {item.e_title}{item.e_name}</li>
+                    <a
+                      href={item.personal_web}
+                      className="block mt-1 text-xl leading-tight font-semibold text-slate-700 "
+                    >
+                      {item.affiliation} {item.title}
+                      {item.name} {item.position.join(" ")}
+                    </a>
+                    <ul className="list-none text-slate-600 mt-3 mb-4 text-base font-normal">
+                      <li>
+                        {item.e_affiliation} {item.e_title}
+                        {item.e_name}
+                      </li>
                       {item.tel.map((tel, index) => (
                         <li key={`tel-${index}`}>Tel: {tel}</li>
                       ))}
                       {item.email.length > 0 && (
                         <li>
-                          Email: {item.email.map((email, index) => (
+                          Email:{" "}
+                          {item.email.map((email, index) => (
                             <span key={`email-${index}`}>
-                              {index > 0 && ', '}{email}
+                              {index > 0 && ", "}
+                              {email}
                             </span>
                           ))}
                         </li>
                       )}
                       <li>Research Interests: Recommender System</li>
                     </ul>
-                    <a href={item.personal_web} className="block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2 pt-2  hover:text-slate-500">Personal Website</a>
+                    {item.personal_web === "" ? (
+                      <></>
+                    ) : (
+                      <>
+                        <a
+                          href={item.personal_web}
+                          className="block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2 pt-2  hover:text-slate-500"
+                        >
+                          Personal Website
+                        </a>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
         <div className="w-full md:w-1/3 order-first md:order-last ">
           <div className="flex flex-col space-y-2 mt-20">
@@ -123,5 +143,5 @@ export default function Lecturer({ }: Props) {
         </div>
       </div>
     </>
-  )
+  );
 }

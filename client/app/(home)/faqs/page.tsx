@@ -1,10 +1,13 @@
-'use client'
-import React from 'react'
+"use client";
+import SidebarForAdmin from "@/components/admin/SidebarForAdmin";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 export default function FAQs({}: Props) {
   return (
-    <div>page</div>
-  )
+    <>
+    <SidebarForAdmin></SidebarForAdmin>
+    </>
+  );
 }
