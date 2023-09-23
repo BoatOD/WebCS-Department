@@ -1,0 +1,89 @@
+/*.App {     width: 100%;     
+    height: 100vh;     
+    display: flex;     
+    justify-content: center;    
+    align-items: center; }   
+    
+   
+
+
+    
+td {     text-align:left; }  
+
+h1 {     font-weight: bold; }  
+
+.left {     width: 200px;     
+    text-align:center;  }  
+    
+.border {     border: 1px solid #000; }  
+.border-1 {     border: 2px solid #000; }*/
+
+h1 {font-weight: bold;
+    font-size: 25px;
+}
+
+h2 {font-size: 25px;
+    margin-bottom: 25px;}
+
+h3{ font-weight: bold; 
+    }
+
+.row_white {
+    background-color: #FFFFFF;
+  }
+
+.row_orange {
+    background-color: #F6BA70;
+}
+
+table {     border-collapse: collapse;     
+    width: 800px;     
+    height: 200px;
+    margin-top:25px;
+    margin-bottom: 50px;
+    }
+
+td {    padding: 25px;
+    
+}
+    
+th {     border-bottom: 1px solid #F29D35;     
+    background-color: #F29D35; }   
+
+.small { font-size:small;}
+
+.data {margin-bottom: 50px;}
+ /* @media screen and (max-width: 600px) {
+   เรียงลำดับข้อมูลในคอลัมน์เมื่อหน้าจอขนาดเล็ก 
+    tbody {
+      display: block;
+    }
+    tr {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    td {*/
+      /* ปรับขนาดและการแสดงผลข้อมูลให้เหมาะสมกับหน้าจอเล็ก 
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }*/
+
+ /* @media screen and (max-width: 600px) {
+    tbody {
+        display: block;
+      }
+   เรียงลำดับแถวในแบบแนวตั้งเมื่อหน้าจอขนาดเล็ก */
+  /*   tr {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    th, td {
+      width: 25%; ให้คอลัมน์มีความกว้างเท่ากับ 25% ของหน้าจอ 
+      box-sizing: border-box;
+    }
+}
+*/

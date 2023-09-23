@@ -8,3 +8,4 @@ export default function Master({}: Props) {
     <div>Master</div>
   )
 }
+
