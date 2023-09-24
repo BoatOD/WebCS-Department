@@ -198,7 +198,7 @@ export default function Intelligent({ }: Props) {
                       600.- บาท
                     </td>
                     <td className="px-6 py-4 text-center">
-                      <a href='https://cmu.to/000267' className='hover:underline'>https://cmu.to/000267</a>
+                      <a href='https://cmu.to/000267' className='underline'>https://cmu.to/000267</a>
                     </td>
                   </tr>
 
