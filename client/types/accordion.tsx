@@ -1,11 +1,13 @@
-export type AccordionProps = {
+export type ResearchAccordionProps = {
     topic: string;
     description: string;
     researchers: {
         e_name: string;
         personal_web: string;
     }[];
-    // Define the types for triggerEl and targetEl
-    triggerEl: HTMLElement | null;
-    targetEl: HTMLElement | null;
+}
+
+export type FAQsAccordionProps = {
+    question: string;
+    answer: string;
 }

@@ -57,11 +57,6 @@ export default function nondegree({ }: Props) {
         altText="Image Alt Text"
         title="ACADEMIC"
         subtitle="NON DEGREE"
-        customStyles={{
-          width: '375px',  // Custom width for this page
-          height: '100px',  // Custom height for this page
-          bottom: '-15px', // Custom bottom attribute for this page
-        }}
       />
       <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
         <div className="w-full md:w-2/3 order-last md:order-first ">

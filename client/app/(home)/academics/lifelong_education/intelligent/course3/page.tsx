@@ -15,15 +15,10 @@ export default function Course({ }: Props) {
         altText="Image Alt Text"
         title="INTELLIGENT ANALYSIS COURSE"
         subtitle="COURSE 3"
-        customStyles={{
-          width: 'auto',  // Custom width for this page
-          height: '100px',  // Custom height for this page
-          bottom: '-15px', // Custom bottom attribute for this page
-        }}
       />
       <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
         <div className="w-full md:w-2/3 order-last md:order-first ">
-          <div className="flex flex-col space-y-2 mt-7">
+          <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full "></div>
           </div>
           <div className="p-1 pt-3 ">
@@ -82,7 +77,7 @@ export default function Course({ }: Props) {
           </div>
         </div>
         <div className="w-full md:w-1/3 order-first md:order-last ">
-          <div className="flex flex-col space-y-2 mt-7">
+          <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full"></div>
             <Sidebar1 sidebarItem={sidebarItem}></Sidebar1>
           </div>

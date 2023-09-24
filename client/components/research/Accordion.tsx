@@ -1,9 +1,9 @@
 'use client';
 
-import { AccordionProps } from "@/types/accordion";
+import { ResearchAccordionProps } from "@/types/accordion";
 import { Accordion } from 'flowbite-react';
 
-const DefaultAccordion = ({ data }: { data: AccordionProps[] }) => {
+const ResearchAccordion = ({ data }: { data: ResearchAccordionProps[] }) => {
 
     
     return (
@@ -56,5 +56,5 @@ const DefaultAccordion = ({ data }: { data: AccordionProps[] }) => {
     );
 };
 
-export default DefaultAccordion
+export default ResearchAccordion
 

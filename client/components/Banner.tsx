@@ -24,9 +24,9 @@ function Banner({
     backgroundColor: backgroundColor || 'rgba(242, 157, 53, 0.76)',
     color: textColor || 'white',
     padding: '20px',
-    width: customStyles?.width || '375px',
-    height: customStyles?.height || '100px',
-    bottom: customStyles?.bottom || '-15px',
+    width: customStyles?.width || 'auto',
+    height: customStyles?.height || '120px',
+    bottom: customStyles?.bottom || '-35px',
     left: '0',
   };
 
@@ -34,8 +34,8 @@ function Banner({
     <div style={{ position: 'relative' }}>
       <div style={{ position: 'relative' }}>
         <img src={imageSrc} alt={altText} style={{ width: '100%' }} />
-        <div style={bannerStyle}>
-          <p>{title}</p>
+        <div style={bannerStyle} className='pb-5'>
+          <p className="font-bold">{title}</p>
           <h1 className="text-5xl font-bold">{subtitle}</h1>
         </div>
       </div>
