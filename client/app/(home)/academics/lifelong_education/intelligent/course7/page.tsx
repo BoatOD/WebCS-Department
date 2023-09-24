@@ -28,7 +28,7 @@ export default function Course({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h1 className="text-2xl font-bold">6. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่องสำหรับผู้เรียนระดับกลาง โดยใช้ Orange data mining toolbox MODULE 2 : การวิเคราะห์ข้อมูลด้วยเทคนิคการเรียนรู้ของเครื่อง โดยใช้โปรแกรมออเรนจ์</h1>
+              <h1 className="text-2xl font-bold">7. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่องสำหรับผู้เรียนระดับกลาง โดยใช้ Orange data mining toolbox MODULE 1 และ MODULE2</h1>
               <br />
               <table>
                 <tbody>

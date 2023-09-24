@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import Banner from '@/components/Banner';
+
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/(home)/academics/lifelong_education/sidebarData'
 
@@ -30,7 +31,7 @@ export default function Intelligent({ }: Props) {
               <h1 className="text-2xl font-bold">หลักสูตรการวิเคราะห์ข้อมูลอัจฉริยะ</h1>
               <h3 className="font-bold">ภายใต้การสนับสนุนจากวิทยาลัยการศึกษาตลอดชีวิต (Lifelong Education)</h3>
               <div className="bg-[#F2D4B0] h-full m-6 p-6 mr-16">
-                <p>
+                <p className='mb-2'>
                   <span className="ml-[1rem]">
                     หลักสูตรวิเคราะห์ข้อมูลอัจฉริยะ เป็นหลักสูตรที่ออกแบบมาเพื่อพัฒนาความรู้ของผู้เรียนโดยมุ่ง
                     เน้นให้เป็นผู้ที่สามารถบริหารข้อมูล สกัดข้อมูลเชิงลึก สามารถนำข้อมูลไปวิเคราะห์เพื่อทำ
@@ -39,14 +40,12 @@ export default function Intelligent({ }: Props) {
                     การหาวิธีการ แก้ปัญหา หรือการวางแผนการดำเนินงานขององค์กร
                   </span>
                 </p>
-                <br />
-                <p>
+                <p className='mb-2'>
                   <span className="ml-[1rem]">
                     นอกจากนั้นผู้เรียนจะสามารถสร้างการสื่อสารด้วยภาพข้อมูลในลักษณะของ
                     Intelligence Dashboard เพื่อนำเสนอสารสนเทศในมิติต่างๆ ได้อย่างครอบคลุมและน่าสนใจ
                   </span>
                 </p>
-                <br />
                 <p>
                   <span className="ml-[1rem]">
                     เนื้อหาของหลักสูตรมุ่งเน้นการพัฒนาผู้เรียนในหลายๆ ระดับเพื่อให้ผู้เรียนได้พัฒนาตนเอง ตั้งแต่ระดับพื้นฐานสู่ความเป็นมืออาชีพ
@@ -204,7 +203,7 @@ export default function Intelligent({ }: Props) {
 
                 </tbody>
               </table>
-              <p className="mt-10 mb-5 font-bold">หมายเหตุ :</p>
+              <p className="mt-10 mb-5">หมายเหตุ :</p>
               <ol className="list-disc pl-6 ml-5">
                 <li className="mb-2">ยกเว้นค่าบำรุงมหาวิทยาลัยสำหรับผู้เรียนที่เป็นนักศึกษา ผู้ปฏิบัติงานในมหาวิทยาลัย หรือศิษย์เก่าที่สำเร็จการศึกษาจากมหาวิทยาลัยเชียงใหม่)</li>
                 <li className="mb-2">ทุกหลักสูตรเรียนออนไลน์ผ่าน ZOOM</li>
