@@ -41,17 +41,17 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
               item.type === "header" ? (
                 <>
                   <Sidebar.Item
-                  className="text-lg font-bold hover:bg-transparent"
+                    className="text-lg font-bold hover:bg-transparent"
                     onClick={() => {
                       router.push(
                         pathname +
-                          "?" +
-                          createQueryString("page", item.content ?? "#")
+                        "?" +
+                        createQueryString("page", item.content ?? "#")
                       );
                     }}
                     key={item.content}
                   >
-                    <h1>{item.content}</h1>
+                    <h1 className="font-bold">{item.content}</h1>
                   </Sidebar.Item>
 
                   <div className="border-b border-black border-3 my-2"></div>
@@ -66,7 +66,9 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                 </>
               ) : item.type === "multiItem" ? (
                 <>
-                  <Sidebar.Collapse className="hover:bg-[#e8e8e8]" label={item.content} key={item.content}>
+                  <Sidebar.Collapse className="hover:bg-[#e8e8e8]"
+                    label={item.content} key={item.content}
+                  >
                     {item.SidebarOption ? (
                       item.SidebarOption.map((value, index) =>
                         value.type === "Have" ? (
@@ -89,7 +91,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                           </>
                         ) : (
                           <>
-                            <Sidebar.Item className="hover:bg-[#e8e8e8]" href="#">{value.title}</Sidebar.Item>
+                            <Sidebar.Item className="hover:bg-[#e8e8e8]" href={value.href}>{value.title}</Sidebar.Item>
                           </>
                         )
                       )

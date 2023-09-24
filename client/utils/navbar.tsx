@@ -30,49 +30,51 @@ export const navItems: navbar[] = [
   },
   {
     title: "RESEARCH",
-    type: "dropdown",
-    options: [
-      {
-        title: "Augmented/ Virtual Reality",
-        href: "/courses/master-degree-course",
-      },
-      {
-        title: "Bioinformatics",
-        href: "/courses/phd-course",
-      },
-      {
-        title: "Blockchain",
-        href: "/courses/phd-course",
-      },
-      {
-        title: "Computational Astronomy",
-        href: "/courses/phd-course",
-      },
-      {
-        title: "Computer Vision",
-        href: "/courses/phd-course",
-      },
-      {
-        title: "Health Informatics",
-        href: "/courses/phd-course",
-      },
-      {
-        title: "Human Computer Interaction",
-        href: "/courses/phd-course",
-      },
-      {
-        title: "Machine Learning",
-        href: "/courses/phd-course",
-      },
-      {
-        title: "Medical Informatics",
-        href: "/courses/phd-course",
-      },
-      {
-        title: "Next Generation Computer Network",
-        href: "/courses/phd-course",
-      }
-    ],
+    type: "button",
+    href: "/research"
+    // type: "dropdown",
+    // options: [
+    //   {
+    //     title: "Augmented/ Virtual Reality",
+    //     href: "/courses/master-degree-course",
+    //   },
+    //   {
+    //     title: "Bioinformatics",
+    //     href: "/courses/phd-course",
+    //   },
+    //   {
+    //     title: "Blockchain",
+    //     href: "/courses/phd-course",
+    //   },
+    //   {
+    //     title: "Computational Astronomy",
+    //     href: "/courses/phd-course",
+    //   },
+    //   {
+    //     title: "Computer Vision",
+    //     href: "/courses/phd-course",
+    //   },
+    //   {
+    //     title: "Health Informatics",
+    //     href: "/courses/phd-course",
+    //   },
+    //   {
+    //     title: "Human Computer Interaction",
+    //     href: "/courses/phd-course",
+    //   },
+    //   {
+    //     title: "Machine Learning",
+    //     href: "/courses/phd-course",
+    //   },
+    //   {
+    //     title: "Medical Informatics",
+    //     href: "/courses/phd-course",
+    //   },
+    //   {
+    //     title: "Next Generation Computer Network",
+    //     href: "/courses/phd-course",
+    //   }
+    // ],
   },
   {
     title: "PEOPLE",

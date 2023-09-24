@@ -36,7 +36,7 @@ function Banner({
         <img src={imageSrc} alt={altText} style={{ width: '100%' }} />
         <div style={bannerStyle}>
           <p>{title}</p>
-          <h1 className="text-5xl">{subtitle}</h1>
+          <h1 className="text-5xl font-bold">{subtitle}</h1>
         </div>
       </div>
     </div>
