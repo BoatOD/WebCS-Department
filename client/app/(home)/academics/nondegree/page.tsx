@@ -242,7 +242,7 @@ export default function nondegree({ }: Props) {
               <h1>การจัดการเรียนการสอนในกระบวนวิชา Project-based learning (พ.ย. 65 – ก.พ. 66)</h1>
               <br />
               <table>
-                <tbody style={{ backgroundColor: '#FFFFFF' }}>
+                <tbody>
                   <tr className="bg-white border-b text-black">
                     <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
                       การเรียน
