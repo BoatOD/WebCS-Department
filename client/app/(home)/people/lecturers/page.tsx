@@ -17,7 +17,7 @@ export default function Lecturer({ }: Props) {
     },
     {
       content: "Lecturers",
-      href: "/people/lecturer",
+      href: "/people/lecturers",
       type: "singleItem",
     },
     {
@@ -49,7 +49,7 @@ export default function Lecturer({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("http://localhost:8080/api/lecturer")
+    fetch("http://localhost:8080/api/lecturers")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
@@ -75,7 +75,7 @@ export default function Lecturer({ }: Props) {
                 <div className="md:flex">
                   <div className="md:shrink-0">
                     <Image
-                      src={`/personal/lecturers${item.picture}.JPG`}
+                      src={`/personal/lecturers${item.picture}`}
                       width="0"
                       height="0"
                       sizes="100vm"

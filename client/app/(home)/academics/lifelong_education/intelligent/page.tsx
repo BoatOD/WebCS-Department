@@ -183,7 +183,7 @@ export default function Intelligent({ }: Props) {
                   </tr>
                   <tr className="bg-white border-b text-black">
                     <td className="px-6 py-4">
-                      8. การวิเคราะห์ข้อมูลและการแสดงมโนภาพข้อมูลด้วย Power BI (Data analysis and data visualization for beginner with Power BI)
+                      9. การวิเคราะห์ข้อมูลอัจฉริยะด้วย RapidMiner (Intelligence Data analysis with RapidMiner)
                     </td>
                     <td className="px-6 py-4 text-center">
                       2,900.- บาท

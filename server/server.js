@@ -10,16 +10,16 @@ app.use(cors());
 // Import the dbconnect module
 const connectToDatabase = require('./dbconnect');
 
-app.get('/api/lecturer', async (req, res) => {
+app.get('/api/lecturers', async (req, res) => {
   try {
     // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
     const lecturerCollection = db.collection('people');
-    const lecturer = await lecturerCollection.find({ job_type: "L" }).toArray();
+    const lecturers = await lecturerCollection.find({ job_type: "L" }).toArray();
 
-    res.json(lecturer);
+    res.json(lecturers);
   } catch (error) {
     console.error('Error fetching data from MongoDB Atlas:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -41,6 +41,164 @@ app.get('/api/staff', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+app.get('/api/curriculum', async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const staffCollection = db.collection('curriculum');
+    const curriculum = await staffCollection.find({}).toArray();
+
+    res.json(curriculum);
+  } catch (error) {
+    console.error('Error fetching data from MongoDB Atlas:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/api/courses', async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const staffCollection = db.collection('courses');
+    const courses = await staffCollection.find({}).toArray();
+
+    res.json(courses);
+  } catch (error) {
+    console.error('Error fetching data from MongoDB Atlas:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/api/undergraduate', async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const staffCollection = db.collection('undergraduate');
+    const undergraduate = await staffCollection.find({}).toArray();
+
+    res.json(undergraduate);
+  } catch (error) {
+    console.error('Error fetching data from MongoDB Atlas:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/api/study_plan', async (req, res) => {
+  try {
+
+    const aggregationPipeline = [
+      {
+        $match: {
+          cu_no: { $in: [1, 2, 3, 4, 5] }
+        }
+      },
+      {
+        $lookup: {
+          from: "courses",
+          localField: "semester_1",
+          foreignField: "code",
+          as: "semester_1_courses"
+        }
+      },
+      {
+        $lookup: {
+          from: "courses",
+          localField: "semester_2",
+          foreignField: "code",
+          as: "semester_2_courses"
+        }
+      },
+      {
+        $project: {
+          cu_no: 1,
+          year: 1,
+          semester_1: {
+            $map: {
+              input: "$semester_1",
+              as: "courseCode",
+              in: {
+                $mergeObjects: [
+                  {
+                    $arrayElemAt: [
+                      {
+                        $filter: {
+                          input: "$semester_1_courses",
+                          as: "course",
+                          cond: { $eq: ["$$course.code", "$$courseCode"] }
+                        }
+                      },
+                      0
+                    ]
+                  },
+                  { code: "$$courseCode" }
+                ]
+              }
+            }
+          },
+          semester_2: {
+            $map: {
+              input: "$semester_2",
+              as: "courseCode",
+              in: {
+                $mergeObjects: [
+                  {
+                    $arrayElemAt: [
+                      {
+                        $filter: {
+                          input: "$semester_2_courses",
+                          as: "course",
+                          cond: { $eq: ["$$course.code", "$$courseCode"] }
+                        }
+                      },
+                      0
+                    ]
+                  },
+                  { code: "$$courseCode" }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        $project: {
+          "semester_1.cu_no": 0,
+          "semester_2.cu_no": 0,
+          "semester_1.e_overview": 0,
+          "semester_2.e_overview": 0,
+          "semester_1.e_type": 0,
+          "semester_2.e_type": 0,
+          "semester_1.type": 0,
+          "semester_2.type": 0,
+          "semester_1.sup_type": 0,
+          "semester_2.sup_type": 0,
+        }
+      }
+    ]
+
+
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const researchCollection = db.collection('undergraduate');
+    const research = await researchCollection.find({}).toArray();
+    const result = await researchCollection.aggregate(aggregationPipeline).toArray();
+
+    res.json(result);
+  } catch (error) {
+    console.error('Error fetching data from MongoDB Atlas:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 app.get('/api/research', async (req, res) => {
   try {
@@ -110,3 +268,38 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Connect to DB & Server started on port ${PORT}`);
 })
+
+
+// {
+//   "_id": "6510112ccddfd6aafaa167f1",
+//     "cu_no": 1,
+//       "year": 1,
+//         "semester_1": [
+//           "course": [
+//             "code": "001101",
+//             "credit": "3(3-0-6)",
+//             "cu_no": [
+//               1,
+//               2,
+//               3,
+//               4,
+//               5
+//             ],
+//             "e_name": "Fundamental English 1",
+//             "e_overview": "",
+//             "e_type": "Required Courses",
+//             "name": "ภาษาอังกฤษพื้นฐาน 1",
+//             "overview": "การสื่อสารภาษาอังกฤษ เพื่อการปฏิสัมพันธ์ในชีวิตประจำวัน ทักษะการฟัง พูด อ่านและเขียนในระดับเบื้องต้น ในบริบททางสังคมและวัฒนธรรมที่หลากหลายเพื่อการเรียนรู้ตลอดชีวิต",
+//             "prereg": "None",
+//             "type": "วิชาบังคับ",
+//             "sup_type": "Learner Person"],
+//           .
+//           .
+//           .
+//         ],
+//           "semester_2": [
+//             .
+//             .
+//             .
+//           ]
+// },

@@ -17,7 +17,7 @@ export default function Staff({ }: Props) {
     },
     {
       content: "Lecturers",
-      href: "/people/lecturer",
+      href: "/people/lecturers",
       type: "singleItem",
     },
     {
@@ -76,7 +76,7 @@ export default function Staff({ }: Props) {
                 <div className="md:flex">
                   <div className="md:shrink-0">
                     <Image
-                      src={`/personal/staffs${item.picture}.JPG`}
+                      src={`/personal/staff${item.picture}`}
                       width="0"
                       height="0"
                       sizes="100vm"

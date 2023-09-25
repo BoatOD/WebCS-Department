@@ -82,10 +82,10 @@ export const navItems: navbar[] = [
     options: [
       {
         title: "Lecturers",
-        href: "/people/lecturer",
+        href: "/people/lecturers",
       },
       {
-        title: "Staffs",
+        title: "Staff",
         href: "/people/staff",
       }
     ],

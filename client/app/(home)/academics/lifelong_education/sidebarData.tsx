@@ -49,7 +49,7 @@ export const sidebarItem: SidebarProps[] = [
         ]
     },
     {
-        content: "Cryptocurrency training course",
+        content: "Cryptocurrency Training Course",
         type: "multiItem",
         href: "/academics/lifelong_education/cryptocurrency",
         SidebarOption: [
