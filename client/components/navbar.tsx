@@ -80,7 +80,7 @@ const NavbarHeader = (props: Props) => {
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarMenu className="uppercase bg-[#F4F4F4] gap-0">
+        <NavbarMenu className="bg-[#F4F4F4] gap-0">
           {navItems.map((item, index) =>
             item.type === "dropdown" ? (
               <NavbarMenuItem className="text-primary" key={item.title}>

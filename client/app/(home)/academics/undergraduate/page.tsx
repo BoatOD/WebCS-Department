@@ -51,7 +51,7 @@ export default function undergraduate({}: Props) {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-1/3 order-first md:order-last ">
+        <div className="w-full md:w-1/3 order-first md:order-last">
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full"></div>
 
