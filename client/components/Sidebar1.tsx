@@ -78,7 +78,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                                 {value.SideBarSubOption?.map(
                                   (value2, index) => (
                                     <>
-                                      <Sidebar.Item className="hover:bg-[#e8e8e8]" href="#">
+                                      <Sidebar.Item className="hover:bg-[#e8e8e8]" href={value2.href}>
                                         <div className="ml-2">
                                           {value2.title}
                                         </div>

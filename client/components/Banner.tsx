@@ -35,8 +35,8 @@ function Banner({
       <div style={{ position: 'relative' }}>
         <img src={imageSrc} alt={altText} style={{ width: '100%' }} />
         <div style={bannerStyle} className='pb-5'>
-          <p className="font-bold">{title}</p>
-          <h1 className="text-5xl font-bold">{subtitle}</h1>
+          <p className="font-bold uppercase">{title}</p>
+          <h1 className="text-5xl font-bold uppercase">{subtitle}</h1>
         </div>
       </div>
     </div>

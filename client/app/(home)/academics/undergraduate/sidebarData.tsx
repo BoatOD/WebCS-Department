@@ -22,12 +22,12 @@ export const sidebarItem: SidebarProps[] = [
             },
             {
                 title: "Required Courses",
-                href: "#",
+                href: "/academics/undergraduate/undergraduate64/required_courses",
                 type: "NotHave",
             },
             {
                 title: "Core Courses",
-                href: "#",
+                href: "/academics/undergraduate/undergraduate64/core_course",
                 type: "NotHave",
             },
             {
@@ -36,15 +36,15 @@ export const sidebarItem: SidebarProps[] = [
                 SideBarSubOption: [
                     {
                         title: "Free Elective Courses",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/elective_courses#fe",
                     },
                     {
                         title: "GE Elective Courses",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/elective_courses#ge",
                     },
                     {
                         title: "Major Elective Courses",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/elective_courses#me",
                     },
                 ],
             },
@@ -54,23 +54,23 @@ export const sidebarItem: SidebarProps[] = [
                 SideBarSubOption: [
                     {
                         title: "Organization Issues and Information System",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/compulsory_courses#oi",
                     },
                     {
                         title: "Technology for Application",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/compulsory_courses#ta",
                     },
                     {
                         title: "Technology and System Methodology",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/compulsory_courses#ts",
                     },
                     {
                         title: "System of Fundamental Structure",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/compulsory_courses#sf",
                     },
                     {
                         title: "Hardware and Computer Architecture",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/compulsory_courses#hc",
                     },
                 ],
             },
@@ -80,17 +80,22 @@ export const sidebarItem: SidebarProps[] = [
                 SideBarSubOption: [
                     {
                         title: "Regular Plan",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/plan_specific_compulsory_courses#rp",
                     },
                     {
                         title: "Co-Operative Education Plan",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/plan_specific_compulsory_courses#co",
                     },
                     {
                         title: "Honors Plan",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate64/plan_specific_compulsory_courses#hp",
                     },
                 ],
+            },
+            {
+                title: "Minor Courses",
+                href: "/academics/undergraduate/undergraduate64/minor_courses",
+                type: "NotHave",
             },
         ],
     },
