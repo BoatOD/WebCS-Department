@@ -72,7 +72,7 @@ export default function Staff({ }: Props) {
 
           <div className="p-1 pt-3 ">
             {data.map((item) => (
-              <div className="max-w-md mx-auto  overflow-hidden md:max-w-2xl m-10 ">
+              <div key={item._id} className="max-w-md mx-auto  overflow-hidden md:max-w-2xl m-10 ">
                 <div className="md:flex">
                   <div className="md:shrink-0">
                     <Image

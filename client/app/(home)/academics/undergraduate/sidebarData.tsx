@@ -185,18 +185,21 @@ export const sidebarItem: SidebarProps[] = [
         SidebarOption: [
             {
                 title: "Score Report",
-                href: "#",
+                href: "https://score.cs.science.cmu.ac.th/",
                 type: "NotHave",
+                target: "_blank",
             },
             {
                 title: "Assignment Submission",
-                href: "#",
+                href: "http://hw.cs.science.cmu.ac.th/",
                 type: "NotHave",
+                target: "_blank",
             },
             {
                 title: "Student Research",
-                href: "#",
+                href: "http://rsdb.cs.science.cmu.ac.th/",
                 type: "NotHave",
+                target: "_blank",
             },
             {
                 title: "Phone Number",
@@ -205,8 +208,9 @@ export const sidebarItem: SidebarProps[] = [
             },
             {
                 title: "Line Chat Bot",
-                href: "#",
+                href: "https://line.me/R/ti/p/%40355avaex",
                 type: "NotHave",
+                target: "_blank",
             },
         ],
     },

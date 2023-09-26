@@ -9,7 +9,7 @@ const ResearchAccordion = ({ data }: { data: ResearchAccordionProps[] }) => {
     return (
         <Accordion collapseAll className="bg-[#F8A138] bg-opacity-70">
             {data.map((item, index) => (
-                <Accordion.Panel>
+                <Accordion.Panel key={index}>
                     <Accordion.Title className="text-black font-bold bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
                         {item.topic}
                     </Accordion.Title>

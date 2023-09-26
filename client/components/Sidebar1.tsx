@@ -58,7 +58,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                 </>
               ) : item.type === "singleItem" ? (
                 <>
-                  <Sidebar.Item className="hover:bg-[#e8e8e8]" href={item.href} key={item.content}>
+                  <Sidebar.Item className="hover:bg-[#e8e8e8]" target={item.target} href={item.href} key={item.content}>
                     <p>{item.content}</p>
                   </Sidebar.Item>
 
@@ -78,7 +78,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                                 {value.SideBarSubOption?.map(
                                   (value2, index) => (
                                     <>
-                                      <Sidebar.Item className="hover:bg-[#e8e8e8]" href={value2.href}>
+                                      <Sidebar.Item className="hover:bg-[#e8e8e8]" target={value2.target} href={value2.href}>
                                         <div className="ml-2">
                                           {value2.title}
                                         </div>
@@ -91,7 +91,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                           </>
                         ) : (
                           <>
-                            <Sidebar.Item className="hover:bg-[#e8e8e8]" href={value.href}>{value.title}</Sidebar.Item>
+                            <Sidebar.Item className="hover:bg-[#e8e8e8]" target={value.target} href={value.href}>{value.title}</Sidebar.Item>
                           </>
                         )
                       )

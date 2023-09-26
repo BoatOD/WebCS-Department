@@ -1,6 +1,7 @@
 export type Option2 = {
   title?: string;
   href?: string;
+  target?: string;
 };
 
 export type Option1 = {
@@ -8,6 +9,7 @@ export type Option1 = {
   title?: string;
   href?: string;
   SideBarSubOption?: Array<Option2>;
+  target?: string;
 };
 
 export type SidebarProps = {
@@ -15,4 +17,5 @@ export type SidebarProps = {
   href?: string;
   content?: string;
   SidebarOption?: Array<Option1>;
+  target?: string;
 };
