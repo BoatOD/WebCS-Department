@@ -245,7 +245,16 @@ export default function undergraduate({ }: Props) {
             .catch((error) => console.error(error));
     }, []);
 
-    const filteredData = data.filter((item) => item.year === 1 && item.cu_no === 1);
+    const filteredData_1 = data.filter((item) => item.year === 1 && item.cu_no === 1);
+    const filteredData_2 = data.filter((item) => item.year === 2 && item.cu_no === 1);
+    const filteredData_3 = data.filter((item) => item.year === 3 && item.cu_no === 1);
+    const filteredData_4 = data.filter((item) => item.year === 4 && item.cu_no === 1);
+
+    const filteredData_3_2 = data.filter((item) => item.year === 3 && item.cu_no === 2);
+    const filteredData_4_2 = data.filter((item) => item.year === 4 && item.cu_no === 2);
+
+    const filteredData_3_3 = data.filter((item) => item.year === 3 && item.cu_no === 3);
+    const filteredData_4_3 = data.filter((item) => item.year === 4 && item.cu_no === 3);
 
     return (
         <>
@@ -276,12 +285,12 @@ export default function undergraduate({ }: Props) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {filteredData.map((studyPlan) =>
+                                    {filteredData_1.map((studyPlan) =>
                                         studyPlan.semester_1.map((course) => (
                                             <tr key={course._id} className="bg-[#FCDCB4] text-black">
                                                 <th
                                                     scope="row"
-                                                    className="px-2 py-4 font-medium text-center border-solid border-[#EFB770] border-1"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
                                                     {course.code}
                                                     {course.overview ? (
@@ -292,10 +301,10 @@ export default function undergraduate({ }: Props) {
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1">
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                                     {course.name}
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split('(')[0]}
                                                 </td>
                                             </tr>
@@ -317,12 +326,12 @@ export default function undergraduate({ }: Props) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {filteredData.map((studyPlan) =>
+                                    {filteredData_1.map((studyPlan) =>
                                         studyPlan.semester_2.map((course) => (
                                             <tr key={course._id} className="bg-[#FCDCB4] text-black">
                                                 <th
                                                     scope="row"
-                                                    className="px-2 py-4 font-medium text-center border-solid border-[#EFB770] border-1"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5 "
                                                 >
                                                     {course.code}
                                                     {course.overview ? (
@@ -333,10 +342,10 @@ export default function undergraduate({ }: Props) {
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1">
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                                     {course.name}
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split('(')[0]}
                                                 </td>
                                             </tr>
@@ -345,6 +354,1107 @@ export default function undergraduate({ }: Props) {
                                 </tbody>
                             </table>
                             <div className="border-[#857D7D] border-2 my-2"></div>
+
+                            <h1 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 2</h1>
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 1
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            18 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_2.map((studyPlan) =>
+                                        studyPlan.semester_1.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip
+                                                            position="right"
+                                                            header={course.name}
+                                                            prereq={course.prereg}
+                                                            credit={course.credit}
+                                                            content={course.overview}
+                                                        >
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                </tbody>
+                            </table>
+
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 2
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            18 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_2.map((studyPlan) =>
+                                        studyPlan.semester_2.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className="border-[#857D7D] border-2 my-2"></div>
+
+                            <h2 className='text-xl font-bold mb-4 mt-4'>แผนปกติ (Regular Plan)</h2>
+                            <h1 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 3</h1>
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 1
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            18 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_3.map((studyPlan) =>
+                                        studyPlan.semester_1.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 2
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            19 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_3.map((studyPlan) =>
+                                        studyPlan.semester_2.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            6
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเลือกเสรี
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className="border-[#857D7D] border-2 my-2"></div>
+
+                            <h1 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 4</h1>
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 1
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            14 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_4.map((studyPlan) =>
+                                        studyPlan.semester_1.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ href */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            6
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 2
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            11 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_4.map((studyPlan) =>
+                                        studyPlan.semester_2.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเลือกเสรี
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className="border-[#857D7D] border-2 my-2"></div>
+
+                            <h2 className='text-xl font-bold mb-4 mt-4'>แผนสหกิจศึกษา (Co-operative Education Plan)</h2>
+                            {/* แก้ สีหัวตาราง */}
+                            <h1 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 3</h1>
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 1
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            18 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_3_2.map((studyPlan) =>
+                                        studyPlan.semester_1.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 2
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            19 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_3_2.map((studyPlan) =>
+                                        studyPlan.semester_2.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            6
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเลือกเสรี
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className="border-[#857D7D] border-2 my-2"></div>
+
+                            <h1 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 4</h1>
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 1
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            7 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_4_2.map((studyPlan) =>
+                                        studyPlan.semester_1.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                </tbody>
+                            </table>
+
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 2
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            19 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_4_2.map((studyPlan) =>
+                                        studyPlan.semester_2.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            6
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเลือกเสรี
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className="border-[#857D7D] border-2 my-2"></div>
+
+                            <h2 className='text-xl font-bold mb-4 mt-4'>แผนก้าวหน้า (Honors Plan)</h2>
+                            {/* แก้ สีหัวตาราง */}
+                            <h1 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 3</h1>
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 1
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            18 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_3_3.map((studyPlan) =>
+                                        studyPlan.semester_1.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 2
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            19 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_3_3.map((studyPlan) =>
+                                        studyPlan.semester_2.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            6
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเลือกเสรี
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className="border-[#857D7D] border-2 my-2"></div>
+
+                            <h1 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 4</h1>
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 1
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            20 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_4_3.map((studyPlan) =>
+                                        studyPlan.semester_1.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            6
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 700
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            6
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table className="w-full mb-14">
+                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                    <tr>
+                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                            ภาคการศึกษาที่ 2
+                                        </th>
+
+                                        <th scope="col" className="px-2 py-3 text-center">
+                                            17 หน่วยกิต
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData_4_3.map((studyPlan) =>
+                                        studyPlan.semester_2.map((course) => (
+                                            <tr key={course._id} className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    {course.code}
+                                                    {course.overview ? (
+                                                        <Tooltip position="right" header={course.name} prereq={course.prereg} credit={course.credit} content={course.overview}>
+                                                            <a>Tooltip Trigger</a>
+                                                        </Tooltip>
+                                                    ) : (
+                                                        <a>No Tooltip</a>
+                                                    )}
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {course.name}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {course.credit.split('(')[0]}
+                                                </td>
+                                            </tr>
+                                        ))
+                                    )}
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 400
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            {/* แก้ path */}
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเอกเลือกระดับ 700
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            6
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาโท
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                    <tr className="bg-[#FCDCB4] text-black">
+                                        <th
+                                            scope="row"
+                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                        >
+                                            ******
+                                        </th>
+                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            วิชาเลือกเสรี
+                                        </td>
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            3
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div className="border-[#857D7D] border-2 my-2"></div>
+
                         </div>
                     </div>
                 </div>
