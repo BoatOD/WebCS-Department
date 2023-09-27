@@ -49,7 +49,7 @@ export default function Lecturer({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("http://cs-project.onrender.com/api/lecturers")
+    fetch("http://cs-api-hw35.onrender.com/api/lecturers")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));

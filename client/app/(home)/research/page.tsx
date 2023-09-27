@@ -12,7 +12,7 @@ export default function Research({ }: Props) {
     const [data, setData] = useState<ResearchAccordionProps[]>([]);
     useEffect(() => {
         // Fetch data from the backend API when the component mounts
-        fetch('http://cs-project.onrender.com/api/research')
+        fetch('http://cs-api-hw35.onrender.com/api/research')
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => console.error(error));
