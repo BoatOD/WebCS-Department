@@ -9,7 +9,7 @@ import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {};
 
-export default function undergraduate({}: Props) {
+export default function Undergraduate({}: Props) {
   
 
   return (

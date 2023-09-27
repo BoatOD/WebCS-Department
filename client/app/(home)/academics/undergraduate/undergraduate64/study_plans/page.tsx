@@ -9,7 +9,7 @@ import Tooltip from '@/components/Tooltip';
 
 type Props = {};
 
-export default function Undergraduate({ }: Props) {
+export default function Study_Plans({ }: Props) {
 
     interface Course {
         _id: string;

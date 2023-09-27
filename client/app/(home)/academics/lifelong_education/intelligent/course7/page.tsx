@@ -7,7 +7,7 @@ import { sidebarItem } from '@/app/(home)/academics/lifelong_education/sidebarDa
 
 type Props = {}
 
-export default function Course({ }: Props) {
+export default function Course_7({ }: Props) {
   return (
     <>
       <Banner

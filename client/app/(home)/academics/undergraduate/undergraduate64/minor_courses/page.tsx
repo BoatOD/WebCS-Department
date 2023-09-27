@@ -7,7 +7,7 @@ import { sidebarItem } from '@/app/(home)/academics/undergraduate/sidebarData'
 
 type Props = {}
 
-export default function Intelligent({ }: Props) {
+export default function Minor({ }: Props) {
 
   interface Courses {
     _id: string;

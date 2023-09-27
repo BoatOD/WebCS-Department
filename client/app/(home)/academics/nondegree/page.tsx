@@ -7,7 +7,7 @@ import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {}
 
-export default function nondegree({ }: Props) {
+export default function Nondegree({ }: Props) {
   const sidebarItem: SidebarProps[] = [
     {
       content: "NON DEGREE",
