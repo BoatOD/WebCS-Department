@@ -6,6 +6,7 @@ import Image from "next/image";
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";
 
+require('dotenv').config();
 type Props = {};
 
 export default function Lecturer({ }: Props) {
@@ -49,7 +50,7 @@ export default function Lecturer({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("http://cs-api-hw35.onrender.com/api/lecturers")
+    fetch(`${process.env.API_URL}/api/lecturers`)
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));

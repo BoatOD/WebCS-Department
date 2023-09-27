@@ -5,6 +5,7 @@ import Banner from '@/components/Banner';
 import ResearchAccordion from "@/components/research/Accordion";
 import { ResearchAccordionProps } from "@/types/accordion";
 
+require('dotenv').config();
 type Props = {}
 
 export default function Research({ }: Props) {
@@ -12,7 +13,7 @@ export default function Research({ }: Props) {
     const [data, setData] = useState<ResearchAccordionProps[]>([]);
     useEffect(() => {
         // Fetch data from the backend API when the component mounts
-        fetch('http://cs-api-hw35.onrender.com/api/research')
+        fetch(`${process.env.API_URL}/api/research`)
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => console.error(error));

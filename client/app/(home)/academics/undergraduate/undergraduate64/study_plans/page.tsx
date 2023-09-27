@@ -7,6 +7,7 @@ import { sidebarItem } from '@/app/(home)/academics/undergraduate/sidebarData'
 
 import Tooltip from '@/components/Tooltip';
 
+require('dotenv').config();
 type Props = {};
 
 export default function Study_Plans({ }: Props) {
@@ -33,7 +34,7 @@ export default function Study_Plans({ }: Props) {
 
     useEffect(() => {
         // Fetch data from the backend API when the component mounts
-        fetch('http://cs-api-hw35.onrender.com/api/study_plan')
+        fetch(`${process.env.API_URL}/api/study_plan`)
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => console.error(error));

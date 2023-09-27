@@ -5,6 +5,7 @@ import Banner from '@/components/Banner';
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/(home)/academics/undergraduate/sidebarData'
 
+require('dotenv').config();
 type Props = {}
 
 export default function Plan_Specific_Compulsory({ }: Props) {
@@ -28,7 +29,7 @@ export default function Plan_Specific_Compulsory({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("http://cs-api-hw35.onrender.com/api/courses")
+    fetch(`${process.env.API_URL}/api/courses`)
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
