@@ -7,7 +7,9 @@ export type ResearchAccordionProps = {
     }[];
 }
 
-export type FAQsAccordionProps = {
+type FAQsAccordionProps = {
     question: string;
     answer: string;
 }
+
+export default FAQsAccordionProps

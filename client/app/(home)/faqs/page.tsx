@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
 
-import { FAQsAccordionProps } from "@/types/accordion";
+import FAQsAccordionProps from "@/types/accordion";
 import { Accordion } from 'flowbite-react';
 
 
