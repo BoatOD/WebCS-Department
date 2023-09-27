@@ -105,7 +105,7 @@ export const sidebarItem: SidebarProps[] = [
         SidebarOption: [
             {
                 title: "Study Plan",
-                href: "#",
+                href: "/academics/undergraduate/undergraduate63#sp",
             },
             {
                 title: "Required Courses",
