@@ -28,7 +28,7 @@ export default function Intelligent({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("http://localhost:8080/api/courses")
+    fetch("http://cs-project.onrender.com/api/courses")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));

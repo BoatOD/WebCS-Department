@@ -33,7 +33,7 @@ export default function undergraduate({ }: Props) {
 
     useEffect(() => {
         // Fetch data from the backend API when the component mounts
-        fetch('http://localhost:8080/api/study_plan')
+        fetch('http://cs-project.onrender.com/api/study_plan')
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => console.error(error));
