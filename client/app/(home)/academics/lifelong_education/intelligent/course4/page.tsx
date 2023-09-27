@@ -25,7 +25,7 @@ export default function Course_4({ }: Props) {
             <div className="p-5">
               <h1 className="text-2xl font-bold">4. การวิเคราะห์ข้อมูลพื้นฐานด้วยเทคนิคการเรียนรู้ของเครื่องสำหรับงานประยุกต์ด้านชีวสารสนเทศศาสตร์</h1>
               <br />
-              <table>
+              <table className="w-full">
                 <tbody>
                   <tr>
                     <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">

@@ -25,7 +25,7 @@ export default function Course_3({ }: Props) {
             <div className="p-5">
               <h1 className="text-2xl font-bold">3. การวิเคราะห์ข้อมูลและการแสดงมโนภาพข้อมูลสำหรับผู้เรียนระดับต้นด้วย Google Data Studio</h1>
               <br />
-              <table>
+              <table  className="w-full">
                 <tbody>
                   <tr>
                     <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">

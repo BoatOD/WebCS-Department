@@ -26,7 +26,7 @@ export default function Course2({ }: Props) {
             <div className="p-5">
               <h1 className="text-2xl font-bold">หลักสูตรที่ 2 การพัฒนาโปรแกรมเทรดอัตโนมัติ (Trading script) สำหรับการทำธุรกรรมด้วยคริปโทเคอร์เรนซี (Robot Trading)</h1>
               <br />
-              <table>
+              <table className="w-full">
                 <tbody>
                   <tr>
                     <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงวันรับสมัคร :</th>

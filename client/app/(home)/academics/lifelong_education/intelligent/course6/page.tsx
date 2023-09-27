@@ -25,7 +25,7 @@ export default function Course_6({ }: Props) {
             <div className="p-5">
               <h1 className="text-2xl font-bold">6. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่องสำหรับผู้เรียนระดับกลาง โดยใช้ Orange data mining toolbox MODULE 2 : การวิเคราะห์ข้อมูลด้วยเทคนิคการเรียนรู้ของเครื่อง โดยใช้โปรแกรมออเรนจ์</h1>
               <br />
-              <table>
+              <table className="w-full">
                 <tbody>
                   <tr>
                     <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">

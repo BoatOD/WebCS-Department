@@ -26,7 +26,7 @@ export default function Course1({ }: Props) {
             <div className="p-5">
               <h1 className="text-2xl font-bold">หลักสูตรที่ 1 พื้นฐานของคริปโทเคอร์เรนซี (Cryptocurrency สำหรับนักลงทุนมือใหม่)</h1>
               <br />
-              <table>
+              <table className="w-full">
                 <tbody>
                   <tr>
                     <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงวันรับสมัคร :</th>

@@ -25,7 +25,7 @@ export default function Course_2({ }: Props) {
             <div className="p-5">
               <h1 className="text-2xl font-bold">2. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่องสำหรับผู้เรียนระดับสูง โดยใช้การเขียนโปรแกรมไพธอน</h1>
               <br />
-              <table>
+              <table className="w-full">
                 <tbody>
                   <tr>
                     <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
