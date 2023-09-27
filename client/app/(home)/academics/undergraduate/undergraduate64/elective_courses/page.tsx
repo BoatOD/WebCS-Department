@@ -115,7 +115,7 @@ export default function Elective({ }: Props) {
                   </ul>
                 </ul>
                 {/* แก้ path */}
-                <h2>🔗<a href='#' className="font-bold underline hover:text-gray-700">รายชื่อวิชาเอกเลือก (Major Elective Courses)</a></h2>
+                <h2>🔗<a href='#' target='_blank' className="font-bold underline hover:text-gray-700">รายชื่อวิชาเอกเลือก (Major Elective Courses)</a></h2>
               </div>
             </div>
           </div>

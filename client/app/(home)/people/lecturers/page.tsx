@@ -44,6 +44,7 @@ export default function Lecturer({ }: Props) {
     job_type: string;
     e_id: number;
     personal_web: string;
+    research_interest: string;
   }
 
   const [data, setData] = useState<Lecturer[]>([]);
@@ -111,7 +112,7 @@ export default function Lecturer({ }: Props) {
                           ))}
                         </li>
                       )}
-                      <li>Research Interests: Recommender System</li>
+                      <li>Research Interests: {item.research_interest}</li>
                     </ul>
                     {item.personal_web === "" ? (
                       <></>

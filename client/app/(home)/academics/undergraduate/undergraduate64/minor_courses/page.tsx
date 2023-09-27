@@ -10,31 +10,6 @@ type Props = {}
 
 export default function Minor({ }: Props) {
 
-  interface Courses {
-    _id: string;
-    code: string;
-    credit: string;
-    cu_no: number[];
-    e_name: string;
-    e_overview: string;
-    e_type: string;
-    name: string;
-    overview: string;
-    prereg: string;
-    type: string;
-    sup_type: string;
-  }
-
-  const [data, setData] = useState<Courses[]>([]);
-
-  useEffect(() => {
-    // Fetch data from the backend API when the component mounts
-    fetch("https://cs-project-ime1.vercel.app/api/courses")
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error(error));
-  }, []);
-
   return (
     <>
       <Banner
@@ -65,7 +40,7 @@ export default function Minor({ }: Props) {
                     <li className="mb-2">- เลือกเรียนวิชาเอกเลือกระดับ 300 หรือ 400 เพิ่มไม่น้อยกว่า 15 หน่วยกิต</li>
                   </ul>
                 </ul>
-                <h2>🔗<a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className="font-bold underline hover:text-gray-700">รายชื่อวิชาโทที่เปิดสอน</a></h2>
+                <h2>🔗<a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className="font-bold underline hover:text-gray-700">รายชื่อวิชาโทที่เปิดสอน</a></h2>
               </div>
             </div>
           </div>
