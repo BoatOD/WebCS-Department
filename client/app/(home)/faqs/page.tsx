@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
 
-import FAQsAccordionProps from "@/types/accordion";
 import { Accordion } from 'flowbite-react';
 
+type Props = {};
 
-export default function FAQs({ }: FAQsAccordionProps) {
+export default function FAQs({ }: Props) {
 
   return (
     <>

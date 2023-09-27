@@ -6,10 +6,3 @@ export type ResearchAccordionProps = {
         personal_web: string;
     }[];
 }
-
-type FAQsAccordionProps = {
-    question: string;
-    answer: string;
-}
-
-export default FAQsAccordionProps
