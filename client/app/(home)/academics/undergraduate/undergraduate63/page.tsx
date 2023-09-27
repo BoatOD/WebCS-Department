@@ -246,7 +246,7 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <p className='mb-2'>วิชาเลือก (GE Electives)</p>
+                            <p className='mb-2' id='ge'>วิชาเลือก (GE Electives)</p>
                             <p className='ml-2 text-[#FF0000]'>ให้นักศึกษาเลือกเรียนกระบวนวิชาจากทั้ง 3 กลุ่มเพิ่มเติมอีก 6 หน่วยกิต จากกระบวนวิชาต่อไปนี้</p>
                             <p className='mb-2 ml-2 text-[#FF0000]'>A student also chooses at least 6 credits from these 3 groups of GE courses.</p>
                             <table className="w-full mb-14">
@@ -453,7 +453,7 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <h3 className='font-bold mb-2 mt-4'>2.2 ) วิชาเอก</h3>
+                            <h3 className='font-bold mb-2 mt-4' >2.2 ) วิชาเอก</h3>
                             <p className='mb-2'>แผน 1 ไม่น้อยกว่า 59 หน่วยกิต</p>
                             <p className='mb-2'>แผน 2 ไม่น้อยกว่า 60 หน่วยกิต</p>
                             <p className='mb-6 text-[#FF0000]'>ในจำนวนนี้อย่างน้อย 36 หน่วยกิต จะต้องเป็นกระบวนวิชาระดับ 300-400 และอย่างน้อย 18 หน่วยกิตต้องเป็นกระบวนวิชาระดับ 400 ขึ้นไป</p>
@@ -474,7 +474,7 @@ export default function Study_Plans({ }: Props) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold">
+                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold" id='oi'>
                                         <th
                                             scope="row"
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
@@ -522,7 +522,7 @@ export default function Study_Plans({ }: Props) {
                                         )
                                         )}
 
-                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold">
+                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold" id='ta'>
                                         <th
                                             scope="row"
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
@@ -570,7 +570,7 @@ export default function Study_Plans({ }: Props) {
                                         )
                                         )}
 
-                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold">
+                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold" id='ts'>
                                         <th
                                             scope="row"
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
@@ -618,7 +618,7 @@ export default function Study_Plans({ }: Props) {
                                         )
                                         )}
 
-                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold">
+                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold" id='sf'>
                                         <th
                                             scope="row"
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
@@ -666,7 +666,7 @@ export default function Study_Plans({ }: Props) {
                                         )
                                         )}
 
-                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold">
+                                    <tr className="bg-[#FCDCB4] text-black uppercase font-bold" id='hc'>
                                         <th
                                             scope="row"
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
@@ -717,7 +717,7 @@ export default function Study_Plans({ }: Props) {
                             </table>
 
                             <p className='mb-2 mt-6 font-bold'>2.2.2) วิชาเอกบังคับประจำแผน</p>
-                            <p className='mb-2'>(ก) แผน 1 จำนวน 3 หน่วยกิต</p>
+                            <p className='mb-2' id='rp'>(ก) แผน 1 จำนวน 3 หน่วยกิต</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
@@ -772,7 +772,7 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <p className='mb-2'>(ข) แผน 2 จำนวน 7 หน่วยกิต</p>
+                            <p className='mb-2' id='co'>(ข) แผน 2 จำนวน 7 หน่วยกิต</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
@@ -827,7 +827,7 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <p className='mb-2 mt-6 font-bold'>2.2.3) วิชาเอกเลือก ต้องเป็นกระบวนวิชาระดับ 300 หรือ 400 ขึ้นไป</p>
+                            <p className='mb-2 mt-6 font-bold' id='me'>2.2.3) วิชาเอกเลือก ต้องเป็นกระบวนวิชาระดับ 300 หรือ 400 ขึ้นไป</p>
                             <p className='mb-2'>(ก) แผน 1 ไม่น้อยกว่า 15 หน่วยกิต</p>
                             <ul className="list-disc pl-6 ml-5">
                                 <li className="mb-2 text-[#FF0000]">โดยที่จะต้องเป็นกระบวนวิชาระดับ 400 อย่างน้อย 12 หน่วยกิต</li>
@@ -905,10 +905,10 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <h3 className='font-bold mb-2 mt-4'>2.3 ) วิชาโทไม่น้อยกว่า 15 หน่วยกิต</h3>
+                            <h3 className='font-bold mb-2 mt-4' id='mc'>2.3 ) วิชาโทไม่น้อยกว่า 15 หน่วยกิต</h3>
                             <p className='mb-2 text-[#FF0000]'>2.3.1) นักศึกษาที่ต้องการเรียนวิชาโท สามารถเลือกเรียนวิชาโทสาขาใดๆ โดยความเห็นชอบของอาจารย์ที่ปรึกษา</p>
                             <p className='mb-2 text-[#FF0000]'>2.3.2) นักศึกษาที่ไม่ต้องการเรียนวิชาโท ให้เลือกเรียนกระบวนวิชาวิทยาการคอมพิวเตอร์ระดับ 300 หรือ 400 ในหมวดวิชาเอกเลือกเพิ่มเติมอีก ไม่น้อยกว่า 15 หน่วยกิต</p>
-                            <h2 className='text-lg mb-4 font-bold'>3) หมวดวิชาเลือกเสรี</h2>
+                            <h2 className='text-lg mb-4 font-bold' id='fe'>3) หมวดวิชาเลือกเสรี</h2>
                             <p className='mb-2'>หมวดวิชาเลือกเสรีไม่น้อยกว่า 6 หน่วยกิต</p>
                             <p className='mb-4 text-[#FF0000]'>นักศึกษาต้องเลือกเรียนกระบวนวิชานอกเหนือจากวิชาเอกและวิชาโท (ถ้ามี) ไม่น้อยกว่า 6 หน่วยกิต</p>
 
