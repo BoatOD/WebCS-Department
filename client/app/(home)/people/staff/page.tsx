@@ -85,7 +85,7 @@ export default function Staff({ }: Props) {
                       className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
                     />
                   </div>
-                  <div className=" pl-8 pt-1 md:text-left sm:text-center">
+                  <div className=" pl-8 pr-8 pt-1 text-center md:text-left">
                     <p className="block mt-1 text-xl leading-tight font-semibold text-slate-700 ">
                       {item.title}{item.name} </p>
                     <p className="block mt-1 text-xl leading-tight font-semibold text-slate-700 pb-3">
