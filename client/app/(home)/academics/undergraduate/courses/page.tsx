@@ -51,7 +51,7 @@ export default function Elective({ }: Props) {
                     <div className="p-1 pt-3 ">
                         <div className="p-5">
 
-                            <h1 className="text-2xl font-bold text-center">Bachelor's degree courses</h1>
+                            <h1 className="text-2xl font-bold text-center">Bachelor&apos;s degree courses</h1>
                             <div className='bg-[#F4C07F] h-full  mt-6 mb-2 p-6 pt-4 pb-4 rounded-xl'>
                                 <ul className='list-disc ml-4 underline'>
                                     <li>
@@ -317,13 +317,6 @@ export default function Elective({ }: Props) {
                             </div>
 
                             <div className="border-[#857D7D] border-2 my-10"></div>
-
-
-
-
-
-
-
 
                             <div className='bg-[#FCDCB4] h-full  mt-2 mb-2 p-6 pt-4 pb-4 rounded-xl'>
                                 <ul className='list-disc ml-4 underline'>
