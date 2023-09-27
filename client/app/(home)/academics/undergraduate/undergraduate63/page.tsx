@@ -66,8 +66,8 @@ export default function Study_Plans({ }: Props) {
             <Banner
                 imageSrc="/all_page_banner.png" // Adjust the image path for this page
                 altText="Image Alt Text"
-                title="undergraduate 64+"
-                subtitle="Study Plans"
+                title="ACADEMIC"
+                subtitle="undergraduate 59 (63)"
             />
             <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
                 <div className="w-full md:w-2/3 order-last md:order-first ">
@@ -92,7 +92,7 @@ export default function Study_Plans({ }: Props) {
                             <h1 className='text-3xl font-bold mb-4 mt-6'>2. โครงสร้างหลักสูตร</h1>
                             <h2 className='text-lg mb-4 font-bold'>1) หมวดวิชาศึกษาทั่วไป 30 หน่วยกิต</h2>
 
-                            <p className='mb-2'>วิชาบังคับ (Required Courses) 24 หน่วยกิต</p>
+                            <p className='mb-2' id='rc'>วิชาบังคับ (Required Courses) 24 หน่วยกิต</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
@@ -393,7 +393,7 @@ export default function Study_Plans({ }: Props) {
                             <h2 className='text-lg mb-4 font-bold'>2) หมวดวิชาเฉพาะ</h2>
                             <p className='mb-2'>แผน 1 ไม่น้อยกว่า 98 หน่วยกิต</p>
                             <p className='mb-2'>แผน 2 ไม่น้อยกว่า 99 หน่วยกิต</p>
-                            <h3 className='font-bold mb-2 mt-4'>2.1 ) วิชาแกน 24 หน่วยกิต</h3>
+                            <h3 className='font-bold mb-2 mt-4' id='cc'>2.1 ) วิชาแกน 24 หน่วยกิต</h3>
 
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
@@ -912,7 +912,7 @@ export default function Study_Plans({ }: Props) {
                             <p className='mb-2'>หมวดวิชาเลือกเสรีไม่น้อยกว่า 6 หน่วยกิต</p>
                             <p className='mb-4 text-[#FF0000]'>นักศึกษาต้องเลือกเรียนกระบวนวิชานอกเหนือจากวิชาเอกและวิชาโท (ถ้ามี) ไม่น้อยกว่า 6 หน่วยกิต</p>
 
-                            <h1 className='text-3xl font-bold mb-4'>4. แผนการศึกษา ระดับปริญญาตรี</h1>
+                            <h1 className='text-3xl font-bold mb-4' id='sp'>4. แผนการศึกษา ระดับปริญญาตรี</h1>
                             <h2 className='text-2xl font-bold mb-4'>ชั้นปีที่ 1</h2>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
