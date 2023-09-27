@@ -268,38 +268,3 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Connect to DB & Server started on port ${PORT}`);
 })
-
-
-// {
-//   "_id": "6510112ccddfd6aafaa167f1",
-//     "cu_no": 1,
-//       "year": 1,
-//         "semester_1": [
-//           "course": [
-//             "code": "001101",
-//             "credit": "3(3-0-6)",
-//             "cu_no": [
-//               1,
-//               2,
-//               3,
-//               4,
-//               5
-//             ],
-//             "e_name": "Fundamental English 1",
-//             "e_overview": "",
-//             "e_type": "Required Courses",
-//             "name": "ภาษาอังกฤษพื้นฐาน 1",
-//             "overview": "การสื่อสารภาษาอังกฤษ เพื่อการปฏิสัมพันธ์ในชีวิตประจำวัน ทักษะการฟัง พูด อ่านและเขียนในระดับเบื้องต้น ในบริบททางสังคมและวัฒนธรรมที่หลากหลายเพื่อการเรียนรู้ตลอดชีวิต",
-//             "prereg": "None",
-//             "type": "วิชาบังคับ",
-//             "sup_type": "Learner Person"],
-//           .
-//           .
-//           .
-//         ],
-//           "semester_2": [
-//             .
-//             .
-//             .
-//           ]
-// },

@@ -119,7 +119,7 @@ export default function Lecturer({ }: Props) {
                       <>
                         <a
                           href={item.personal_web}
-                          className="block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2 pt-2  hover:text-slate-500"
+                          className="inline-block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2 pt-2  hover:text-slate-500"
                         >
                           Personal Website
                         </a>
