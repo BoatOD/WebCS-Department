@@ -114,8 +114,7 @@ export default function Elective({ }: Props) {
                     <li className="mb-2">- เป็นกระบวนวิชาระดับ 700 12 หน่วยกิต</li>
                   </ul>
                 </ul>
-                {/* แก้ path */}
-                <h2>🔗<a href='#' target='_blank' className="font-bold underline hover:text-gray-700">รายชื่อวิชาเอกเลือก (Major Elective Courses)</a></h2>
+                <h2>🔗<a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className="font-bold underline hover:text-gray-700">รายชื่อวิชาเอกเลือก (Major Elective Courses)</a></h2>
               </div>
             </div>
           </div>

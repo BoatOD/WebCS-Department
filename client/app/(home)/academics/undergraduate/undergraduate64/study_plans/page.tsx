@@ -368,8 +368,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 300 หรือ 400
@@ -468,8 +467,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ href */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 400
@@ -538,8 +536,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 400
@@ -695,8 +692,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 300 หรือ 400
@@ -836,8 +832,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 300 หรือ 400
@@ -851,8 +846,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 400
@@ -1008,8 +1002,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 300 หรือ 400
@@ -1108,8 +1101,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 400
@@ -1123,8 +1115,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#700' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 700
@@ -1193,8 +1184,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 400
@@ -1208,8 +1198,7 @@ export default function Study_Plans({ }: Props) {
                                             scope="row"
                                             className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
-                                            {/* แก้ path */}
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                            <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#700' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             วิชาเอกเลือกระดับ 700
