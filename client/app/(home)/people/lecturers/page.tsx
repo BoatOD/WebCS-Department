@@ -50,7 +50,7 @@ export default function Lecturer({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("https://cs-api-hw35.onrender.com/api/lecturers")
+    fetch("https://cs-project-ime1.vercel.app/api/lecturers")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));

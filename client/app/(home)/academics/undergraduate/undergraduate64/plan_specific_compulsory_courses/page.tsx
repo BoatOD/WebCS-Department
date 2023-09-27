@@ -29,7 +29,7 @@ export default function Plan_Specific_Compulsory({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch(`${process.env.API_URL}/api/courses`)
+    fetch("https://cs-project-ime1.vercel.app/api/courses")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));

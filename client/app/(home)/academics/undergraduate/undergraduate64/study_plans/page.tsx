@@ -34,7 +34,7 @@ export default function Study_Plans({ }: Props) {
 
     useEffect(() => {
         // Fetch data from the backend API when the component mounts
-        fetch(`${process.env.API_URL}/api/study_plan`)
+        fetch("https://cs-project-ime1.vercel.app/api/study_plan")
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => console.error(error));

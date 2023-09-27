@@ -51,7 +51,7 @@ export default function Staff({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch(`${process.env.API_URL}/api/staff`)
+    fetch("https://cs-project-ime1.vercel.app/api/staff")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
