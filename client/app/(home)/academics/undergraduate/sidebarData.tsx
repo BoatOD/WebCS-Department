@@ -109,11 +109,11 @@ export const sidebarItem: SidebarProps[] = [
             },
             {
                 title: "Required Courses",
-                href: "#",
+                href: "/academics/undergraduate/undergraduate63#",
             },
             {
                 title: "Core Courses",
-                href: "#",
+                href: "/academics/undergraduate/undergraduate63#",
             },
             {
                 title: "Elective Courses",
@@ -121,15 +121,15 @@ export const sidebarItem: SidebarProps[] = [
                 SideBarSubOption: [
                     {
                         title: "Free Elective Courses",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                     {
                         title: "GE Elective Courses",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                     {
                         title: "Major Elective Courses",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                 ],
             },
@@ -139,23 +139,23 @@ export const sidebarItem: SidebarProps[] = [
                 SideBarSubOption: [
                     {
                         title: "Organization Issues and Information System",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                     {
                         title: "Technology for Application",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                     {
                         title: "Technology and System Methodology",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                     {
                         title: "System of Fundamental Structure",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                     {
                         title: "Hardware and Computer Architecture",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                 ],
             },
@@ -165,15 +165,15 @@ export const sidebarItem: SidebarProps[] = [
                 SideBarSubOption: [
                     {
                         title: "Regular Plan",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                     {
                         title: "Co-Operative Education Plan",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                     {
                         title: "Honors Plan",
-                        href: "#",
+                        href: "/academics/undergraduate/undergraduate63#",
                     },
                 ],
             },
@@ -203,8 +203,9 @@ export const sidebarItem: SidebarProps[] = [
             },
             {
                 title: "Phone Number",
-                href: "#",
+                href: "https://www2.cs.science.cmu.ac.th/cmucontact/",
                 type: "NotHave",
+                target: "_blank",
             },
             {
                 title: "Line Chat Bot",
