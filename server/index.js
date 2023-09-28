@@ -26,16 +26,16 @@ app.get('/api/lecturers', async (req, res) => {
   }
 });
 
-app.get('/api/staff', async (req, res) => {
+app.get('/api/staffs', async (req, res) => {
   try {
     // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const staffCollection = db.collection('people');
-    const staff = await staffCollection.find({ job_type: "S" }).toArray();
+    const staffsCollection = db.collection('people');
+    const staffs = await staffsCollection.find({ job_type: "S" }).toArray();
 
-    res.json(staff);
+    res.json(staffs);
   } catch (error) {
     console.error('Error fetching data from MongoDB Atlas:', error);
     res.status(500).json({ error: 'Internal Server Error' });

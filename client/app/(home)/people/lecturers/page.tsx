@@ -21,8 +21,8 @@ export default function Lecturer({ }: Props) {
       type: "singleItem",
     },
     {
-      content: "Staff",
-      href: "/people/staff",
+      content: "Staffs",
+      href: "/people/staffs",
       type: "singleItem",
     },
   ];
