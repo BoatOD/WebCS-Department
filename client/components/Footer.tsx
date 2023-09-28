@@ -10,7 +10,7 @@ const Footer = (props: Props) => {
           <div className="grid grid-cols-1 md:grid-cols-3  gap-8 px-4 py-6 lg:py-8 ">
             <div>
               <h1 className="mb-6 text-sm font-bold text-bold uppercase dark:text-white">
-                COMPUTER SCIENCS CMU
+                COMPUTER SCIENCE CMU
               </h1>
               <ul className="dark:text-white font-medium">
                 <p>

@@ -9,7 +9,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "th" }];
@@ -36,7 +36,7 @@ export default async function RootLayout({
   return (
     <React.StrictMode>
       <html lang={locale}>
-        <body className={inter.className}>
+        <body className="font-kanit">
           <Providers>
             <NextIntlClientProvider locale={locale} messages={messages}>
               <Navbar />
