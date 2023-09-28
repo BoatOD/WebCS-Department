@@ -85,13 +85,13 @@ export default function Lecturer({ }: Props) {
                       className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
                     />
                   </div>
-                  <div className="pl-8 pr-8 pt-1 text-center md:text-left">
+                  <div className="pl-8  pt-1 text-center md:text-left">
                     <a
                       href={item.personal_web}
                       className="block mt-1 text-xl leading-tight font-semibold text-slate-700 "
                     >
                       {item.affiliation} {item.title}
-                      {item.name} {item.position.join(" ")}
+                      {item.name} <br /> {item.position.join(" ")}
                     </a>
                     <ul className="list-none text-slate-600 mt-3 mb-4 text-base font-normal">
                       <li>
