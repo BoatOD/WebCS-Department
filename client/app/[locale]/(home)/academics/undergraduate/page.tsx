@@ -4,7 +4,7 @@ import Banner from "@/components/Banner";
 
 import Image from "next/image";
 
-import { sidebarItem } from '@/app/(home)/academics/undergraduate/sidebarData'
+import { sidebarItem } from '@/app/[locale]/(home)/academics/undergraduate/sidebarData'
 import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {};

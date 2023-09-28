@@ -3,7 +3,7 @@ import React from 'react'
 import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
-import { sidebarItem } from '@/app/(home)/academics/lifelong_education/sidebarData'
+import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
 
 type Props = {}
 
