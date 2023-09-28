@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { navItems } from "@/utils/navbar";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 type Props = {};
 
@@ -79,6 +80,9 @@ const NavbarHeader = (props: Props) => {
               </div>
             </Link>
           </NavbarBrand>
+          <div className="hidden md:flex">
+            <LocaleSwitcher></LocaleSwitcher>
+          </div>
         </NavbarContent>
 
         <NavbarMenu className="bg-[#F4F4F4] gap-0">
