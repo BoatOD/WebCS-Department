@@ -20,7 +20,7 @@ import {
   Menu,
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { navItems } from "@/utils/navbar";
 
@@ -40,6 +40,7 @@ const NavbarHeader = (props: Props) => {
       >
         <NavbarContent justify="start">
           <NavbarMenuToggle
+            icon={<Bars3Icon className="w-auto h-auto" />}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="md:hidden"
           />

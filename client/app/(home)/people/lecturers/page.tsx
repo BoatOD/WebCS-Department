@@ -87,7 +87,7 @@ export default function Lecturer({ }: Props) {
                   <div className="pl-8  pt-1 text-center md:text-left">
                     <a
                       href={item.personal_web}
-                      className="block mt-1 text-xl leading-tight font-semibold text-slate-700 "
+                      className="block mt-1 text-lg md:text-xl leading-tight font-semibold text-slate-700 "
                     >
                       {item.affiliation} {item.title}
                       {item.name} <br /> {item.position.join(" ")}
