@@ -6,7 +6,6 @@ import Image from "next/image";
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";
 
-require('dotenv').config();
 type Props = {};
 
 export default function Lecturer({ }: Props) {
@@ -95,7 +94,7 @@ export default function Lecturer({ }: Props) {
                     </a>
                     <ul className="list-none text-slate-600 mt-3 mb-4 text-base font-normal">
                       <li>
-                        {item.e_affiliation} {item.e_title}
+                        {item.e_affiliation} {item.e_title} &nbsp;
                         {item.e_name}
                       </li>
                       {item.tel.map((tel, index) => (

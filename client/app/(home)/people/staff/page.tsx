@@ -6,7 +6,7 @@ import Image from "next/image";
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";
 
-require('dotenv').config();
+
 type Props = {}
 
 export default function Staff({ }: Props) {
