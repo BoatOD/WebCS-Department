@@ -33,26 +33,29 @@ const Footer = (props: Props) => {
                   Social Media
                 </h2>
 
-                <li className="mb-4 flex md:hidden">
+                <li className="flex md:hidden">
                   <a
                     href="https://www.facebook.com/compscicmu/"
                     className="hover:underline"
+                    target="_blank"
                   >
                     Facebook Computer Science CMU
                   </a>
                 </li>
-                <li className="mb-4 flex md:hidden">
+                <li className="flex md:hidden">
                   <a
                     href="https://www.facebook.com/cscmuhomecoming/"
                     className="hover:underline"
+                    target="_blank"
                   >
                     Facebook Page ศิษย์เก่า
                   </a>
                 </li>
-                <li className="mb-4 flex md:hidden">
+                <li className="flex md:hidden">
                   <a
                     href="https://www.google.com/maps/d/u/0/viewer?mid=1XzZUWuQlmVJeZC2dcBxA2yKIXO8&ll=18.80376300042011%2C98.95247199999993&z=20"
                     className="hover:underline"
+                    target="_blank"
                   >
                     Location
                   </a>
@@ -78,27 +81,30 @@ const Footer = (props: Props) => {
                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                   Social Media
                 </h2>
-                <ul className="dark:text-white font-medium">
-                  <li className="mb-4">
+                <ul className="dark:text-white font-medium mb-4">
+                  <li>
                     <a
                       href="https://www.facebook.com/compscicmu/"
                       className="hover:underline"
+                      target="_blank"
                     >
                       Facebook Computer Science CMU
                     </a>
                   </li>
-                  <li className="mb-4">
+                  <li>
                     <a
                       href="https://www.facebook.com/cscmuhomecoming/"
                       className="hover:underline"
+                      target="_blank"
                     >
                       Facebook Page ศิษย์เก่า
                     </a>
                   </li>
-                  <li className="mb-4">
+                  <li>
                     <a
                       href="https://www.google.com/maps/d/u/0/viewer?mid=1XzZUWuQlmVJeZC2dcBxA2yKIXO8&ll=18.80376300042011%2C98.95247199999993&z=20"
                       className="hover:underline"
+                      target="_blank"
                     >
                       Location
                     </a>
