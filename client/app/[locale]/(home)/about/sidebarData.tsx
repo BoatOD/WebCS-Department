@@ -2,18 +2,23 @@ import { SidebarProps } from "@/types/sidebar";
 
 export const sidebarItem: SidebarProps[] = [
     {
-        content: "UNDERGRADUATE PROGRAMS",
+        content: "ABOUT",
         type: "header",
 
     },
     {
-        content: "Courses",
-        href: "/academics/undergraduate/courses",
+        content: "Vision",
+        href: "/about/vision",
         type: "singleItem",
     },
     {
-        content: "Courses",
-        href: "/academics/undergraduate/courses",
+        content: "Departmental History",
+        href: "/about/departmental",
+        type: "singleItem",
+    },
+    {
+        content: "Maps And Direction",
+        href: "/about/maps",
         type: "singleItem",
     },
     
