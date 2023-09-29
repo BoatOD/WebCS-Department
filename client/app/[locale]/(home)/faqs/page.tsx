@@ -2,11 +2,64 @@
 import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
 
-import { Accordion } from 'flowbite-react';
+import data from "@/data/faqs.json"
+
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
+
+function Icon({ id, open }: { id: number; open: number }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+      className={`${id === open ? "rotate-180" : ""} h-5 w-5 transition-transform`}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+    </svg>
+  );
+}
+
+const processedData = data.map((item) => {
+  const updatedItem = { ...item }; // Create a copy of the item
+  updatedItem.answer = findLinksAndWrapInAnchorTags(item.answer); // Process the "answer" field
+  return updatedItem;
+});
+
+function findLinksAndWrapInAnchorTags(text: string): string {
+  // Regular expression to match URLs starting with "http://" or "https://"
+  const urlRegex = /https?:\/\/\S+/g;
+
+  // Find all matches in the text
+  const matches = text.match(urlRegex);
+
+  if (!matches) {
+    // If no matches found, return the original text
+    return text;
+  }
+
+  // Replace each match with an anchor tag
+  const replacedText = text.replace(urlRegex, (match) => {
+    return `<a href="${match}" target="_blank" class="underline hover:opacity-80">${match}</a>`;
+  });
+
+  return replacedText;
+}
+
+console.log(processedData);
 
 type Props = {};
 
 export default function FAQs({ }: Props) {
+
+  const [open, setOpen] = React.useState(0);
+
+  const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
 
   return (
     <>
@@ -26,127 +79,19 @@ export default function FAQs({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <Accordion collapseAll className="bg-[#F8A138] bg-opacity-70">
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    อยากสอบถามว่าหลักสูตรปัจจุบันนี้ สาขาวิทยาการคอมพิวเตอร์ ยังมีวิชาชีววิทยา 1 เคมี 1 ฟิสิกส์ 1 อยู่ไหม
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    ยังเรียนวิชาพื้นฐานเหล่านี้อยู่
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    สาขานี้สายศิลป์ภาษาพอเรียนได้ไหม
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    เรียนได้ หากมีความชอบ และพื้นฐานในด้านนี้ เพราะมีการสอบรอบที่ไม่ได้ระบุสายวิทย์เท่านั้น
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    วิชา Natural Language Processing (NLP) มีเปิดสอนให้กับนักศึกษาคณะอื่นไหม
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    หากผ่านเงื่อนไขกระบวนวิชาที่ต้องผ่านก่อน ก็สามารถเรียนได้
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    ทั้งวิทยาการคอมพิวเตอร์แล้วก็วิศวกรรมซอฟต์แวร์ของ camt สองสาขานี้ต่างกันยังไง แล้ววิทยาการคอมพิวเตอร์เรียนหรือเน้นเรื่องไหนที่ลึกกว่า วิศกรรมซอฟต์แวร์
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    <p>ต่างกันอย่างแรก คือ ค่าเทอมค่ะ</p>
-                    <ol className="list-disc pl-6 mt-1">
-                      <li className="mb-1">Computer science 18,000</li>
-                      <li className="mb-1">Software engineer 40,000</li>
-                    </ol>
-                    <br />
-                    <p>Computer Science</p>
-                    <p>
-                      <span className="ml-[1rem]">เรียนทั้ง Hardware และ Software เน้น Software ทั้งหน้าบ้านและหลังบ้าน (front end and backend) (จบแล้วทำงานได้กว้างกว่า software engineer)</span>
-                    </p>
-                    <br />
-
-                    <p>Software engineer</p>
-                    <p>
-                      <span className="ml-[1rem]">เรียนการทำ software แล้วจะเน้น management กับการทำ software เขียนโปรแกรมเป็น แต่อาจจะไม่ได้ลงลึกตรง technology</span>
-                    </p>
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    ลูกเข้าเรียนคณะนี้ต้องเตรียมตัวหรือดูรายละเอียดได้จากไหนคะ
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    เว็บไซต์ <a href='https://www.cs.science.cmu.ac.th/' className='underline'>https://www.cs.science.cmu.ac.th/</a>
-                    และเฟสบุคแฟนเพจ <a href='https://www.facebook.com/CSCMU.HS.edition' className='underline'>https://www.facebook.com/CSCMU.HS.edition</a>
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    <p>มีเรื่องสงสัยเกี่ยวรายวิชาคณิตศาสตร์ที่จะเรียนใน คณะ Com sci มช น่ะครับ อยากถามว่า</p>
-                    <ol className="list-decimal pl-6 mt-1">
-                      <li className="mb-1">Linear algebra นี้มีสอนให้กับ นักศึกษามั้ยครับผม</li>
-                      <li className="mb-1">แล้วก็ถ้าเป็นไปได้ แอดมินสามารถตอบผมได้มั้ยครับว่า รายวิชาคณิตศาสตร์ที่จะต้องเจอตอนเรียนนี้สามารถดูได้ที่ไหน</li>
-                    </ol>
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    สามารถดูรายละเอียดกระบวนวิชาที่ต้องเรียนได้ที่ <a href='https://www.cs.science.cmu.ac.th/program/' className='underline'>https://www.cs.science.cmu.ac.th/program/</a>
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    ประชาสัมพันธ์เรื่องการฝึกงาน
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    สามารถส่งรายละเอียดมาทางข้อความเพจ หรือทางอีเมล compsci@cmu.ac.th
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    อยู่สายศิลป์คำนวณแล้วผมอยากเรียน com sciecnce สามารถสมัครเข้าเรียนได่ไหม
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    เรียนได้ หากมีความชอบ และพื้นฐานในด้านนี้ เพราะมีการสอบรอบที่ไม่ได้ระบุสายวิทย์เท่านั้น
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    ปกติที่คณะมีค่าย หรือมีจัดอบรมเกี่ยวกับค่ายเขียนโปรแกรมสำหรับเด็กไหม
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    สามารถติดตามกิจกรรมสำหรับนักเรียนที่สนใจด้านคอมพิวเตอร์ได้ที่ เฟสบุคแฟนเพจ <a href='https://www.facebook.com/CSCMU.HS.edition' className='underline'>https://www.facebook.com/CSCMU.HS.edition</a>
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    ขอรายละเอียดเกี่ยวกับการย้ายคณะ
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    สามารถติดต่อสอบถามที่เบอร์ 053-943315 เพื่อสอบถามรายละเอียดที่ต้องใช้ในการย้ายคณะค่ะ
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-                <Accordion.Panel>
-                  <Accordion.Title className="text-black bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                    ขอดูแผนการเรียน
-                  </Accordion.Title>
-                  <Accordion.Content className="ml-2">
-                    สามารถดูรายละเอียดกระบวนวิชาที่ต้องเรียนได้ที่ <a href='https://www.cs.science.cmu.ac.th/program/' className='underline'>https://www.cs.science.cmu.ac.th/program/</a>
-                  </Accordion.Content>
-                </Accordion.Panel>
-
-              </Accordion>
+              {processedData.map((item, index) => (
+                <Accordion key={index + 1} open={open === index + 1} className="mb-2 rounded-lg border-[#F29D35] px-4 border-3 " icon={<Icon id={index + 1} open={open} />}>
+                  <AccordionHeader
+                    onClick={() => handleOpen(index + 1)}
+                    className="border-b-0 transition-colors font-kanit hover:opacity-80 break-words font-normal"
+                  >
+                    {item.question}
+                  </AccordionHeader>
+                  <AccordionBody className="p-2 text-base font-normal font-kanit border bg-[#FFEDD6] rounded-lg mb-4 break-words">
+                    <div dangerouslySetInnerHTML={{ __html: item.answer }} />
+                  </AccordionBody>
+                </Accordion>
+              ))}
             </div>
           </div>
         </div>
