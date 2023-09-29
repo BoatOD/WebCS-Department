@@ -11,7 +11,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 
-function Icon({ id, open }) {
+function Icon({ id, open }: { id: number; open: number }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ const processedData = data.map((item) => {
   return updatedItem;
 });
 
-function findLinksAndWrapInAnchorTags(text) {
+function findLinksAndWrapInAnchorTags(text: string): string {
   // Regular expression to match URLs starting with "http://" or "https://"
   const urlRegex = /https?:\/\/\S+/g;
 
@@ -60,7 +60,7 @@ export default function FAQs({ }: Props) {
 
   const [open, setOpen] = React.useState(0);
 
-  const handleOpen = (value) => setOpen(open === value ? 0 : value);
+  const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
 
   return (
     <>
