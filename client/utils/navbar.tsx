@@ -66,21 +66,18 @@ export const navItems: navbar[] = [
     type: "dropdown",
     options: [
       {
+        title: "Vision",
+        href: "/about/vision",
+      },
+      {
         title: "Departmental History",
         href: "/about/history",
       },
       {
-        title: "Employment & Jobs",
-        href: "/staff/supporting-staff",
-      },
-      {
         title: "Maps And Directions",
-        href: "/staff/supporting-staff",
+        href: "/about/maps",
       },
-      {
-        title: "Contacts",
-        href: "/staff/supporting-staff",
-      },
+      
     ],
   },
   {

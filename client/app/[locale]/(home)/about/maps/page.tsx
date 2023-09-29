@@ -7,14 +7,14 @@ import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {};
 
-export default function Fmap({ }: Props) {
+export default function maps({ }: Props) {
   return (
     <>
       <Banner
         imageSrc="/all_page_banner.png" // Adjust the image path for this page
         altText="Image Alt Text"
         title="COMPUTER SCIENCE"
-        subtitle="FAQs"
+        subtitle="MAPS AND DIRECTION"
       />
       <div className="flex flex-col md:flex-row mx-auto w-full max-w-screen-2xl px-[1rem] gap-[3rem]">
         <div className="w-full md:w-2/3 order-last md:order-first mx-auto">
