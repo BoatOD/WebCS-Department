@@ -24,12 +24,15 @@ import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { navItems } from "@/utils/navbar";
 import LocaleSwitcher from "./LocaleSwitcher";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 const NavbarHeader = (props: Props) => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const t = useTranslations("Navbar")
+
 
   return (
     <>
@@ -43,6 +46,10 @@ const NavbarHeader = (props: Props) => {
           <NavbarMenuToggle
             icon={<Bars3Icon className="w-auto h-auto" />}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            onChange={(isMenuOpen: any) => {
+              // Your callback logic here
+              console.log("Menu is open:", isMenuOpen);
+            }}
             className="md:hidden"
           />
           <NavbarBrand className="justify-start hidden md:flex bg-[#F4F4F4]">
@@ -91,7 +98,7 @@ const NavbarHeader = (props: Props) => {
               <NavbarMenuItem className="text-primary" key={item.title}>
                 <h4 className="text-black">{item.title}</h4>
                 <Listbox
-                  aria-label={`${item.title} list`}
+                  aria-label={`${t(item.title)} list`}
                   color="primary"
                   variant="flat"
                 >
@@ -102,7 +109,7 @@ const NavbarHeader = (props: Props) => {
                         key={value.title}
                         onPress={() => router.push(value.href ?? "#")}
                       >
-                        {value.title}
+                        {t(value.title)}
                       </ListboxItem>
                     ))
                   ) : (
@@ -117,7 +124,7 @@ const NavbarHeader = (props: Props) => {
                   href={item.href ?? "#"}
                   size="lg"
                 >
-                  {item.title}
+                  {t(item.title)}
                 </Link>
               </NavbarMenuItem>
             )
@@ -166,7 +173,7 @@ const NavbarHeader = (props: Props) => {
                       radius="sm"
                       variant="light"
                     >
-                      {item.title}
+                      {t(item.title)}
                     </Button>
                   </DropdownTrigger>
                 </NavbarItem>
@@ -184,7 +191,7 @@ const NavbarHeader = (props: Props) => {
                         aria-label={value.title}
                         onPress={() => router.push(value.href ?? "#")}
                       >
-                        {value.title}
+                        {t(value.title)}
                       </DropdownItem>
                     ))
                   ) : (
@@ -198,14 +205,14 @@ const NavbarHeader = (props: Props) => {
                   className="text-sm font-medium uppercase"
                   color="foreground"
                   href={item.href ?? "#"}
-                  aria-label={item.title}
+                  aria-label={t(item.title)}
                 >
                   <Button
                     className="px-2 py-0.5 bg-transparent data-[hover=true]:bg-[#e8e8e8] text-sm font-medium uppercase"
                     radius="sm"
                     variant="light"
                   >
-                    {item.title}
+                    {t(item.title)}
                   </Button>
                 </Link>
               </NavbarItem>
