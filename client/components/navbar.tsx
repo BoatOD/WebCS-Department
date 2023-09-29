@@ -208,7 +208,7 @@ const NavbarHeader = (props: Props) => {
                   aria-label={t(item.title)}
                 >
                   <Button
-                    className="px-2 py-0.5 bg-transparent data-[hover=true]:bg-[#e8e8e8] text-sm font-medium uppercase"
+                    className={`px-2 py-0.5 bg-transparent data-[hover=true]:bg-[#e8e8e8] text-sm font-medium ${t(item.title) === 'FAQs' ? '' : 'uppercase'}`}
                     radius="sm"
                     variant="light"
                   >

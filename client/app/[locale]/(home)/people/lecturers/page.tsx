@@ -85,10 +85,10 @@ export default function Lecturer({ }: Props) {
                       className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
                     />
                   </div>
-                  <div className="pt-1 text-center  md:text-left ">
+                  <div className="pt-1 md:text-left ">
                     <a
                       href={item.personal_web}
-                      className="block mt-1 text-sm md:text-xl leading-tight font-semibold text-slate-700 "
+                      className="block mt-1  md:text-left text-lg leading-tight font-semibold text-slate-700 "
                     >
                       {item.affiliation} <br /> {item.title}
                       {item.name} <br /> 
@@ -100,16 +100,16 @@ export default function Lecturer({ }: Props) {
                       ))}
 
                     </a>
-                    <ul className="list-none text-xs md:text-base text-slate-600 mt-3 mb-3 font-normal">
-                      <li>
-                        {item.e_affiliation} {item.e_title} &nbsp;
+                    <ul className="list-none text-left text-base text-slate-600 mt-3 mb-3 font-normal">
+                      <li >
+                        {item.e_affiliation} <br /> {item.e_title} &nbsp;
                         {item.e_name}
-                      </li>
+                      </li> 
                       {item.tel.map((tel, index) => (
                         <li key={`tel-${index}`}>Tel: {tel}</li>
                       ))}
                       {item.email.length > 0 && (
-                        <li>
+                        <li >
                           Email:{" "}
                           {item.email.map((email, index) => (
                             <span key={`email-${index}`}>
@@ -119,7 +119,7 @@ export default function Lecturer({ }: Props) {
                           ))}
                         </li>
                       )}
-                      <li>Research Interests: {item.research_interest}</li>
+                      <li >Research Interests: {item.research_interest}</li>
                     </ul>
                     {item.personal_web === "" ? (
                       <></>
@@ -127,7 +127,7 @@ export default function Lecturer({ }: Props) {
                       <>
                         <a
                           href={item.personal_web} target='_blank'
-                          className="inline-block mt-1 text-xs md:text-base leading-tight font-semibold text-slate-600 underline underline-offset-2   hover:text-slate-500"
+                          className="inline-block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2   hover:text-slate-500"
                         >
                           Personal Website
                         </a>
