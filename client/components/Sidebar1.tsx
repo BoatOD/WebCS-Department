@@ -12,7 +12,11 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams()!;
+<<<<<<< Updated upstream
   const s = useTranslations("Sidebar")
+=======
+  const t = useTranslations("Sidebar")
+>>>>>>> Stashed changes
 
   // Get a new searchParams string by merging the current
   // searchParams with a provided key/value pair
@@ -34,6 +38,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
       button: "text-2xl",
     },
   };
+  
   return (
     <>
       <Sidebar theme={customTheme} className="w-full">
@@ -53,15 +58,24 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                     }}
                     key={s(item.content)}
                   >
+<<<<<<< Updated upstream
                     <h1 className="font-bold">{s(item.content)}</h1>
+=======
+                    <h1 className="font-bold">{t(item.content)}</h1>
+>>>>>>> Stashed changes
                   </Sidebar.Item>
 
                   <div className="border-b border-black border-3 my-2"></div>
                 </>
               ) : item.type === "singleItem" ? (
                 <>
+<<<<<<< Updated upstream
                   <Sidebar.Item className="hover:bg-[#e8e8e8]" target={s(item.target)} href={s(item.href)} key={s(item.content)}>
                     <p>{s(item.content)}</p>
+=======
+                  <Sidebar.Item className="hover:bg-[#e8e8e8]" target={item.target} href={item.href} key={item.content}>
+                    <p>{t(item.content)}</p>
+>>>>>>> Stashed changes
                   </Sidebar.Item>
 
                   <div className="border-b border-black my-2"></div>
@@ -82,7 +96,11 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
                                     <>
                                       <Sidebar.Item className="hover:bg-[#e8e8e8]" target={s(value2.target)} href={s(value2.href)}>
                                         <div className="ml-2">
+<<<<<<< Updated upstream
                                           {s(value2.title)}
+=======
+                                          {t(value2.title)}
+>>>>>>> Stashed changes
                                         </div>
                                       </Sidebar.Item>
                                     </>

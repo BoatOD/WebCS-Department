@@ -37,6 +37,7 @@
     "Free Elective Courses": "Free Elective Courses",
     "Elective Courses": "Elective Courses",
     "Plan-specific Compulsory Courses": "Plan-specific Compulsory Courses",
+<<<<<<< Updated upstream
     "Regular Plan": "Regular Plan",
     "Co-Operative Education Plan": "Co-Operative Education Plan",
     "Honors Plan": "Honors Plan",
@@ -46,6 +47,9 @@
     "Technology and System Methodology": "Technology and System Methodology",
     "System of Fundamental Structure": "System of Fundamental Structure",
     "Hardware and Computer Architecture": "Hardware and Computer Architecture",
+=======
+    "Compulsory Courses": "Compulsory Courses",
+>>>>>>> Stashed changes
     "Major Elective Courses": "Major Elective Courses",
     "Minor Courses": "Minor Courses",
     "Undergraduate 59(63)": "Undergraduate 59 (63)",
@@ -68,6 +72,7 @@
     "Course 1: Basics of Cryptocurrency": "Course 1: Basics of Cryptocurrency",
     "Course 2: Robot Trading": "Course 2: Robot Trading",
     "Course 3: Crypto Investment Tips": "Course 3: Crypto Investment Tips",
+<<<<<<< Updated upstream
     "NON DEGREE": "NON DEGREE",
     "การวิเคราะห์ข้อมูลอัจฉริยะ": "INTELLIGENT DATA ANALYSIS",
     "วัตถุประสงค์ของหลักสูตร": "Course objectives",
@@ -79,5 +84,8 @@
     "PEOPLE": "PEOPLE",
     "Lecturers":"Lecturers",
     "Staffs":"Staffs"
+=======
+    "PEOPLE":"PEOPLE"
+>>>>>>> Stashed changes
   }
 }
