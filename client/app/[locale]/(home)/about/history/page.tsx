@@ -7,7 +7,7 @@ import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {};
 
-export default function FAQs({ }: Props) {
+export default function history({ }: Props) {
   return (
     <>
       <Banner
