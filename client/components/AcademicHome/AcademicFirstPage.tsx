@@ -10,23 +10,23 @@ const AcademicFirstPage = (props: Props) => {
   const t = useTranslations('AcademicHome');
   const posts: CardOfEventProps[] = [
     {
-      title: "Undergraduate",
+      title: "UNDERGRADUATE",
       content:
-        "The Computer Science Department admits students to an undergraduate program that you are guaranteed to find rigorous and dedicated to the real-world training and practical problem solving that has been the hallmark of computer science education at CMU since its inception.",
+        "The Computer Science Department at CMU offers a rigorous and practical undergraduate program focused on real-world problem solving.",
       href: "#",
       image: "/1.jpg",
     },
     {
-      title: "Master",
+      title: "MASTER",
       content:
-        "We offer three distinct master’s options for students who have completed (or will complete) a bachelor’s degree and want to extend their training in computer science. Our largest program is the M.S. in Computer Science, which allows students to work with their academic advisor to create their own course of study.",
+        "Join us to advance computer knowledge and innovation through our Master's program in computer science. Gain the skills to tackle complex tech challenges and collaborate on diverse projects with experts.",
       href: "#",
       image: "/2.jpg",
     },
     {
       title: "DOCTORAL",
       content:
-        "Chiang Mai University's Ph.D. in Computer Science is, above all, a research degree. We certify that our students have a broad foundation and awareness of core concepts in computer science, have advanced the field by performing significant original research and have reported that work in a scholarly fashion.",
+        "Computer science research is the focus. Graduates of CMU who earned doctoral degrees make contributions to the field through creative research. Their writing should be published internationally.",
       href: "#",
       image: "/3.jpg",
     },
