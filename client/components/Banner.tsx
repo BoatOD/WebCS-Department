@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import Image from "next/image";
 
 interface BannerProps {
   imageSrc: string;
@@ -42,16 +43,22 @@ function Banner({
   };
 
   return (
-    <div style={{ position: 'relative' }}>
-      <div style={{ position: 'relative' }}>
-        <img src={imageSrc} alt={altText} style={{ width: '100%' }} />
+    <div className="relative">
+      <div className="relative">
+        <Image
+          src={imageSrc}
+          alt={altText}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className='w-full' />
         <div style={bannerStyle} className="pb-5 hidden md:block">
           <p className="font-bold uppercase">{title}</p>
-          <h1 className="text-5xl font-bold uppercase">{subtitle}</h1>
+          <h1 className={`text-5xl font-bold ${subtitle === 'FAQs' ? '' : 'uppercase'}`}>{subtitle}</h1>
         </div>
         <div style={bannerStyle_m} className="pb-5 md:hidden">
           <p className="font-bold text-sm uppercase">{title}</p>
-          <h1 className="text-lg font-bold uppercase">{subtitle}</h1>
+          <h1 className={`text-5xl font-bold ${subtitle === 'FAQs' ? '' : 'uppercase'}`}>{subtitle}</h1>
         </div>
       </div>
     </div>

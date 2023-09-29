@@ -90,6 +90,22 @@ app.get('/api/undergraduate', async (req, res) => {
   }
 });
 
+app.get('/api/news_events', async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const staffCollection = db.collection('blog');
+    const news_events = await staffCollection.find({}).toArray();
+
+    res.json(news_events);
+  } catch (error) {
+    console.error('Error fetching data from MongoDB Atlas:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 app.get('/api/study_plan', async (req, res) => {
   try {
 
