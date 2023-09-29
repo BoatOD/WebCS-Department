@@ -23,16 +23,15 @@ export default function maps({ }: Props) {
           </div>
           
           <div className="p-1 pt-3 ">
-            <div className="max-w-full max-h-full justify-center">
-              <Image
-                src={"/undergraduate.jpeg" ?? "#"}
-                width="0"
-                height="0"
-                sizes="100vw"
-                alt="academic-image"
-                className="w-auto h-auto object-scale-down  "
-            />
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.8733917381746!2d98.94994537398075!3d18.803794860463988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da3a6986a44d33%3A0x26567f48ad5789ee!2z4Lig4Liy4LiE4Lin4Li04LiK4Liy4Lin4Li04LiX4Lii4Liy4LiB4Liy4Lij4LiE4Lit4Lih4Lie4Li04Lin4LmA4LiV4Lit4Lij4LmM!5e0!3m2!1sth!2sth!4v1696011869055!5m2!1sth!2sth"
+              width="100%"
+              height="450"
+              style={{ border: '0' }}
+
+              loading="lazy"
+              
+              ></iframe>
             <div className="p-5">
               
             </div>
