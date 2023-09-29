@@ -10,12 +10,13 @@ const Footer = (props: Props) => {
           <div className="grid grid-cols-1 md:grid-cols-3  gap-8 px-4 py-6 lg:py-8 ">
             <div>
               <h1 className="mb-6 text-sm font-bold text-bold uppercase dark:text-white">
-                COMPUTER SCIENCS CMU
+                COMPUTER SCIENCE CMU
               </h1>
               <ul className="dark:text-white font-medium">
                 <p>
-                  ภาควิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ มหาวิทยาลัยเชียงใหม่
-                  239 ถ. ห้วยแก้ว ต.สุเทพ อ. เมือง จ. เชียงใหม่ 50200
+                  ภาควิชาวิทยาการคอมพิวเตอร์ 
+                  <br/>  คณะวิทยาศาสตร์ มหาวิทยาลัยเชียงใหม่ 
+                  <br/> 239 ถ. ห้วยแก้ว ต.สุเทพ อ. เมือง จ. เชียงใหม่ 50200
                 </p>
                 <br></br>
                 <div className="flex md:hidden">
@@ -33,26 +34,29 @@ const Footer = (props: Props) => {
                   Social Media
                 </h2>
 
-                <li className="mb-4 flex md:hidden">
+                <li className="flex md:hidden">
                   <a
                     href="https://www.facebook.com/compscicmu/"
                     className="hover:underline"
+                    target="_blank"
                   >
                     Facebook Computer Science CMU
                   </a>
                 </li>
-                <li className="mb-4 flex md:hidden">
+                <li className="flex md:hidden">
                   <a
                     href="https://www.facebook.com/cscmuhomecoming/"
                     className="hover:underline"
+                    target="_blank"
                   >
                     Facebook Page ศิษย์เก่า
                   </a>
                 </li>
-                <li className="mb-4 flex md:hidden">
+                <li className="flex md:hidden">
                   <a
                     href="https://www.google.com/maps/d/u/0/viewer?mid=1XzZUWuQlmVJeZC2dcBxA2yKIXO8&ll=18.80376300042011%2C98.95247199999993&z=20"
                     className="hover:underline"
+                    target="_blank"
                   >
                     Location
                   </a>
@@ -78,27 +82,30 @@ const Footer = (props: Props) => {
                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                   Social Media
                 </h2>
-                <ul className="dark:text-white font-medium">
-                  <li className="mb-4">
+                <ul className="dark:text-white font-medium mb-4">
+                  <li>
                     <a
                       href="https://www.facebook.com/compscicmu/"
                       className="hover:underline"
+                      target="_blank"
                     >
                       Facebook Computer Science CMU
                     </a>
                   </li>
-                  <li className="mb-4">
+                  <li>
                     <a
                       href="https://www.facebook.com/cscmuhomecoming/"
                       className="hover:underline"
+                      target="_blank"
                     >
                       Facebook Page ศิษย์เก่า
                     </a>
                   </li>
-                  <li className="mb-4">
+                  <li>
                     <a
                       href="https://www.google.com/maps/d/u/0/viewer?mid=1XzZUWuQlmVJeZC2dcBxA2yKIXO8&ll=18.80376300042011%2C98.95247199999993&z=20"
                       className="hover:underline"
+                      target="_blank"
                     >
                       Location
                     </a>

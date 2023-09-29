@@ -2,10 +2,12 @@ import React from "react";
 import { CardOfEventProps } from "@/types/cardofevent";
 import CardForAcademic from "./CardForAcademic";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 const AcademicFirstPage = (props: Props) => {
+  const t = useTranslations('AcademicHome');
   const posts: CardOfEventProps[] = [
     {
       title: "Undergraduate",
@@ -37,7 +39,7 @@ const AcademicFirstPage = (props: Props) => {
             <div className="px-8 py-0.5 bg-black w-full "></div>
             <Link href="#">
               <p className="text-4xl font-extrabold text-gray-900 dark:text-white">
-                Academics
+              {t("title")}
               </p>
             </Link>
           </div>

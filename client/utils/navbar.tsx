@@ -42,8 +42,8 @@ export const navItems: navbar[] = [
         href: "/people/lecturers",
       },
       {
-        title: "Staff",
-        href: "/people/staff",
+        title: "Staffs",
+        href: "/people/staffs",
       }
     ],
   },

@@ -1,0 +1,12 @@
+{
+  "AcademicHome": {
+    "title": "Academics"
+  },
+  "NEWSHOME": {
+    "title": "NEWS"
+  },
+  "Navbar": {
+    "ACADEMICS": "ACADEMICS",
+    "Undergraduate": "Undergraduate"
+  }
+}

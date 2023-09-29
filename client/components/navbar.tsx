@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { navItems } from "@/utils/navbar";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 type Props = {};
 
@@ -57,10 +58,10 @@ const NavbarHeader = (props: Props) => {
             </Link>
             <Link href="/">
               <div>
-                <h2 className="font- text-base md:text-xl text-black">
+                <h2 className="font- text-base md:text-xl text-black uppercase">
                   Department of
                 </h2>
-                <h2 className="font-semibold text-base md:text-3xl text-black">
+                <h2 className="font-semibold text-base md:text-3xl text-black uppercase">
                   Computer science
                 </h2>
               </div>
@@ -70,16 +71,19 @@ const NavbarHeader = (props: Props) => {
           <NavbarBrand className="justify-center flex md:hidden bg-[#F4F4F4]">
             <Link href="/">
               <div>
-                <h2 className="font-semibold text-base sm:text-xl text-center text-black">
+                <h2 className="font-semibold text-base sm:text-xl text-center text-black uppercase">
                   Department of
                 </h2>
 
-                <h2 className="font-semibold text-base sm:text-xl text-center text-black">
+                <h2 className="font-semibold text-base sm:text-xl text-center text-black uppercase">
                   Computer science
                 </h2>
               </div>
             </Link>
           </NavbarBrand>
+          <div className="hidden md:flex">
+            <LocaleSwitcher></LocaleSwitcher>
+          </div>
         </NavbarContent>
 
         <NavbarMenu className="bg-[#F4F4F4] gap-0">
@@ -158,7 +162,7 @@ const NavbarHeader = (props: Props) => {
                     <Button
                       // disableRipple
                       className="px-2 py-0.5 bg-transparent data-[hover=true]:bg-[#e8e8e8] text-sm font-medium uppercase"
-                      endContent={<ChevronDownIcon className="w-5 h-5" />}
+                      // endContent={<ChevronDownIcon className="w-5 h-5" />}
                       radius="sm"
                       variant="light"
                     >

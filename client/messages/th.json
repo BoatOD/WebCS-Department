@@ -1,0 +1,12 @@
+{
+  "AcademicHome": {
+    "title": "วิชาการ"
+  },
+  "NEWSHOME": {
+    "title": "ข่าว"
+  },
+  "Navbar":{
+    "ACADEMICS":"วิชาการ",
+    "Undergraduate":"ป.ตรี"
+  }
+}
