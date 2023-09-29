@@ -5,7 +5,6 @@ import Banner from '@/components/Banner';
 import ResearchAccordion from "@/components/research/Accordion";
 import { ResearchAccordionProps } from "@/types/accordion";
 
-require('dotenv').config();
 type Props = {}
 
 export default function Research({ }: Props) {

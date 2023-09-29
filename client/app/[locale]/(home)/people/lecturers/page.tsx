@@ -48,6 +48,7 @@ export default function Lecturer({ }: Props) {
 
   const [data, setData] = useState<Lecturer[]>([]);
 
+
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
     fetch("https://cs-project-ime1.vercel.app/api/lecturers")
@@ -74,7 +75,7 @@ export default function Lecturer({ }: Props) {
             {data.map((item) => (
               <div key={item._id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
                 <div className="md:flex">
-                  <div className="md:shrink-0">
+                  <div className="md:shrink-0 md:justify-center sm:mr-5">
                     <Image
                       src={`/personal/lecturers${item.picture}`}
                       width="0"
@@ -84,15 +85,22 @@ export default function Lecturer({ }: Props) {
                       className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
                     />
                   </div>
-                  <div className="pl-8  pt-1 text-center md:text-left">
+                  <div className="pt-1 text-center  md:text-left ">
                     <a
                       href={item.personal_web}
-                      className="block mt-1 text-lg md:text-xl leading-tight font-semibold text-slate-700 "
+                      className="block mt-1 text-sm md:text-xl leading-tight font-semibold text-slate-700 "
                     >
-                      {item.affiliation} {item.title}
-                      {item.name} <br /> {item.position.join(" ")}
+                      {item.affiliation} <br /> {item.title}
+                      {item.name} <br /> 
+                      {item.position.map((position, index) => (
+                        <span key={`position-${index}`}>
+                          {position}
+                          {index < item.position.length - 1 && <br />}
+                        </span>
+                      ))}
+
                     </a>
-                    <ul className="list-none text-slate-600 mt-3 mb-4 text-base font-normal">
+                    <ul className="list-none text-xs md:text-base text-slate-600 mt-3 mb-3 font-normal">
                       <li>
                         {item.e_affiliation} {item.e_title} &nbsp;
                         {item.e_name}
@@ -119,7 +127,7 @@ export default function Lecturer({ }: Props) {
                       <>
                         <a
                           href={item.personal_web} target='_blank'
-                          className="inline-block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2 pt-2  hover:text-slate-500"
+                          className="inline-block mt-1 text-xs md:text-base leading-tight font-semibold text-slate-600 underline underline-offset-2   hover:text-slate-500"
                         >
                           Personal Website
                         </a>

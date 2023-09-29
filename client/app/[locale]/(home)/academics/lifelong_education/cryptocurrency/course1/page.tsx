@@ -38,7 +38,7 @@ export default function Course1({ }: Props) {
                   </tr>
                   <tr>
                     <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่องทางรับการสมัคร :</th>
-                    <td className="bg-white text-black px-6"><a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000119" className='underline'>https://www.lifelong.cmu.ac.th/courseleid.php?id=000119</a></td>
+                    <td className="bg-white text-black px-6"><a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000119" className='underline'>Click here!</a></td>
                   </tr>
                 </tbody>
               </table>

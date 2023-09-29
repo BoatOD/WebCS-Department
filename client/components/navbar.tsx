@@ -109,7 +109,7 @@ const NavbarHeader = (props: Props) => {
                         key={value.title}
                         onPress={() => router.push(value.href ?? "#")}
                       >
-                        {t(value.title)}
+                        {value.title}
                       </ListboxItem>
                     ))
                   ) : (
