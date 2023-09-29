@@ -5,7 +5,7 @@ import Banner from '@/components/Banner';
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/(home)/academics/undergraduate/sidebarData'
 
-require('dotenv').config();
+// require('dotenv').config();
 type Props = {}
 
 export default function Elective({ }: Props) {

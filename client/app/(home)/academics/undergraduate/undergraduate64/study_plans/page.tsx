@@ -7,7 +7,6 @@ import { sidebarItem } from '@/app/(home)/academics/undergraduate/sidebarData'
 
 import Tooltip from '@/components/Tooltip';
 
-require('dotenv').config();
 type Props = {};
 
 export default function Study_Plans({ }: Props) {

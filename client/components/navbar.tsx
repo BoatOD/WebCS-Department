@@ -29,6 +29,7 @@ type Props = {};
 const NavbarHeader = (props: Props) => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  // const [isBurgerOpen, setisBurgerOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -96,8 +97,7 @@ const NavbarHeader = (props: Props) => {
                       <ListboxItem
                         className="p-1"
                         key={value.title}
-                        onPress={() => router.push(value.href ?? "#")}
-                      >
+                        onPress={() => {setIsMenuOpen(false), router.push(value.href ?? "#")}}                      >
                         {value.title}
                       </ListboxItem>
                     ))

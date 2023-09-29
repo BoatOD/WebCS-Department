@@ -9,12 +9,12 @@ import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {}
 
-export default function Staff({ }: Props) {
+export default function Staffs({ }: Props) {
   const sidebarItem: SidebarProps[] = [
     {
       content: "PEOPLE",
       type: "header",
-      href: "/people/staff",
+      href: "/people/staffs",
     },
     {
       content: "Lecturers",
@@ -22,8 +22,8 @@ export default function Staff({ }: Props) {
       type: "singleItem",
     },
     {
-      content: "Staff",
-      href: "/people/staff",
+      content: "Staffs",
+      href: "/people/staffs",
       type: "singleItem",
     },
   ];
@@ -51,7 +51,7 @@ export default function Staff({ }: Props) {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("https://cs-project-ime1.vercel.app/api/staff")
+    fetch("https://cs-project-ime1.vercel.app/api/staffs")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
@@ -63,7 +63,7 @@ export default function Staff({ }: Props) {
         imageSrc="/all_page_banner.png" // Adjust the image path for this page
         altText="Image Alt Text"
         title="PEOPLE"
-        subtitle="STAFF"
+        subtitle="STAFFS"
       />
       <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
         <div className="w-full md:w-2/3 order-last md:order-first ">
@@ -86,11 +86,11 @@ export default function Staff({ }: Props) {
                     />
                   </div>
                   <div className=" pl-8 pr-8 pt-1 text-center md:text-left">
-                    <p className="block mt-1 text-xl leading-tight font-semibold text-slate-700 ">
+                    <p className="block mt-1 text-sm md:text-xl leading-tight font-semibold text-slate-700 ">
                       {item.title}{item.name} </p>
-                    <p className="block mt-1 text-xl leading-tight font-semibold text-slate-700 pb-3">
+                    <p className="block mt-1 text-sm md:text-xl leading-tight font-semibold text-slate-700 pb-2">
                       {item.position.join(' ')} </p>
-                    <ul className='list-none text-slate-600 mt-3 mb-4 text-base font-normal'>
+                    <ul className='list-none text-slate-600 mt-3 mb-4 text-xs md:text-base font-normal'>
                       {item.tel.map((tel, index) => (
                         <li key={`tel-${index}`}>Tel: {tel}</li>
                       ))}
