@@ -13,7 +13,7 @@ const AcademicFirstPage = (props: Props) => {
       title: "UNDERGRADUATE",
       content:
         "The Computer Science Department at CMU offers a rigorous and practical undergraduate program focused on real-world problem solving.",
-      href: "#",
+      href: "/academics/undergraduate",
       image: "/1.jpg",
     },
     {

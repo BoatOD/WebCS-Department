@@ -13,11 +13,11 @@ export const sidebarItem: SidebarProps[] = [
     },
     {
         content: "Departmental History",
-        href: "/about/departmental",
+        href: "/about/history",
         type: "singleItem",
     },
     {
-        content: "Maps And Direction",
+        content: "Maps and Direction",
         href: "/about/maps",
         type: "singleItem",
     },
