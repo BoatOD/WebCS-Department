@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
 
 import data from "@/data/faqs.json"
-// import { Accordion } from 'flowbite-react';
 
 import {
   Accordion,
@@ -84,7 +83,7 @@ export default function FAQs({ }: Props) {
                 <Accordion key={index + 1} open={open === index + 1} className="mb-2 rounded-lg border-[#F29D35] px-4 border-3 " icon={<Icon id={index + 1} open={open} />}>
                   <AccordionHeader
                     onClick={() => handleOpen(index + 1)}
-                    className="border-b-0 transition-colors font-kanit hover:opacity-80 break-words"
+                    className="border-b-0 transition-colors font-kanit hover:opacity-80 break-words font-normal"
                   >
                     {item.question}
                   </AccordionHeader>
