@@ -67,7 +67,7 @@ export const navItems: navbar[] = [
     options: [
       {
         title: "Departmental History",
-        href: "/staff/academic",
+        href: "/about/history",
       },
       {
         title: "Employment & Jobs",
