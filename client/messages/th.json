@@ -1,12 +1,29 @@
 {
   "AcademicHome": {
-    "title": "วิชาการ"
+    "title": "หลักสูตร"
   },
   "NEWSHOME": {
     "title": "ข่าว"
   },
-  "Navbar":{
-    "ACADEMICS":"วิชาการ",
-    "Undergraduate":"ป.ตรี"
+  "Navbar": {
+    "ACADEMICS": "หลักสูตร",
+    "Undergraduate": "ปริญญาตรี",
+    "Master": "ปริญญาโท",
+    "Doctoral": "ปริญญาเอก",
+    "Lifelong Education": "หลักสูตรการศึกษาตลอดชีวิต",
+    "Non Degree": "โครงการหลักสูตรบัณทิตพันธุ์ใหม่",
+    "RESEARCH": "หัวข้องานวิจัย",
+    "PEOPLE": "บุคลากร",
+    "Lecturers": "อาจารย์",
+    "Staffs": "พนักงาน",
+    "NEWS & EVENTS": "ข่าวสาร และ กิจกรรม",
+    "News": "ข่าวสาร",
+    "Events": "กิจกรรม",
+    "ABOUT": "เกี่ยวกับเรา",
+    "Departmental History": "ประวัติเกี่ยวกับภาควิชา",
+    "Employment & Jobs": "การจ้างงาน",
+    "Maps And Directions": "แผนที่และทิศทาง",
+    "Contacts": "ช่องทางการติดต่อ",
+    "FAQs": "คำถามที่พบบ่อย"
   }
 }

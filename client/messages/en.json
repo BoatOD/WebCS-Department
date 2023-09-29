@@ -7,6 +7,23 @@
   },
   "Navbar": {
     "ACADEMICS": "ACADEMICS",
-    "Undergraduate": "Undergraduate"
+    "Undergraduate": "Undergraduate",
+    "Master": "Master",
+    "Doctoral": "Doctoral",
+    "Lifelong Education": "Lifelong Education",
+    "Non Degree": "Non Degree",
+    "RESEARCH": "RESEARCH",
+    "PEOPLE": "PEOPLE",
+    "Lecturers": "Lecturers",
+    "Staffs": "Staffs",
+    "NEWS & EVENTS": "NEWS & EVENT",
+    "News": "News",
+    "Events": "Events",
+    "ABOUT": "ABOUT",
+    "Departmental History": "Departmental History",
+    "Employment & Jobs": "Employment & Jobs",
+    "Maps And Directions": "Maps And Directions",
+    "Contacts": "Contacts",
+    "FAQs": "FAQs"
   }
 }
