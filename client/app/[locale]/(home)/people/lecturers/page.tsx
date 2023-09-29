@@ -47,7 +47,7 @@ export default function Lecturer({ }: Props) {
   }
 
   const [data, setData] = useState<Lecturer[]>([]);
-  
+
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
@@ -90,11 +90,17 @@ export default function Lecturer({ }: Props) {
                       href={item.personal_web}
                       className="block mt-1 text-sm md:text-xl leading-tight font-semibold text-slate-700 "
                     >
-                      {item.affiliation} <br /> {item.title} 
-                      {item.name} <br /> {item.position.join('')}
-                      
+                      {item.affiliation} <br /> {item.title}
+                      {item.name} <br /> 
+                      {item.position.map((position, index) => (
+                        <span key={`position-${index}`}>
+                          {position}
+                          {index < item.position.length - 1 && <br />}
+                        </span>
+                      ))}
+
                     </a>
-                    <ul className="list-none text-xs md:text-base text-slate-600 mt-3 mb-3  font-normal">
+                    <ul className="list-none text-xs md:text-base text-slate-600 mt-3 mb-3 font-normal">
                       <li>
                         {item.e_affiliation} {item.e_title} &nbsp;
                         {item.e_name}
