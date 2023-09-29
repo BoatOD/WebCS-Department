@@ -2,7 +2,7 @@ import { SidebarProps } from "@/types/sidebar";
 
 export const sidebarItem: SidebarProps[] = [
     {
-        content: "UNDERGRADUATE PROGRAMS",
+        content: "UNDERGRADUATE",
         type: "header",
         href: "/academics/undergraduate",
     },
@@ -12,7 +12,7 @@ export const sidebarItem: SidebarProps[] = [
         type: "singleItem",
     },
     {
-        content: "Undergraduate 64+",
+        content: "Undergraduate 64",
         type: "multiItem",
         SidebarOption: [
             {
@@ -75,7 +75,7 @@ export const sidebarItem: SidebarProps[] = [
                 ],
             },
             {
-                title: "Plan-Specific Compulsory Courses",
+                title: "Plan-specific Compulsory Courses",
                 type: "Have",
                 SideBarSubOption: [
                     {
@@ -104,7 +104,7 @@ export const sidebarItem: SidebarProps[] = [
         type: "multiItem",
         SidebarOption: [
             {
-                title: "Study Plan",
+                title: "Study Plans",
                 href: "/academics/undergraduate/undergraduate63#sp",
             },
             {
@@ -160,7 +160,7 @@ export const sidebarItem: SidebarProps[] = [
                 ],
             },
             {
-                title: "Plan-Specific Compulsory Courses",
+                title: "Plan-specific Compulsory Courses",
                 type: "Have",
                 SideBarSubOption: [
                     {
