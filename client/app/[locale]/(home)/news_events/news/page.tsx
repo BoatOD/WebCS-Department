@@ -25,6 +25,9 @@ interface NewsEvent {
   formattedDate: string; // Add formattedDate property
 }
 
+
+
+
 export default function News() {
   const [data, setData] = useState<NewsEvent[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -104,7 +107,7 @@ export default function News() {
                 </div>
                 <div className="pt-1 mt-2 text-center w-full h-48 overflow-hidden md:text-left">
                   <Link href={{
-                    pathname: `/news_events/news/${item.b_id }`,
+                    pathname: `/news_events/news/${item.b_id}`,
                     // query: { id: item._id, topic: item.topic, detail: item.detail },
                   }}
                     className="hover:underline">

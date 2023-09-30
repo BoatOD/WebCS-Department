@@ -1,8 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import Image from "next/image";
 import Link from 'next/link'
 
+import OutlookCalendarInvite from '@/components/calendar/OutlookCalendarInvite';
+import ICal from '@/components/calendar/ical';
+import GoogleCalendar from '@/components/calendar/GoogleCalendar';
 type Params = {
   params: {
     id: string
@@ -27,7 +29,7 @@ interface NewsEvent {
   undertaker: string;
   formattedDate: string; // Add formattedDate property
 }
-const NewsDetail = ({ params: { id } }: Params) => {
+const EventsDetail = ({ params: { id } }: Params) => {
   const [data, setData] = useState<NewsEvent[]>([]);
   const [loading, setLoading] = useState(true); // Initialize loading state as true
 
@@ -112,8 +114,9 @@ const NewsDetail = ({ params: { id } }: Params) => {
 
   function formatDate(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',
       year: 'numeric',
-      month: 'long',
+      month: 'short',
       day: 'numeric',
     };
     return date.toLocaleDateString(undefined, options);
@@ -123,6 +126,56 @@ const NewsDetail = ({ params: { id } }: Params) => {
   const itemIndex = 0;
   const item: NewsEvent = data[itemIndex];
 
+  const outlookEventDetails = item
+    ? {
+      subject: item.topic || '',
+      location: item.location || '',
+      startDate: item.date || new Date(), // Provide a default date if item.date is falsy
+      endDate: item.date || new Date(),
+      description: item.detail.split('\n')[0] || '',
+    }
+    : {
+      subject: '',
+      location: '',
+      startDate: new Date(),
+      endDate: new Date(),
+      description: '',
+    };
+
+  const googleEventDetails = item
+    ? {
+      title: item.topic || '',
+      location: item.location || '',
+      startDate: new Date(item.date) || new Date(), // Provide a default date if item.date is falsy
+      endDate: new Date(item.date) || new Date(),
+      description: item.detail.split('\n')[0] || '',
+    }
+    : {
+      title: '',
+      location: '',
+      startDate: new Date(),
+      endDate: new Date(),
+      description: '',
+    };
+
+  const icalEventDetails = item
+    ? {
+      title: item.topic || '',
+      location: item.location || '',
+      startDate: item.date || new Date(), // Provide a default date if item.date is falsy
+      endDate: item.date || new Date(),
+      description: item.detail.split('\n')[0] || '',
+    }
+    : {
+      title: '',
+      location: '',
+      startDate: new Date(),
+      endDate: new Date(),
+      description: '',
+    };
+
+
+
   return (
     // <div className="flex justify-center items-center h-screen">
 
@@ -131,8 +184,8 @@ const NewsDetail = ({ params: { id } }: Params) => {
       <div className="flex flex-col space-y-2 mt-2 mx-10">
         <div className="px-8 py-0.5 bg-black w-full "></div>
       </div>
-      <div className="flex flex-row space-y-2 mt-2 mx-10 justify-between">
-        <h1 className='text-[#EB8E1B] text-5xl font-medium text-left'>NEWS</h1>
+      <div className="flex flex-row space-y-2 mt-2 mx-10 mb-16 justify-between">
+        <h1 className='text-[#EB8E1B] text-5xl font-medium text-left'>EVENTS</h1>
         <div className='text-right flex items-center'>
           <Link href='/news_events/news' className="mr-2 border-r-2 border-black pr-2">All news stories</Link>
           <Link href='/news_events/events'>Events</Link>
@@ -145,12 +198,6 @@ const NewsDetail = ({ params: { id } }: Params) => {
             {loading ? (
 
               <div role="status">
-                <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">
-                  <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                    <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z" />
-                    <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                  </svg>
-                </div>
                 <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
                 <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
                 <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
@@ -167,56 +214,26 @@ const NewsDetail = ({ params: { id } }: Params) => {
                 <div>
                   <h1 className='text-5xl font-medium text-left p-5 break-words'>{item.topic}</h1>
 
-                  <p className='p-5 pb-1 text-lg font-medium'>By Computer Science Department</p>
-                  <p className='pl-5'>{item.formattedDate}</p>
+                  <p className='p-5 pb-1 text-lg font-medium'>{item.formattedDate}</p>
+                  <p className='pl-5'>{item.location}</p>
 
-                  <div className="border-b border-black mt-10"></div>
+                  <div className="border-b border-black mt-5"></div>
+                  <p className='p-5 pb-1 text-lg font-medium'>Add to your calendar</p>
+                  <div className="flex space-x-4 pl-5 pb-1 text-lg font-medium">
+                    <div>
+                      <GoogleCalendar eventDetails={googleEventDetails} />
+                    </div>
+                    <div className="border-r-2 border-black mx-2"></div>
+                    <div>
+                      <ICal {...icalEventDetails} />
+                    </div>
+                    <div className="border-r-2 border-black mx-2"></div>
+                    <div>
+                      <OutlookCalendarInvite eventDetails={outlookEventDetails} />
+                    </div>
+                  </div>
 
-                  {item.picture.length === 1 ? (
-                    <div className="text-center items-center p-5">
-                      <div className="flex justify-center items-center">
-                        <Image
-                          src={`/blog${item.picture[0]}` ?? "#"}
-                          width="600"
-                          height="0"
-                          alt="news-image"
-                          className="h-auto object-none"
-                        />
-                      </div>
-                    </div>
-                  ) : item.picture.length === 2 ? (
-                    <div className="flex justify-center">
-                      {item.picture.map((pic, index) => (
-                        <div key={index} className="text-center items-center p-5 px-2">
-                          <div className="flex justify-center items-center">
-                            <Image
-                              src={`/blog${pic}` ?? "#"}
-                              width="300" // You can adjust the width as needed
-                              height="0"
-                              alt={`news-image-${index}`}
-                              className="h-auto object-none"
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="flex flex-wrap pl-5 py-5">
-                      {item.picture.map((pic, index) => (
-                        <div key={index} className="w-1/3 p-1">
-                          <div className="text-center items-center">
-                            <Image
-                              src={`/blog${pic}` ?? "#"}
-                              width="300" // You can adjust the width as needed
-                              height="0"
-                              alt={`news-image-${index}`}
-                              className="h-auto object-none"
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+
                   <div className="p-5">
                     <p className='break-words'>
                       {formatTextWithLinks(item.detail)}
@@ -237,4 +254,4 @@ const NewsDetail = ({ params: { id } }: Params) => {
   )
 }
 
-export default NewsDetail
+export default EventsDetail

@@ -1,16 +1,84 @@
-"use client";
-import React from "react";
-import Banner from "@/components/Banner";
+'use client'
+import React, { useEffect, useState } from 'react';
+import Banner from '@/components/Banner';
+import Image from 'next/image';
+import { sidebarItem } from '@/app/[locale]/(home)/news_events/sidebarData';
+import Sidebar1 from '@/components/Sidebar1';
+import Link from 'next/link'
 
-import Image from "next/image";
+interface NewsEvent {
+  _id: string;
+  b_id: number;
+  topic: string;
+  e_topic: string;
+  detail: string;
+  e_detail: string;
+  date: Date;
+  location: string;
+  e_location: string;
+  category: string;
+  nflag: boolean;
+  picture: string[];
+  eflag: boolean;
+  status: string;
+  undertaker: string;
+  formattedDate: string; // Add formattedDate property
+}
 
-import { sidebarItem } from '@/app/[locale]/(home)/news_events/sidebarData'
-import Sidebar1 from "@/components/Sidebar1";
+export default function Events() {
+  const [data, setData] = useState<NewsEvent[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3; // Number of items to display per page
 
-type Props = {};
+  useEffect(() => {
+    // Fetch data from the backend API when the component mounts
+    fetch('https://cs-project-ime1.vercel.app/api/news_events')
+      .then((response) => response.json())
+      .then((data) => {
+        // Convert date strings to Date objects and format them
+        const formattedData: NewsEvent[] = data.map((item: NewsEvent) => {
+          const date: Date = new Date(item.date);
+          const formattedDate: string = formatDate(date);
+          return { ...item, formattedDate, date };
+        });
 
-export default function Undergraduate({}: Props) {
-  
+        // Filter the array to only include items with status "coming"
+        const comingEvents = formattedData.filter((item) => item.status === 'coming');
+
+        // Sort the filtered array by date in descending order
+        const sortedData = comingEvents.sort((a, b) => b.date.getTime() - a.date.getTime());
+
+        setData(sortedData);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+
+  // Function to format a Date object
+  function formatDate(date: Date): string {
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    };
+    return date.toLocaleDateString(undefined, options);
+    // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai language
+  }
+
+
+  // Calculate the range of items to display for the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const displayedItems = data.slice(startIndex, endIndex);
+
+  // Function to handle page navigation
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  // Generate an array of page numbers based on the number of pages
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   return (
     <>
@@ -20,41 +88,89 @@ export default function Undergraduate({}: Props) {
         title="NEWS & EVENTS"
         subtitle="events"
       />
-      <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
+      <div className="flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem]">
         <div className="w-full md:w-2/3 order-last md:order-first ">
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full "></div>
           </div>
-          <div className="p-1 pt-3 ">
-            <div className="max-w-full max-h-full justify-center">
-              <Image
-                src={"/undergraduate.jpeg" ?? "#"}
-                width="0"
-                height="0"
-                sizes="100vw"
-                alt="academic-image"
-                className="w-auto h-auto object-scale-down  "
-              />
+          {displayedItems.map((item) => (
+            <div key={item.b_id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
+              <div className="md:flex bg-[#FFCB8A] rounded-2xl">
+                <div className="md:shrink-0 m-5 bg-[#FFE8CC] h-32 w-32 rounded-2xl flex flex-col items-center justify-center">
+                  <div className="text-sm uppercase">{item.date.toLocaleDateString(undefined, { weekday: 'short' })}</div>
+                  {/* 'th-TH' is the locale for Thai language */}
+                  {/* <div className="text-sm uppercase">{item.date.toLocaleDateString('th-TH', { weekday: 'long' })}</div> */}
+                  <div className='text-[#F29D35] text-5xl'>{item.date.toLocaleDateString(undefined, { day: 'numeric' })}</div>
+                </div>
+                <div className="md:flex-1 pt-1 mt-3 text-center w-full h-full overflow-hidden md:text-left">
+                  <div className="font-medium flex mt-2 justify-between">
+                    <span className="text-left uppercase">
+                      {item.formattedDate} {/* Display the formatted date */}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-left">
+                      {item.location} {/* Display the location */}
+                    </span>
+                  </div>
+                  <Link href={{ pathname: `/news_events/events/${item.b_id}` }} className="hover:underline">
+                    <div className="text-lg mt-4 font-medium">{item.topic}</div>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="border-b border-black mt-10"></div>
             </div>
-            <div className="p-5">
-              <p>
-                World-renowned for both rigor and innovation, EECS is the
-                largest undergraduate program at MIT. Our flexible curriculum
-                and inventive, hands-on approach to coursework gives students a
-                holistic view of the field, an understanding of how to solve
-                problems, and a focus on modeling and abstraction that prepares
-                them for success in a wide range of fields, from research to
-                industry and beyond. The majority of undergraduate programs in
-                EECS are administered by the EECS Undergraduate Office, who can
-                be reached at ug@eecs.mit.edu.
-              </p>
-            </div>
+          ))}
+          {/* Pagination */}
+          <div className="flex justify-end"> {/* Flex container with justify-end */}
+            <nav aria-label="Page navigation example">
+              <ul className="list-style-none flex">
+                {/* Previous Page */}
+                {currentPage > 1 && (
+                  <li>
+                    <button
+                      className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                      aria-label="Previous"
+                      onClick={() => handlePageChange(currentPage - 1)}
+                    >
+                      <span aria-hidden="true">&laquo;</span>
+                    </button>
+                  </li>
+                )}
+
+                {/* Page Numbers */}
+                {pageNumbers.map((page) => (
+                  <li key={page} aria-current="page">
+                    <button
+                      className={`relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white ${currentPage === page ? 'bg-neutral-100 dark:bg-neutral-700 dark:text-white' : ''}`}
+                      onClick={() => handlePageChange(page)}
+                    >
+                      {page}
+                    </button>
+                  </li>
+                ))}
+
+                {/* Next Page */}
+                {currentPage < totalPages && (
+                  <li>
+                    <button
+                      className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                      aria-label="Next"
+                      onClick={() => handlePageChange(currentPage + 1)}
+                    >
+                      <span aria-hidden="true">&raquo;</span>
+                    </button>
+                  </li>
+                )}
+              </ul>
+            </nav>
           </div>
+
         </div>
         <div className="w-full md:w-1/3 order-first md:order-last">
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full"></div>
-
             <Sidebar1 sidebarItem={sidebarItem}></Sidebar1>
           </div>
         </div>
