@@ -83,32 +83,80 @@ const Footer = (props: Props) => {
                   Social Media
                 </h2>
                 <ul className="dark:text-white font-medium mb-4">
-                  <li>
-                    <a
-                      href="https://www.facebook.com/compscicmu/"
-                      className="hover:underline"
-                      target="_blank"
+                <li>
+                <a
+                  href="https://www.facebook.com/compscicmu/"
+                  className="hover:underline flex items-center"
+                >
+                  <span className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 425 512"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="black"
+                      strokeWidth="30"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-6 h-6 mr-2" 
                     >
-                      Facebook Computer Science CMU
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.facebook.com/cscmuhomecoming/"
-                      className="hover:underline"
-                      target="_blank"
+                      <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z"/>
+                    </svg>
+                    Computer Science CMU
+                  </span>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.facebook.com/cscmuhomecoming/"
+                  className="hover:underline flex items-center"
+                >
+                  <span className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 425 512"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="black"
+                      strokeWidth="30"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-6 h-6 mr-2" 
                     >
-                      Facebook Page ศิษย์เก่า
-                    </a>
-                  </li>
+                      <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z"/>
+                    </svg>
+                    Facebook Page ศิษย์เก่า
+                  </span>
+                </a>
+              </li>
+
                   <li>
-                    <a
+                  <a
                       href="https://www.google.com/maps/d/u/0/viewer?mid=1XzZUWuQlmVJeZC2dcBxA2yKIXO8&ll=18.80376300042011%2C98.95247199999993&z=20"
                       className="hover:underline"
                       target="_blank"
-                    >
-                      Location
-                    </a>
+                  >
+                    <span className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 12 12"
+                        width="12"
+                        height="12"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="30"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-6 h-6 mr-2"
+                      >
+                      <path d="m6 .5c2.48528137 0 4.5 2.01471863 4.5 4.5 0 1.86262254-1.41980393 3.81485295-4.2 5.9-.17777778.1333333-.42222222.1333333-.6 0-2.78019607-2.08514705-4.2-4.03737746-4.2-5.9 0-2.48528137 2.01471863-4.5 4.5-4.5zm0 3c-.82842712 0-1.5.67157288-1.5 1.5s.67157288 1.5 1.5 1.5 1.5-.67157288 1.5-1.5-.67157288-1.5-1.5-1.5z" fill="#212121"/>
+                    </svg>
+                    Location
+                  </span>
+                  </a>
                   </li>
                 </ul>
               </div>
