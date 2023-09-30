@@ -624,11 +624,7 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
                                             colSpan={3}
                                         >
-<<<<<<< HEAD
                                             {u("title41")}
-=======
-                                            กลุ่มโครงสร้างพื้นฐานของระบบ
->>>>>>> 7b47b643abc5b285b8c237f3e4970538c2fe4ef5
                                         </th>
                                     </tr>
                                     {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "System of Fundamental Structure")
@@ -720,803 +716,734 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <p className='mb-2 mt-6 font-bold'>{u("title43")}</p>
-                            <p className='mb-2' id='rp'>{u("title44")}</p>
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                        {u("title31")}
-                                        </th>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                        {u("title32")}
-                                        </th>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                        {u("title33")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {courses.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" &&
-                                        (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 4)))
-                                        .map((courses, index) => (
-                                            <tr
-                                                key={courses._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                            <><p className='mb-2 mt-6 font-bold'>{u("title43")}</p><p className='mb-2' id='rp'>{u("title44")}</p><table className="w-full mb-14">
+                                    <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                        <tr>
+                                            <th scope="col" className="px-6 py-3 text-center">
+                                                {u("title31")}
+                                            </th>
+                                            <th scope="col" className="px-6 py-3 text-center">
+                                                {u("title32")}
+                                            </th>
+                                            <th scope="col" className="px-6 py-3 text-center">
+                                                {u("title33")}
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {courses.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" &&
+                                            (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 4)))
+                                            .map((courses, index) => (
+                                                <tr
+                                                    key={courses._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {courses.code}
+                                                        {courses.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={courses.name}
+                                                                prereq={courses.prereg}
+                                                                credit={courses.credit}
+                                                                content={courses.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {courses.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {courses.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            )
+                                            )}
+                                    </tbody>
+                                </table><p className='mb-2' id='co'>{u("title45")}</p><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-center">
+                                                    {u("title31")}
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 text-center">
+                                                    {u("title32")}
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 text-center">
+                                                    {u("title33")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {courses.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" &&
+                                                (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 5)))
+                                                .map((courses, index) => (
+                                                    <tr
+                                                        key={courses._id}
+                                                        className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                    >
+                                                        <th
+                                                            scope="row"
+                                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                        >
+                                                            {courses.code}
+                                                            {courses.overview ? (
+                                                                <Tooltip
+                                                                    position="right"
+                                                                    header={courses.name}
+                                                                    prereq={courses.prereg}
+                                                                    credit={courses.credit}
+                                                                    content={courses.overview}
+                                                                >
+                                                                    <a>Tooltip Trigger</a>
+                                                                </Tooltip>
+                                                            ) : (
+                                                                <a>No Tooltip</a>
+                                                            )}
+                                                        </th>
+                                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                            {courses.name}
+                                                        </td>
+                                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                            {courses.credit.split("(")[0]}
+                                                        </td>
+                                                    </tr>
+                                                )
+                                                )}
+                                        </tbody>
+                                    </table><p className='mb-2 mt-6 font-bold' id='me'>{u("title46")}</p><p className='mb-2'>{u("title47")}</p><ul className="list-disc pl-6 ml-5">
+                                        <li className="mb-2 text-[#FF0000]">{u("title48")}</li>
+                                    </ul><p className='mb-2'>{u("title49")}</p><ul className="list-disc pl-6 ml-5">
+                                        <li className="mb-2 text-[#FF0000]">{u("title50")}</li>
+                                    </ul><p className='mb-2 font-bold'>{u("title51")}</p><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-center">
+                                                    {u("title31")}
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 text-center">
+                                                    {u("title32")}
+                                                </th>
+                                                <th scope="col" className="px-6 py-3 text-center">
+                                                    {u("title33")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {courses.filter(courses => ((typeof courses.e_type === "string" && courses.e_type === "Major Elective Courses") ||
+                                                (Array.isArray(courses.e_type) && courses.e_type.includes("Major Elective Courses"))) &&
+                                                (Array.isArray(courses.cu_no) && courses.cu_no.some((cu) => cu === 4 || cu === 5))
+
+                                            )
+                                                .map((courses, index) => (
+                                                    <tr
+                                                        key={courses._id}
+                                                        className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                    >
+                                                        <th
+                                                            scope="row"
+                                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                        >
+                                                            {courses.code}
+                                                            {courses.overview ? (
+                                                                <Tooltip
+                                                                    position="right"
+                                                                    header={courses.name}
+                                                                    prereq={courses.prereg}
+                                                                    credit={courses.credit}
+                                                                    content={courses.overview}
+                                                                >
+                                                                    <a>Tooltip Trigger</a>
+                                                                </Tooltip>
+                                                            ) : (
+                                                                <a>No Tooltip</a>
+                                                            )}
+                                                        </th>
+                                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                            {courses.name}
+                                                        </td>
+                                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                            {courses.credit.split("(")[0]}
+                                                        </td>
+                                                    </tr>
+                                                )
+                                                )}
+                                            <tr className="bg-[#FCDCB4] text-[#FF0000] uppercase font-bold">
+                                                <td
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-left border-solid border-[#EFB770] border-1 w-1/5 "
+                                                    colSpan={3}
+                                                >
+                                                    {u("title52")}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table><h3 className='font-bold mb-2 mt-4' id='mc'>{u("title53")}</h3><p className='mb-2 text-[#FF0000]'>{u("title54")}</p><p className='mb-2 text-[#FF0000]'>{u("title55")}</p><h2 className='text-lg mb-4 font-bold' id='fe'>{u("title56")}</h2><p className='mb-2'>{u("title57")}</p><p className='mb-4 text-[#FF0000]'>{u("title58")}</p><h1 className='text-3xl font-bold mb-4' id='sp'>{u("title59")}</h1><h2 className='text-2xl font-bold mb-4'>{u("title60")}</h2><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                                    {u("title61")}
+                                                </th>
+
+                                                <th scope="col" className="px-2 py-3 text-center">
+                                                    {u("title62")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredData_1.map((studyPlan) => studyPlan.semester_1.map((course, index) => (
+                                                <tr
+                                                    key={course._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {course.code}
+                                                        {course.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={course.name}
+                                                                prereq={course.prereg}
+                                                                credit={course.credit}
+                                                                content={course.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {course.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {course.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                            )}
+                                        </tbody>
+                                    </table><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                                    {u("title63")}
+                                                </th>
+
+                                                <th scope="col" className="px-2 py-3 text-center">
+                                                    {u("title64")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredData_1.map((studyPlan) => studyPlan.semester_2.map((course, index) => (
+                                                <tr
+                                                    key={course._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {course.code}
+                                                        {course.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={course.name}
+                                                                prereq={course.prereg}
+                                                                credit={course.credit}
+                                                                content={course.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {course.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {course.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                            )}
+                                        </tbody>
+                                    </table><div className="border-[#857D7D] border-2 my-2"></div><h2 className='text-2xl font-bold mb-4 mt-4'>{u("title65")}</h2><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                                    {u("title61")}
+                                                </th>
+
+                                                <th scope="col" className="px-2 py-3 text-center">
+                                                    {u("title66")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredData_2.map((studyPlan) => studyPlan.semester_1.map((course, index) => (
+                                                <tr
+                                                    key={course._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {course.code}
+                                                        {course.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={course.name}
+                                                                prereq={course.prereg}
+                                                                credit={course.credit}
+                                                                content={course.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {course.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {course.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                            )}
+                                            <tr className="bg-[#FFEDD6] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {courses.code}
-                                                    {courses.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={courses.name}
-                                                            prereq={courses.prereg}
-                                                            credit={courses.credit}
-                                                            content={courses.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    ******
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {courses.name}
+                                                    {u("title67")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {courses.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        )
-                                        )}
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                                    {u("title63")}
+                                                </th>
 
-                            <p className='mb-2' id='co'>{u("title45")}</p>
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                            {u("title31")}
-                                        </th>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                            {u("title32")}
-                                        </th>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                            {u("title33")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {courses.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" &&
-                                        (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 5)))
-                                        .map((courses, index) => (
-                                            <tr
-                                                key={courses._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                                <th scope="col" className="px-2 py-3 text-center">
+                                                    {u("title66")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredData_2.map((studyPlan) => studyPlan.semester_2.map((course, index) => (
+                                                <tr
+                                                    key={course._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {course.code}
+                                                        {course.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={course.name}
+                                                                prereq={course.prereg}
+                                                                credit={course.credit}
+                                                                content={course.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {course.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {course.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                            )}
+                                            <tr className="bg-[#FFEDD6] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {courses.code}
-                                                    {courses.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={courses.name}
-                                                            prereq={courses.prereg}
-                                                            credit={courses.credit}
-                                                            content={courses.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {courses.name}
+                                                    {u("title69")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {courses.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        )
-                                        )}
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table><div className="border-[#857D7D] border-2 my-2"></div><h3 className='text-xl font-bold mb-4 mt-4'>{u("title70")}</h3><h2 className='text-2xl font-bold mb-4 mt-4'>{u("title71")}</h2><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                                    {u("title61")}
+                                                </th>
 
-                            <p className='mb-2 mt-6 font-bold' id='me'>{u("title46")}</p>
-                            <p className='mb-2'>{u("title47")}</p>
-                            <ul className="list-disc pl-6 ml-5">
-                                <li className="mb-2 text-[#FF0000]">{u("title48")}</li>
-                            </ul>
-
-                            <p className='mb-2'>{u("title49")}</p>
-                            <ul className="list-disc pl-6 ml-5">
-                                <li className="mb-2 text-[#FF0000]">{u("title50")}</li>
-                            </ul>
-                            <p className='mb-2 font-bold'>{u("title51")}</p>
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                        {u("title31")}
-                                        </th>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                        {u("title32")}
-                                        </th>
-                                        <th scope="col" className="px-6 py-3 text-center">
-                                        {u("title33")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {courses.filter(courses =>
-                                        ((typeof courses.e_type === "string" && courses.e_type === "Major Elective Courses") ||
-                                            (Array.isArray(courses.e_type) && courses.e_type.includes("Major Elective Courses"))) &&
-                                        (Array.isArray(courses.cu_no) && courses.cu_no.some((cu) => cu === 4 || cu === 5))
-
-                                    )
-                                        .map((courses, index) => (
-                                            <tr
-                                                key={courses._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                                <th scope="col" className="px-2 py-3 text-center">
+                                                    {u("title66")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredData_3.map((studyPlan) => studyPlan.semester_1.map((course, index) => (
+                                                <tr
+                                                    key={course._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {course.code}
+                                                        {course.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={course.name}
+                                                                prereq={course.prereg}
+                                                                credit={course.credit}
+                                                                content={course.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {course.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {course.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                            )}
+                                            <tr className="bg-[#FCDCB4] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {courses.code}
-                                                    {courses.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={courses.name}
-                                                            prereq={courses.prereg}
-                                                            credit={courses.credit}
-                                                            content={courses.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {courses.name}
+                                                    {u("title69")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {courses.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        )
-                                        )}
-                                    <tr className="bg-[#FCDCB4] text-[#FF0000] uppercase font-bold">
-                                        <td
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-left border-solid border-[#EFB770] border-1 w-1/5 "
-                                            colSpan={3}
-                                        >
-                                            {u("title52")}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <h3 className='font-bold mb-2 mt-4' id='mc'>{u("title53")}</h3>
-                            <p className='mb-2 text-[#FF0000]'>{u("title54")}</p>
-                            <p className='mb-2 text-[#FF0000]'>{u("title55")}</p>
-                            <h2 className='text-lg mb-4 font-bold' id='fe'>{u("title56")}</h2>
-                            <p className='mb-2'>{u("title57")}</p>
-                            <p className='mb-4 text-[#FF0000]'>{u("title58")}</p>
-
-                            <h1 className='text-3xl font-bold mb-4' id='sp'>{u("title59")}</h1>
-                            <h2 className='text-2xl font-bold mb-4'>{u("title60")}</h2>
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                        {u("title61")}
-                                        </th>
-
-                                        <th scope="col" className="px-2 py-3 text-center">
-                                        {u("title62")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData_1.map((studyPlan) =>
-                                        studyPlan.semester_1.map((course, index) => (
-                                            <tr
-                                                key={course._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                            <tr className="bg-[#FFEDD6] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
-                                                    {course.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={course.name}
-                                                            prereq={course.prereg}
-                                                            credit={course.credit}
-                                                            content={course.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    ******
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                    {u("title72")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {course.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        ))
-                                    )}
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                                    {u("title63")}
+                                                </th>
 
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                        {u("title63")}
-                                        </th>
-
-                                        <th scope="col" className="px-2 py-3 text-center">
-                                        {u("title64")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData_1.map((studyPlan) =>
-                                        studyPlan.semester_2.map((course, index) => (
-                                            <tr
-                                                key={course._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                                <th scope="col" className="px-2 py-3 text-center">
+                                                    {u("title64")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredData_3.map((studyPlan) => studyPlan.semester_2.map((course, index) => (
+                                                <tr
+                                                    key={course._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {course.code}
+                                                        {course.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={course.name}
+                                                                prereq={course.prereg}
+                                                                credit={course.credit}
+                                                                content={course.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {course.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {course.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                            )}
+                                            <tr className="bg-[#FFEDD6] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
-                                                    {course.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={course.name}
-                                                            prereq={course.prereg}
-                                                            credit={course.credit}
-                                                            content={course.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    ******
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                    {u("title73")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {course.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        ))
-                                    )}
-                                </tbody>
-                            </table>
-                            <div className="border-[#857D7D] border-2 my-2"></div>
-
-                            <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title65")}</h2>
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                        {u("title61")}
-                                        </th>
-
-                                        <th scope="col" className="px-2 py-3 text-center">
-                                        {u("title66")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData_2.map((studyPlan) =>
-                                        studyPlan.semester_1.map((course, index) => (
-                                            <tr
-                                                key={course._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                            <tr className="bg-[#FCDCB4] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
-                                                    {course.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={course.name}
-                                                            prereq={course.prereg}
-                                                            credit={course.credit}
-                                                            content={course.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    ******
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                    {u("title74")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {course.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        ))
-                                    )}
-                                    <tr className="bg-[#FFEDD6] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            ******
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title67")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                        {u("title63")}
-                                        </th>
-
-                                        <th scope="col" className="px-2 py-3 text-center">
-                                        {u("title66")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData_2.map((studyPlan) =>
-                                        studyPlan.semester_2.map((course, index) => (
-                                            <tr
-                                                key={course._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                            <tr className="bg-[#FFEDD6] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
-                                                    {course.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={course.name}
-                                                            prereq={course.prereg}
-                                                            credit={course.credit}
-                                                            content={course.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                    {u("title69")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {course.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        ))
-                                    )}
-                                    <tr className="bg-[#FFEDD6] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title69")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div className="border-[#857D7D] border-2 my-2"></div>
-
-                            <h3 className='text-xl font-bold mb-4 mt-4'>{u("title70")}</h3>
-                            <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title71")}</h2>
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                        {u("title61")}
-                                        </th>
-
-                                        <th scope="col" className="px-2 py-3 text-center">
-                                        {u("title66")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData_3.map((studyPlan) =>
-                                        studyPlan.semester_1.map((course, index) => (
-                                            <tr
-                                                key={course._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                            <tr className="bg-[#FCDCB4] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
-                                                    {course.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={course.name}
-                                                            prereq={course.prereg}
-                                                            credit={course.credit}
-                                                            content={course.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    ******
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                    {u("title67")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {course.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        ))
-                                    )}
-                                    <tr className="bg-[#FCDCB4] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title69")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-[#FFEDD6] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            ******
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title72")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            {u("title68")}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table><div className="border-[#857D7D] border-2 my-2"></div><h2 className='text-2xl font-bold mb-4 mt-4'>{u("title75")}</h2><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                                    {u("title61")}
+                                                </th>
 
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                        {u("title63")}
-                                        </th>
-
-                                        <th scope="col" className="px-2 py-3 text-center">
-                                        {u("title64")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData_3.map((studyPlan) =>
-                                        studyPlan.semester_2.map((course, index) => (
-                                            <tr
-                                                key={course._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                                <th scope="col" className="px-2 py-3 text-center">
+                                                    {u("title76")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredData_4.map((studyPlan) => studyPlan.semester_1.map((course, index) => (
+                                                <tr
+                                                    key={course._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {course.code}
+                                                        {course.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={course.name}
+                                                                prereq={course.prereg}
+                                                                credit={course.credit}
+                                                                content={course.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {course.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {course.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                            )}
+                                            <tr className="bg-[#FCDCB4] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
-                                                    {course.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={course.name}
-                                                            prereq={course.prereg}
-                                                            credit={course.credit}
-                                                            content={course.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    ******
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                    {u("title74")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {course.credit.split("(")[0]}
+                                                    {u("title77")}
                                                 </td>
                                             </tr>
-                                        ))
-                                    )}
-                                    <tr className="bg-[#FFEDD6] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            ******
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title73")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-[#FCDCB4] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            ******
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title74")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-[#FFEDD6] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title69")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            {u("title68")}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-[#FCDCB4] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            ******
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title67")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div className="border-[#857D7D] border-2 my-2"></div>
-
-                            <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title75")}</h2>
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                        {u("title61")}
-                                        </th>
-
-                                        <th scope="col" className="px-2 py-3 text-center">
-                                        {u("title76")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData_4.map((studyPlan) =>
-                                        studyPlan.semester_1.map((course, index) => (
-                                            <tr
-                                                key={course._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                            <tr className="bg-[#FFEDD6] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
-                                                    {course.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={course.name}
-                                                            prereq={course.prereg}
-                                                            credit={course.credit}
-                                                            content={course.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                    {u("title69")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {course.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        ))
-                                    )}
-                                    <tr className="bg-[#FCDCB4] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            ******
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title74")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title77")}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-[#FFEDD6] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title69")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table><table className="w-full mb-14">
+                                        <thead className="text-lg text-black uppercase bg-[#F29D35]">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                                    {u("title63")}
+                                                </th>
 
-                            <table className="w-full mb-14">
-                                <thead className="text-lg text-black uppercase bg-[#F29D35]">
-                                    <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                        {u("title63")}
-                                        </th>
-
-                                        <th scope="col" className="px-2 py-3 text-center">
-                                        {u("title76")}
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {filteredData_4.map((studyPlan) =>
-                                        studyPlan.semester_2.map((course, index) => (
-                                            <tr
-                                                key={course._id}
-                                                className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"
-                                                    } text-black`}
-                                            >
+                                                <th scope="col" className="px-2 py-3 text-center">
+                                                    {u("title76")}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {filteredData_4.map((studyPlan) => studyPlan.semester_2.map((course, index) => (
+                                                <tr
+                                                    key={course._id}
+                                                    className={`${index % 2 === 0 ? "bg-[#FCDCB4]" : "bg-[#FFEDD6]"} text-black`}
+                                                >
+                                                    <th
+                                                        scope="row"
+                                                        className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    >
+                                                        {course.code}
+                                                        {course.overview ? (
+                                                            <Tooltip
+                                                                position="right"
+                                                                header={course.name}
+                                                                prereq={course.prereg}
+                                                                credit={course.credit}
+                                                                content={course.overview}
+                                                            >
+                                                                <a>Tooltip Trigger</a>
+                                                            </Tooltip>
+                                                        ) : (
+                                                            <a>No Tooltip</a>
+                                                        )}
+                                                    </th>
+                                                    <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                        {course.name}
+                                                    </td>
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                        {course.credit.split("(")[0]}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                            )}
+                                            <tr className="bg-[#FFEDD6] text-black">
                                                 <th
                                                     scope="row"
                                                     className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
-                                                    {course.overview ? (
-                                                        <Tooltip
-                                                            position="right"
-                                                            header={course.name}
-                                                            prereq={course.prereg}
-                                                            credit={course.credit}
-                                                            content={course.overview}
-                                                        >
-                                                            <a>Tooltip Trigger</a>
-                                                        </Tooltip>
-                                                    ) : (
-                                                        <a>No Tooltip</a>
-                                                    )}
+                                                    ******
                                                 </th>
                                                 <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                    {u("title74")}
                                                 </td>
                                                 <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                                    {course.credit.split("(")[0]}
+                                                    {u("title68")}
                                                 </td>
                                             </tr>
-                                        ))
-                                    )}
-                                    <tr className="bg-[#FFEDD6] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            ******
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title74")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-[#FCDCB4] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title69")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                    <tr className="bg-[#FFEDD6] text-black">
-                                        <th
-                                            scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
-                                        >
-                                            ******
-                                        </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                        {u("title72")}
-                                        </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                        {u("title68")}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div className="border-[#857D7D] border-2 my-2"></div>
-
-                            <h3 className='text-xl font-bold mb-4 mt-4'>{u("title78")}</h3>
+                                            <tr className="bg-[#FCDCB4] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {u("title69")}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {u("title68")}
+                                                </td>
+                                            </tr>
+                                            <tr className="bg-[#FFEDD6] text-black">
+                                                <th
+                                                    scope="row"
+                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                >
+                                                    ******
+                                                </th>
+                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    {u("title72")}
+                                                </td>
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    {u("title68")}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table><div className="border-[#857D7D] border-2 my-2"></div><h3 className='text-xl font-bold mb-4 mt-4'>{u("title78")}</h3></>
                             {/* แก้ สีหัวตาราง */}
                             <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title71")}</h2>
                             <table className="w-full mb-14">
