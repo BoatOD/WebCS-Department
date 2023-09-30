@@ -1,5 +1,4 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { NewsandEventProp } from "@/types/newsandevent";
 
 
 export default function NewsForm({ data }: { data: NewsandEventProp[] }) {
