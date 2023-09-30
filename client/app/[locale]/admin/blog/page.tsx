@@ -24,7 +24,7 @@ interface NewsEvent {
   formattedDate: string; // Add formattedDate property
 }
 
-export default function page() {
+export default function Page() {
   const [data, setData] = useState<NewsEvent[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;

@@ -8,7 +8,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { HiPencilAlt } from "react-icons/hi";
 
-export default function page() {
+export default function Page() {
   const [data, setData] = useState<PeopleProps[]>([]);
 
   useEffect(() => {
