@@ -50,13 +50,17 @@ export default function News() {
       .catch((error) => console.error(error));
   }, []);
 
-  // Function to format a Date object as "dd/mm/yyyy"
+  // Function to format a Date object
   function formatDate(date: Date): string {
-    const day: string = String(date.getDate()).padStart(2, '0');
-    const month: string = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-    const year: number = date.getFullYear();
-    return `${day}/${month}/${year}`;
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    return date.toLocaleDateString(undefined, options);
+    // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai language
   }
+
 
   // Calculate the range of items to display for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
