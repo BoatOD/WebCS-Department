@@ -45,8 +45,11 @@ export default function News() {
           return { ...item, formattedDate, date };
         });
 
+        // Filter the array to only include items with status "pass"
+        const passEvents = formattedData.filter((item) => item.status === 'pass');
+
         // Sort the array by date in descending order
-        const sortedData = formattedData.sort((a, b) => b.date.getTime() - a.date.getTime());
+        const sortedData = passEvents.sort((a, b) => b.date.getTime() - a.date.getTime());
 
         setData(sortedData);
       })

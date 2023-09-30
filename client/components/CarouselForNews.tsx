@@ -22,16 +22,16 @@ const CarouselForNews = ({ images }: { images: CarouselProps[] }) => {
     >
       {images.map((item, index) => (
         <SwiperSlide key={index}>
-          <Link key={index} href={item.href ?? "#"}>
+          <Link key={index} href={item.href ?? "#"} target="_blank">
             <div className="relative h-[28rem] flex-[0_0_100%] " key={index}>
               <Image
-                src={item.images}
+                src={`/blog${item.images}`}
                 fill
-                className="w-auto h-auto  rounded-lg sm:h-52"
-                alt="asdasdasdasdad"
+                className="w-auto rounded-lg h-52 object-cover"
+                alt=""
               />
-              <div className="absolute bottom-0 px-4 py-3 bg-[#000000] w-full">
-                <h1 className="text-white font-semibold text-lg">
+              <div className="absolute bottom-0 px-4 py-3 bg-black bg-opacity-80 w-full">
+                <h1 className="text-white font-medium text-xl">
                   {item.title}
                 </h1>
                 <p className="text-gray-200 pr-9 text-base">{item.content}</p>

@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Banner from '@/components/Banner';
-import Image from 'next/image';
 import { sidebarItem } from '@/app/[locale]/(home)/news_events/sidebarData';
 import Sidebar1 from '@/components/Sidebar1';
 import Link from 'next/link'
