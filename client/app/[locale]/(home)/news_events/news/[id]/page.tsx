@@ -131,7 +131,7 @@ const NewsDetail = ({ params: { id } }: Params) => {
       <div className="flex flex-col space-y-2 mt-2 mx-10">
         <div className="px-8 py-0.5 bg-black w-full "></div>
       </div>
-      <div className="flex flex-row space-y-2 mt-2 mx-10 justify-between">
+      <div className="flex flex-row space-y-2 mt-2 mx-10 mb-16 justify-between">
         <h1 className='text-[#EB8E1B] text-5xl font-medium text-left'>NEWS</h1>
         <div className='text-right flex items-center'>
           <Link href='/news_events/news' className="mr-2 border-r-2 border-black pr-2">All news stories</Link>
@@ -165,10 +165,10 @@ const NewsDetail = ({ params: { id } }: Params) => {
             ) : (
               item ? (
                 <div>
-                  <h1 className='text-5xl font-medium text-left p-5 break-words'>{item.topic}</h1>
+                  <h1 className='text-5xl font-medium text-left p-5 break-words leading-relaxed sm:leading-tight'>{item.topic}</h1>
 
                   <p className='p-5 pb-1 text-lg font-medium'>By Computer Science Department</p>
-                  <p className='pl-5'>{item.formattedDate}</p>
+                  <p className='pl-5 '>{item.formattedDate}</p>
 
                   <div className="border-b border-black mt-10"></div>
 
@@ -180,7 +180,7 @@ const NewsDetail = ({ params: { id } }: Params) => {
                           width="600"
                           height="0"
                           alt="news-image"
-                          className="h-auto object-none"
+                          className="h-auto object-cover"
                         />
                       </div>
                     </div>
@@ -194,7 +194,7 @@ const NewsDetail = ({ params: { id } }: Params) => {
                               width="300" // You can adjust the width as needed
                               height="0"
                               alt={`news-image-${index}`}
-                              className="h-auto object-none"
+                              className="h-auto object-cover"
                             />
                           </div>
                         </div>
@@ -210,7 +210,7 @@ const NewsDetail = ({ params: { id } }: Params) => {
                               width="300" // You can adjust the width as needed
                               height="0"
                               alt={`news-image-${index}`}
-                              className="h-auto object-none"
+                              className="h-auto object-cover"
                             />
                           </div>
                         </div>

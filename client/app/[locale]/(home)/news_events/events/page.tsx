@@ -95,14 +95,12 @@ export default function Events() {
           </div>
           {displayedItems.map((item) => (
             <div key={item.b_id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
-              <div className="md:flex bg-[#FFCB8A] rounded-2xl">
-                <div className="md:shrink-0 m-5 bg-[#FFE8CC] h-32 w-32 rounded-2xl flex flex-col items-center justify-center">
-                  <div className="text-sm uppercase">{item.date.toLocaleDateString(undefined, { weekday: 'short' })}</div>
-                  {/* 'th-TH' is the locale for Thai language */}
-                  {/* <div className="text-sm uppercase">{item.date.toLocaleDateString('th-TH', { weekday: 'long' })}</div> */}
-                  <div className='text-[#F29D35] text-5xl'>{item.date.toLocaleDateString(undefined, { day: 'numeric' })}</div>
+              <div className="flex bg-[#FFCB8A] rounded-2xl">
+                <div className="md:shrink-0 m-5 bg-[#FFE8CC] h-16 md:h-32 w-20 md:w-32 rounded-2xl flex flex-col items-center justify-center">
+                  <div className="text-xs md:text-sm uppercase">{item.date.toLocaleDateString(undefined, { weekday: 'short' })}</div>
+                  <div className='text-[#F29D35] text-2xl md:text-5xl'>{item.date.toLocaleDateString(undefined, { day: 'numeric' })}</div>
                 </div>
-                <div className="md:flex-1 pt-1 mt-3 text-center w-full h-full overflow-hidden md:text-left">
+                <div className="md:flex-1 pt-1 mt-3 text-center w-full h-full overflow-hidden mr-3 md:mr-0">
                   <div className="font-medium flex mt-2 justify-between">
                     <span className="text-left uppercase">
                       {item.formattedDate} {/* Display the formatted date */}
@@ -114,11 +112,12 @@ export default function Events() {
                     </span>
                   </div>
                   <Link href={{ pathname: `/news_events/events/${item.b_id}` }} className="hover:underline">
-                    <div className="text-lg mt-4 font-medium">{item.topic}</div>
+                    <div className="text-lg mt-4 font-medium text-left">
+                      {item.topic}
+                    </div>
                   </Link>
                 </div>
               </div>
-
               <div className="border-b border-black mt-10"></div>
             </div>
           ))}

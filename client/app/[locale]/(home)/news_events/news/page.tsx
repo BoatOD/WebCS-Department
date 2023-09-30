@@ -92,6 +92,7 @@ export default function News() {
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full "></div>
           </div>
+
           {displayedItems.map((item) => (
             <div key={item.b_id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
               <div className="md:flex">
@@ -105,7 +106,7 @@ export default function News() {
                     className="object-cover h-52 ml-auto mr-auto md:flex"
                   />
                 </div>
-                <div className="pt-1 mt-2 text-center w-full h-48 overflow-hidden md:text-left">
+                <div className="pt-1 mt-2 w-full h-48 overflow-hidden text-left">
                   <Link href={{
                     pathname: `/news_events/news/${item.b_id}`,
                     // query: { id: item._id, topic: item.topic, detail: item.detail },
@@ -134,6 +135,7 @@ export default function News() {
               <div className="border-b border-black mt-10"></div>
             </div>
           ))}
+
           {/* Pagination */}
           <div className="flex justify-end"> {/* Flex container with justify-end */}
             <nav aria-label="Page navigation example">
