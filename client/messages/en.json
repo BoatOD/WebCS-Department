@@ -137,6 +137,20 @@
     "title5":"- Students are required to take a minimum of 15 credits of Computer Science courses at 300 or 400 level.",
     "title6":"List of available minor subjects"
   },
+  "Research":{
+    "title0":"Description: ",
+    "title1":"Researcher: ",
+    "Augmented / Virtual reality":"Augmented/Virtual reality",
+    "Bioinformatics":"Bioinformatics",
+    "Blockchain":"Blockchain",
+    "Computational Astronomy":"Computational Astronomy",
+    "Computer Vision":"Computer Vision",
+    "Health informatics":"Health informatics",
+    "Human Computer Interaction":"Human Computer Interaction",
+    "Machine learning":"Machine learning",
+    "Medical informatics":"Medical informatics",
+    "Next generation computer network":"Next generation computer network"
+  },
   "Undergraduate63":{
     "title0":"UNDERGRADUATE PROGRAMS (63)",
     "title1":"Degree Name",
