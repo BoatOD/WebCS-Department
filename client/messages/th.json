@@ -135,6 +135,20 @@
     "title5":"- เลือกเรียนวิชาเอกเลือกระดับ 300 หรือ 400 เพิ่มไม่น้อยกว่า 15 หน่วยกิต",
     "title6":"รายชื่อวิชาโทที่เปิดสอน"
   },
+  "Research":{
+    "title0":"คำอธิบาย: ",
+    "title1":"นักวิจัย: ",
+    "Augmented / Virtual reality":"ความเป็นจริงเสริมและความจริงเสมือน",
+    "Bioinformatics":"ชีวสารสนเทศศาสตร์",
+    "Blockchain":"บล็อกเชน",
+    "Computational Astronomy":"ดาราศาสตร์เชิงคอมพิวเตอร์",
+    "Computer Vision":"คอมพิวเตอร์วิทัศน์",
+    "Health informatics":"สนเทศศาสตร์สุขภาพ",
+    "Human Computer Interaction":"อันตรกิริยาระหว่างมนุษย์กับคอมพิวเตอร์",
+    "Machine learning":"การเรียนรู้ของเครื่อง",
+    "Medical informatics":"สนเทศศาสตร์การแพทย์",
+    "Next generation computer network":"เครือข่ายคอมพิวเตอร์รุ่นถัดไป"
+  },
   "Undergraduate63":{
     "title0":"(ปริญญาตรี) หลักสูตรสำหรับนักศึกษารหัส 63",
     "title1":"ชื่อปริญญา",

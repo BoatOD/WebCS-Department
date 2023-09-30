@@ -2,24 +2,25 @@
 
 import { ResearchAccordionProps } from "@/types/accordion";
 import { Accordion } from 'flowbite-react';
+import { useTranslations } from "next-intl";
 
 const ResearchAccordion = ({ data }: { data: ResearchAccordionProps[] }) => {
 
-    
+    const r = useTranslations("Research");
     return (
         <Accordion collapseAll className="bg-[#F8A138] bg-opacity-70">
             {data.map((item, index) => (
                 <Accordion.Panel key={index}>
                     <Accordion.Title className="text-black font-bold bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                        {item.topic}
+                        {r(item.topic)}
                     </Accordion.Title>
                     <Accordion.Content>
                         <div className="mb-2">
-                            <span className="font-bold">Description: </span>
+                            <span className="font-bold">{r("title0")}</span>
                             <span>{item.description}</span>
                         </div>
                         <div className="mb-2">
-                            <span className="font-bold">Researcher: </span>
+                            <span className="font-bold">{r("title1")}</span>
                             <span>
                                 {item.researchers.length === 1 ? (
                                     <a
