@@ -1,7 +1,25 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
+interface NewsEvent {
+    _id: string;
+    b_id: number;
+    topic: string;
+    e_topic: string;
+    detail: string;
+    e_detail: string;
+    date: Date;
+    location: string;
+    e_location: string;
+    category: string;
+    nflag: boolean;
+    picture: string[];
+    eflag: boolean;
+    status: string;
+    undertaker: string;
+    formattedDate: string; // Add formattedDate property
+  }
 
-export default function NewsForm({ data }: { data: NewsandEventProp[] }) {
+export default function NewsForm({ data }: { data: NewsEvent[] }) {
     console.log("This is data : ")
     console.log(data)
 
