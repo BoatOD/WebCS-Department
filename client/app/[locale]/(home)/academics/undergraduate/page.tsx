@@ -38,15 +38,7 @@ export default function Undergraduate({}: Props) {
             </div>
             <div className="p-5">
               <p>
-                World-renowned for both rigor and innovation, EECS is the
-                largest undergraduate program at MIT. Our flexible curriculum
-                and inventive, hands-on approach to coursework gives students a
-                holistic view of the field, an understanding of how to solve
-                problems, and a focus on modeling and abstraction that prepares
-                them for success in a wide range of fields, from research to
-                industry and beyond. The majority of undergraduate programs in
-                EECS are administered by the EECS Undergraduate Office, who can
-                be reached at ug@eecs.mit.edu.
+              "The Computer Science Department at CMU offers a rigorous and practical undergraduate program focused on real-world problem solving."
               </p>
             </div>
           </div>

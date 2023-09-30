@@ -74,8 +74,8 @@ export const navItems: navbar[] = [
         href: "/about/history",
       },
       {
-        title: "Maps and Directions",
-        href: "/about/maps",
+        title: "Contact",
+        href: "/about/contact",
       },
       
     ],

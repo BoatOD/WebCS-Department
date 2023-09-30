@@ -75,7 +75,7 @@ export default function FAQs({ }: Props) {
             <div className="px-8 py-0.5 bg-black w-20pc"></div>
           </div>
           <div className='text-2xl text-center font-bold mt-5'>
-            how can we help you?
+            How can we help you?
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">

@@ -623,7 +623,7 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
                                             colSpan={3}
                                         >
-                                            กลุ่มเทคโนโลยีและวิธีการทางซอฟต์แวร์
+                                            กลุ่มโครงสร้างพื้นฐานของระบบ
                                         </th>
                                     </tr>
                                     {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "System of Fundamental Structure")

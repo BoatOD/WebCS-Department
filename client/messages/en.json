@@ -22,7 +22,7 @@
     "ABOUT": "ABOUT",
     "Vision": "Vision",
     "Departmental History": "Departmental History",
-    "Maps and Directions": "Maps and Directions",
+    "Contact": "Contact",
     "FAQs": "FAQs"
   },
   "Sidebar": {
@@ -76,12 +76,15 @@
     "การสมัครและเอกสารที่ใช้": "Application and supporting papers",
     "วิธีจัดการเรียนการสอนกระบวนวิชา": "How to structure course instruction",
     "แผนการศึกษาn": "Study plan",
+    "NEWS & EVENTS": "NEWS & EVENTS",
+    "News": "News",
+    "Events": "Events",
     "PEOPLE": "PEOPLE",
     "Lecturers":"Lecturers",
     "Staffs":"Staffs",
     "ABOUT": "ABOUT",
     "Vision": "Vision",
     "Departmental History": "Departmental History",
-    "Maps and Directions": "Maps and Directions"
+    "Contact": "Contact"
   }
 }
