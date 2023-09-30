@@ -89,7 +89,7 @@ export function SidebarWithCta() {
                 <ListItemPrefix>
                   <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                 </ListItemPrefix>
-                <Link href={""}>people</Link>
+                <Link href={"/admin/people-crud"}>people</Link>
               </ListItem>
             </List>
           </AccordionBody>

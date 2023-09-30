@@ -300,6 +300,24 @@ app.post("/p", async (req, res) => {
   res.send("asdasdasdasd");
 });
 
+app.get("/api/peopleadmin", async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const peopleCollection = db.collection("people");
+    const people = await peopleCollection
+      .find({})
+      .toArray();
+
+    res.json(people);
+  } catch (error) {
+    console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.post("/blog", async (req, res) => {
   var data = req.body;
   var b_id = req.body.b_id;
@@ -373,6 +391,24 @@ app.post("/faqs", (req, res) => {
   var type = req.body.type;
   console.log(answer, question, f_id, type);
 });
+
+app.get("/api/people", async (req, res)=>{
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const lecturerCollection = db.collection("people");
+    const lecturers = await lecturerCollection
+      .find({})
+      .toArray();
+
+    res.json(lecturers);
+  } catch (error) {
+    console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+})
 
 app.listen(PORT, () => {
   console.log(`Connect to DB & Server started on port ${PORT}`);
