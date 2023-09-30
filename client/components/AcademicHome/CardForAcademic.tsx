@@ -24,7 +24,7 @@ const CardForAcademic = ({ posts }: { posts: CardOfEventProps[] }) => {
                 alt="academic-image"
                 className="w-auto h-auto object-scale-down hidden md:flex justify-center"
               />
-              <div className="px-6 py-4  bg-white border  hover:bg-gray-100" style={{ minHeight: `${a(maxHeight)}px` }}>
+              <div className="px-6 py-4  bg-white border  hover:bg-gray-100" style={{ minHeight: `${maxHeight}px` }}>
                 <div className="font-bold text-xl mb-2">{a(item.title)}</div>
                 <div className="text-gray-700 text-base">{c(`content${index}`)}</div>
               </div>
