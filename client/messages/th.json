@@ -37,7 +37,6 @@
     "Free Elective Courses": "วิชาเลือกเสรี",
     "Elective Courses": "วิชาเลือก",
     "Plan-specific Compulsory Courses": "วิชาเอกบังคับประจำแผน",
-<<<<<<< Updated upstream
     "Regular Plan":"แผนปกติ",
     "Co-Operative Education Plan":"แผนสหกิจศึกษา",
     "Honors Plan":"แผนก้าวหน้า",
@@ -47,9 +46,6 @@
     "Technology and System Methodology":"กลุ่มเทคโนโลยีและวิธีการทางซอฟต์แวร์",
     "System of Fundamental Structure":"กลุ่มโครงสร้างพื้นฐานของระบบ",
     "Hardware and Computer Architecture":"กลุ่มฮาร์ดแวร์และสถาปัตยกรรมคอมพิวเตอร์",
-=======
-    "Compulsory Courses": "วิชาเอกบังคับร่วม",
->>>>>>> Stashed changes
     "Major Elective Courses": "วิชาเอกเลือก",
     "Minor Courses": "วิชาโท",
     "Undergraduate 59(63)": "ปริญญาตรี 63",
@@ -72,7 +68,6 @@
     "Course 1: Basics of Cryptocurrency": "หน่วยย่อยที่ 1 : พื้นฐานของคริปโทเคอร์เรนซี",
     "Course 2: Robot Trading": "หน่วยย่อยที่ 2 : Robot Trading",
     "Course 3: Crypto Investment Tips": "หน่วยย่อยที่ 3 : เคล็ดลับการลงทุนคริปโต",
-<<<<<<< Updated upstream
     "NON DEGREE":"โครงการหลักสูตรบัณทิตพันธุ์ใหม่",
     "การวิเคราะห์ข้อมูลอัจฉริยะ":"การวิเคราะห์ข้อมูลอัจฉริยะ",
     "วัตถุประสงค์ของหลักสูตร":"วัตถุประสงค์ของหลักสูตร",
@@ -84,8 +79,5 @@
     "PEOPLE":"บุคลากร",
     "Lecturers":"อาจารย์",
     "Staffs":"พนักงาน"
-=======
-    "PEOPLE":"บุคลากร"
->>>>>>> Stashed changes
   }
 }
