@@ -109,7 +109,7 @@ const NewsAndEvent = (props: Props) => {
             </div>
           </div>
 
-          <div className="overflow-y-auto h-[28rem] pt-5">
+          <div className="overflow-y-auto h-[28rem] pt-3">
             <CardForEvents posts={posts} />
           </div>
         </div>
