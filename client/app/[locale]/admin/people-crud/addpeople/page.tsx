@@ -6,7 +6,7 @@ import { useState } from "react";
 type Props = {};
 
 const Page = (props: Props) => {
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const onSelectFile = (event: any) => {
     const selectFile = event.target.files;
     const selectFileArray = Array.from(selectFile);

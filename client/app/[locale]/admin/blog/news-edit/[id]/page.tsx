@@ -31,7 +31,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
   const [data, setData] = useState<NewsEvent[]>([]);
   const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [edit, setEdit] = useState(false);
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]); // Specify the type as string[]
   const [date, setDate] = useState(Date);
 
   useEffect(() => {
@@ -144,6 +144,8 @@ const ProductDetail = ({ params: { id } }: Params) => {
   const changeEdit = () => {
     setEdit(!edit);
   };
+
+  
 
   const onSelectFile = (event: any) => {
     const selectFile = event.target.files;
