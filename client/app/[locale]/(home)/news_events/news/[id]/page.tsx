@@ -39,8 +39,8 @@ const ProductDetail = ({ params: { id } }: Params) => {
     fetch('https://cs-project-ime1.vercel.app/api/news_events')
       .then((response) => response.json())
       .then((data) => {
-        // Find the item with the matching _id
-        const foundItem = data.find((item: NewsEvent) => item._id === idToFetch);
+        // Find the item with the matching b_id
+        const foundItem = data.find((item: NewsEvent) => item.b_id === parseInt(idToFetch));
 
         if (foundItem) {
           // If the item is found, you can format its date and set it to your state

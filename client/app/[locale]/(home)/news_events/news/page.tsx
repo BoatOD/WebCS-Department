@@ -90,7 +90,7 @@ export default function News() {
             <div className="px-8 py-0.5 bg-black w-full "></div>
           </div>
           {displayedItems.map((item) => (
-            <div key={item._id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
+            <div key={item.b_id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
               <div className="md:flex">
                 <div className="md:shrink-0 sm:mr-5">
                   <Image
@@ -104,7 +104,7 @@ export default function News() {
                 </div>
                 <div className="pt-1 mt-2 text-center w-full h-48 overflow-hidden md:text-left">
                   <Link href={{
-                    pathname: `/news_events/news/${item._id}`,
+                    pathname: `/news_events/news/${item.b_id }`,
                     // query: { id: item._id, topic: item.topic, detail: item.detail },
                   }}
                     className="hover:underline">
