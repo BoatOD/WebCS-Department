@@ -7,7 +7,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="bg-[#F4F4F4]">
       <NavbarHeader></NavbarHeader>
       {children}
       <Footer></Footer>

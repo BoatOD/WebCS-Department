@@ -624,7 +624,11 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
                                             colSpan={3}
                                         >
+<<<<<<< HEAD
                                             {u("title41")}
+=======
+                                            กลุ่มโครงสร้างพื้นฐานของระบบ
+>>>>>>> 7b47b643abc5b285b8c237f3e4970538c2fe4ef5
                                         </th>
                                     </tr>
                                     {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "System of Fundamental Structure")

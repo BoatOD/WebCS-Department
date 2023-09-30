@@ -53,11 +53,11 @@ export const navItems: navbar[] = [
     options: [
       {
         title: "News",
-        href: "/announcement",
+        href: "/news_events/news",
       },
       {
         title: "Events",
-        href: "/congratulations",
+        href: "/news_events/events",
       }
     ],
   },
@@ -74,8 +74,8 @@ export const navItems: navbar[] = [
         href: "/about/history",
       },
       {
-        title: "Maps And Directions",
-        href: "/about/maps",
+        title: "Contact",
+        href: "/about/contact",
       },
       
     ],

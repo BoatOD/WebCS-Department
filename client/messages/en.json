@@ -32,7 +32,7 @@
     "ABOUT": "ABOUT",
     "Vision": "Vision",
     "Departmental History": "Departmental History",
-    "Maps And Directions": "Maps And Directions",
+    "Contact": "Contact",
     "FAQs": "FAQs"
   },
   "Sidebar": {
@@ -86,8 +86,12 @@
     "การสมัครและเอกสารที่ใช้": "Application and supporting papers",
     "วิธีจัดการเรียนการสอนกระบวนวิชา": "How to structure course instruction",
     "แผนการศึกษาn": "Study plan",
+    "NEWS & EVENTS": "NEWS & EVENTS",
+    "News": "News",
+    "Events": "Events",
     "PEOPLE": "PEOPLE",
     "Lecturers":"Lecturers",
+<<<<<<< HEAD
     "Staffs":"Staffs"
   },
   "ElectiveCourses": {
@@ -216,6 +220,13 @@
     "title82":"Curriculum map (Updated: Jan. 63)",
     "title83":"Curriculum map for Minor"
 
+=======
+    "Staffs":"Staffs",
+    "ABOUT": "ABOUT",
+    "Vision": "Vision",
+    "Departmental History": "Departmental History",
+    "Contact": "Contact"
+>>>>>>> 7b47b643abc5b285b8c237f3e4970538c2fe4ef5
   }
 
 }
