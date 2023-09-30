@@ -4,6 +4,7 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/undergraduate/sidebarData'
+import { useTranslations } from 'next-intl';
 
 type Props = {}
 
@@ -33,7 +34,7 @@ export default function Core({ }: Props) {
       .then((data) => setData(data))
       .catch((error) => console.error(error));
   }, []);
-
+    const c = useTranslations("CoreCourses");
   return (
     <>
       <Banner
@@ -49,7 +50,7 @@ export default function Core({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h1 className="text-2xl font-bold">วิชาแกน (Core Courses) 24 หน่วยกิต</h1>
+              <h1 className="text-2xl font-bold">{c("title")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <ul className='list-none pl-6 '>
                   {data.filter(courses => (

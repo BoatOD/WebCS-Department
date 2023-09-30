@@ -4,6 +4,7 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/undergraduate/sidebarData'
+import { useTranslations } from 'next-intl';
 
 type Props = {}
 
@@ -33,7 +34,7 @@ export default function Required({ }: Props) {
       .then((data) => setData(data))
       .catch((error) => console.error(error));
   }, []);
-
+    const r = useTranslations("RequireCourses");
   return (
     <>
       <Banner
@@ -49,10 +50,10 @@ export default function Required({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h1 className="text-2xl font-bold">วิชาบังคับ (Required Courses) 24 หน่วยกิต</h1>
+              <h1 className="text-2xl font-bold">{r("title0")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <ul className='list-disc pl-6 '>
-                  <li className='mb-2 font-bold'>กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้เรียนรู้ (Learner Person) 15 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{r("title1")}</li>
                   <ul className='list-none pl-6 '>
                     {data.filter(courses => courses.e_type === "Required Courses" && courses.sup_type === "Learner Person")
                       .map(courses => (
@@ -71,7 +72,7 @@ export default function Required({ }: Props) {
                         </li>
                       ))}
                   </ul>
-                  <li className='mb-2 font-bold'>กลุ่มวิชาด้านการพัฒนาทักษะการเป็นพลเมืองที่เข้มแข็ง (Active Citizen) 6 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{r("title2")}</li>
                   <ul className='list-none pl-6 '>
                     {data.filter(courses => courses.e_type === "Required Courses" && courses.sup_type === "Active Citizen")
                       .map(courses => (

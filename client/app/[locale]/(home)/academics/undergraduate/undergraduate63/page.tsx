@@ -6,6 +6,7 @@ import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/undergraduate/sidebarData'
 
 import Tooltip from '@/components/Tooltip';
+import { useTranslations } from 'next-intl';
 
 type Props = {};
 
@@ -51,7 +52,7 @@ export default function Study_Plans({ }: Props) {
             .catch((error) => console.error(error));
     }, []);
 
-
+    const u = useTranslations("Undergraduate63")
     const filteredData_1 = data.filter((item) => item.year === 1 && item.cu_no === 4);
     const filteredData_2 = data.filter((item) => item.year === 2 && item.cu_no === 4);
     const filteredData_3 = data.filter((item) => item.year === 3 && item.cu_no === 4);
@@ -75,32 +76,32 @@ export default function Study_Plans({ }: Props) {
                     </div>
                     <div className="p-1 pt-3 ">
                         <div className="p-5">
-                            <h1 className='text-3xl font-bold mb-4'>(ปริญญาตรี) หลักสูตรสำหรับนักศึกษารหัส 63</h1>
-                            <p><span className='font-bold'>ชื่อปริญญา</span> : วิทยาศาสตรบัณฑิต (วิทยาการคอมพิวเตอร์)</p>
-                            <p><span className='font-bold'>ชื่อปริญญา</span> : วท.บ. (วิทยาการคอมพิวเตอร์)</p>
-                            <p><span className='font-bold'>ชื่อหลักสูตร </span> : หลักสูตรวิทยาศาสตรบัณฑิต สาขาวิชาวิทยาการคอมพิวเตอร์</p>
-                            <h2 className='text-2xl font-bold my-4'>เอกสารประกอบ</h2>
-                            <p><a href='https://www2.cs.science.cmu.ac.th/Curriculum/g63/lib/exe/fetch.php?media=couseoutline.pdf' target='_blank' className='underline hover:text-gray-700'>รายละเอียดกระบวนวิชา</a></p>
-                            <p><a href='https://www2.cs.science.cmu.ac.th/Curriculum/g63/lib/exe/fetch.php?media=prerequisitey59majorjan63upd.pdf' target='_blank' className='underline hover:text-gray-700'>แผนผังหลักสูตร (Updated: ม.ค. 63)</a></p>
-                            <p><a href='https://www2.cs.science.cmu.ac.th/Curriculum/g63/lib/exe/fetch.php?media=minor_updjuly63.pdf' target='_blank' className='underline hover:text-gray-700'>แผนผังหลักสูตร สำหรับ Minor</a></p>
-                            <h1 className='text-3xl font-bold mb-4 mt-6'>1. จำนวนหน่วยกิตรวมตลอดหลักสูตร</h1>
+                            <h1 className='text-3xl font-bold mb-4'>{u("title0")}</h1>
+                            <p><span className='font-bold'>{u("title1")}</span>{u("title3")}</p>
+                            <p><span className='font-bold'>{u("title2")}</span>{u("title4")}</p>
+                            <p><span className='font-bold'>{u("title2")} </span> {u("title5")}</p>
+                            <h2 className='text-2xl font-bold my-4'>{u("title6")}</h2>
+                            <p><a href='https://www2.cs.science.cmu.ac.th/Curriculum/g63/lib/exe/fetch.php?media=couseoutline.pdf' target='_blank' className='underline hover:text-gray-700'>{u("title81")}</a></p>
+                            <p><a href='https://www2.cs.science.cmu.ac.th/Curriculum/g63/lib/exe/fetch.php?media=prerequisitey59majorjan63upd.pdf' target='_blank' className='underline hover:text-gray-700'>{u("title82")}</a></p>
+                            <p><a href='https://www2.cs.science.cmu.ac.th/Curriculum/g63/lib/exe/fetch.php?media=minor_updjuly63.pdf' target='_blank' className='underline hover:text-gray-700'>{u("title83")}</a></p>
+                            <h1 className='text-3xl font-bold mb-4 mt-6'>{u("title7")}</h1>
                             <ul className="list-disc pl-6 ml-5">
-                                <li className="mb-2">สำหรับแผน 1 ไม่น้อยกว่า 134 หน่วยกิต</li>
-                                <li className="mb-2">สำหรับแผน 2 ไม่น้อยกว่า 135 หน่วยกิต</li>
+                                <li className="mb-2">{u("title8")}</li>
+                                <li className="mb-2">{u("title9")}</li>
                             </ul>
-                            <h1 className='text-3xl font-bold mb-4 mt-6'>2. โครงสร้างหลักสูตร</h1>
-                            <h2 className='text-lg mb-4 font-bold'>1) หมวดวิชาศึกษาทั่วไป 30 หน่วยกิต</h2>
+                            <h1 className='text-3xl font-bold mb-4 mt-6'>{u("title10")}</h1>
+                            <h2 className='text-lg mb-4 font-bold'>{u("title11")}</h2>
 
-                            <p className='mb-2' id='rc'>วิชาบังคับ (Required Courses) 24 หน่วยกิต</p>
+                            <p className='mb-2' id='rc'>{u("title12")}</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            1.1 กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้เรียนรู้ <br /> (Learner Person)
+                                        {u("title13")} <br /> {u("title14")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            15 หน่วยกิต
+                                        {u("title15")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -147,11 +148,11 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            1.2 กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้ร่วมสร้างสรรค์นวัตกรรม <br /> (Innovative Co-creator)
+                                        {u("title16")} <br /> {u("title17")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            3 หน่วยกิต
+                                        {u("title18")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -198,11 +199,11 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            1.3 กลุ่มวิชาด้านการพัฒนาทักษะการเป็นพลเมืองที่เข้มแข็ง<br /> (Active Citizen)
+                                        {u("title19")}<br /> {u("title20")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            6 หน่วยกิต
+                                        {u("title21")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -245,14 +246,14 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <p className='mb-2' id='ge'>วิชาเลือก (GE Electives)</p>
+                            <p className='mb-2' id='ge'>{u("title22")}</p>
                             <p className='ml-2 text-[#FF0000]'>ให้นักศึกษาเลือกเรียนกระบวนวิชาจากทั้ง 3 กลุ่มเพิ่มเติมอีก 6 หน่วยกิต จากกระบวนวิชาต่อไปนี้</p>
                             <p className='mb-2 ml-2 text-[#FF0000]'>A student also chooses at least 6 credits from these 3 groups of GE courses.</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={3}>
-                                            กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้เรียนรู้ (Learner Person)
+                                        {u("title23")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -299,7 +300,7 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={3}>
-                                            กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้ร่วมสร้างสรรค์นวัตกรรม <br /> (Innovative Co-creator)
+                                        {u("title24")} <br /> {u("title25")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -346,7 +347,7 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={3}>
-                                            กลุ่มวิชาด้านการพัฒนาทักษะการเป็นพลเมืองที่เข้มแข็ง (Active Citizen)
+                                        {u("title26")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -389,22 +390,22 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <h2 className='text-lg mb-4 font-bold'>2) หมวดวิชาเฉพาะ</h2>
-                            <p className='mb-2'>แผน 1 ไม่น้อยกว่า 98 หน่วยกิต</p>
-                            <p className='mb-2'>แผน 2 ไม่น้อยกว่า 99 หน่วยกิต</p>
-                            <h3 className='font-bold mb-2 mt-4' id='cc'>2.1 ) วิชาแกน 24 หน่วยกิต</h3>
+                            <h2 className='text-lg mb-4 font-bold'>{u("title27")}</h2>
+                            <p className='mb-2'>{u("title28")}</p>
+                            <p className='mb-2'>{u("title29")}</p>
+                            <h3 className='font-bold mb-2 mt-4' id='cc'>{u("title30")}</h3>
 
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            รหัสวิชา
+                                        {u("title31")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            ชื่อวิชา
+                                        {u("title32")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            หน่วยกิต
+                                        {u("title33")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -452,23 +453,23 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <h3 className='font-bold mb-2 mt-4' >2.2 ) วิชาเอก</h3>
-                            <p className='mb-2'>แผน 1 ไม่น้อยกว่า 59 หน่วยกิต</p>
-                            <p className='mb-2'>แผน 2 ไม่น้อยกว่า 60 หน่วยกิต</p>
-                            <p className='mb-6 text-[#FF0000]'>ในจำนวนนี้อย่างน้อย 36 หน่วยกิต จะต้องเป็นกระบวนวิชาระดับ 300-400 และอย่างน้อย 18 หน่วยกิตต้องเป็นกระบวนวิชาระดับ 400 ขึ้นไป</p>
+                            <h3 className='font-bold mb-2 mt-4' >{u("title34")}</h3>
+                            <p className='mb-2'>{u("title35")}</p>
+                            <p className='mb-2'>{u("title36")}</p>
+                            <p className='mb-6 text-[#FF0000]'>{u("title37")}</p>
 
-                            <p className='mb-2 font-bold'>2.2.1) วิชาเอกบังคับร่วม 41 หน่วยกิต</p>
+                            <p className='mb-2 font-bold'>{u("title38")}</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            รหัสวิชา
+                                        {u("title31")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            ชื่อวิชา
+                                        {u("title32")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            หน่วยกิต
+                                        {u("title33")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -479,7 +480,7 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
                                             colSpan={3}
                                         >
-                                            กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ
+                                            {u("title39")}
                                         </th>
                                     </tr>
                                     {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "Organization Issues and Information System")
@@ -527,7 +528,7 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
                                             colSpan={3}
                                         >
-                                            กลุ่มเทคโนโลยีเพื่องานประยุกต์
+                                            {u("title40")}
                                         </th>
                                     </tr>
                                     {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "Technology for Application")
@@ -575,7 +576,7 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
                                             colSpan={3}
                                         >
-                                            กลุ่มเทคโนโลยีและวิธีการทางซอฟต์แวร์
+                                            {u("title41")}
                                         </th>
                                     </tr>
                                     {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "Technology and System Methodology")
@@ -623,7 +624,7 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
                                             colSpan={3}
                                         >
-                                            กลุ่มเทคโนโลยีและวิธีการทางซอฟต์แวร์
+                                            {u("title41")}
                                         </th>
                                     </tr>
                                     {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "System of Fundamental Structure")
@@ -671,7 +672,7 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 text-left border-solid border-[#EFB770] border-1 w-1/5"
                                             colSpan={3}
                                         >
-                                            กลุ่มฮาร์ดแวร์และสถาปัตยกรรมคอมพิวเตอร์
+                                            {u("title42")}
                                         </th>
                                     </tr>
                                     {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "Hardware and Computer Architecture")
@@ -715,19 +716,19 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <p className='mb-2 mt-6 font-bold'>2.2.2) วิชาเอกบังคับประจำแผน</p>
-                            <p className='mb-2' id='rp'>(ก) แผน 1 จำนวน 3 หน่วยกิต</p>
+                            <p className='mb-2 mt-6 font-bold'>{u("title43")}</p>
+                            <p className='mb-2' id='rp'>{u("title44")}</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            รหัสวิชา
+                                        {u("title31")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            ชื่อวิชา
+                                        {u("title32")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            หน่วยกิต
+                                        {u("title33")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -771,18 +772,18 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <p className='mb-2' id='co'>(ข) แผน 2 จำนวน 7 หน่วยกิต</p>
+                            <p className='mb-2' id='co'>{u("title45")}</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            รหัสวิชา
+                                            {u("title31")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            ชื่อวิชา
+                                            {u("title32")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            หน่วยกิต
+                                            {u("title33")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -826,28 +827,28 @@ export default function Study_Plans({ }: Props) {
                                 </tbody>
                             </table>
 
-                            <p className='mb-2 mt-6 font-bold' id='me'>2.2.3) วิชาเอกเลือก ต้องเป็นกระบวนวิชาระดับ 300 หรือ 400 ขึ้นไป</p>
-                            <p className='mb-2'>(ก) แผน 1 ไม่น้อยกว่า 15 หน่วยกิต</p>
+                            <p className='mb-2 mt-6 font-bold' id='me'>{u("title46")}</p>
+                            <p className='mb-2'>{u("title47")}</p>
                             <ul className="list-disc pl-6 ml-5">
-                                <li className="mb-2 text-[#FF0000]">โดยที่จะต้องเป็นกระบวนวิชาระดับ 400 อย่างน้อย 12 หน่วยกิต</li>
+                                <li className="mb-2 text-[#FF0000]">{u("title48")}</li>
                             </ul>
 
-                            <p className='mb-2'>(ข) แผน 2 ไม่น้อยกว่า 12 หน่วยกิต</p>
+                            <p className='mb-2'>{u("title49")}</p>
                             <ul className="list-disc pl-6 ml-5">
-                                <li className="mb-2 text-[#FF0000]">โดยที่จะต้องเป็นกระบวนวิชาระดับ 400 อย่างน้อย 6 หน่วยกิต</li>
+                                <li className="mb-2 text-[#FF0000]">{u("title50")}</li>
                             </ul>
-                            <p className='mb-2 font-bold'>โดยทั้งสองแผนเลือกจากกระบวนวิชาต่อไปนี้</p>
+                            <p className='mb-2 font-bold'>{u("title51")}</p>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            รหัสวิชา
+                                        {u("title31")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            ชื่อวิชา
+                                        {u("title32")}
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-center">
-                                            หน่วยกิต
+                                        {u("title33")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -898,30 +899,30 @@ export default function Study_Plans({ }: Props) {
                                             className="px-4 py-4 font-medium text-left border-solid border-[#EFB770] border-1 w-1/5 "
                                             colSpan={3}
                                         >
-                                            หรือกระบวนวิชาเอกเลือกสาขาวิชาวิทยาการคอมพิวเตอร์ระดับ 300 หรือ 400 ที่เปิดสอนเพิ่มเติมในมหาวิทยาลัยเชียงใหม่
+                                            {u("title52")}
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <h3 className='font-bold mb-2 mt-4' id='mc'>2.3 ) วิชาโทไม่น้อยกว่า 15 หน่วยกิต</h3>
-                            <p className='mb-2 text-[#FF0000]'>2.3.1) นักศึกษาที่ต้องการเรียนวิชาโท สามารถเลือกเรียนวิชาโทสาขาใดๆ โดยความเห็นชอบของอาจารย์ที่ปรึกษา</p>
-                            <p className='mb-2 text-[#FF0000]'>2.3.2) นักศึกษาที่ไม่ต้องการเรียนวิชาโท ให้เลือกเรียนกระบวนวิชาวิทยาการคอมพิวเตอร์ระดับ 300 หรือ 400 ในหมวดวิชาเอกเลือกเพิ่มเติมอีก ไม่น้อยกว่า 15 หน่วยกิต</p>
-                            <h2 className='text-lg mb-4 font-bold' id='fe'>3) หมวดวิชาเลือกเสรี</h2>
-                            <p className='mb-2'>หมวดวิชาเลือกเสรีไม่น้อยกว่า 6 หน่วยกิต</p>
-                            <p className='mb-4 text-[#FF0000]'>นักศึกษาต้องเลือกเรียนกระบวนวิชานอกเหนือจากวิชาเอกและวิชาโท (ถ้ามี) ไม่น้อยกว่า 6 หน่วยกิต</p>
+                            <h3 className='font-bold mb-2 mt-4' id='mc'>{u("title53")}</h3>
+                            <p className='mb-2 text-[#FF0000]'>{u("title54")}</p>
+                            <p className='mb-2 text-[#FF0000]'>{u("title55")}</p>
+                            <h2 className='text-lg mb-4 font-bold' id='fe'>{u("title56")}</h2>
+                            <p className='mb-2'>{u("title57")}</p>
+                            <p className='mb-4 text-[#FF0000]'>{u("title58")}</p>
 
-                            <h1 className='text-3xl font-bold mb-4' id='sp'>4. แผนการศึกษา ระดับปริญญาตรี</h1>
-                            <h2 className='text-2xl font-bold mb-4'>ชั้นปีที่ 1</h2>
+                            <h1 className='text-3xl font-bold mb-4' id='sp'>{u("title59")}</h1>
+                            <h2 className='text-2xl font-bold mb-4'>{u("title60")}</h2>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 1
+                                        {u("title61")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            20 หน่วยกิต
+                                        {u("title62")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -968,11 +969,11 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 2
+                                        {u("title63")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            19 หน่วยกิต
+                                        {u("title64")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1016,16 +1017,16 @@ export default function Study_Plans({ }: Props) {
                             </table>
                             <div className="border-[#857D7D] border-2 my-2"></div>
 
-                            <h2 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 2</h2>
+                            <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title65")}</h2>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 1
+                                        {u("title61")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            18 หน่วยกิต
+                                        {u("title66")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1073,10 +1074,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือก
+                                        {u("title67")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1086,11 +1087,11 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 2
+                                        {u("title63")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            18 หน่วยกิต
+                                        {u("title66")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1138,27 +1139,27 @@ export default function Study_Plans({ }: Props) {
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        {u("title69")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div className="border-[#857D7D] border-2 my-2"></div>
 
-                            <h3 className='text-xl font-bold mb-4 mt-4'>แผนปกติ (แผน 1)</h3>
-                            <h2 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 3</h2>
+                            <h3 className='text-xl font-bold mb-4 mt-4'>{u("title70")}</h3>
+                            <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title71")}</h2>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 1
+                                        {u("title61")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            18 หน่วยกิต
+                                        {u("title66")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1206,10 +1207,10 @@ export default function Study_Plans({ }: Props) {
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        {u("title69")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
@@ -1220,10 +1221,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        {u("title72")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                            {u("title68")}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1233,11 +1234,11 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 2
+                                        {u("title63")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            19 หน่วยกิต
+                                        {u("title64")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1285,10 +1286,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        {u("title73")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
@@ -1299,10 +1300,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        {u("title74")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
@@ -1313,10 +1314,10 @@ export default function Study_Plans({ }: Props) {
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        {u("title69")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                            {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
@@ -1327,26 +1328,26 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือก
+                                        {u("title67")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div className="border-[#857D7D] border-2 my-2"></div>
 
-                            <h2 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 4</h2>
+                            <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title75")}</h2>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 1
+                                        {u("title61")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            11 หน่วยกิต
+                                        {u("title76")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1394,10 +1395,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        {u("title74")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            6
+                                        {u("title77")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
@@ -1408,10 +1409,10 @@ export default function Study_Plans({ }: Props) {
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        {u("title69")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1421,11 +1422,11 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 2
+                                        {u("title63")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            11 หน่วยกิต
+                                        {u("title76")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1473,10 +1474,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        {u("title74")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
@@ -1487,10 +1488,10 @@ export default function Study_Plans({ }: Props) {
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        {u("title69")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
@@ -1501,28 +1502,28 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        {u("title72")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div className="border-[#857D7D] border-2 my-2"></div>
 
-                            <h3 className='text-xl font-bold mb-4 mt-4'>แผนสหกิจศึกษา (แผน 2)</h3>
+                            <h3 className='text-xl font-bold mb-4 mt-4'>{u("title78")}</h3>
                             {/* แก้ สีหัวตาราง */}
-                            <h2 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 3</h2>
+                            <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title71")}</h2>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 1
+                                        {u("title61")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            18 หน่วยกิต
+                                        {u("title66")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1570,10 +1571,10 @@ export default function Study_Plans({ }: Props) {
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        {u("title69")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
@@ -1584,10 +1585,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        {u("title72")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1597,11 +1598,11 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 2
+                                        {u("title63")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            19 หน่วยกิต
+                                        {u("title64")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1649,10 +1650,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        {u("title73")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            6
+                                        {u("title77")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
@@ -1663,26 +1664,26 @@ export default function Study_Plans({ }: Props) {
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        {u("title69")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            6
+                                        {u("title77")}
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div className="border-[#857D7D] border-2 my-2"></div>
 
-                            <h2 className='text-2xl font-bold mb-4 mt-4'>ชั้นปีที่ 4</h2>
+                            <h2 className='text-2xl font-bold mb-4 mt-4'>{u("title75")}</h2>
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 1
+                                        {u("title61")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            7 หน่วยกิต
+                                        {u("title79")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1729,11 +1730,11 @@ export default function Study_Plans({ }: Props) {
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
-                                            ภาคการศึกษาที่ 2
+                                        {u("title63")}
                                         </th>
 
                                         <th scope="col" className="px-2 py-3 text-center">
-                                            16 หน่วยกิต
+                                        {u("title80")}
                                         </th>
                                     </tr>
                                 </thead>
@@ -1781,10 +1782,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        {u("title74")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            6
+                                        {u("title77")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
@@ -1795,10 +1796,10 @@ export default function Study_Plans({ }: Props) {
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        {u("title69")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
@@ -1809,10 +1810,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        {u("title72")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
@@ -1823,10 +1824,10 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือก
+                                        {u("title67")}
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
-                                            3
+                                        {u("title68")}
                                         </td>
                                     </tr>
                                 </tbody>

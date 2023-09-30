@@ -7,7 +7,8 @@ import { useTranslations } from "next-intl";
 type Props = {};
 
 const AcademicFirstPage = (props: Props) => {
-  const t = useTranslations('AcademicHome');
+  const t = useTranslations("AcademicHome");
+  
   const posts: CardOfEventProps[] = [
     {
       title: "UNDERGRADUATE",

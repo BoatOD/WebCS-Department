@@ -12,7 +12,7 @@ const Sidebar1 = ({ sidebarItem }: { sidebarItem: SidebarProps[] }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams()!;
-  const s = useTranslations("Sidebar")
+  const s = useTranslations("Sidebar");
 
   // Get a new searchParams string by merging the current
   // searchParams with a provided key/value pair

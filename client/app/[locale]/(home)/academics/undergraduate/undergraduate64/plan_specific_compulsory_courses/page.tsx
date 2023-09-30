@@ -4,6 +4,7 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/undergraduate/sidebarData'
+import { useTranslations } from 'next-intl';
 
 type Props = {}
 
@@ -33,7 +34,7 @@ export default function Plan_Specific_Compulsory({ }: Props) {
       .then((data) => setData(data))
       .catch((error) => console.error(error));
   }, []);
-
+    const p = useTranslations("PlanSpecific");
   return (
     <>
       <Banner
@@ -50,10 +51,10 @@ export default function Plan_Specific_Compulsory({ }: Props) {
           <div className="p-1 pt-3 ">
             <div className="p-5">
 
-              <h1 className="text-2xl font-bold" id='rp'>แผนปกติ (Regular Plan) 3 หน่วยกิต</h1>
+              <h1 className="text-2xl font-bold" id='rp'>{p("title0")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <ul className='list-disc pl-6 '>
-                  <li className='mb-2 font-bold'>แผนปกติ (Regular Plan) 3 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{p("title0")}</li>
                   <ul className='list-none pl-6 '>
                     {data.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" && 
                     (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 1)))
@@ -66,10 +67,10 @@ export default function Plan_Specific_Compulsory({ }: Props) {
                 </ul>
               </div>
 
-              <h1 className="text-2xl font-bold" id='co'>แผนสหกิจศึกษา (Co-operative Education Plan) 7 หน่วยกิต</h1>
+              <h1 className="text-2xl font-bold" id='co'>{p("title1")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <ul className='list-disc pl-6 '>
-                  <li className='mb-2 font-bold'>แผนสหกิจศึกษา (Co-operative Education Plan) 7 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{p("title1")}</li>
                   <ul className='list-none pl-6 '>
                     {data.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" && 
                     (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 2)))
@@ -82,10 +83,10 @@ export default function Plan_Specific_Compulsory({ }: Props) {
                 </ul>
               </div>
 
-              <h1 className="text-2xl font-bold" id='hp'>แผนก้าวหน้า (Honors Plan) 3 หน่วยกิต</h1>
+              <h1 className="text-2xl font-bold" id='hp'>{p("title2")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <ul className='list-disc pl-6 '>
-                  <li className='mb-2 font-bold'>แผนก้าวหน้า (Honors Plan) 3 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{p("title2")}</li>
                   <ul className='list-none pl-6 '>
                     {data.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" && 
                     (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 3)))

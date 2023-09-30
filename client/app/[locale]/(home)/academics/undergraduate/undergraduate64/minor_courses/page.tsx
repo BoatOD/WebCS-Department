@@ -4,11 +4,12 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/undergraduate/sidebarData'
+import { useTranslations } from 'next-intl';
 
 type Props = {}
 
 export default function Minor({ }: Props) {
-
+  const m = useTranslations("Minor");
   return (
     <>
       <Banner
@@ -25,21 +26,21 @@ export default function Minor({ }: Props) {
           <div className="p-1 pt-3 ">
             <div className="p-5">
 
-              <h1 className="text-2xl font-bold">วิชาโท (Minor Courses) 15 หน่วยกิต</h1>
+              <h1 className="text-2xl font-bold">{m("title0")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <ul className='list-disc pl-6 '>
-                  <li className='mb-2 font-bold'>ต้องการเรียนวิชาโท</li>
+                  <li className='mb-2 font-bold'>{m("title1")}</li>
                   <ul className='list-none pl-6 '>
-                    <li className="mb-2">- แผนปกติและแผนสหกิจศึกษาสามารถเลือกเรียนวิชาโทสาขาใด ๆ โดยความเห็นชอบของอาจารย์ที่ปรึกษา</li>
-                    <li className="mb-2">- แผนก้าวหน้าสามารถเลือกเรียนวิชาโทสาขาคณิตศาสตร์ สถิติ หรือวิทยาการข้อมูล</li>
+                    <li className="mb-2">{m("title2")}</li>
+                    <li className="mb-2">{m("title3")}</li>
                   </ul>
 
-                  <li className='mb-2 font-bold'>ไม่ต้องการเรียนวิชาโท</li>
+                  <li className='mb-2 font-bold'>{m("title4")}</li>
                   <ul className='list-none pl-6 '>
-                    <li className="mb-2">- เลือกเรียนวิชาเอกเลือกระดับ 300 หรือ 400 เพิ่มไม่น้อยกว่า 15 หน่วยกิต</li>
+                    <li className="mb-2">{m("title5")}</li>
                   </ul>
                 </ul>
-                <h2>🔗<a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className="font-bold underline hover:text-gray-700">รายชื่อวิชาโทที่เปิดสอน</a></h2>
+                <h2>🔗<a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className="font-bold underline hover:text-gray-700">{m("title6")}</a></h2>
               </div>
             </div>
           </div>

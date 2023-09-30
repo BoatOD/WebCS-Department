@@ -4,6 +4,7 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/undergraduate/sidebarData'
+import { useTranslations } from 'next-intl';
 
 type Props = {}
 
@@ -34,6 +35,8 @@ export default function Elective({ }: Props) {
       .catch((error) => console.error(error));
   }, []);
 
+  const e = useTranslations("ElectiveCourses");
+
   return (
     <>
       <Banner
@@ -50,21 +53,20 @@ export default function Elective({ }: Props) {
           <div className="p-1 pt-3 ">
             <div className="p-5">
 
-              <h1 className="text-2xl font-bold" id='fe'>วิชาเลือกเสรี (Free Elective Courses) 6 หน่วยกิต</h1>
+              <h1 className="text-2xl font-bold" id='fe'>{e("title0")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                    วิชาเลือกเสรี (Free Elective Courses) เป็นวิชาที่หลักสูตรเปิดโอกาสให้นักศึกษาเลือกเรียน นอกเหนือไปจากวิชาเฉพาะ (204XXX) โดยมีจุดมุ่งหมายเพื่อขยายความสัมพันธ์ทางวิชาการให้
-                    กว้างขวางออกไป ตลอดจนเป็นการส่งเสริมความถนัดและความสนใจของแต่ละบุคคลให้ได้มากยิ่งขึ้น
+                  {e("title1")}
                   </span>
                 </p>
               </div>
 
-              <h1 className="text-2xl font-bold" id='ge'>วิชาเลือกทั่วไป (GE Electives Courses) 24 หน่วยกิต</h1>
+              <h1 className="text-2xl font-bold" id='ge'>{e("title2")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
-                <h2 className="font-bold underline">ให้นักศึกษาเลือกเรียนกระบวนวิชาจากทั้ง 3 กลุ่มเพิ่มเติมอีก 6 หน่วยกิต จากกระบวนวิชาต่อไปนี้</h2>
+                <h2 className="font-bold underline">{e("title3")}</h2>
                 <ul className='list-disc pl-6 '>
-                  <li className='mb-2 font-bold'>กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้เรียนรู้ (Learner Person)</li>
+                  <li className='mb-2 font-bold'>{e("title4")}</li>
                   <ul className='list-none pl-6 '>
                     {data.filter(courses => courses.e_type === "GE Electives Courses" && courses.sup_type === "Learner Person")
                       .map(courses => (
@@ -74,7 +76,7 @@ export default function Elective({ }: Props) {
                       ))}
                   </ul>
 
-                  <li className='mb-2 font-bold'>กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้ร่วมสร้างสรรค์นวัตกรรม (Innovative Co-creator) 3 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{e("title5")}</li>
                   <ul className='list-none pl-6 '>
                     {data.filter(courses => courses.e_type === "GE Electives Courses" && courses.sup_type === "Innovative Co-creator")
                       .map(courses => (
@@ -83,7 +85,7 @@ export default function Elective({ }: Props) {
                         </li>
                       ))}
                   </ul>
-                  <li className='mb-2 font-bold'>กลุ่มวิชาด้านการพัฒนาทักษะการเป็นพลเมืองที่เข้มแข็ง (Active Citizen) 6 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{e("title6")}</li>
                   <ul className='list-none pl-6 '>
                     {data.filter(courses => courses.e_type === "GE Electives Courses" && courses.sup_type === "Active Citizen")
                       .map(courses => (
@@ -95,25 +97,25 @@ export default function Elective({ }: Props) {
                 </ul>
               </div>
 
-              <h1 className="text-2xl font-bold" id='me'>วิชาเอกเลือก (Major Elective Courses)</h1>
+              <h1 className="text-2xl font-bold" id='me'>{e("title7")}</h1>
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <ul className='list-disc pl-6 '>
-                  <li className='mb-2 font-bold'>แผนปกติ (Regular Plan) 15 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{e("title8")}</li>
                   <ul className='list-none pl-6 '>
-                    <li className="mb-2">- เป็นกระบวนวิชาระดับ 300-400 โดยที่อย่างน้อย 9 หน่วยกิต ต้องเป็นกระบวนวิชาระดับ 400</li>
+                    <li className="mb-2">{e("title9")}</li>
                   </ul>
 
-                  <li className='mb-2 font-bold'>แผนสหกิจศึกษา (Co-operative Education Plan) 12 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{e("title10")}</li>
                   <ul className='list-none pl-6 '>
-                    <li className="mb-2">- เป็นกระบวนวิชาระดับ 300-400 โดยที่อย่างน้อย 6 หน่วยกิต ต้องเป็นกระบวนวิชาระดับ 400</li>
+                    <li className="mb-2">{e("title11")}</li>
                   </ul>
-                  <li className='mb-2 font-bold'>แผนก้าวหน้า (Honors Plan) 27 หน่วยกิต</li>
+                  <li className='mb-2 font-bold'>{e("title12")}</li>
                   <ul className='list-none pl-6 '>
-                    <li className="mb-2">- เป็นกระบวนวิชาระดับ 300-400 โดยที่อย่างน้อย 9 หน่วยกิต ต้องเป็นกระบวนวิชาระดับ 400</li>
-                    <li className="mb-2">- เป็นกระบวนวิชาระดับ 700 12 หน่วยกิต</li>
+                    <li className="mb-2">{e("title13")}</li>
+                    <li className="mb-2">{e("title14")}</li>
                   </ul>
                 </ul>
-                <h2>🔗<a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className="font-bold underline hover:text-gray-700">รายชื่อวิชาเอกเลือก (Major Elective Courses)</a></h2>
+                <h2>🔗<a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className="font-bold underline hover:text-gray-700">{e("title15")}</a></h2>
               </div>
             </div>
           </div>
