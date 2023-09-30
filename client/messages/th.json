@@ -22,7 +22,7 @@
     "ABOUT": "เกี่ยวกับเรา",
     "Vision": "วิสัยทัศน์",
     "Departmental History": "ประวัติเกี่ยวกับภาควิชา",
-    "Maps And Directions": "แผนที่และทิศทาง",
+    "Maps and Directions": "แผนที่และทิศทาง",
     "FAQs": "คำถามที่พบบ่อย"
   },
   "Sidebar": {
@@ -78,6 +78,10 @@
     "แผนการศึกษา":"แผนการศึกษา",
     "PEOPLE":"บุคลากร",
     "Lecturers":"อาจารย์",
-    "Staffs":"พนักงาน"
+    "Staffs":"พนักงาน",
+    "ABOUT": "เกี่ยวกับเรา",
+    "Vision": "วิสัยทัศน์",
+    "Departmental History": "ประวัติเกี่ยวกับภาควิชา",
+    "Maps and Directions": "แผนที่และทิศทาง"
   }
 }

@@ -17,7 +17,7 @@ export const sidebarItem: SidebarProps[] = [
         type: "singleItem",
     },
     {
-        content: "Maps and Direction",
+        content: "Maps and Directions",
         href: "/about/maps",
         type: "singleItem",
     },

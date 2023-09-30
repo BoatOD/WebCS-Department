@@ -22,7 +22,7 @@
     "ABOUT": "ABOUT",
     "Vision": "Vision",
     "Departmental History": "Departmental History",
-    "Maps And Directions": "Maps And Directions",
+    "Maps and Directions": "Maps and Directions",
     "FAQs": "FAQs"
   },
   "Sidebar": {
@@ -78,6 +78,10 @@
     "แผนการศึกษาn": "Study plan",
     "PEOPLE": "PEOPLE",
     "Lecturers":"Lecturers",
-    "Staffs":"Staffs"
+    "Staffs":"Staffs",
+    "ABOUT": "ABOUT",
+    "Vision": "Vision",
+    "Departmental History": "Departmental History",
+    "Maps and Directions": "Maps and Directions"
   }
 }
