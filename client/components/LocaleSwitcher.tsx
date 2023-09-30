@@ -16,7 +16,7 @@ export default function LocaleSwitcher() {
     if (!pathName) return "/";
     let segments = pathName.split("/");
 
-    if (i18n.locales.includes(segments[1])) {
+    if (i18n.locales.includes(segments[1] as "en" | "th")) {
       segments[1] = locale;
     } else {
       segments.splice(1, 0, locale);
