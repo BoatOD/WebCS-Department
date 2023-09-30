@@ -38,7 +38,7 @@ export default function Undergraduate({}: Props) {
             </div>
             <div className="p-5">
               <p>
-              "The Computer Science Department at CMU offers a rigorous and practical undergraduate program focused on real-world problem solving."
+              &quot;The Computer Science Department at CMU offers a rigorous and practical undergraduate program focused on real-world problem solving.&quot;
               </p>
             </div>
           </div>
