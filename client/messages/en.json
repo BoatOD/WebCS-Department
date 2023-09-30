@@ -91,8 +91,11 @@
     "Events": "Events",
     "PEOPLE": "PEOPLE",
     "Lecturers":"Lecturers",
-
-    "Staffs":"Staffs"
+    "Staffs":"Staffs",
+    "ABOUT":"ABOUT",
+    "Vision":"Vision",
+    "Departmental History":"Departmental History",
+    "Contact":"Contact"
   },
   "ElectiveCourses": {
     "title0": "Free Elective Courses (6 Credits)",
@@ -219,8 +222,7 @@
     "title81":"Course details",
     "title82":"Curriculum map (Updated: Jan. 63)",
     "title83":"Curriculum map for Minor"
-
-
   }
+  
 
 }
