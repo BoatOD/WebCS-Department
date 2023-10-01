@@ -31,7 +31,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
   const [data, setData] = useState<NewsEvent[]>([]);
   const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [edit, setEdit] = useState(false);
-  const [selectedImages, setSelectedImages] = useState<string[]>([]); // Specify the type as string[]
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [date, setDate] = useState(Date);
 
   useEffect(() => {
@@ -157,8 +157,8 @@ const ProductDetail = ({ params: { id } }: Params) => {
   }
 
   const onDate = (event: any) => {
-    setDate(event.target.date)
-    console.log(event.target.value)
+    setDate(event.target.value)
+    console.log(date)
   }
 
   return (

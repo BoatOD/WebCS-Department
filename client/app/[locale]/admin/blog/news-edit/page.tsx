@@ -93,7 +93,7 @@ export default function News() {
   }
 
   const onDate = (event: any) => {
-    setDate(event.target.date)
+    setDate(event.target.value)
     console.log(event.target.value)
   }
 

@@ -321,34 +321,59 @@ app.get("/api/peopleadmin", async (req, res) => {
 });
 
 app.post("/blog", async (req, res) => {
-  var data = req.body;
-  var b_id = req.body.b_id;
-  var topic = req.body.topic;
-  var e_topic = req.body.e_topic;
-  var date = req.body.data;
-  var location = req.body.location;
-  var e_location = req.body.e_location;
-  var category = req.body.category;
-  var nflag = req.body.nflag;
-  var picture = req.body.picture;
-  var eflag = req.body.eflag;
-  var status = req.body.status;
-  var undertaker = req.body.undertaker;
-  console.log(
-    data,
-    b_id,
-    topic,
-    e_topic,
-    date,
-    location,
-    e_location,
-    category,
-    nflag,
-    picture,
-    eflag,
-    status,
-    undertaker
-  );
+  try {
+    var {
+      b_id,
+      topic,
+      e_topic,
+      date,
+      location,
+      e_location,
+      category,
+      nflag,
+      picture,
+      eflag,
+      status,
+      undertaker
+    } = req.body
+
+    const db = await connectToDatabase();
+    const blogCollection = db.collection("blog");
+    if (b_id == 0) {
+      const result = await blogCollection.aggregate([
+        {
+          $group: {
+            _id: '$dummy',
+            test: { $max: '$b_id' }
+          }
+        }
+      ]).toArray();
+
+      b_id = result[0].test + 1;
+
+      const blog = await db.collection("blog").insertOne({
+        b_id,
+        topic,
+        e_topic,
+        date,
+        location,
+        e_location,
+        category,
+        nflag,
+        picture,
+        eflag,
+        status,
+        undertaker
+      });
+    } else {
+      
+    }
+
+    res.json(blog);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 app.post("/people", async (req, res) => {
