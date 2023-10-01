@@ -103,71 +103,71 @@ export default function Nondegree({ }: Props) {
               <br />
               <h1 id="process" className="text-2xl font-bold">กระบวนการรับสมัคร</h1>
               <br />
-              <table className="w-full text-sm text-left">
+              <table className='w-full' className="w-full text-sm text-left">
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="p-1 md:p-4 text-center">
                       กระบวนการ
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="p-1 md:p-4 text-center">
                       รายละเอียด
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       รับสมัคร
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       22 มิถุนายน – 8 กรกฎาคม 2565
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       สัมภาษณ์
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       20 กรกฎาคม 2565 เวลา 9:00-12:00 น. (การประชุมออนไลน์ผ่านระบบ Zoom)
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       ประกาศผล
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       22 กรกฎาคม 2565 (รับผู้เรียนจำนวน 40 คน)
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       ประสานงานเพื่อทำ MOU
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       25-31 กรกฎาคม 2565
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       ปฐมนิเทศผู้เรียน
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       27 กรกฎาคม 2565 เวลา 13:30-15:30 น. (การประชุมออนไลน์ผ่านระบบ Zoom)
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       เริ่มเรียน
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       4 สิงหาคม 2565
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       ช่วงเวลาเรียน
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       สิงหาคม 2565 - กุมภาพันธ์ 2566 (ภาคทฤษฏี : Video on Demand ภาคปฏิบัติ : สอนสดผ่านระบบ Zoom)
                     </td>
                   </tr>
@@ -194,45 +194,45 @@ export default function Nondegree({ }: Props) {
               <br />
               <p>การจัดการเรียนการสอนในกระบวนวิชา Data Manipulation (ส.ค.-ก.ย. 65) และกระบวนวิชา Data Analysis with Machine Learning (ก.ย.-ต.ค. 65)</p>
               <br />
-              <table className="w-full text-sm text-left">
+              <table className='w-full' className="w-full text-sm text-left">
                 <tbody>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       ระยะเวลา
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       ใช้ระยะเวลาในการเรียนการสอนในแต่ละกระบวนวิชาประมาณ 6 สัปดาห์ 360 ชม. (ทฤษฎี 90 ชม. , ปฏิบัติ 270 ชม.)
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       ภาคทฤษฎี
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       จัดการเรียนการสอนแบบออนไลน์ Video on Demand โดยมีเนื้อหาให้ผู้เรียนศึกษาด้วยตนเองผ่านวิดีโอและมีแบบฝึกหัดเพื่อทบทวนเนื้อหา โดยความยาววิดีโอประมาณ 30 นาที ต่อ 1 หัวข้อ จำนวน 4 หัวข้อ/สัปดาห์ (ใช้เวลาในการเรียนรู้ประมาณ 8 ชั่วโมงต่อสัปดาห์)
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       ภาคปฏิบัติ
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       จัดการเรียนการสอนสด แบบออนไลน์ผ่านระบบ Zoom ในวันพุธของแต่ละสัปดาห์ เวลา 13:30-15:30 น. และเช็คชื่อเข้าเรียน โดยผู้เรียนต้องเข้าเรียนอย่างน้อยร้อยละ 80 ของเวลาเรียนทั้งหมดในแต่ละกระบวนวิชา มีการบันทึกวิดีโอการสอนให้ทบทวนบทเรียนย้อนหลัง รวมทั้งมีแบบฝึกหัดเพื่อฝึกฝนทักษะในแต่ละสัปดาห์
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       การประเมินผล
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       ผู้เรียนจะต้องได้รับ ผลการประเมินตั้งแต่ร้อยละ 60 ขึ้นไป ในการทำแบบฝึกหัดภาคทฤษฎี ภาคปฏิบัติ และการสอบประเมินผลการเรียน จึงจะถือว่าเป็นผู้สำเร็จหลักสูตร โดยผู้เรียนที่ได้ผลการประเมินน้อยกว่าที่กำหนดจะต้องทบทวนเนื้อหาและทำแบบฝึกหัดหรือสอบใหม่ ซึ่งอาจารย์ผู้สอนจะให้คำแนะนำอย่างใกล้ชิด
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       การให้คำปรึกษา
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       มีการให้บริการตอบคำถามผ่านระบบถามตอบออนไลน์ โดยจะมีเจ้าหน้าที่คอยให้บริการเวลา 9:00-16:00 น. ในเวลาราชการ โดยเจ้าหน้าที่จะให้บริการตอบคำถามเบื้องต้นและส่งต่อคำถามพิเศษไปยังอาจารย์ผู้สอน ซึ่งผู้เรียนสามารถแจ้งความจำนงเพื่อขอติดต่อสอบถามอาจารย์ผู้สอนโดยตรงทางโทรศัพท์หรือทางออนไลน์ผ่านระบบ Zoom
                     </td>
                   </tr>
@@ -241,13 +241,13 @@ export default function Nondegree({ }: Props) {
               <br />
               <h1>การจัดการเรียนการสอนในกระบวนวิชา Project-based learning (พ.ย. 65 – ก.พ. 66)</h1>
               <br />
-              <table>
+              <table className='w-full'>
                 <tbody>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       การเรียน
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       จัดการเรียนการสอนแบบ Project-based learning และแบบ Work-integrated learning โดยเข้ารับการฝึกปฏิบัติงานจริง เพื่อทำการศึกษา ค้นคว้าในสภาพแวดล้อมการทำงานจริง เพื่อพัฒนาโครงงานประยุกต์สำหรับการแก้โจทย์ชององค์การ โดยมีทีมอาจารย์ที่ปรึกษาทำหน้าที่เป็น Mentor
                     </td>
                   </tr>
@@ -259,40 +259,40 @@ export default function Nondegree({ }: Props) {
               <br />
               <h1 id="studyplan" className="text-2xl font-bold">แผนการศึกษา</h1>
               <br />
-              <table>
+              <table className='w-full'>
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="p-1 md:p-4 text-center">
                       เดือน
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="p-1 md:p-4 text-center">
                       รายวิชา
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="p-1 md:p-4 text-center">
                       หน่วยกิต
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       เดือนที่ 1, 2
                     </th>
-                    <td className="px-6 py-4 text-center">
+                    <td className="p-1 md:p-4 text-center">
                       204728 Data Manipulation
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="p-1 md:p-4 text-center">
                       3
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       เดือนที่ 3, 4
                     </th>
-                    <td className="px-6 py-4 text-center">
+                    <td className="p-1 md:p-4 text-center">
                       204725 Data Analytics with Machine Learning
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="p-1 md:p-4 text-center">
                       3
                     </td>
                   </tr>
@@ -300,40 +300,40 @@ export default function Nondegree({ }: Props) {
               </table>
               <br />
               <br />
-              <table>
+              <table className='w-full'>
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="p-1 md:p-4 text-center">
                       รหัสวิชา
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="p-1 md:p-4 text-center">
                       ชื่อกระบวนวิชา
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="p-1 md:p-4 text-center">
                       เนื้อหา
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-white border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       CS725 (204725)
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       การวิเคราะห์ข้อมูลและการเรียนรู้ของเครื่อง (Data Analytics and Machine Learning)
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       ตัวแบบการทำนายการวิเคราะห์การจัดกลุ่มการจัดหมวดหมู่การวิเคราะห์ถดถอยการให้คะแนนและการจัดลำดับการเรียนรู้โครงสร้างการเรียนรู้แบบกึ่งมีผู้สอนการเรียนรู้แบบเสริมกำลัง Predictive analytics, cluster analysis, classification, regression analysis, scaring and ranking, structure learning, semi-supervised learning, reinforcement learning.
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-center">
+                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
                       CS728 (204728)
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       การจัดดำเนินการข้อมูล (Data Manipulation)
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="p-1 md:p-4">
                       การแทนและการได้ข้อมูล การแปลงและการตรวจชำระข้อมูล การประมวลผลคุณลักษณะ กระบวนการของ การสกัด การแปลงและการบรรจุ (อีทีแอล) การนำเสนอข้อมูล Data representations and acquisitions, data transformation and cleansing, feature processing, process of extraction transformation and load (ETL), data presentation.
                     </td>
                   </tr>

@@ -54,144 +54,144 @@ export default function Intelligent({ }: Props) {
               <table className="w-full text-sm text-left">
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">
                       ชื่อหลักสูตร
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">
                       ค่าธรรมเนียม
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">
                       ค่าบำรุงมหาวิทยาลัย
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">
                       ลิงค์รับสมัคร
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       1. การวิเคราะห์ข้อมูลและการแสดงมโนภาพข้อมูลสำหรับผู้เรียน ระดับต้นด้วย Advanced Microsoft Excel
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       2,900.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       2. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่อง สำหรับผู้เรียนระดับสูง โดยใช้การเขียนโปรแกรมไพธอน (Python)
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       2,900.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       3. การวิเคราะห์ข้อมูลและการแสดงมโนภาพข้อมูลสำหรับผู้เรียนระดับต้นด้วย Google Data Studio
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       2,900.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       4. การวิเคราะห์ข้อมูลพื้นฐานด้วยเทคนิคการเรียนรู้ของเครื่องสำหรับงานประยุกต์ด้านชีวสารสนเทศศาสตร์
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       2,900.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       5. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่องสำหรับผู้เรียนระดับกลาง โดยใช้ Orange data mining toolbox MODULE 1 : Data analysis applications using Data Mining Tools
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       6. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่องสำหรับผู้เรียนระดับกลาง โดยใช้ Orange data mining toolbox MODULE 2 : Intelligence data analysis with machine learning techniques using Orange data mining toolbox
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       7. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่องสำหรับผู้เรียนระดับกลาง โดยใช้ Orange data mining toolbox (MODULE1 และ MODULE2)
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       8. การวิเคราะห์ข้อมูลและการแสดงมโนภาพข้อมูลด้วย Power BI (Data analysis and data visualization for beginner with Power BI)
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       2,900.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       โปรดรอติดตาม
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">
+                    <td className="px-1 md:px-6 py-4">
                       9. การวิเคราะห์ข้อมูลอัจฉริยะด้วย RapidMiner (Intelligence Data analysis with RapidMiner)
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       2,900.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       600.- บาท
                     </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/000267' className='underline'>https://cmu.to/000267</a>
                     </td>
                   </tr>
