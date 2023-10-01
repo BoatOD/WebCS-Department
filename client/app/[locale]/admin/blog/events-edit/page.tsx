@@ -89,8 +89,8 @@ export default function Events() {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem]">
-        <div className="w-full md:w-2/3 order-last md:order-first ">
+      <div className="flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] justify-center">
+        <div className="w-full md:w-2/3 order-last md:order-first mb-9">
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full "></div>
           </div>
@@ -265,7 +265,7 @@ export default function Events() {
                         <textarea
                           id="about"
                           name="about"
-                          rows={15}
+                          rows={10}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -278,7 +278,7 @@ export default function Events() {
                         <textarea
                           id="about"
                           name="about"
-                          rows={15}
+                          rows={10}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
