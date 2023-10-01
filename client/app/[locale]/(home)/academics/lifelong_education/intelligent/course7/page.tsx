@@ -28,34 +28,34 @@ export default function Course_7({ }: Props) {
               <table className="w-full">
                 <tbody>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
                       ช่วงวันรับสมัคร :
                     </th>
-                    <td className="bg-white text-black px-6">
+                    <td className="bg-white text-black px-1 md:px-6">
                       1 กันยายน – 20 ตุลาคม 2564
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
                       ช่วงเวลาเรียน MODULE1 :
                     </th>
-                    <td className="bg-white text-black px-6">
+                    <td className="bg-white text-black px-1 md:px-6">
                       1-5 พฤศจิกายน 2564 เวลา 13:00-16:00 น.
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
                       ช่วงเวลาเรียน MODULE2 :
                     </th>
-                    <td className="bg-white text-black px-6">
+                    <td className="bg-white text-black px-1 md:px-6">
                       8-12 พฤศจิกายน 2564 เวลา 13:00-16:00 น.
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
                       ช่องทางรับการสมัคร :
                     </th>
-                    <td className="bg-white text-black px-6">
+                    <td className="bg-white text-black px-1 md:px-6">
                       * โปรดติดตามประกาศอีกครั้ง เริ่มรับสมัคร 1 กันยายน
                     </td>
                   </tr>

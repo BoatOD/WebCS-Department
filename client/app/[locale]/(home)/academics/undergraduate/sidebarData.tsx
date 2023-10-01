@@ -75,7 +75,7 @@ export const sidebarItem: SidebarProps[] = [
                 ],
             },
             {
-                title: "Plan-specific Compulsory Courses",
+                title: "Plan-Specific Compulsory Courses",
                 type: "Have",
                 SideBarSubOption: [
                     {
@@ -160,7 +160,7 @@ export const sidebarItem: SidebarProps[] = [
                 ],
             },
             {
-                title: "Plan-specific Compulsory Courses",
+                title: "Plan-Specific Compulsory Courses",
                 type: "Have",
                 SideBarSubOption: [
                     {

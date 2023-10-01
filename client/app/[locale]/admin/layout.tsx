@@ -1,4 +1,6 @@
-import SidebarWithCta from "@/components/admin/SidebarWithCta";
+
+import NavbarAdmin from "@/components/admin/NavbarAdmin";
+
 import React from "react"; // Import React for StrictMode
 export default function AdminLayout({
   children,
@@ -7,14 +9,8 @@ export default function AdminLayout({
 }) {
   return (
     <div>
-      <div className="flex flex-row">
-        <div className="basis-1/6">
-          <SidebarWithCta></SidebarWithCta>
-        </div>
-        <div className="basis-5/6 ml-10">
-          {children}
-        </div>
-      </div>
+      <NavbarAdmin></NavbarAdmin>
+      {children}
     </div>
   );
 }

@@ -1,9 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import Banner from '@/components/Banner';
-import Image from 'next/image';
-import { sidebarItem } from '@/app/[locale]/(home)/news_events/sidebarData';
-import Sidebar1 from '@/components/Sidebar1';
 import Link from 'next/link'
 
 interface NewsEvent {
@@ -25,13 +21,12 @@ interface NewsEvent {
   formattedDate: string; // Add formattedDate property
 }
 
-export default function News() {
+export default function Events() {
   const [data, setData] = useState<NewsEvent[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; // Number of items to display per page
-  const [edit, setEdit] = useState(false);
-  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const itemsPerPage = 3;
   const [date, setDate] = useState(Date);
+  const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
@@ -45,19 +40,23 @@ export default function News() {
           return { ...item, formattedDate, date };
         });
 
-        // Sort the array by date in descending order
-        const sortedData = formattedData.sort((a, b) => b.date.getTime() - a.date.getTime());
+        // Filter the array to only include items with status "coming"
+        const comingEvents = formattedData.filter((item) => item.status === 'coming');
+
+        // Sort the filtered array by date in descending order
+        const sortedData = comingEvents.sort((a, b) => b.date.getTime() - a.date.getTime());
 
         setData(sortedData);
       })
       .catch((error) => console.error(error));
   }, []);
 
+
   // Function to format a Date object
   function formatDate(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
       year: 'numeric',
-      month: 'long',
+      month: 'short',
       day: 'numeric',
     };
     return date.toLocaleDateString(undefined, options);
@@ -79,23 +78,14 @@ export default function News() {
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
-  const changeEdit = () => {
-    setEdit(!edit);
-  };
-
-  const onSelectFile = (event: any) => {
-    const selectFile = event.target.files;
-    const selectFileArray = Array.from(selectFile);
-    const imagesArray = selectFileArray.map((file: any) => {
-      return URL.createObjectURL(file)
-    })
-    setSelectedImages(imagesArray);
-  }
-
   const onDate = (event: any) => {
     setDate(event.target.date)
     console.log(event.target.value)
   }
+
+  const changeEdit = () => {
+    setEdit(!edit);
+  };
 
   return (
     <>
@@ -113,41 +103,27 @@ export default function News() {
           <div className={edit ? "hidden" : ""}>
             {displayedItems.map((item) => (
               <div key={item.b_id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
-                <div className="md:flex">
-                  <div className="md:shrink-0 sm:mr-5">
-                    <Image
-                      src={`/blog${item.picture[0]}`}
-                      width="250"
-                      height="0"
-                      sizes="100vm"
-                      alt=""
-                      className="object-cover h-52 ml-auto mr-auto md:flex"
-                    />
+                <div className="flex rounded-2xl">
+                  <div className="md:shrink-0 m-5 bg-[#FFE8CC] h-16 md:h-32 w-20 md:w-32 rounded-2xl flex flex-col items-center justify-center">
+                    <div className="text-xs md:text-sm uppercase">{item.date.toLocaleDateString(undefined, { weekday: 'short' })}</div>
+                    <div className='text-[#F29D35] text-2xl md:text-5xl'>{item.date.toLocaleDateString(undefined, { day: 'numeric' })}</div>
                   </div>
-                  <div className="pt-1 mt-2 text-center w-full h-48 overflow-hidden md:text-left">
-                    <Link href={{
-                      pathname: `/admin/blog/news-edit/${item.b_id}`,
-                      // query: { id: item._id, topic: item.topic, detail: item.detail },
-                    }}
-                      className="hover:underline">
-                      <div className="font-medium flex justify-between">
-                        <span className="text-left">
-                          {item.formattedDate} {/* Display the formatted date */}
-                        </span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6 text-right"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                        </svg>
+                  <div className="md:flex-1 pt-1 mt-3 text-center w-full h-full overflow-hidden mr-3 md:mr-0">
+                    <div className="font-medium flex mt-2 justify-between">
+                      <span className="text-left uppercase">
+                        {item.formattedDate} {/* Display the formatted date */}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-left">
+                        {item.location} {/* Display the location */}
+                      </span>
+                    </div>
+                    <Link href={{ pathname: `/admin/blog/events-edit/${item.b_id}` }} className="hover:underline">
+                      <div className="text-lg mt-4 font-medium text-left">
+                        {item.topic}
                       </div>
-                      <div className="text-lg mt-4 font-medium">{item.topic}</div>
                     </Link>
-                    <div className="mt-4 break-words">{item.detail.split('\n')[0]}</div>
                   </div>
                 </div>
                 <div className="border-b border-black mt-10"></div>
@@ -198,10 +174,10 @@ export default function News() {
               </nav>
             </div>
           </div>
-          <div className={edit ? "flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] justify-center" : "flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] hidden"}>
+          <div className={edit ? "" : "hidden"}>
             <form className='w-full'>
               <input type="text" name="b_id" id="b_id" value="" hidden />
-              <input type="text" name="status" id="status" value="pass" hidden />
+              <input type="text" name="status" id="status" value="coming" hidden />
               <div className="space-y-12 w-full">
                 <div className="border-b border-gray-900/10 pb-12 w-full">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 w-full">
@@ -215,7 +191,6 @@ export default function News() {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          value=""
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -230,7 +205,6 @@ export default function News() {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          value=""
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -245,7 +219,6 @@ export default function News() {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          value=""
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -260,7 +233,6 @@ export default function News() {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          value=""
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -275,7 +247,6 @@ export default function News() {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          value=""
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
@@ -312,45 +283,6 @@ export default function News() {
                         />
                       </div>
                     </div>
-
-                    <div className="col-span-full">
-                      <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
-                        Photo
-                      </label>
-                      <div className="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                        <div className='flex flex-wrap images'>
-                          {selectedImages &&
-                            selectedImages.map((image, index) => {
-                              return (
-                                <div key={image} className='image mr-3'>
-                                  <img src={image} className='max-h-72 mb-3 rounded-md' />
-                                  <button
-                                    type="button"
-                                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
-                                    onClick={() => {
-                                      setSelectedImages(selectedImages.filter((e) => e !== image))
-                                    }}>
-                                    Delete Image
-                                  </button>
-                                </div>
-                              )
-                            })}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600 justify-center">
-                          <label
-                            htmlFor="file-upload"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>Upload a file</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={onSelectFile} />
-                          </label>
-                          <p className="pl-1">or drag and drop</p>
-                        </div>
-                        <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -369,7 +301,6 @@ export default function News() {
             </form>
           </div>
         </div>
-
       </div>
     </>
   );

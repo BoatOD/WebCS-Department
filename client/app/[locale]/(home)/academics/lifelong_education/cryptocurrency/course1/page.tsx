@@ -29,16 +29,16 @@ export default function Course1({ }: Props) {
               <table className="w-full">
                 <tbody>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงวันรับสมัคร :</th>
-                    <td className="bg-white text-black px-6">รุ่นที่ 1 : 14 กรกฎาคม – 23 กรกฎาคม 2564</td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงวันรับสมัคร :</th>
+                    <td className="bg-white text-black px-1 md:px-6">รุ่นที่ 1 : 14 กรกฎาคม – 23 กรกฎาคม 2564</td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงเวลาเรียน :</th>
-                    <td className="bg-white text-black px-6">รุ่นที่ 1 : 31 กรกฎาคม 2564 เวลา 9.30 – 16.30 น.</td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงเวลาเรียน :</th>
+                    <td className="bg-white text-black px-1 md:px-6">รุ่นที่ 1 : 31 กรกฎาคม 2564 เวลา 9.30 – 16.30 น.</td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่องทางรับการสมัคร :</th>
-                    <td className="bg-white text-black px-6"><a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000119" className='underline'>Click here!</a></td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่องทางรับการสมัคร :</th>
+                    <td className="bg-white text-black px-1 md:px-6"><a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000119" className='underline'>Click here!</a></td>
                   </tr>
                 </tbody>
               </table>
