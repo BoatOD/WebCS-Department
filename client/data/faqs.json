@@ -1,42 +1,110 @@
-[
-    {
-        "question": "1. ผู้ที่จบการศึกษามาจากสายศิลป์ สามารถเข้าศึกษาต่อในสาขาวิทยาการคอมพิวเตอร์ได้หรือไม่",
-        "answer": "สำหรับผู้ที่จบสายศิลป์มาสามารถเข้าเรียนสาขานี้ได้ หากมีความชื่นชอบและมีพื้นฐานในด้านนี้ สามารถยื่นคะแนนได้ตามปกติในรอบ TCAS2 และ TCAS3 ครับโดยคณะวิทยาศาสตร์เปิดกว้างให้กับนักเรียนจากทุกแผนการเรียนหากมีคะแนนตามเกณฑ์ที่กำหนด โดยสามารถดูรายละเอียดการรับสมัครได้ที่ https://www1.reg.cmu.ac.th/ugradapply/findfaculty.php"
+[{
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f64461a"
     },
-    {
-        "question": "2. สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ เรียนอะไรบ้าง",
-        "answer": "วิทยาการคอมพิวเตอร์ (Computer Sciecne)\nเรียนทั้ง Hardware และ Software\nมุ่งเน้นเรื่องการพัฒนา Software ทั้ง Front-end and Back-end และศึกษาเทคนิคการเขียนโปรแกรมขั้นสูง\nเมื่อเรียนจบแล้วสามารถทำงานได้หลากหลาย วิทยาการคอมพิวเตอร์เน้นทฤษฎีและการเขียนโปรแกรมเชิงลึก โดยทั่วไปแล้ว วิทยาการคอมพิวเตอร์มีความหลากหลาย ในรายละเอียดของเนื้อหา เพื่อให้นักศึกษาได้เลือกแขนง หรือความเชี่ยวชาญที่ต้องการเรียนต่อ ตามความสนใจและความต้องการของตนเอง"
+    "answer": "สำหรับผู้ที่จบสายศิลป์มาสามารถเข้าเรียนสาขานี้ได้ หากมีความชื่นชอบและมีพื้นฐานในด้านนี้ สามารถยื่นคะแนนได้ตามปกติในรอบ TCAS2 และ TCAS3 ครับโดยคณะวิทยาศาสตร์เปิดกว้างให้กับนักเรียนจากทุกแผนการเรียนหากมีคะแนนตามเกณฑ์ที่กำหนด โดยสามารถดูรายละเอียดการรับสมัครได้ที่ https://www1.reg.cmu.ac.th/ugradapply/findfaculty.php",
+    "question": "ผู้ที่จบการศึกษามาจากสายศิลป์ สามารถเข้าศึกษาต่อในสาขาวิทยาการคอมพิวเตอร์ได้หรือไม่",
+    "f_id": 1,
+    "type": "Degree",
+    "e_answer": "Graduates from the artistic disciplines are eligible to work in this industry. if you are passionate about it and have experience in it. In the TCAS2 and TCAS3 rounds, scores may be submitted as normal. If they satisfy the requirements, students from all study programs may apply to the Faculty of Science. Visit https://www1.reg.cmu.ac.th/ugradapply/findfaculty.php to view the application's information.",
+    "e_question": "Graduates from the artistic fields Can I carry on with my computer science studies?"
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f64461b"
     },
-    {
-        "question": "3. ภาควิชาวิทยาการคอมพิวเตอร์มีการจัดอบรมเกี่ยวกับการเข้าค่ายเขียนโปรแกรมสำหรับเด็กหรือไม่",
-        "answer": "ทางภาควิชาฯ มีการจัดอบรมตลอดปี ให้กับผู้ที่สนใจ อบรมเกี่ยวกับการเขียนโปรแกรมและความรู้ด้านคอมพิวเตอร์ ในกลุ่มอายุต่างๆ น้องๆ มัธยมสามารถเข้าไปติดตามข่าวสารได้ที่ เฟสบุคเพจของสาขาวิทยาการคอมพิวเตอร์ https://www.facebook.com/CSCMU.HS.edition"
+    "answer": "เรียนทั้ง Hardware และ Software\nมุ่งเน้นเรื่องการพัฒนา Software ทั้ง Front-end and Back-end และศึกษาเทคนิคการเขียนโปรแกรมขั้นสูง\nเมื่อเรียนจบแล้วสามารถทำงานได้หลากหลาย วิทยาการคอมพิวเตอร์เน้นทฤษฎีและการเขียนโปรแกรมเชิงลึก โดยทั่วไปแล้ว วิทยาการคอมพิวเตอร์มีความหลากหลาย ในรายละเอียดของเนื้อหา เพื่อให้นักศึกษาได้เลือกแขนง หรือความเชี่ยวชาญที่ต้องการเรียนต่อ ตามความสนใจและความต้องการของตนเอง",
+    "question": "สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ เรียนอะไรบ้าง",
+    "f_id": 2,
+    "type": "Other",
+    "e_answer": "Study both Hardware and Software. Focus on software development, both Front-end and Back-end, and study advanced programming techniques. When you graduate, you will be able to work in a variety of jobs. Computer Science emphasizes theory and in-depth programming. In general, Computer science is diverse. in the details of the content To allow students to choose a branch or expertise that you want to continue studying According to your own interests and needs",
+    "e_question": "Computer Science field Faculty of Science What do you study?"
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f64461c"
     },
-    {
-        "question": "4. ในหลักสูตรปัจจุบัน สาขาวิทยาการคอมพิวเตอร์ยังมีเรียนวิชาชีววิทยา 1 เคมี 1 ฟิสิกส์ 1 อยู่หรือไม่",
-        "answer": "ในหลักสูตรปัจจุบันยังมีวิชาพื้นฐานเหล่านี้อยู่ ซึ่งเน้นความเข้าใจในองค์ความรู้พิ้นฐานที่สำคัญและจำเป็นในวิชานั้น โดยสามารถเข้าไปดูรายละเอียดเนื้อหาและหลักสูตรเพิ่มเติมได้ที่ เว็บไซต์ของภาควิชา https://www.cs.science.cmu.ac.th/program/"
+    "question": "ภาควิชาวิทยาการคอมพิวเตอร์มีการจัดอบรมเกี่ยวกับการเข้าค่ายเขียนโปรแกรมสำหรับเด็กหรือไม่",
+    "answer": "ทางภาควิชาฯ มีการจัดอบรมตลอดปี ให้กับผู้ที่สนใจ อบรมเกี่ยวกับการเขียนโปรแกรมและความรู้ด้านคอมพิวเตอร์ ในกลุ่มอายุต่างๆ น้องๆ มัธยมสามารถเข้าไปติดตามข่าวสารได้ที่ เฟสบุคเพจของสาขาวิทยาการคอมพิวเตอร์ https://www.facebook.com/CSCMU.HS.edition",
+    "f_id": 3,
+    "type": "Other",
+    "e_question": "Does the Department of Computer Science provide training about programming camps for children?",
+    "e_answer": "The department offers training all year round. Training in computer science and programming is available for individuals who are interested. High school students of all ages may follow the news on the Computer Science Department's Facebook page at https://www.facebook.com/CSCMU.HS.edition"
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f64461d"
     },
-    {
-        "question": "5. วิชา Natural Language Processing (NLP) เปิดสอนให้กับนักศึกษาคณะอื่นๆหรือไม่",
-        "answer": "เปิดสอนให้คณะอื่นด้วย สามารถลงทะเบียนเรียนได้ โดยต้องผ่านเงื่อนไขกระบวนวิชาที่ต้องผ่านก่อน สามารถเข้าดูเงื่อนไขวิชาได้ที่เว็บไซต์ของภาควิชาวิทยาการคอมพิวเตอร์ https://www.cs.science.cmu.ac.th/program/"
+    "question": "ในหลักสูตรปัจจุบัน สาขาวิทยาการคอมพิวเตอร์ยังมีเรียนวิชาชีววิทยา 1 เคมี 1 ฟิสิกส์ 1 อยู่หรือไม่",
+    "answer": "ในหลักสูตรปัจจุบันยังมีวิชาพื้นฐานเหล่านี้อยู่ ซึ่งเน้นความเข้าใจในองค์ความรู้พิ้นฐานที่สำคัญและจำเป็นในวิชานั้น โดยสามารถเข้าไปดูรายละเอียดเนื้อหาและหลักสูตรเพิ่มเติมได้ที่ เว็บไซต์ของภาควิชา https://www.cs.science.cmu.ac.th/program/",
+    "f_id": 4,
+    "type": "Courses",
+    "e_question": "In the current curriculum Does the Computer Science major still have Biology 1, Chemistry 1, and Physics 1?",
+    "e_answer": "The current curriculum still includes these basic subjects. which emphasizes understanding of basic knowledge that is important and necessary in that subject You can view additional content and course details at Department website https://www.cs.science.cmu.ac.th/program/"
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f64461e"
     },
-    {
-        "question": "6. วิชา Linear algebra ของสาขาคณิตศาสตร์เปิดสอนให้กับนักศึกษาในสาขาวิทยาการคอมพิวเตอร์หรือไม่ และสามารถดูรายวิชาคณิตศาสตร์ที่ต้องเรียนได้ที่ไหน",
-        "answer": "เปิดสอน โดยนักศึกษาสามารถดูรายละเอียดวิชากระบวนวิชาที่ต้องเรียนได้ที่ https://www.cs.science.cmu.ac.th/program/"
+    "question": "วิชา Natural Language Processing (NLP) เปิดสอนให้กับนักศึกษาคณะอื่นๆหรือไม่",
+    "answer": "เปิดสอนให้คณะอื่นด้วย สามารถลงทะเบียนเรียนได้ โดยต้องผ่านเงื่อนไขกระบวนวิชาที่ต้องผ่านก่อน สามารถเข้าดูเงื่อนไขวิชาได้ที่เว็บไซต์ของภาควิชาวิทยาการคอมพิวเตอร์ https://www.cs.science.cmu.ac.th/program/",
+    "f_id": 5,
+    "type": "Enrolled Courses",
+    "e_question": "Are students in other faculties able to take Natural Language?",
+    "e_answer": "Open to teaching to other faculties as well. Can register to study You must meet course conditions that must be passed first. Course requirements can be viewed at the Department of Computer Science's website. https://www.cs.science.cmu.ac.th/program/"
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f64461f"
     },
-    {
-        "question": "7. หากต้องการเตรียมตัวเพื่อศึกษาต่อในสาขาวิชานี้สามารถศึกษาข้อมูลเกี่ยวกับสาขาวิชานี้ได้ที่ไหน",
-        "answer": "สามารถเตรียมตัวหรือดูรายละเอียดการเรียนได้ที่เว็บไซต์ของภาควิชาวิทยาการคอมพิวเตอร์ https://www.cs.science.cmu.ac.th/ และเฟสบุคแฟนเพจ https://www.facebook.com/CSCMU.HS.edition ของภาควิชาได้"
+    "question": "วิชา Linear algebra ของสาขาคณิตศาสตร์เปิดสอนให้กับนักศึกษาในสาขาวิทยาการคอมพิวเตอร์หรือไม่ และสามารถดูรายวิชาคณิตศาสตร์ที่ต้องเรียนได้ที่ไหน",
+    "answer": "เปิดสอน โดยนักศึกษาสามารถดูรายละเอียดวิชากระบวนวิชาที่ต้องเรียนได้ที่ https://www.cs.science.cmu.ac.th/program/",
+    "f_id": 6,
+    "type": "Enrolled Courses",
+    "e_question": "Are computer science students provided linear algebra in?",
+    "e_answer": "Open for teaching. Students can view details of the courses they must study at https://www.cs.science.cmu.ac.th/program/"
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f644620"
     },
-    {
-        "question": "8. สามารถดูแผนการเรียนได้ที่ไหน",
-        "answer": "สามารถดูรายละเอียดแผนการเรียนได้ที่ https://www.cs.science.cmu.ac.th/program/"
+    "question": "หากต้องการเตรียมตัวเพื่อศึกษาต่อในสาขาวิชานี้ สามารถศึกษาข้อมูลเกี่ยวกับสาขาวิชานี้ได้ที่ไหน",
+    "answer": "สามารถเตรียมตัวหรือดูรายละเอียดการเรียนได้ที่เว็บไซต์ของภาควิชาวิทยาการคอมพิวเตอร์ https://www.cs.science.cmu.ac.th/ และเฟสบุคแฟนเพจ https://www.facebook.com/CSCMU.HS.edition ของภาควิชาได้",
+    "f_id": 7,
+    "type": "Degree",
+    "e_question": "If i want to prepare to continue my studies in this field of?",
+    "e_answer": "You can prepare or see study details at the Department of Computer Science's website. https://www.cs.science.cmu.ac.th/ and Facebook fan page https://www.facebook.com/CSCMU.HS.edition of the department"
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f644621"
     },
-    {
-        "question": "9. ต้องการทราบรายละเอียดเกี่ยวกับการย้ายคณะ",
-        "answer": "นักศึกษาสามารถติดต่อสอบถามที่เบอร์โทร: 053-943315 เพื่อสอบถามรายละเอียดที่ต้องใช้ในการย้ายคณะ"
+    "question": "สามารถดูแผนการเรียนได้ที่ไหน",
+    "answer": "สามารถดูรายละเอียดแผนการเรียนได้ที่ https://www.cs.science.cmu.ac.th/program/",
+    "f_id": 8,
+    "type": "Curriculum",
+    "e_question": "Where can I view the study plan?",
+    "e_answer": "Details of the study plan can be found at https://www.cs.science.cmu.ac.th/program/"
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f644622"
     },
-    {
-        "question": "10. สามารถประชาสัมพันธ์เรื่องการฝึกงานได้ที่ไหน",
-        "answer": "ท่านสามารถส่งรายละเอียดมาทางข้อความเพจ หรือทางอีเมล compsci@cmu.ac.th "
-    }
-]
+    "question": "ต้องการทราบรายละเอียดเกี่ยวกับการย้ายคณะ",
+    "answer": "นักศึกษาสามารถติดต่อสอบถามที่เบอร์โทร: 053-943315 เพื่อสอบถามรายละเอียดที่ต้องใช้ในการย้ายคณะ",
+    "f_id": 9,
+    "type": "Other",
+    "e_question": "Want to know details about faculty transfer?",
+    "e_answer": "Students can contact us at telephone number: 053-943315 to inquire about details required for transferring faculty."
+  },
+  {
+    "_id": {
+      "$oid": "65170cca21a7aa3f8f644623"
+    },
+    "question": "สามารถประชาสัมพันธ์เรื่องการฝึกงานได้ที่ไหน",
+    "answer": "ท่านสามารถส่งรายละเอียดมาทางข้อความเพจ หรือทางอีเมล compsci@cmu.ac.th",
+    "f_id": 10,
+    "type": "Other",
+    "e_question": "Where can I publicize internships?",
+    "e_answer": "You can send details via page message or via email compsci@cmu.ac.th"
+  }]
