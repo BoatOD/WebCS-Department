@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import SidebarWithCta from "@/components/admin/SidebarWithCta";
 import Link from 'next/link'
 import Image from 'next/image';
 
