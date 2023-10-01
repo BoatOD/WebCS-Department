@@ -27,6 +27,26 @@ export default function Events() {
   const itemsPerPage = 3;
   const [date, setDate] = useState(Date);
   const [edit, setEdit] = useState(false);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const [picture1, setPicture1] = useState<File[]>();
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    b_id: 0,
+    topic: "",
+    e_topic: "",
+    detail: "",
+    e_detail: "",
+    date: "",
+    location: "",
+    e_location: "",
+    category: "",
+    nflag: false,
+    picture: [],
+    eflag: true,
+    status: "coming",
+    undertaker: "",
+  });
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
@@ -50,7 +70,6 @@ export default function Events() {
       })
       .catch((error) => console.error(error));
   }, []);
-
 
   // Function to format a Date object
   function formatDate(date: Date): string {
@@ -79,13 +98,67 @@ export default function Events() {
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   const onDate = (event: any) => {
-    setDate(event.target.date)
+    setDate(event.target.value)
     console.log(event.target.value)
   }
 
   const changeEdit = () => {
     setEdit(!edit);
   };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleChangeArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleImage = async (e,setFieldValue) => {
+    const file = e.target
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // setFormData(["picture"]:picture)
+
+    try {
+      const response = await fetch("http://localhost:8080/blog", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitMessage("Data sent successfully");
+        setIsSuccess(true);
+        // Optionally, you can redirect the user to a success page or handle other actions here.
+      } else {
+        setSubmitMessage("Error sending data");
+        setIsSuccess(false);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setSubmitMessage("An error occurred while sending data");
+      setIsSuccess(false);
+    }
+  }
+
+  const onSelectFile = (event: any) => {
+    const selectFile = event.target.files;
+    const selectFileArray = Array.from(selectFile);
+    const imagesArray = selectFileArray.map((file: any) => {
+      return URL.createObjectURL(file)
+    })
+    setSelectedImages(imagesArray);
+    // setPicture(selectFile);
+    // console.log(picture)
+  }
 
   return (
     <>
@@ -175,112 +248,159 @@ export default function Events() {
             </div>
           </div>
           <div className={edit ? "" : "hidden"}>
-            <form className='w-full'>
-              <input type="text" name="b_id" id="b_id" value="" hidden />
+            <form className='w-full' onSubmit={handleSubmit}>
+              <input type="text" name="b_id" id="b_id" value={formData.b_id} hidden />
               <input type="text" name="status" id="status" value="coming" hidden />
               <div className="space-y-12 w-full">
                 <div className="border-b border-gray-900/10 pb-12 w-full">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 w-full">
                     <div className="sm:col-span-4">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="topic" className="block text-sm font-medium leading-6 text-gray-900">
                         Topic
                       </label>
                       <div className="mt-2">
                         <input
                           type="text"
-                          name="first-name"
-                          id="first-name"
-                          autoComplete="given-name"
+                          name="topic"
+                          id="topic"
+                          onChange={handleChange}
+                          value={formData.topic}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
                     <div className="sm:col-span-4">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="e_topic" className="block text-sm font-medium leading-6 text-gray-900">
                         English Topic
                       </label>
                       <div className="mt-2">
                         <input
                           type="text"
-                          name="first-name"
-                          id="first-name"
-                          autoComplete="given-name"
+                          name="e_topic"
+                          id="e_topic"
+                          onChange={handleChange}
+                          value={formData.e_topic}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
                     <div className="sm:col-span-4">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="undertaker" className="block text-sm font-medium leading-6 text-gray-900">
                         Undertaker
                       </label>
                       <div className="mt-2">
                         <input
                           type="text"
-                          name="first-name"
-                          id="first-name"
-                          autoComplete="given-name"
+                          name="undertaker"
+                          id="undertaker"
+                          onChange={handleChange}
+                          value={formData.undertaker}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
                     <div className="sm:col-span-4">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="location" className="block text-sm font-medium leading-6 text-gray-900">
                         Location
                       </label>
                       <div className="mt-2">
                         <input
                           type="text"
-                          name="first-name"
-                          id="first-name"
-                          autoComplete="given-name"
+                          name="location"
+                          id="location"
+                          onChange={handleChange}
+                          value={formData.location}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
                     <div className="sm:col-span-4">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="e_location" className="block text-sm font-medium leading-6 text-gray-900">
                         English Location
                       </label>
                       <div className="mt-2">
                         <input
                           type="text"
-                          name="first-name"
-                          id="first-name"
-                          autoComplete="given-name"
+                          name="e_location"
+                          id="e_location"
+                          onChange={handleChange}
+                          value={formData.e_location}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
                     <div className="sm:col-span-4">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
                         Date
                       </label>
                       <input type="date" onChange={onDate} value={date} />
                     </div>
                     <div className="col-span-full">
-                      <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="detail" className="block text-sm font-medium leading-6 text-gray-900">
                         Detail
                       </label>
                       <div className="mt-2">
                         <textarea
-                          id="about"
-                          name="about"
+                          id="detail"
+                          name="detail"
                           rows={10}
+                          onChange={handleChangeArea}
+                          value={formData.detail}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
                     <div className="col-span-full">
-                      <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="e_detail" className="block text-sm font-medium leading-6 text-gray-900">
                         English Detail
                       </label>
                       <div className="mt-2">
                         <textarea
-                          id="about"
-                          name="about"
+                          id="e_detail"
+                          name="e_detail"
                           rows={10}
+                          onChange={handleChangeArea}
+                          value={formData.e_detail}
                           className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
+                      </div>
+                    </div>
+                    <div className="col-span-full">
+                      <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
+                        Photo
+                      </label>
+                      <div className="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                        <div className='flex flex-wrap images'>
+                          {selectedImages &&
+                            selectedImages.map((image, index) => {
+                              return (
+                                <div key={image} className='image mr-3'>
+                                  <img src={image} className='max-h-72 mb-3 rounded-md' />
+                                  <button
+                                    type="button"
+                                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
+                                    onClick={() => {
+                                      setSelectedImages(selectedImages.filter((e) => e !== image))
+                                    }}>
+                                    Delete Image
+                                  </button>
+                                </div>
+                              )
+                            })}
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600 justify-center">
+                          <label
+                            htmlFor="file-upload"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={(e) =>{handleImage(e,formik.setFieldValue);}} />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                       </div>
                     </div>
                   </div>

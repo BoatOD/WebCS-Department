@@ -3,8 +3,6 @@ import Carousel from "@/components/Carousel";
 import AcademicFirstPage from "@/components/AcademicHome/AcademicFirstPage";
 import NewsAndEvent from "@/components/NewAndEventHome/NewsAndEvent";
 import { CarouselProps } from "@/types/carousel";
-import NavbarHeader from "@/components/navbar";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   const images: CarouselProps[] = [
