@@ -322,8 +322,9 @@ app.get("/api/peopleadmin", async (req, res) => {
 });
 
 app.post("/blog", async (req, res) => {
+  console.log("req.body:", req.body);
   try {
-    var {
+    const {
       b_id,
       topic,
       e_topic,
@@ -331,8 +332,8 @@ app.post("/blog", async (req, res) => {
       location,
       e_location,
       category,
-      nflag,
       picture,
+      nflag,
       eflag,
       status,
       undertaker
@@ -370,7 +371,7 @@ app.post("/blog", async (req, res) => {
 
     }
 
-    res.json(blog);
+    // res.json(blog);
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ error: "Internal Server Error" });
