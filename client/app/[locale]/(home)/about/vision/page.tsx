@@ -4,10 +4,12 @@ import Banner from '@/components/Banner';
 import { sidebarItem } from '@/app/[locale]/(home)/about/sidebarData'
 import Image from "next/image";
 import Sidebar1 from "@/components/Sidebar1";
+import { useTranslations } from 'next-intl';
 
 type Props = {};
 
 export default function vision({ }: Props) {
+  const some = useTranslations("about");
   return (
     <>
       <Banner
@@ -34,50 +36,50 @@ export default function vision({ }: Props) {
             </div>
 
             <div className="p-5">
-              <h1 id="analysis" className="text-2xl font-bold">วิสัยทัศน์</h1>
+              <h1 id="analysis" className="text-2xl font-bold">{some("title0")}</h1>
               <br />
 
               <p>
-                <span className="ml-[1rem]">ภาควิชาวิทยาการคอมพิวเตอร์จะเป็นผู้นำในด้านวิทยาการคอมพิวเตอร์ และเทคโนโลยีสารสนเทศระดับภูมิภาค ประเทศ และนานาชาติ ควบคู่ไปกับการพัฒนาคุณภาพบัณฑิตและงานวิจัยที่มีคุณภาพ</span>
+                <span className="ml-[1rem]">{some("detail0")}</span>
               </p>
 
               <div className="flex flex-col space-y-1 mt-7">
                 <div className="px-8 py-0.5 bg-black w-20pc"></div>
               </div>
               <br />
-              <h1 id="obj" className="text-2xl font-bold">พันธกิจ</h1>
+              <h1 id="obj" className="text-2xl font-bold">{some("title1")}</h1>
               <br />
               <ol className="list-decimal pl-6">
                 <li className="mb-2">
-                  จัดการศึกษาระดับอุดมศึกษา โดยมุ่งเน้นความเป็นเลิศทางวิชาการและคุณภาพ ตามมาตรฐานสากล
+                  {some("detail1")}
                 </li>
                 <li className="mb-2">
-                  ผลิตผลงานวิจัยทั้งระดับพื้นฐานและประยุกต์ในสาขาวิทยาการคอมพิวเตอร์เพื่อสามารถนำไปแก้ไขปัญหา และพัฒนาสังคมของประเทศ
+                  {some("detail2")}
                 </li>
                 <li className="mb-2">
-                  ให้บริการวิชาการแก่สังคมเพื่อตอบสนองความต้องการของชุมชนและประเทศ
+                  {some("detail3")}
                 </li>
                 <li className="mb-2">
-                  ทำนุบำรุงศิลปวัฒนธรรมและจริยธรรมอันดี
+                  {some("detail4")}
                 </li>
               </ol>
               <div className="flex flex-col space-y-1 mt-7">
                 <div className="px-8 py-0.5 bg-black w-20px"></div>
               </div>
               <br />
-              <h1 id="quali" className="text-2xl font-bold">ภารกิจ</h1>
+              <h1 id="quali" className="text-2xl font-bold">{some("title2")}</h1>
               <br />
               <p className='mb-2'>
-                แนวทางการบริหารงานภาควิชาฯเพื่อให้บรรลุวิสัยทัศน์ พันธกิจประกอบด้วย 7 ยุทธศาสตร์ ดังนี้
+              {some("detail5")}
               </p>
               <ol className="list-decimal pl-6">
-                <li className="mb-2"> ยุทธศาสตร์การจัดการศึกษา</li>
-                <li className="mb-2"> ยุทธศาสตร์การบริหารการศึกษา</li>
-                <li className="mb-2">  ยุทธศาสตร์การวิจัย</li>
-                <li className="mb-2">  ยุทธศาสตร์ด้านบริการวิชาการแก่ชุมชน</li>
-                <li className="mb-2"> ยุทธศาสตร์การทำนุบำรุงศิลปวัฒนธรรมจริยธรรมและสิ่งแวดล้อม</li>
-                <li className="mb-2">  ยุทธศาสตร์กิจการนักศึกษา</li>
-                <li className="mb-2">  ยุทธศาสตร์การประกันคุณภาพการศึกษา</li>
+                <li className="mb-2"> {some("detail6")}</li>
+                <li className="mb-2"> {some("detail7")}</li>
+                <li className="mb-2">  {some("detail8")}</li>
+                <li className="mb-2">  {some("detail9")}</li>
+                <li className="mb-2"> {some("detail10")}</li>
+                <li className="mb-2">  {some("detail11")}</li>
+                <li className="mb-2">  {some("detail12")}</li>
               </ol>
               <div className="flex flex-col space-y-1 mt-7">
                 <div className="px-8 py-0.5 bg-black w-20px"></div>

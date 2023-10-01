@@ -1,6 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
+import axios from 'axios';
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 interface NewsEvent {
   _id: string;
@@ -28,11 +31,11 @@ export default function Events() {
   const [date, setDate] = useState(Date);
   const [edit, setEdit] = useState(false);
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
-  const [picture1, setPicture1] = useState<File[]>();
+  const [files, setFiles] = useState([]);
   const [submitMessage, setSubmitMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
-    b_id: 0,
+    b_id: "0",
     topic: "",
     e_topic: "",
     detail: "",
@@ -41,11 +44,59 @@ export default function Events() {
     location: "",
     e_location: "",
     category: "",
-    nflag: false,
-    picture: [],
-    eflag: true,
+    nflag: "0",
+    picture: null,
+    eflag: "1",
     status: "coming",
-    undertaker: "",
+    undertaker: ""
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      b_id: "0",
+      topic: "",
+      e_topic: "",
+      detail: "",
+      e_detail: "",
+      date: "",
+      picture: null,
+      location: "",
+      e_location: "",
+      category: "",
+      nflag: "0",
+      eflag: "1",
+      status: "coming",
+      undertaker: ""
+    },
+    validationSchema: Yup.object({
+      topic: Yup.string().required("Required"),
+      e_topic: Yup.string().required("Required"),
+      detail: Yup.string().required("Required"),
+      e_detail: Yup.string().required("Required"),
+      date: Yup.string().required("Required"),
+      location: Yup.string().required("Required"),
+      e_location: Yup.string().required("Required"),
+      category: Yup.string().required("Required"),
+      nflag: Yup.string().required("Required"),
+      eflag: Yup.string().required("Required"),
+      status: Yup.string().required("Required"),
+      undertaker: Yup.string().required("Required"),
+    }),
+    onSubmit: async (values) => {
+      const data = { ...values }
+      try {
+        const res = await axios.post(
+            `http://localhost:8080/blog`,
+            data
+        )
+        console.log(res.data)
+        formik.resetForm();
+        alert("success")
+    } catch (error) {
+      console.log(error)
+      alert("failed")
+    }
+    },
   });
 
   useEffect(() => {
@@ -106,6 +157,36 @@ export default function Events() {
     setEdit(!edit);
   };
 
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const handleImage = async (e, setFieldValue) => {
+    const selectFile = e.target.files;
+    const selectFileArray = Array.from(selectFile);
+    const imagesArray = selectFileArray.map((file: any) => {
+      return URL.createObjectURL(file)
+    })
+    setSelectedImages(imagesArray);
+    const file = e.target.files[0];
+    //check the size of image
+    if (file?.size / 1024 / 1024 < 2) {
+      const base64 = await convertToBase64(file);
+      setFieldValue("picture", base64);
+    } else {
+      alert("Image size must be of 2MB or less");
+    }
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -116,14 +197,22 @@ export default function Events() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleImage = async (e,setFieldValue) => {
-    const file = e.target
+  const handleFileChange = (event: any) => {
+    setFormData({ ...formData, picture: event.target.files });
+  };
+
+  const onSelectFile = (event: any) => {
+    setFiles(event.target.files);
+    const selectFile = event.target.files;
+    const selectFileArray = Array.from(selectFile);
+    const imagesArray = selectFileArray.map((file: any) => {
+      return URL.createObjectURL(file)
+    })
+    setSelectedImages(imagesArray);
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // setFormData(["picture"]:picture)
 
     try {
       const response = await fetch("http://localhost:8080/blog", {
@@ -147,17 +236,6 @@ export default function Events() {
       setSubmitMessage("An error occurred while sending data");
       setIsSuccess(false);
     }
-  }
-
-  const onSelectFile = (event: any) => {
-    const selectFile = event.target.files;
-    const selectFileArray = Array.from(selectFile);
-    const imagesArray = selectFileArray.map((file: any) => {
-      return URL.createObjectURL(file)
-    })
-    setSelectedImages(imagesArray);
-    // setPicture(selectFile);
-    // console.log(picture)
   }
 
   return (
@@ -333,7 +411,7 @@ export default function Events() {
                       <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
                         Date
                       </label>
-                      <input type="date" onChange={onDate} value={date} />
+                      <input type="date" onChange={onDate} value={date} className='rounded-md' />
                     </div>
                     <div className="col-span-full">
                       <label htmlFor="detail" className="block text-sm font-medium leading-6 text-gray-900">
@@ -396,7 +474,10 @@ export default function Events() {
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={(e) =>{handleImage(e,formik.setFieldValue);}} />
+                            <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={(e) => {
+                              handleImage(e, formik.setFieldValue);
+                            }
+                            } />
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>

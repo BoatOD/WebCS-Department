@@ -256,7 +256,7 @@ app.get("/api/research", async (req, res) => {
           },
           r_id: { $first: "$r_id" },
           picture: { $first: "$picture" },
-          e_topic: { $first: "$e_topic" }
+          e_topic: { $first: "$e_topic" },
         },
       },
       {
@@ -322,8 +322,9 @@ app.get("/api/peopleadmin", async (req, res) => {
 });
 
 app.post("/blog", async (req, res) => {
+  console.log("req.body:", req.body);
   try {
-    var {
+    const {
       b_id,
       topic,
       e_topic,
@@ -331,24 +332,26 @@ app.post("/blog", async (req, res) => {
       location,
       e_location,
       category,
-      nflag,
       picture,
+      nflag,
       eflag,
       status,
-      undertaker
-    } = req.body
+      undertaker,
+    } = req.body;
 
     const db = await connectToDatabase();
     const blogCollection = db.collection("blog");
     if (b_id == 0) {
-      const result = await blogCollection.aggregate([
-        {
-          $group: {
-            _id: '$dummy',
-            test: { $max: '$b_id' }
-          }
-        }
-      ]).toArray();
+      const result = await blogCollection
+        .aggregate([
+          {
+            $group: {
+              _id: "$dummy",
+              test: { $max: "$b_id" },
+            },
+          },
+        ])
+        .toArray();
 
       b_id = result[0].test + 1;
 
@@ -364,17 +367,20 @@ app.post("/blog", async (req, res) => {
         picture,
         eflag,
         status,
-        undertaker
+        undertaker,
       });
     } else {
-
     }
 
-    res.json(blog);
+    // res.json(blog);
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
+});
+
+app.post("/api/upload", async (req, res) => {
+  res.status(200).send("Files uploaded successfully");
 });
 
 app.post("/people", async (req, res) => {
@@ -486,39 +492,61 @@ app.get("/api/people/:id", async (req, res) => {
   }
 });
 
-app.post("/api/people/update:id", async (req, res) => {
+app.post("/api/people/update/:id", async (req, res) => {
   const { id } = req.params;
   const body = req.body;
   console.log(body);
-  console.log(id);
+  console.log("Ken");
   try {
     // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
     const update1 = db.collection("people");
-    await update1.updateOne(
+
+    const result = await update1.updateOne(
       { _id: new ObjectId(id) },
       {
-        title: body.title,
-        e_title: body.e_title,
-        name: body.name,
-        e_name: body.e_name,
-        affiliation: body.affiliation,
-        e_affiliation: body.e_affiliation,
-        picture: body.picture,
-        job_type: body.job_type,
-        personal_web: body.personal_web,
-        research_interest: body.research_interest,
-        tel: body.tel,
-        email: body.email,
-        position: body.position,
-        e_position: body.e_position,
+        $set: {
+          title: body.title,
+          e_title: body.e_title,
+          name: body.name,
+          e_name: body.e_name,
+          affiliation: body.affiliation,
+          e_affiliation: body.e_affiliation,
+          picture: body.picture,
+          job_type: body.job_type,
+          personal_web: body.personal_web,
+          research_interest: body.research_interest,
+          tel: body.tel,
+          email: body.email,
+          position: body.position,
+          e_position: body.e_position,
+        },
       }
     );
 
-    // res.json(lecturer);
+    if (result.modifiedCount === 1) {
+      return res.json({ success: true });
+    } else {
+      return res.status(404).json({ error: "Document not found" });
+    }
+  } catch (error) {
+    console.error("Error updating document:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.post("/api/people/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log("ken");
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+    const update1 = db.collection("people");
+
+    const result = await update1.deleteOne({ _id: new ObjectId(id) });
     return res.json({ success: true });
   } catch (error) {
-    // console.error("Error fetching data from MongoDB Atlas:", error);
+    console.error("Error updating document:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

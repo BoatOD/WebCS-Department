@@ -31,34 +31,32 @@ export default function PeopleForm() {
       research_interest: "",
     },
     validationSchema: Yup.object({
-      title: Yup.string().required("Required"),
-      e_title: Yup.string().required("Required"),
       name: Yup.string().required("Required"),
       e_name: Yup.string().required("Required"),
-      affiliation: Yup.string().required("Required"),
-      e_affiliation: Yup.string().required("Required"),
+
       job_type: Yup.string().required("Required"),
-      personal_web: Yup.string().required("Required"),
-      research_interest: Yup.string().required("Required"),
     }),
     onSubmit: async (values) => {
-      const data = { ...values, tel: [ ...tel ], email: [ ...email ], position: [ ... position], e_position: [ ...e_position ] }
+      const data = {
+        ...values,
+        tel: [...tel],
+        email: [...email],
+        position: [...position],
+        e_position: [...e_position],
+      };
       try {
-        const res = await axios.post(
-            `http://localhost:8080/people`,
-            data
-        )
-        console.log(res.data)
+        const res = await axios.post(`http://localhost:8080/people`, data);
+        console.log(res.data);
         formik.resetForm();
-        setTel([])
-        setEmail([])
-        setPosition([])
-        setE_position([])
-        alert("success")
-    } catch (error) {
-      console.log(error)
-      alert("failed")
-    }
+        setTel([]);
+        setEmail([]);
+        setPosition([]);
+        setE_position([]);
+        alert("success");
+      } catch (error) {
+        console.log(error);
+        alert("failed");
+      }
     },
   });
   const isFormFieldInvalid = (name: string) =>
