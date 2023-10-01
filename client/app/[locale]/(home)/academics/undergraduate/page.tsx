@@ -114,7 +114,7 @@ export default function Undergraduate({ }: Props) {
               <Accordion open={openAccordions.includes(2)} className='w-full pb-0 m-2 mx-0 md:mx-2 mb-0' >
                 <AccordionHeader onClick={() => handleOpen(2)} className='text-lg font-kanit font-medium bg-[#EC870B] text-white text-center justify-center h-28'>
                   วิชาเอกบังคับประจำแผน <br />
-                  (Plan-specific Compulsory Courses)
+                  (Plan-Specific Compulsory Courses)
                 </AccordionHeader>
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg'>
 
