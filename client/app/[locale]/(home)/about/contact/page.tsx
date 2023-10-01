@@ -99,20 +99,10 @@ export default function contact({ }: Props) {
 
               <li>
                   <span className="flex items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 12 12"
-                      width="12"
-                      height="12"
-                      fill="none"
-                      stroke="black"
-                      strokeWidth="30"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-6 h-6 mr-2"
-                    >
-                      <path d="m6 .5c2.48528137 0 4.5 2.01471863 4.5 4.5 0 1.86262254-1.41980393 3.81485295-4.2 5.9-.17777778.1333333-.42222222.1333333-.6 0-2.78019607-2.08514705-4.2-4.03737746-4.2-5.9 0-2.48528137 2.01471863-4.5 4.5-4.5zm0 3c-.82842712 0-1.5.67157288-1.5 1.5s.67157288 1.5 1.5 1.5 1.5-.67157288 1.5-1.5-.67157288-1.5-1.5-1.5z" fill="#212121"/>
-                    </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 mr-2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
                     Location
                   </span>
                   <iframe
