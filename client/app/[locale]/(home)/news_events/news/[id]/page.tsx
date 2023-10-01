@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link'
+import { useLocale } from 'next-intl';
 
 type Params = {
   params: {
@@ -29,6 +30,7 @@ interface NewsEvent {
 }
 const NewsDetail = ({ params: { id } }: Params) => {
   const [data, setData] = useState<NewsEvent[]>([]);
+  const locale = useLocale();
   const [loading, setLoading] = useState(true); // Initialize loading state as true
 
   useEffect(() => {
