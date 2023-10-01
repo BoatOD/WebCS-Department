@@ -79,7 +79,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       try {
         // edit here ex.
         const res = await axios.post(
-            `http://localhost:8080/api/people/update${params.id}`,
+            `http://localhost:8080/api/people/update/${params.id}`,
             data
         )
         console.log(res.data)

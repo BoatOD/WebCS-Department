@@ -486,39 +486,83 @@ app.get("/api/people/:id", async (req, res) => {
   }
 });
 
-app.post("/api/people/update:id", async (req, res) => {
+// app.post("/api/people/update/:id", async (req, res) => {
+//   const { id } = req.params;
+//   const body = req.body;
+//   console.log(body);
+//   console.log(id);
+//   try {
+//     // Connect to MongoDB Atlas using the function from dbconnect.js
+//     const db = await connectToDatabase();
+//     const update1 = db.collection("people");
+//     const newvalue = await update1.updateOne(
+//       { _id: new ObjectId(id) },
+//       {
+//         title: body.title,
+//         e_title: body.e_title,
+//         name: body.name,
+//         e_name: body.e_name,
+//         affiliation: body.affiliation,
+//         e_affiliation: body.e_affiliation,
+//         picture: body.picture,
+//         job_type: body.job_type,
+//         personal_web: body.personal_web,
+//         research_interest: body.research_interest,
+//         tel: body.tel,
+//         email: body.email,
+//         position: body.position,
+//         e_position: body.e_position,
+//       }
+//     );
+
+//     // res.json(lecturer);
+//     return res.json({ success: true });
+//   } catch (error) {
+//     // console.error("Error fetching data from MongoDB Atlas:", error);
+//     console.log(error)
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// });
+
+app.post("/api/people/update/:id", async (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  console.log(body);
-  console.log(id);
+  console.log(body)
+  console.log("Ken")
   try {
     // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
     const update1 = db.collection("people");
-    await update1.updateOne(
+
+    const result = await update1.updateOne(
       { _id: new ObjectId(id) },
       {
-        title: body.title,
-        e_title: body.e_title,
-        name: body.name,
-        e_name: body.e_name,
-        affiliation: body.affiliation,
-        e_affiliation: body.e_affiliation,
-        picture: body.picture,
-        job_type: body.job_type,
-        personal_web: body.personal_web,
-        research_interest: body.research_interest,
-        tel: body.tel,
-        email: body.email,
-        position: body.position,
-        e_position: body.e_position,
+        $set: {
+          title: body.title,
+          e_title: body.e_title,
+          name: body.name,
+          e_name: body.e_name,
+          affiliation: body.affiliation,
+          e_affiliation: body.e_affiliation,
+          picture: body.picture,
+          job_type: body.job_type,
+          personal_web: body.personal_web,
+          research_interest: body.research_interest,
+          tel: body.tel,
+          email: body.email,
+          position: body.position,
+          e_position: body.e_position,
+        }
       }
     );
 
-    // res.json(lecturer);
-    return res.json({ success: true });
+    if (result.modifiedCount === 1) {
+      return res.json({ success: true });
+    } else {
+      return res.status(404).json({ error: "Document not found" });
+    }
   } catch (error) {
-    // console.error("Error fetching data from MongoDB Atlas:", error);
+    console.error("Error updating document:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
