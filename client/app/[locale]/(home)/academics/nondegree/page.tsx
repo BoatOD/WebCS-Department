@@ -103,7 +103,7 @@ export default function Nondegree({ }: Props) {
               <br />
               <h1 id="process" className="text-2xl font-bold">กระบวนการรับสมัคร</h1>
               <br />
-              <table className='w-full' className="w-full text-sm text-left">
+              <table className="w-full text-sm text-left">
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
                     <th scope="col" className="p-1 md:p-4 text-center">
@@ -194,7 +194,7 @@ export default function Nondegree({ }: Props) {
               <br />
               <p>การจัดการเรียนการสอนในกระบวนวิชา Data Manipulation (ส.ค.-ก.ย. 65) และกระบวนวิชา Data Analysis with Machine Learning (ก.ย.-ต.ค. 65)</p>
               <br />
-              <table className='w-full' className="w-full text-sm text-left">
+              <table className="w-full text-sm text-left">
                 <tbody>
                   <tr className="bg-[#F6BA70] border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
