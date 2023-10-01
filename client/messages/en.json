@@ -270,7 +270,6 @@
     "title82": "Curriculum map (Updated: Jan. 63)",
     "title83": "Curriculum map for Minor"
   },
-<<<<<<< HEAD
   "Undergraduate64":{
     "title0":"24 Credits",
     "title1":"กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้เรียนรู้ (Learner Person) 15 Credits",
@@ -534,7 +533,7 @@
     "title62":"Data Manipulation",
     "title63":"Data representations and acquisitions, data transformation and cleansing, feature processing, process of extraction transformation and load (ETL), data presentation.",
     "title64":"Recruiting"
-=======
+  },
   "FAQs": {
     "title1": "A lot of people have questions",
     "title2": "Enrollment",
@@ -580,6 +579,5 @@
     "address8": "With",
     "address9": "or",
     "address10": "alumnus"
->>>>>>> 7b681f931d661433cb89c85954c40778a4440c0c
   }
 }
