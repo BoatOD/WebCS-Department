@@ -11,7 +11,8 @@ app.use(cors());
 const connectToDatabase = require("./dbconnect");
 
 const bodyparser = require("body-parser");
-app.use(bodyparser.json());
+const { ObjectId } = require("mongodb");
+app.use(bodyparser.json({ limit: "50mb" }));
 
 app.get("/api/lecturers", async (req, res) => {
   try {
@@ -95,19 +96,19 @@ app.get("/api/undergraduate", async (req, res) => {
   }
 });
 
-app.get('/api/news_events', async (req, res) => {
+app.get("/api/news_events", async (req, res) => {
   try {
     // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const staffCollection = db.collection('blog');
+    const staffCollection = db.collection("blog");
     const news_events = await staffCollection.find({}).toArray();
 
     res.json(news_events);
   } catch (error) {
-    console.error('Error fetching data from MongoDB Atlas:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -310,9 +311,7 @@ app.get("/api/peopleadmin", async (req, res) => {
 
     // Access a collection and retrieve data
     const peopleCollection = db.collection("people");
-    const people = await peopleCollection
-      .find({})
-      .toArray();
+    const people = await peopleCollection.find({}).toArray();
 
     res.json(people);
   } catch (error) {
@@ -322,69 +321,124 @@ app.get("/api/peopleadmin", async (req, res) => {
 });
 
 app.post("/blog", async (req, res) => {
-  var data = req.body;
-  var b_id = req.body.b_id;
-  var topic = req.body.topic;
-  var e_topic = req.body.e_topic;
-  var date = req.body.data;
-  var location = req.body.location;
-  var e_location = req.body.e_location;
-  var category = req.body.category;
-  var nflag = req.body.nflag;
-  var picture = req.body.picture;
-  var eflag = req.body.eflag;
-  var status = req.body.status;
-  var undertaker = req.body.undertaker;
-  console.log(
-    data,
-    b_id,
-    topic,
-    e_topic,
-    date,
-    location,
-    e_location,
-    category,
-    nflag,
-    picture,
-    eflag,
-    status,
-    undertaker
-  );
+  try {
+    var {
+      b_id,
+      topic,
+      e_topic,
+      date,
+      location,
+      e_location,
+      category,
+      nflag,
+      picture,
+      eflag,
+      status,
+      undertaker
+    } = req.body
+
+    const db = await connectToDatabase();
+    const blogCollection = db.collection("blog");
+    if (b_id == 0) {
+      const result = await blogCollection.aggregate([
+        {
+          $group: {
+            _id: '$dummy',
+            test: { $max: '$b_id' }
+          }
+        }
+      ]).toArray();
+
+      b_id = result[0].test + 1;
+
+      const blog = await db.collection("blog").insertOne({
+        b_id,
+        topic,
+        e_topic,
+        date,
+        location,
+        e_location,
+        category,
+        nflag,
+        picture,
+        eflag,
+        status,
+        undertaker
+      });
+    } else {
+      
+    }
+
+    res.json(blog);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 app.post("/people", async (req, res) => {
-  var title = req.body.title;
-  var e_title = req.body.e_title;
-  var name = req.body.name;
-  var e_name = req.body.e_name;
-  var tel = req.body.tel;
-  var email = req.body.email;
-  var position = req.body.position;
-  var e_position = req.body.e_position;
-  var affiliation = req.body.affiliation;
-  var e_affiliation = req.body.e_affiliation;
-  var picture = req.body.picture;
-  var job_type = req.body.job_type;
-  var e_id = req.body.e_id;
-  var personal_web = req.body.personal_web;
-  var research_interest = req.body.research_interest;
-  console.log(
-    title,
-    e_title,
-    name,
-    e_name,
-    tel,
-    email,
-    position,
-    e_position,
-    affiliation,
-    e_affiliation,
-    picture,
-    job_type,
-    e_id,
-    personal_web,
-    research_interest
-  );
+  console.log("req.body:", req.body);
+  try {
+    const {
+      title,
+      e_title,
+      name,
+      e_name,
+      tel,
+      email,
+      position,
+      e_position,
+      affiliation,
+      e_affiliation,
+      picture,
+      job_type,
+      // e_id,
+      personal_web,
+      research_interest,
+    } = req.body;
+
+    console.log(
+      title,
+      e_title,
+      name,
+      e_name,
+      tel,
+      email,
+      position,
+      e_position,
+      affiliation,
+      e_affiliation,
+      picture,
+      job_type,
+      // e_id,
+      personal_web,
+      research_interest
+    );
+
+    const db = await connectToDatabase();
+    const people = await db.collection("people").insertOne({
+      title,
+      e_title,
+      name,
+      e_name,
+      tel,
+      email,
+      position,
+      e_position,
+      affiliation,
+      e_affiliation,
+      picture,
+      job_type,
+      e_id: 1,
+      personal_web,
+      research_interest,
+    });
+
+    res.json(people);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 app.post("/faqs", (req, res) => {
@@ -402,16 +456,71 @@ app.get("/api/people", async (req, res) => {
 
     // Access a collection and retrieve data
     const lecturerCollection = db.collection("people");
-    const lecturers = await lecturerCollection
-      .find({})
-      .toArray();
+    const lecturers = await lecturerCollection.find({}).toArray();
 
     res.json(lecturers);
   } catch (error) {
     console.error("Error fetching data from MongoDB Atlas:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
-})
+});
+
+app.get("/api/people/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const lecturerCollection = db.collection("people");
+    const lecturer = await lecturerCollection.findOne({
+      _id: new ObjectId(id),
+    });
+
+    res.json(lecturer);
+  } catch (error) {
+    console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.post("/api/people/update:id", async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  console.log(body);
+  console.log(id);
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+    const update1 = db.collection("people");
+    await update1.updateOne(
+      { _id: new ObjectId(id) },
+      {
+        title: body.title,
+        e_title: body.e_title,
+        name: body.name,
+        e_name: body.e_name,
+        affiliation: body.affiliation,
+        e_affiliation: body.e_affiliation,
+        picture: body.picture,
+        job_type: body.job_type,
+        personal_web: body.personal_web,
+        research_interest: body.research_interest,
+        tel: body.tel,
+        email: body.email,
+        position: body.position,
+        e_position: body.e_position,
+      }
+    );
+
+    // res.json(lecturer);
+    return res.json({ success: true });
+  } catch (error) {
+    // console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Connect to DB & Server started on port ${PORT}`);

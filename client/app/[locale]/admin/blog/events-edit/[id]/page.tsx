@@ -1,10 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link'
-
-import OutlookCalendarInvite from '@/components/calendar/OutlookCalendarInvite';
-import ICal from '@/components/calendar/ical';
-import GoogleCalendar from '@/components/calendar/GoogleCalendar';
+import Image from "next/image";
 type Params = {
   params: {
     id: string
@@ -34,6 +30,25 @@ const EventsDetail = ({ params: { id } }: Params) => {
   const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [edit, setEdit] = useState(false);
   const [date, setDate] = useState(Date);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    b_id: 0,
+    topic: "",
+    e_topic: "",
+    detail: "",
+    e_detail: "",
+    date: "",
+    location: "",
+    e_location: "",
+    category: "",
+    nflag: false,
+    picture: [],
+    eflag: true,
+    status: "coming",
+    undertaker: "",
+  });
 
   useEffect(() => {
     // Define the id you want to retrieve
@@ -150,11 +165,17 @@ const EventsDetail = ({ params: { id } }: Params) => {
     console.log(event.target.value)
   }
 
+  const onSelectFile = (event: any) => {
+    const selectFile = event.target.files;
+    const selectFileArray = Array.from(selectFile);
+    const imagesArray = selectFileArray.map((file: any) => {
+      return URL.createObjectURL(file)
+    })
+    setSelectedImages(imagesArray);
+
+  }
 
   return (
-    // <div className="flex justify-center items-center h-screen">
-
-    // </div>
     <>
       <div className="flex flex-col space-y-2 mt-2 mx-10">
         <div className="px-8 py-0.5 bg-black w-full "></div>
@@ -163,7 +184,13 @@ const EventsDetail = ({ params: { id } }: Params) => {
         <h1 className='text-[#EB8E1B] text-5xl font-medium text-left'>EVENTS</h1>
 
       </div>
-      <div className="flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem]">
+      <div className='flex w-full justify-center'>
+        <button
+          className={edit ? "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full hidden" : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"}
+          onClick={changeEdit}
+        >Edit</button>
+      </div>
+      <div className="flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] justify-center">
         <div className="w-full md:w-2/3 order-last md:order-first">
           <div className="p-1 pt-3 ">
             {loading ? (
@@ -183,18 +210,58 @@ const EventsDetail = ({ params: { id } }: Params) => {
             ) : (
               item ? (
                 <div>
-                  <div className='flex w-full justify-center'>
-                    <button
-                      className={edit ? "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full hidden" : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"}
-                      onClick={changeEdit}
-                    >Edit</button>
-                  </div>
                   <div className={edit ? "hidden" : ""}>
 
                     <h1 className='text-5xl font-medium text-left p-5 break-words'>{item.topic}</h1>
 
                     <p className='p-5 pb-1 text-lg font-medium'>{item.formattedDate}</p>
                     <p className='pl-5'>{item.location}</p>
+
+                    {item.picture.length === 1 ? (
+                      <div className="text-center items-center p-5">
+                        <div className="flex justify-center items-center">
+                          <Image
+                            src={`/blog${item.picture[0]}` ?? "#"}
+                            width="600"
+                            height="0"
+                            alt="news-image"
+                            className="h-auto object-cover"
+                          />
+                        </div>
+                      </div>
+                    ) : item.picture.length === 2 ? (
+                      <div className="flex justify-center">
+                        {item.picture.map((pic, index) => (
+                          <div key={index} className="text-center items-center p-5 px-2">
+                            <div className="flex justify-center items-center">
+                              <Image
+                                src={`/blog${pic}` ?? "#"}
+                                width="300" // You can adjust the width as needed
+                                height="0"
+                                alt={`news-image-${index}`}
+                                className="h-auto object-cover"
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="flex flex-wrap pl-5 py-5">
+                        {item.picture.map((pic, index) => (
+                          <div key={index} className="w-1/3 p-1">
+                            <div className="text-center items-center">
+                              <Image
+                                src={`/blog${pic}` ?? "#"}
+                                width="300" // You can adjust the width as needed
+                                height="0"
+                                alt={`news-image-${index}`}
+                                className="h-auto object-cover"
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
 
                     <div className="border-b border-black mt-5"></div>
 
@@ -319,6 +386,69 @@ const EventsDetail = ({ params: { id } }: Params) => {
                                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                   defaultValue={item.e_detail}
                                 />
+                              </div>
+                            </div>
+                            <div className="col-span-full">
+                              <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
+                                Photo
+                              </label>
+                              <div className="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                {item.picture.length === 0 ? (
+                                  <>
+                                    <div className='flex flex-wrap images'>
+                                      {selectedImages &&
+                                        selectedImages.map((image, index) => {
+                                          return (
+                                            <div key={image} className='image mr-3'>
+                                              <img src={image} className='max-h-72 mb-3 rounded-md' />
+                                              <button
+                                                type="button"
+                                                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
+                                                onClick={() => {
+                                                  setSelectedImages(selectedImages.filter((e) => e !== image))
+                                                }}>
+                                                Delete Image
+                                              </button>
+                                            </div>
+                                          )
+                                        })}
+                                    </div>
+                                  </>
+                                ) : (
+                                  <>
+                                    <div className='flex flex-wrap images'>
+                                      {selectedImages &&
+                                        selectedImages.map((image, index) => {
+                                          return (
+                                            <div key={image} className='image mr-3'>
+                                              <img src={image} className='max-h-72 mb-3 rounded-md' />
+                                              <button
+                                                type="button"
+                                                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
+                                                onClick={() => {
+                                                  setSelectedImages(selectedImages.filter((e) => e !== image))
+                                                }}>
+                                                Delete Image
+                                              </button>
+                                            </div>
+                                          )
+                                        })}
+                                    </div>
+                                  </>
+                                )}
+                              </div>
+                              <div className="text-center">
+                                <div className="mt-4 flex text-sm leading-6 text-gray-600 justify-center">
+                                  <label
+                                    htmlFor="file-upload"
+                                    className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                                  >
+                                    <span>Upload a file</span>
+                                    <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={onSelectFile} />
+                                  </label>
+                                  <p className="pl-1">or drag and drop</p>
+                                </div>
+                                <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                               </div>
                             </div>
                           </div>

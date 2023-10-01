@@ -1,253 +1,326 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import axios from "axios";
+import { PeopleProps } from "@/types/people";
+import {
+  Input,
+  Button,
+  useDisclosure,
+  Select,
+  SelectItem,
+} from "@nextui-org/react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import CreateModal from "@/components/admin/CreateMoal";
 
 type Props = {};
 
-const Page = (props: Props) => {
-  
-  const [selectedImages, setSelectedImages] = useState<string[]>([]);
-  const onSelectFile = (event: any) => {
-    const selectFile = event.target.files;
-    const selectFileArray = Array.from(selectFile);
-    const imagesArray = selectFileArray.map((file: any) => {
-      return URL.createObjectURL(file);
-    });
-    setSelectedImages(imagesArray);
+const Page = ({ params }: { params: { id: string } }) => {
+  const [tel, setTel] = useState<any>([]);
+  const [email, setEmail] = useState<any>([]);
+  const [position, setPosition] = useState<any>([]);
+  const [e_position, setE_position] = useState<any>([]);
+  const fetchPeople = async () => {
+    try {
+      const res = await axios.get<PeopleProps>(
+        `http://localhost:8080/api/people/${params.id}`
+      );
+      const data = res.data
+      formik.setValues({
+        title: data.title,
+        e_title: data.e_title,
+        name: data.name,
+        e_name: data.e_name,
+        affiliation: data.affiliation,
+        e_affiliation: data.e_affiliation,
+        picture: data.picture,
+        job_type: data.job_type,
+        personal_web: data.personal_web,
+        research_interest: data.research_interest,
+      })
+      setTel(data.tel)
+      setEmail(data.email)
+      setPosition(data.position)
+      setE_position(data.e_position)
+    } catch (error) {
+      console.error(error);
+    }
   };
 
+  
+  const formik = useFormik({
+    initialValues: {
+      title:"",
+      e_title:  "",
+      name: "",
+      e_name: "",
+      affiliation: "",
+      e_affiliation: "",
+      picture: "",
+      job_type: "",
+      personal_web: "",
+      research_interest: "",
+    },
+    validationSchema: Yup.object({
+      title: Yup.string().required("Required"),
+      e_title: Yup.string().required("Required"),
+      name: Yup.string().required("Required"),
+      e_name: Yup.string().required("Required"),
+      affiliation: Yup.string().required("Required"),
+      e_affiliation: Yup.string().required("Required"),
+      job_type: Yup.string().required("Required"),
+      personal_web: Yup.string().required("Required"),
+      research_interest: Yup.string().required("Required"),
+    }),
+    onSubmit: async (values) => {
+      const data = { ...values, tel: { ...tel }, email: { ...email }, position: { ... position}, e_position: { ...e_position } }
+      try {
+        // edit here ex.
+        const res = await axios.post(
+            `http://localhost:8080/api/people/update${params.id}`,
+            data
+        )
+        console.log(res.data)
+        formik.resetForm();
+        setTel([])
+        setEmail([])
+        setPosition([])
+        setE_position([])
+        alert("success")
+    } catch (error) {
+      console.log(error)
+      alert("failed")
+    }
+    },
+  });
+  const isFormFieldInvalid = (name: string) =>
+    !!(formik.touched[name] && formik.errors[name]);
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const handleImage = async (e, setFieldValue) => {
+    const file = e.target.files[0];
+    //check the size of image
+    if (file?.size / 1024 / 1024 < 2) {
+      const base64 = await convertToBase64(file);
+      setFieldValue("picture", base64);
+    } else {
+      alert("Image size must be of 2MB or less");
+    }
+  };
+
+  const [selectedType, setSelectedType] = useState(new Set([]));
+
+  const handleSelectionChange = (e) => {
+    setSelectedType(new Set([e.target.value]));
+  };
+
+  const formatArray = (arr: Array<string>) => {
+    return arr.join(" , ");
+  };
+
+  useEffect(() => {
+    fetchPeople();
+  }, []);
   return (
-    <>
-      <form>
-        <div className="border border-slate-600 ">
-          <div className="text-center mt-3">Add People</div>
-          <div className="m-5 grid grid-cols-4 gap-4">
-            <div className="w-72 mt-3">
-              <p className="mt-2">Title</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3">
-              <p className="mt-2">English Title</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3">
-              <p className="mt-2">Position</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3">
-              <p className="mt-2">English Position</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3">
-              <p className="mt-2">Affiliation</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3">
-              <p className="mt-2">English affiliation</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3">
-              <p className="mt-2">Job type: L or S </p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3 hidden">
-              <p className="mt-2">ID:</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="m-5 grid grid-cols-2 gap-2">
-            <div className="w-96 mt-3">
-              <p className="mt-2">Name</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-96 mt-3">
-              <p className="mt-2">English Name</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="m-5 grid grid-cols-1 gap-2">
-            <div className="w-72 mt-3">
-              <p className="mt-2">Research interest</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3">
-              <p className="mt-2">Email</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3">
-              <p className="mt-2">Tel</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <div className="w-72 mt-3 mb-5">
-              <p className="mt-2">personal_web</p>
-              <div className="relative h-10 w-full min-w-[200px]">
-                <input
-                  className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                  placeholder=" "
-                />
-                <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                  Required
-                </label>
-              </div>
-            </div>
-            <label> Upload image</label>
-            <div className="flex flex-wrap images">
-              {selectedImages &&
-                selectedImages.map((image, index) => {
-                  return (
-                    <div key={image} className="image mr-3">
-                      <img src={image} alt='' className="max-h-72 mb-3 rounded-md" />
-                      <button
-                        type="button"
-                        className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
-                        onClick={() => {
-                          setSelectedImages(
-                            selectedImages.filter((e) => e !== image)
-                          );
-                        }}
-                      >
-                        Delete Image
-                      </button>
-                    </div>
-                  );
-                })}
-            </div>
-            <div className="text-start">
-              <div className="mt-4 flex text-sm leading-6 text-gray-600  ">
-                <label
-                  htmlFor="file-upload"
-                  className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                >
-                  <span>Upload a file</span>
-                  <input
-                    id="file-upload"
-                    name="file-upload"
-                    type="file"
-                    className="sr-only"
-                    multiple
-                    onChange={onSelectFile}
-                  />
-                </label>
-                <p className="pl-1">or drag and drop</p>
-              </div>
-              <p className="text-xs leading-5 text-gray-600">
-                PNG, JPG, GIF up to 10MB
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center w-full mb-5">
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded w-36">
-              Add people
-            </button>
-          </div>
+    <form>
+      <div className="grid grid-cols-4 gap-3">
+        <div className="h-unit-10 min-h-unit-10">
+          <Input
+            type="text"
+            label="คำนำหน้า"
+            isInvalid={isFormFieldInvalid("title")}
+            errorMessage={isFormFieldInvalid("title") && formik.errors.title}
+            className="max-w-xs"
+            value={formik.values.title}
+            onChange={(e) => {
+              formik.setFieldValue("title", e.target.value);
+            }}
+          />
         </div>
-      </form>
-    </>
+        <div>
+          <Input
+            type="text"
+            label="คำนำหน้าภาษาอังกฤษ"
+            isInvalid={isFormFieldInvalid("e_title")}
+            errorMessage={
+              isFormFieldInvalid("e_title") && formik.errors.e_title
+            }
+            className="max-w-xs"
+            value={formik.values.e_title}
+            onChange={(e) => {
+              formik.setFieldValue("e_title", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="ชื่อ"
+            isInvalid={isFormFieldInvalid("name")}
+            errorMessage={isFormFieldInvalid("name") && formik.errors.name}
+            className="max-w-xs"
+            value={formik.values.name}
+            onChange={(e) => {
+              formik.setFieldValue("name", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="ชื่อภาษาอังกฤษ"
+            isInvalid={isFormFieldInvalid("e_name")}
+            errorMessage={isFormFieldInvalid("e_name") && formik.errors.e_name}
+            className="max-w-xs"
+            value={formik.values.e_name}
+            onChange={(e) => {
+              formik.setFieldValue("e_name", e.target.value);
+            }}
+          />
+        </div>
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <p className="text-lg font-semibold mt-5">เบอร์โทร</p>
+        <p className="text-base font-base mt-5">{formatArray(tel)}</p>
+        <CreateModal text="เบอร์โทร" data={tel} setData={setTel} />
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <p className="text-lg font-semibold mt-5">อีเมล</p>
+        <p className="text-base font-base mt-5">{formatArray(email)}</p>
+        <CreateModal text="อีเมล" data={email} setData={setEmail} />
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <p className="text-lg font-semibold mt-5">ตำแหน่ง</p>
+        <p className="text-base font-base mt-5">{formatArray(position)}</p>
+        <CreateModal text="ตำแหน่ง" data={position} setData={setPosition} />
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <p className="text-lg font-semibold mt-5">ตำแหน่งภาษาอังกฤษ</p>
+        <p className="text-base font-base mt-5">{formatArray(e_position)}</p>
+        <CreateModal
+          text="ตำแหน่งภาษาอังกฤษ"
+          data={e_position}
+          setData={setE_position}
+        />
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <div>
+          <Input
+            type="text"
+            label="ตำแหน่งทางวิชาการ"
+            isInvalid={isFormFieldInvalid("affiliation")}
+            errorMessage={
+              isFormFieldInvalid("affiliation") && formik.errors.affiliation
+            }
+            className="max-w-xs"
+            value={formik.values.affiliation}
+            onChange={(e) => {
+              formik.setFieldValue("affiliation", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="ตำแหน่งทางวิชาการภาษาอังกฤษ"
+            isInvalid={isFormFieldInvalid("e_affiliation")}
+            errorMessage={
+              isFormFieldInvalid("e_affiliation") && formik.errors.e_affiliation
+            }
+            className="max-w-xs"
+            value={formik.values.e_affiliation}
+            onChange={(e) => {
+              formik.setFieldValue("e_affiliation", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <input
+            type="file"
+            className="max-w-xs"
+            onChange={(e) => {
+              handleImage(e, formik.setFieldValue);
+            }}
+          />
+        </div>
+        <div>
+          <Select
+            labelPlacement="outside"
+            label="ประเภท"
+            placeholder="เลือกประเภท"
+            className="max-w-xs"
+            selectedKeys={formik.values.job_type}
+            selectionMode="single"
+            isInvalid={isFormFieldInvalid("job_type")}
+            errorMessage={
+              isFormFieldInvalid("job_type") && formik.errors.job_type
+            }
+            onChange={(e) => {
+              formik.setFieldValue("job_type", e.target.value);
+            }}
+          >
+            <SelectItem key="L" value="L">
+              Lecturer
+            </SelectItem>
+            <SelectItem key="S" value="S">
+              Staff
+            </SelectItem>
+          </Select>
+        </div>
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <div>
+          <Input
+            type="text"
+            label="เว็บไซต์"
+            isInvalid={isFormFieldInvalid("personal_web")}
+            errorMessage={
+              isFormFieldInvalid("personal_web") && formik.errors.personal_web
+            }
+            className="max-w-xs"
+            value={formik.values.personal_web}
+            onChange={(e) => {
+              formik.setFieldValue("personal_web", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="ความสนใจ"
+            isInvalid={isFormFieldInvalid("research_interest")}
+            errorMessage={
+              isFormFieldInvalid("research_interest") &&
+              formik.errors.research_interest
+            }
+            className="max-w-xs"
+            value={formik.values.research_interest}
+            onChange={(e) => {
+              formik.setFieldValue("research_interest", e.target.value);
+            }}
+          />
+        </div>
+      </div>
+      <div className="mt-5">
+        <Button onPress={() => formik.submitForm()} color="success">
+          บันทึก
+        </Button>
+      </div>
+    </form>
   );
 };
 export default Page;
