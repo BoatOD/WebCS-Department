@@ -28,7 +28,7 @@ export default function Events() {
   const [date, setDate] = useState(Date);
   const [edit, setEdit] = useState(false);
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
-  const [picture1, setPicture1] = useState<File[]>();
+  const [files, setFiles] = useState([]);
   const [submitMessage, setSubmitMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ export default function Events() {
     e_location: "",
     category: "",
     nflag: false,
-    picture: [],
+    picture: "",
     eflag: true,
     status: "coming",
     undertaker: "",
@@ -116,16 +116,30 @@ export default function Events() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleImage = async (e,setFieldValue) => {
-    const file = e.target
-  }
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // setFormData(["picture"]:picture)
+    const fd = new FormData();
+
+    for (const file of files) {
+      fd.append('files', file);
+    }
 
     try {
+
+      const responseP = await fetch('/api/upload', {
+        method: 'POST',
+        body: fd,
+      });
+
+      if (responseP.ok) {
+        // Handle successful file upload
+        console.log('Files uploaded successfully');
+      } else {
+        // Handle the case where the upload failed
+        console.error('File upload failed');
+      }
+
       const response = await fetch("http://localhost:8080/blog", {
         method: "POST",
         headers: {
@@ -156,9 +170,8 @@ export default function Events() {
       return URL.createObjectURL(file)
     })
     setSelectedImages(imagesArray);
-    // setPicture(selectFile);
-    // console.log(picture)
   }
+
 
   return (
     <>
@@ -396,7 +409,7 @@ export default function Events() {
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={(e) =>{handleImage(e,formik.setFieldValue);}} />
+                            <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={onSelectFile} multiple/>
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>
