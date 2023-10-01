@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+import Image from "next/image";
 import Link from 'next/link'
 
 import OutlookCalendarInvite from '@/components/calendar/OutlookCalendarInvite';
@@ -232,6 +233,52 @@ const EventsDetail = ({ params: { id } }: Params) => {
                       <OutlookCalendarInvite eventDetails={outlookEventDetails} />
                     </div>
                   </div>
+
+                  {item.picture.length === 1 ? (
+                    <div className="text-center items-center p-5">
+                      <div className="flex justify-center items-center">
+                        <Image
+                          src={`/blog${item.picture[0]}` ?? "#"}
+                          width="600"
+                          height="0"
+                          alt="news-image"
+                          className="h-auto object-cover"
+                        />
+                      </div>
+                    </div>
+                  ) : item.picture.length === 2 ? (
+                    <div className="flex justify-center">
+                      {item.picture.map((pic, index) => (
+                        <div key={index} className="text-center items-center p-5 px-2">
+                          <div className="flex justify-center items-center">
+                            <Image
+                              src={`/blog${pic}` ?? "#"}
+                              width="300" // You can adjust the width as needed
+                              height="0"
+                              alt={`news-image-${index}`}
+                              className="h-auto object-cover"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex flex-wrap pl-5 py-5">
+                      {item.picture.map((pic, index) => (
+                        <div key={index} className="w-1/3 p-1">
+                          <div className="text-center items-center">
+                            <Image
+                              src={`/blog${pic}` ?? "#"}
+                              width="300" // You can adjust the width as needed
+                              height="0"
+                              alt={`news-image-${index}`}
+                              className="h-auto object-cover"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
 
                   <div className="p-5">
