@@ -43,7 +43,7 @@ export default function Undergraduate({ }: Props) {
 
   const [openAccordions, setOpenAccordions] = useState<number[]>([]);
 
-  const handleOpen = (value) => {
+  const handleOpen = (value: number) => {
     if (openAccordions.includes(value)) {
       // If the Accordion is already open, close it
       setOpenAccordions(openAccordions.filter((acc) => acc !== value));

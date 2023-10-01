@@ -27,10 +27,6 @@ const Page = (props: Props) => {
   const [name, setName] = useState("")
   const [e_name, setE_name] = useState("")
   const [research_interest, setresearch_interest] = useState("")
-  const [title, setTitle] = useState("")
-  const [title, setTitle] = useState("")
-  const [title, setTitle] = useState("")
-  const [title, setTitle] = useState("")
 
   return (
     <>
