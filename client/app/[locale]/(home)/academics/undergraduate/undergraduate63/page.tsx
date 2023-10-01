@@ -135,7 +135,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -186,7 +186,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -237,7 +237,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -287,7 +287,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -334,7 +334,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -381,7 +381,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -444,7 +444,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -515,7 +515,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -563,7 +563,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -579,7 +579,11 @@ export default function Study_Plans({ }: Props) {
                                             {u("title41")}
                                         </th>
                                     </tr>
-                                    {courses.filter(courses => courses.sup_type && courses.sup_type["59"] === "Technology and System Methodology")
+                                    {courses.filter(courses => (courses.sup_type && courses.sup_type["59"] === "Technology and System Methodology" ||
+                                        courses.sup_type &&
+                                        Array.isArray(courses.sup_type) &&
+                                        courses.sup_type.some((item) => item && item["59"] === "Technology and System Methodology")
+                                    ))
                                         .sort((a, b) => {
                                             // Compare the code values as numbers in ascending order
                                             return parseInt(a.code, 10) - parseInt(b.code, 10);
@@ -611,7 +615,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -659,7 +663,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -707,7 +711,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -760,7 +764,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{courses.e_name}</p>
                                                     <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -811,7 +815,7 @@ export default function Study_Plans({ }: Props) {
                                                         <p>{courses.e_name}</p>
                                                         <p>{courses.name}</p>
                                                     </td>
-                                                    <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                         {courses.credit.split("(")[0]}
                                                     </td>
                                                 </tr>
@@ -869,7 +873,7 @@ export default function Study_Plans({ }: Props) {
                                                         <p>{courses.e_name}</p>
                                                         <p>{courses.name}</p>
                                                     </td>
-                                                    <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                    <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                         {courses.credit.split("(")[0]}
                                                     </td>
                                                 </tr>
@@ -925,7 +929,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -972,7 +976,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1019,7 +1023,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1036,7 +1040,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Elective Courses</p>
                                                 <p>วิชาเลือก</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1081,7 +1085,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1098,7 +1102,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Minor Courses</p>
                                                 <p>วิชาโท</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1143,7 +1147,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1160,7 +1164,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Minor Courses</p>
                                                 <p>วิชาโท</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1175,7 +1179,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Free Elective Courses</p>
                                                 <p>วิชาเลือกเสรี</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1220,7 +1224,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1236,7 +1240,7 @@ export default function Study_Plans({ }: Props) {
                                             <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                                 {u("title73")}
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1251,7 +1255,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Major Elective Courses at level 400</p>
                                                 <p>วิชาเอกเลือกระดับ 400</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1266,7 +1270,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Minor Courses</p>
                                                 <p>วิชาโท</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1281,7 +1285,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Elective Courses</p>
                                                 <p>วิชาเลือก</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1326,7 +1330,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1343,7 +1347,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Major Elective Courses at level 400</p>
                                                 <p>วิชาเอกเลือกระดับ 400</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title77")}
                                             </td>
                                         </tr>
@@ -1358,7 +1362,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Minor Courses</p>
                                                 <p>วิชาโท</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1403,7 +1407,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1420,7 +1424,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Major Elective Courses at level 400</p>
                                                 <p>วิชาเอกเลือกระดับ 400</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1435,7 +1439,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Minor Courses</p>
                                                 <p>วิชาโท</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1450,7 +1454,7 @@ export default function Study_Plans({ }: Props) {
                                                 <p>Free Elective Courses</p>
                                                 <p>วิชาเลือกเสรี</p>
                                             </td>
-                                            <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                            <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
                                             </td>
                                         </tr>
@@ -1500,7 +1504,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1517,7 +1521,7 @@ export default function Study_Plans({ }: Props) {
                                             <p>Minor Courses</p>
                                             <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title68")}
                                         </td>
                                     </tr>
@@ -1532,7 +1536,7 @@ export default function Study_Plans({ }: Props) {
                                             <p>Free Elective Courses</p>
                                             <p>วิชาเลือกเสรี</p>
                                         </td>
-                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title68")}
                                         </td>
                                     </tr>
@@ -1581,7 +1585,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1597,7 +1601,7 @@ export default function Study_Plans({ }: Props) {
                                         <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
                                             {u("title73")}
                                         </td>
-                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title77")}
                                         </td>
                                     </tr>
@@ -1612,7 +1616,7 @@ export default function Study_Plans({ }: Props) {
                                             <p>Minor Courses</p>
                                             <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title77")}
                                         </td>
                                     </tr>
@@ -1663,7 +1667,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1714,7 +1718,7 @@ export default function Study_Plans({ }: Props) {
                                                     <p>{course.e_name}</p>
                                                     <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1731,7 +1735,7 @@ export default function Study_Plans({ }: Props) {
                                             <p>Major Elective Courses at level 400</p>
                                             <p>วิชาเอกเลือกระดับ 400</p>
                                         </td>
-                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title77")}
                                         </td>
                                     </tr>
@@ -1746,7 +1750,7 @@ export default function Study_Plans({ }: Props) {
                                             <p>Minor Courses</p>
                                             <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title68")}
                                         </td>
                                     </tr>
@@ -1761,7 +1765,7 @@ export default function Study_Plans({ }: Props) {
                                             <p>Free Elective Courses</p>
                                             <p>วิชาเลือกเสรี</p>
                                         </td>
-                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title68")}
                                         </td>
                                     </tr>
@@ -1776,7 +1780,7 @@ export default function Study_Plans({ }: Props) {
                                             <p>Elective Courses</p>
                                             <p>วิชาเลือก</p>
                                         </td>
-                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title68")}
                                         </td>
                                     </tr>
