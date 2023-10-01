@@ -26,7 +26,7 @@ const CardForAcademic = ({ posts }: { posts: CardOfEventProps[] }) => {
                   className="w-full h-full object-cover hidden md:flex justify-center"
                 />
                 <div className="absolute bg-[#F29D35] opacity-70 hidden md:flex items-center justify-center w-full h-[70px] bottom-0">
-                  <div className="font-bold text-4xl text-center mb-2">{a(item.title)}</div>
+                  <div className="font-bold text-2xl lg:text-4xl text-center mb-2">{a(item.title)}</div>
                 </div>
               </div>
               <div className="px-6 py-4 bg-white border hover:bg-gray-100" style={{ minHeight: `${maxHeight}px` }}>
