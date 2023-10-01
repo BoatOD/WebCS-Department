@@ -256,6 +256,7 @@ app.get("/api/research", async (req, res) => {
           },
           r_id: { $first: "$r_id" },
           picture: { $first: "$picture" },
+          e_topic: { $first: "$e_topic" }
         },
       },
       {
@@ -366,7 +367,7 @@ app.post("/blog", async (req, res) => {
         undertaker
       });
     } else {
-      
+
     }
 
     res.json(blog);
