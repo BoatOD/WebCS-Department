@@ -27,7 +27,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       const res = await axios.get<PeopleProps>(
         `http://localhost:8080/api/people/${params.id}`
       );
-      const data = res.data
+      const data = res.data;
       formik.setValues({
         title: data.title,
         e_title: data.e_title,
@@ -39,21 +39,20 @@ const Page = ({ params }: { params: { id: string } }) => {
         job_type: data.job_type,
         personal_web: data.personal_web,
         research_interest: data.research_interest,
-      })
-      setTel(data.tel)
-      setEmail(data.email)
-      setPosition(data.position)
-      setE_position(data.e_position)
+      });
+      setTel(data.tel);
+      setEmail(data.email);
+      setPosition(data.position);
+      setE_position(data.e_position);
     } catch (error) {
       console.error(error);
     }
   };
 
-  
   const formik = useFormik({
     initialValues: {
-      title:"",
-      e_title:  "",
+      title: "",
+      e_title: "",
       name: "",
       e_name: "",
       affiliation: "",
@@ -75,24 +74,30 @@ const Page = ({ params }: { params: { id: string } }) => {
       research_interest: Yup.string().required("Required"),
     }),
     onSubmit: async (values) => {
-      const data = { ...values, tel: { ...tel }, email: { ...email }, position: { ... position}, e_position: { ...e_position } }
+      const data = {
+        ...values,
+        tel: { ...tel },
+        email: { ...email },
+        position: { ...position },
+        e_position: { ...e_position },
+      };
       try {
         // edit here ex.
         const res = await axios.post(
-            `http://localhost:8080/api/people/update/${params.id}`,
-            data
-        )
-        console.log(res.data)
+          `http://localhost:8080/api/people/update/${params.id}`,
+          data
+        );
+        console.log(res.data);
         formik.resetForm();
-        setTel([])
-        setEmail([])
-        setPosition([])
-        setE_position([])
-        alert("success")
-    } catch (error) {
-      console.log(error)
-      alert("failed")
-    }
+        setTel([]);
+        setEmail([]);
+        setPosition([]);
+        setE_position([]);
+        alert("success");
+      } catch (error) {
+        console.log(error);
+        alert("failed");
+      }
     },
   });
   const isFormFieldInvalid = (name: string) =>
