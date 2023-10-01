@@ -56,15 +56,15 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-center">
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-center">
                                             รหัสวิชา
                                         </th>
 
-                                        <th scope="col" className="px-6 py-3 text-center">
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-center">
                                             ชื่อวิชา
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             หน่วยกิต
                                         </th>
                                     </tr>
@@ -91,27 +91,28 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {courses.code}
+
                                                     {courses.overview ? (
                                                         <Tooltip
                                                             position="right"
-                                                            header={courses.name}
+                                                            header={courses.e_name}
                                                             prereq={courses.prereg}
                                                             credit={courses.credit}
                                                             content={courses.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{courses.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {courses.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{courses.e_name}</p>
+                                                    <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -126,15 +127,15 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-center">
+                                        <th scope="col" className="px-3 md:px-6 text-center">
                                             รหัสวิชา
                                         </th>
 
-                                        <th scope="col" className="px-6 py-3 text-center">
+                                        <th scope="col" className="px-3 md:px-6 text-center">
                                             ชื่อวิชา
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             หน่วยกิต
                                         </th>
                                     </tr>
@@ -161,27 +162,28 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {courses.code}
+
                                                     {courses.overview ? (
                                                         <Tooltip
                                                             position="right"
-                                                            header={courses.name}
+                                                            header={courses.e_name}
                                                             prereq={courses.prereg}
                                                             credit={courses.credit}
                                                             content={courses.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{courses.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {courses.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{courses.e_name}</p>
+                                                    <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -196,15 +198,15 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-center">
+                                        <th scope="col" className="px-3 md:px-6 text-center">
                                             รหัสวิชา
                                         </th>
 
-                                        <th scope="col" className="px-6 py-3 text-center">
+                                        <th scope="col" className="px-3 md:px-6 text-center">
                                             ชื่อวิชา
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             หน่วยกิต
                                         </th>
                                     </tr>
@@ -231,27 +233,28 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {courses.code}
+
                                                     {courses.overview ? (
                                                         <Tooltip
                                                             position="right"
-                                                            header={courses.name}
+                                                            header={courses.e_name}
                                                             prereq={courses.prereg}
                                                             credit={courses.credit}
                                                             content={courses.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{courses.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {courses.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{courses.e_name}</p>
+                                                    <p>{courses.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {courses.credit.split("(")[0]}
                                                 </td>
                                             </tr>
