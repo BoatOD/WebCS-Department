@@ -116,7 +116,7 @@ export default function Events() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleImage = async (e: React.ChangeEvent<HTMLInputElement>, setFieldValue) => {
+  const handleImage = async (e,setFieldValue) => {
     const file = e.target
   }
 
@@ -396,7 +396,7 @@ export default function Events() {
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={(e) => { handleImage(e, formik.setFieldValue); }} />
+                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={(e) =>{handleImage(e,formik.setFieldValue);}} />
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>
