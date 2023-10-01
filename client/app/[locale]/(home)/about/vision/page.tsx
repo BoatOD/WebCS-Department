@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 
 type Props = {};
 
-export default function vision({ }: Props) {
+export default function Vision({ }: Props) {
   const some = useTranslations("about");
   return (
     <>

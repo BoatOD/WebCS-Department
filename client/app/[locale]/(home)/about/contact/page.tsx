@@ -9,7 +9,7 @@ import { useTranslations } from 'next-intl';
 
 type Props = {};
 
-export default function contact({ }: Props) {
+export default function Contact({ }: Props) {
   const some = useTranslations("about");
   return (
     <>
