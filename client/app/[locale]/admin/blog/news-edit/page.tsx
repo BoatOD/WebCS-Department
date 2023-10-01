@@ -30,7 +30,7 @@ export default function News() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3; // Number of items to display per page
   const [edit, setEdit] = useState(false);
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [date, setDate] = useState(Date);
 
   useEffect(() => {

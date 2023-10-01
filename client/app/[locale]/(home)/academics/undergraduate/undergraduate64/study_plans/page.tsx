@@ -58,7 +58,7 @@ export default function Study_Plans({ }: Props) {
                 title="undergraduate 64+"
                 subtitle="Study Plans"
             />
-            <div className="flex flex-col md:flex-row  mx-auto w-full max-w-screen-xl px-[1rem]  gap-[3rem]">
+            <div className="flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem]">
                 <div className="w-full md:w-2/3 order-last md:order-first ">
                     <div className="flex flex-col space-y-2 mt-20">
                         <div className="px-8 py-0.5 bg-black w-full "></div>
@@ -69,11 +69,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 1
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             18 หน่วยกิต
                                         </th>
                                     </tr>
@@ -88,9 +88,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -99,16 +98,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -120,11 +120,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 2
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             18 หน่วยกิต
                                         </th>
                                     </tr>
@@ -139,27 +139,28 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
+
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
-                                                            header={course.name}
+                                                            header={course.e_name}
                                                             prereq={course.prereg}
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -173,11 +174,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 1
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             18 หน่วยกิต
                                         </th>
                                     </tr>
@@ -192,9 +193,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -203,16 +203,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -224,11 +225,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 2
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             18 หน่วยกิต
                                         </th>
                                     </tr>
@@ -243,9 +244,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -254,16 +254,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -272,14 +273,15 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -292,11 +294,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 1
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             18 หน่วยกิต
                                         </th>
                                     </tr>
@@ -311,9 +313,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -322,16 +323,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -340,28 +342,30 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>GE Elective Course</p>
+                                            <p>วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -371,11 +375,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 2
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             19 หน่วยกิต
                                         </th>
                                     </tr>
@@ -390,9 +394,9 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
+
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -401,16 +405,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -419,42 +424,45 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 300 or 400</p>
+                                            <p>วิชาเอกเลือกระดับ 300 หรือ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             6
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Free Elective Course</p>
+                                            <p>วิชาเลือกเสรี</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -466,11 +474,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 1
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             14 หน่วยกิต
                                         </th>
                                     </tr>
@@ -485,9 +493,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -496,16 +503,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -514,42 +522,45 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>GE Elective Course</p>
+                                            <p>วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 400</p>
+                                            <p>วิชาเอกเลือกระดับ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             6
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -559,11 +570,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 2
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             11 หน่วยกิต
                                         </th>
                                     </tr>
@@ -578,9 +589,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -589,16 +599,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -607,42 +618,45 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 400</p>
+                                            <p>วิชาเอกเลือกระดับ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Free Elective Course</p>
+                                            <p>วิชาเลือกเสรี</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -656,11 +670,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 1
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             18 หน่วยกิต
                                         </th>
                                     </tr>
@@ -675,9 +689,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -686,16 +699,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -704,28 +718,30 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>GE Elective Course</p>
+                                            <p>วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -735,11 +751,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 2
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             19 หน่วยกิต
                                         </th>
                                     </tr>
@@ -754,9 +770,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -765,16 +780,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -783,42 +799,45 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 300 or 400</p>
+                                            <p>วิชาเอกเลือกระดับ 300 หรือ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             6
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Free Elective Course</p>
+                                            <p>วิชาเลือกเสรี</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -830,11 +849,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 1
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             7 หน่วยกิต
                                         </th>
                                     </tr>
@@ -849,9 +868,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -860,16 +878,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -881,11 +900,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 2
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             19 หน่วยกิต
                                         </th>
                                     </tr>
@@ -900,9 +919,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -911,16 +929,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -929,70 +948,75 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>GE Elective Course</p>
+                                            <p>วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 300 or 400</p>
+                                            <p>วิชาเอกเลือกระดับ 300 หรือ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 400</p>
+                                            <p>วิชาเอกเลือกระดับ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             6
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Free Elective Course</p>
+                                            <p>วิชาเลือกเสรี</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -1006,11 +1030,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 1
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             18 หน่วยกิต
                                         </th>
                                     </tr>
@@ -1025,9 +1049,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -1036,16 +1059,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1054,28 +1078,30 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>GE Elective Course</p>
+                                            <p>วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -1085,11 +1111,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 2
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             19 หน่วยกิต
                                         </th>
                                     </tr>
@@ -1104,9 +1130,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -1115,16 +1140,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1133,42 +1159,45 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 300 หรือ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 300 or 400</p>
+                                            <p>วิชาเอกเลือกระดับ 300 หรือ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             6
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Free Elective Course</p>
+                                            <p>วิชาเลือกเสรี</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -1180,11 +1209,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 1
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             20 หน่วยกิต
                                         </th>
                                     </tr>
@@ -1199,9 +1228,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -1210,16 +1238,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1228,56 +1257,60 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>GE Elective Course</p>
+                                            <p>วิชาศึกษาทั่วไป (เลือกจาก 3 กลุ่มวิชา)</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 400</p>
+                                            <p>วิชาเอกเลือกระดับ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             6
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#700' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 700
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 700</p>
+                                            <p>วิชาเอกเลือกระดับ 700</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             6
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
@@ -1287,11 +1320,11 @@ export default function Study_Plans({ }: Props) {
                             <table className="w-full mb-14">
                                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left" colSpan={2}>
+                                        <th scope="col" className="px-3 md:px-6 py-3 text-left" colSpan={2}>
                                             ภาคการศึกษาที่ 2
                                         </th>
 
-                                        <th scope="col" className="px-2 py-3 text-center">
+                                        <th scope="col" className="px-1 md:px-2 py-3 text-center">
                                             17 หน่วยกิต
                                         </th>
                                     </tr>
@@ -1306,9 +1339,8 @@ export default function Study_Plans({ }: Props) {
                                             >
                                                 <th
                                                     scope="row"
-                                                    className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                                    className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                                 >
-                                                    {course.code}
                                                     {course.overview ? (
                                                         <Tooltip
                                                             position="right"
@@ -1317,16 +1349,17 @@ export default function Study_Plans({ }: Props) {
                                                             credit={course.credit}
                                                             content={course.overview}
                                                         >
-                                                            <a>Tooltip Trigger</a>
+                                                            <a>{course.code}</a>
                                                         </Tooltip>
                                                     ) : (
                                                         <a>No Tooltip</a>
                                                     )}
                                                 </th>
-                                                <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                    {course.name}
+                                                <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                                    <p>{course.e_name}</p>
+                                                    <p>{course.name}</p>
                                                 </td>
-                                                <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                                <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                     {course.credit.split("(")[0]}
                                                 </td>
                                             </tr>
@@ -1335,56 +1368,60 @@ export default function Study_Plans({ }: Props) {
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#400' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 400
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 400</p>
+                                            <p>วิชาเอกเลือกระดับ 400</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://cs-project-git-main-kitsadi.vercel.app/academics/undergraduate/undergraduate64/major_elective_courses#700' target='_blank' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเอกเลือกระดับ 700
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Major Elective Courses Level 700</p>
+                                            <p>วิชาเอกเลือกระดับ 700</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             6
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FFEDD6] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             <a href='https://www.eqd.cmu.ac.th/Curr/minor.html' className='underline hover:text-gray-700'>******</a>
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาโท
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Minor Course</p>
+                                            <p>วิชาโท</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>
                                     <tr className="bg-[#FCDCB4] text-black">
                                         <th
                                             scope="row"
-                                            className="px-4 py-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
+                                            className="p-1 md:p-4 font-medium text-center border-solid border-[#EFB770] border-1 w-1/5"
                                         >
                                             ******
                                         </th>
-                                        <td className="pl-4 pr-10 py-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            วิชาเลือกเสรี
+                                        <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
+                                            <p>Free Elective Course</p>
+                                            <p>วิชาเลือกเสรี</p>
                                         </td>
-                                        <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
+                                        <td className="px-1 md:px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             3
                                         </td>
                                     </tr>

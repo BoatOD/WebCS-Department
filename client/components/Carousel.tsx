@@ -27,10 +27,10 @@ const Carousel = ({ images }: { images: CarouselProps[] }) => {
               <Image
                 src={item.images}
                 fill
-                className="w-full h-full object-fill  rounded-lg sm:h-52"
-                alt="asdasdasdasdad"
+                className="w-full h-full object-cover object-top rounded-lg sm:h-52"
+                alt=""
               />
-              <div className="absolute bottom-0 bg-[#3B3A3AA6] py-7 pl-[9rem] pr-7 rounded-lg">
+              <div className="absolute bottom-0 bg-[#3B3A3AA6] py-7 px-14 rounded-lg">
                 <h1 className="text-[#F29D35] font-bold text-5xl text-right">
                   {item.title}
                 </h1>

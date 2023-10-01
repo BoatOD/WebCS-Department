@@ -5,8 +5,8 @@ import { useState } from "react";
 
 type Props = {};
 
-const page = (props: Props) => {
-  const [selectedImages, setSelectedImages] = useState([]);
+const Page = (props: Props) => {
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const onSelectFile = (event: any) => {
     const selectFile = event.target.files;
     const selectFileArray = Array.from(selectFile);
@@ -249,7 +249,7 @@ const page = (props: Props) => {
                 selectedImages.map((image, index) => {
                   return (
                     <div key={image} className="image mr-3">
-                      <img src={image} className="max-h-72 mb-3 rounded-md" />
+                      <img src={image} alt='' className="max-h-72 mb-3 rounded-md" />
                       <button
                         type="button"
                         className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
@@ -298,4 +298,4 @@ const page = (props: Props) => {
     </>
   );
 };
-export default page;
+export default Page;

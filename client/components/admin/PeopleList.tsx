@@ -30,7 +30,7 @@ export default function PeopleList({ data }: { data: PeopleProps[] }) {
                 />
               ) : (
                 <Image
-                  src={`/personal/staff${item.picture}`}
+                  src={`/personal/lecturers${item.picture}`}
                   width="0"
                   height="0"
                   sizes="100vm"
