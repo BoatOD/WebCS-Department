@@ -33,6 +33,23 @@ const NavbarHeader = (props: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const t = useTranslations("Navbar")
 
+  const CustomIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
+    </svg>
+  );
+
 
   return (
     <>
@@ -44,7 +61,7 @@ const NavbarHeader = (props: Props) => {
       >
         <NavbarContent justify="start">
           <NavbarMenuToggle
-            icon={<Bars3Icon className="w-auto h-auto" />}
+            icon={<CustomIcon />}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             onChange={(isMenuOpen: any) => {
               // Your callback logic here
