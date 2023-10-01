@@ -30,6 +30,7 @@ const CardForAcademic = ({ posts }: { posts: CardOfEventProps[] }) => {
                 </div>
               </div>
               <div className="px-6 py-4 bg-white border hover:bg-gray-100" style={{ minHeight: `${maxHeight}px` }}>
+                <div className="font-bold text-xl mb-2 md:hidden">{a(item.title)}</div>
                 <div className="text-gray-700 text-base break-words">{c(`content${index}`)}</div>
               </div>
             </div>
