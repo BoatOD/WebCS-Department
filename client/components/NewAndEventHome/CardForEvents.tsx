@@ -1,9 +1,9 @@
 import React from "react";
 import { CardOfEventProps } from "@/types/cardofevent";
-import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
 const CardForEvents = ({ posts }: { posts: CardOfEventProps[] }) => {
-  const c = useTranslations("eventscontent")
+  const locale = useLocale();
   return (
     <>
       {posts.map((item, index) => (
@@ -17,7 +17,7 @@ const CardForEvents = ({ posts }: { posts: CardOfEventProps[] }) => {
               {item.title}
             </h3>
             <p className="font-normal text-gray-700 dark:text-gray-400 text-2auto">
-              {c(`content${index}`)}
+              {item.content}
             </p>
           </a>
         </div>
