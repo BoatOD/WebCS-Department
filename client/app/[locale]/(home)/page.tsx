@@ -20,6 +20,25 @@ export default function Home() {
       title: "COMPUTER SCIENCE",
       content: "CMU",
     },
+    {
+      images: "/bg4new2.jpg",
+      href: "#",
+      title: "COMPUTER SCIENCE",
+      content: "CMU",
+    },
+    {
+      images: "/bg5new2.jpg",
+      href: "#",
+      title: "COMPUTER SCIENCE",
+      content: "CMU",
+    },
+    {
+      images: "/bg6.jpg",
+      href: "#",
+      title: "COMPUTER SCIENCE",
+      content: "CMU",
+    },
+    
   ];
   return (
     <div>

@@ -1,4 +1,5 @@
 export type PeopleProps = {
+    [x: string]: any;
     _id: string;
     picture: string;
     affiliation: string;

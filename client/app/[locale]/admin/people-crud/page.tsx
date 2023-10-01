@@ -13,7 +13,7 @@ export default function Page() {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("https://cs-project-ime1.vercel.app/api/lecturers")
+    fetch("https://cs-project-ime1.vercel.app/api/people")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
@@ -21,7 +21,6 @@ export default function Page() {
 
   return (
     <>
-      <NavbarAdmin></NavbarAdmin>
       <div>
         <PeopleList data={data}></PeopleList>
       </div>
