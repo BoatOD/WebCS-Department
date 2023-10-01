@@ -1,7 +1,9 @@
 import React from "react";
 import { CardOfEventProps } from "@/types/cardofevent";
+import { useTranslations } from "next-intl";
 
 const CardForEvents = ({ posts }: { posts: CardOfEventProps[] }) => {
+  const c = useTranslations("eventscontent")
   return (
     <>
       {posts.map((item, index) => (
@@ -15,7 +17,7 @@ const CardForEvents = ({ posts }: { posts: CardOfEventProps[] }) => {
               {item.title}
             </h3>
             <p className="font-normal text-gray-700 dark:text-gray-400 text-2auto">
-              {item.content}
+              {c(`content${index}`)}
             </p>
           </a>
         </div>
