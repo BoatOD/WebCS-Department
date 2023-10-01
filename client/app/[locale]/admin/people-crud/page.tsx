@@ -8,12 +8,12 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { HiPencilAlt } from "react-icons/hi";
 
-export default function page() {
+export default function Page() {
   const [data, setData] = useState<PeopleProps[]>([]);
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch("https://cs-project-ime1.vercel.app/api/lecturers")
+    fetch("https://cs-project-ime1.vercel.app/api/people")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
@@ -21,7 +21,6 @@ export default function page() {
 
   return (
     <>
-      <NavbarAdmin></NavbarAdmin>
       <div>
         <PeopleList data={data}></PeopleList>
       </div>
