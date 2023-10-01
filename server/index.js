@@ -377,6 +377,10 @@ app.post("/blog", async (req, res) => {
   }
 });
 
+app.post('/api/upload', async (req, res) => {
+  res.status(200).send('Files uploaded successfully');
+});
+
 app.post("/people", async (req, res) => {
   console.log("req.body:", req.body);
   try {
