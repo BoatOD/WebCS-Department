@@ -37,9 +37,8 @@ const AcademicFirstPage = (props: Props) => {
       <div className="mx-auto max-w-7xl px-2 mt-2 sm:px-6 pt-3">
         <div className="flex">
           <div className="flex flex-col space-y-2">
-            <div className="px-8 py-0.5 bg-black w-full "></div>
             <Link href="#">
-              <p className="text-4xl font-extrabold text-gray-900 dark:text-white">
+              <p className="text-4xl font-extrabold text-gray-900 dark:text-white border-t-4 border-black">
               {t("title")}
               </p>
             </Link>

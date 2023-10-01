@@ -4,6 +4,7 @@ import { CardOfEventProps } from "@/types/cardofevent";
 import CardForEvents from "./CardForEvents";
 import { CarouselProps } from "@/types/carousel";
 import CarouselForNews from "../CarouselForNews";
+import Link from "next/link";
 
 type Props = {};
 
@@ -86,13 +87,18 @@ const NewsAndEvent = (props: Props) => {
     <>
       <div className="flex flex-col md:flex-row mx-auto max-w-7xl px-2 mt-4 sm:px-6 pt-5 gap-7">
         <div className="w-full md:w-2/3">
-          <div className="flex pb-5">
-            <div className="flex flex-col space-y-0 mt-7">
-              <div className="px-8 py-0.5 bg-black"></div>
-              <p className="text-4xl font-extrabold text-gray-900 dark:text-white">
-                NEWS
+          <div className="flex justify-between mt-7 pb-5">
+            <p className="text-4xl font-extrabold text-gray-900 dark:text-white border-t-4 border-black">
+              NEWS
+            </p>
+            <Link href='/news_events/news' className="flex items-center hover:opacity-80">
+              <p className="text-gray-900 uppercase text-center font-medium">
+                more news
               </p>
-            </div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+              </svg>
+            </Link>
           </div>
 
           <div className="pt-5">
@@ -100,13 +106,18 @@ const NewsAndEvent = (props: Props) => {
           </div>
         </div>
         <div>
-          <div className="flex pb-5">
-            <div className="flex flex-col space-y-0 mt-7">
-              <div className="px-8 py-0.5 bg-black"></div>
-              <p className="text-4xl font-extrabold text-gray-900 dark:text-white">
-                EVENTS
+          <div className="flex justify-between mt-7 pb-5">
+            <p className="text-4xl font-extrabold text-gray-900 dark:text-white border-t-4 border-black">
+              EVENTS
+            </p>
+            <Link href='/news_events/events' className="flex items-center hover:opacity-80">
+              <p className="text-gray-900 uppercase text-center font-medium">
+                more events
               </p>
-            </div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+              </svg>
+            </Link>
           </div>
 
           <div className="overflow-y-auto h-[28rem] pt-3">
