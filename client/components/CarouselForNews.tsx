@@ -6,11 +6,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { CarouselProps } from "@/types/carousel";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+
 
 const CarouselForNews = ({ images }: { images: CarouselProps[] }) => {
-  const c = useTranslations("newscontent");
-  const t = useTranslations("newstitle")
+  const locale = useLocale();
   return (
     <Swiper
       spaceBetween={30}
@@ -34,10 +34,11 @@ const CarouselForNews = ({ images }: { images: CarouselProps[] }) => {
                 alt=""
               />
               <div className="absolute bottom-0 px-4 py-3 bg-black bg-opacity-80 w-full">
+
                 <h1 className="text-white font-medium text-xl">
-                  {t(`title${index}`)}
+                  {item.title}
                 </h1>
-                <p className="text-gray-200 pr-9 text-base">{c(`content${index}`)}</p>
+                <p className="text-gray-200 pr-9 text-base">{item.content}</p>
               </div>
             </div>
           </Link>
