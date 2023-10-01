@@ -4,11 +4,13 @@ import Banner from '@/components/Banner';
 import { sidebarItem } from '@/app/[locale]/(home)/about/sidebarData'
 
 import Sidebar1 from "@/components/Sidebar1";
+import { useTranslations } from 'next-intl';
 
 
 type Props = {};
 
 export default function contact({ }: Props) {
+  const some = useTranslations("about");
   return (
     <>
       <Banner
@@ -25,21 +27,21 @@ export default function contact({ }: Props) {
 
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h2 id="analysis" className="text-2xl font-bold">ที่อยู่</h2>
+              <h2 id="analysis" className="text-2xl font-bold">{some("title3")}</h2>
               <br></br>
               <p>
-                ภาควิชาวิทยาการคอมพิวเตอร์ <br></br>
-                คณะวิทยาศาสตร์ มหาวิทยาลัยเชียงใหม่ <br></br>
-                239 ถ. ห้วยแก้ว ต.สุเทพ อ. เมือง จ. เชียงใหม่ 50200
+                {some("address0")} <br></br>
+                {some("address1")} <br></br>
+                {some("address2")}
               </p>
               <br></br>
-              <h2 id="analysis" className="text-2xl font-bold">หมายเลขโทรศัพท์</h2>
+              <h2 id="analysis" className="text-2xl font-bold">{some("title4")}</h2>
               <br></br>
               <p>
-                โทรศัพท์ : 0-5394-3412-16 , 063-080-7969 <br></br>
-                ธุรการ : กด 0 หรือ 101 <br></br>
-                หลักสูตรปริญญาตรี : กด 103 <br></br>
-                หลักสูตรปริญญาโท-เอก : กด 105 <br></br>
+                {some("address4")} : 0-5394-3412-16 , 063-080-7969 <br></br>
+                {some("address5")} : {some("address8")} 0 {some("address9")} 101 <br></br>
+                {some("address6")} : {some("address8")} 103 <br></br>
+                {some("address7")} : {some("address8")} 105 <br></br>
                 E-mail : compsci@cmu.ac.th <br></br>
                 Line ID : cscmu <br></br>
               </p>
@@ -92,7 +94,7 @@ export default function contact({ }: Props) {
                       >
                         <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z" />
                       </svg>
-                      Facebook Page ศิษย์เก่า
+                      Facebook Page {some("address10")}
                     </span>
                   </a>
                 </li>

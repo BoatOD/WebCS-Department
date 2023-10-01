@@ -1,8 +1,11 @@
+'use client'
+import { useTranslations } from "next-intl";
 import React from "react";
 
 type Props = {};
 
 const Footer = (props: Props) => {
+  const some = useTranslations("about");
   return (
     <>
       <footer className="bg-[#F29D35] mt-[5rem]">
@@ -14,17 +17,17 @@ const Footer = (props: Props) => {
               </h1>
               <ul className="font-medium">
                 <p>
-                  ภาควิชาวิทยาการคอมพิวเตอร์
-                  <br />  คณะวิทยาศาสตร์ มหาวิทยาลัยเชียงใหม่
-                  <br /> 239 ถ. ห้วยแก้ว ต.สุเทพ อ. เมือง จ. เชียงใหม่ 50200
+                  {some("address0")}
+                  <br />  {some("address1")}
+                  <br />  {some("address2")}
                 </p>
                 <br></br>
                 <div className="flex md:hidden">
                   <p>
-                    โทรศัพท์ : 0-5394-3412-16 , 063-080-7969
-                    <br></br>ธุรการ : กด 0 หรือ 101
-                    <br></br>หลักสูตรปริญญาตรี : กด 103
-                    <br></br>หลักสูตรปริญญาโท-เอก : กด 105
+                    {some("address4")} : 0-5394-3412-16 , 063-080-7969
+                    <br></br>{some("address5")} : {some("address8")} 0 {some("address9")} 101
+                    <br></br>{some("address6")} : {some("address8")} 103
+                    <br></br>{some("address7")} : {some("address8")} 105
                     <br></br>E-mail : compsci@cmu.ac.th
                     <br></br>Line ID : cscmu
                   </p>
@@ -80,7 +83,7 @@ const Footer = (props: Props) => {
                       >
                         <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z" />
                       </svg>
-                      Facebook Page ศิษย์เก่า
+                      Facebook Page {some("address10")}
                     </span>
                   </a>
                 </li>
@@ -105,10 +108,10 @@ const Footer = (props: Props) => {
               <ul className="font-medium">
                 <li className="mb-4">
                   <p>
-                    โทรศัพท์ : 0-5394-3412-16 , 063-080-7969
-                    <br></br>ธุรการ : กด 0 หรือ 101
-                    <br></br>หลักสูตรปริญญาตรี : กด 103
-                    <br></br>หลักสูตรปริญญาโท-เอก : กด 105
+                    {some("address4")} : 0-5394-3412-16 , 063-080-7969
+                    <br></br>{some("address5")} : {some("address8")} 0 {some("address9")} 101
+                    <br></br>{some("address6")} : {some("address8")} 103
+                    <br></br>{some("address7")} : {some("address8")} 105
                     <br></br>E-mail : compsci@cmu.ac.th
                     <br></br>Line ID : cscmu
                   </p>
@@ -166,7 +169,7 @@ const Footer = (props: Props) => {
                         >
                           <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z" />
                         </svg>
-                        Facebook Page ศิษย์เก่า
+                        Facebook Page {some("address10")}
                       </span>
                     </a>
                   </li>
