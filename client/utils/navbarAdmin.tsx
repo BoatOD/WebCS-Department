@@ -21,12 +21,12 @@ export const navItemsAdmin: navbar[] = [
     type: "dropdown",
     options: [
       {
-        title: "View",
+        title: "News",
         href: "/admin/blog/news-edit",
       },
       {
-        title: "Add",
-        href: "/admin/blog/news-edit/[id]",
+        title: "Event",
+        href: "/admin/blog/events-edit",
       },
     ],
   },
