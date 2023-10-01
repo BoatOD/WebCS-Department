@@ -5,12 +5,14 @@ import Banner from "@/components/Banner";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/undergraduate/sidebarData'
 import Sidebar1 from "@/components/Sidebar1";
 import Link from 'next/link'
+import { useTranslations} from 'next-intl';
 
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
+import { title } from 'process';
 
 type Props = {};
 
@@ -30,7 +32,9 @@ interface Courses {
 }
 
 export default function Undergraduate({ }: Props) {
-
+  
+  const u4 = useTranslations("Undergraduate64");
+  
   const [data, setData] = useState<Courses[]>([]);
 
   useEffect(() => {
@@ -69,7 +73,7 @@ export default function Undergraduate({ }: Props) {
           </div>
           <div className="p-1 pt-3 mt-12">
             <div className='text-2xl font-medium mb-4'>
-              ภาพรวมหลักสูตร 64+
+            {u4("title30")}
             </div>
 
             <div className="flex-row md:flex justify-between my-2">
@@ -77,11 +81,11 @@ export default function Undergraduate({ }: Props) {
                 <AccordionHeader onClick={() => handleOpen(1)} className='text-lg font-kanit font-medium bg-[#EC870B] text-white text-center justify-center h-28'>
                   วิชาบังคับ <br />
                   (Required Courses)<br />
-                  24 หน่วยกิต
+                  {u4("title0")}
                 </AccordionHeader>
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg break-words'>
                   <ul className='list-disc pl-6 '>
-                    <li className='mb-2 font-medium'>กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้เรียนรู้ (Learner Person) 15 หน่วยกิต</li>
+                    <li className='mb-2 font-medium'> {u4("title1")}</li>
                     <ul className='list-none pl-2 '>
                       {data.filter(courses => courses.e_type === "Required Courses" && courses.sup_type === "Learner Person")
                         .map(courses => (
@@ -119,7 +123,7 @@ export default function Undergraduate({ }: Props) {
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg'>
 
                   <ul className='list-disc pl-6 '>
-                    <li className='mb-2 font-medium'>แผนปกติ (Regular Plan) 3 หน่วยกิต</li>
+                    <li className='mb-2 font-medium'>{u4("title2")}</li>
                     <ul className='list-none pl-2 '>
                       {data.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" &&
                         (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 1)))
@@ -132,7 +136,7 @@ export default function Undergraduate({ }: Props) {
                   </ul>
 
                   <ul className='list-disc pl-6 '>
-                    <li className='mb-2 font-medium'>แผนสหกิจศึกษา (Co-operative Education Plan) 7 หน่วยกิต</li>
+                    <li className='mb-2 font-medium'>{u4("title3")}</li>
                     <ul className='list-none pl-2 '>
                       {data.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" &&
                         (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 2)))
@@ -145,7 +149,7 @@ export default function Undergraduate({ }: Props) {
                   </ul>
 
                   <ul className='list-disc pl-6 '>
-                    <li className='mb-2 font-medium'>แผนก้าวหน้า (Honors Plan) 3 หน่วยกิต</li>
+                    <li className='mb-2 font-medium'>{u4("title4")}</li>
                     <ul className='list-none pl-2 '>
                       {data.filter(courses => courses.e_type === "Plan-specific Compulsory Courses" &&
                         (Array.isArray(courses.cu_no) && courses.cu_no.some(cu => cu === 3)))
@@ -166,7 +170,7 @@ export default function Undergraduate({ }: Props) {
                 <AccordionHeader onClick={() => handleOpen(3)} className='text-lg font-kanit font-medium bg-[#EB8E1B] text-white text-center justify-center h-28'>
                   วิชาแกน <br />
                   (Core Courses)<br />
-                  24 หน่วยกิต
+                  {u4("title0")}
                 </AccordionHeader>
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg'>
                   <ul className='list-none pl-6 '>
@@ -188,7 +192,7 @@ export default function Undergraduate({ }: Props) {
                 <AccordionHeader onClick={() => handleOpen(4)} className='text-lg font-kanit font-medium bg-[#EB8E1B] text-white text-center justify-center h-28'>
                   วิชาเอกบังคับร่วม <br />
                   (Compulsory Courses)<br />
-                  41 หน่วยกิต
+                  {u4("title5")}
                 </AccordionHeader>
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg'>
                   <ul className='list-disc pl-6 '>
@@ -259,10 +263,10 @@ export default function Undergraduate({ }: Props) {
                 <AccordionHeader onClick={() => handleOpen(5)} className='text-lg font-kanit font-medium bg-[#EB9A37] text-white text-center justify-center h-28'>
                   วิชาเอกเลือกทั่วไป <br />
                   (GE Elective Courses)<br />
-                  6 หน่วยกิต
+                  {u4("title6")}
                 </AccordionHeader>
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg'>
-                  <p className="font-medium underline">ให้นักศึกษาเลือกเรียนกระบวนวิชาจากทั้ง 3 กลุ่มเพิ่มเติมอีก 6 หน่วยกิต จากกระบวนวิชาต่อไปนี้</p>
+                  <p className="font-medium underline">{u4("title7")}</p>
                   <ul className='list-disc pl-6 '>
 
                     <ul className='list-none pl-2 '>
@@ -302,27 +306,27 @@ export default function Undergraduate({ }: Props) {
                 </AccordionHeader>
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg'>
                   <ul className='list-disc pl-6 '>
-                    <li className='mb-2 font-medium'>แผนปกติ (Regular Plan) 15 หน่วยกิต</li>
+                    <li className='mb-2 font-medium'>{u4("title8")}</li>
                     <ul className='list-none pl-2 '>
                       <li className="mb-2">
-                        - เป็นกระบวนวิชาระดับ 300-400 โดยที่อย่างน้อย 9 หน่วยกิต ต้องเป็นกระบวนวิชาระดับ 400
+                        {u4("title9")}
                       </li>
                     </ul>
                     <br />
-                    <li className='mb-2 font-medium'>แผนสหกิจศึกษา (Co-operative Education Plan) 12 หน่วยกิต</li>
+                    <li className='mb-2 font-medium'>{u4("title10")}</li>
                     <ul className='list-none pl-2 '>
                       <li className="mb-2">
-                        - เป็นกระบวนวิชาระดับ 300-400 โดยที่อย่างน้อย 6 หน่วยกิต ต้องเป็นกระบวนวิชาระดับ 400
+                      {u4("title11")}
                       </li>
                     </ul>
                     <br />
-                    <li className='mb-2 font-medium'>แผนก้าวหน้า (Honors Plan) 27 หน่วยกิต</li>
+                    <li className='mb-2 font-medium'>{u4("title12")}</li>
                     <ul className='list-none pl-2 '>
                       <li className="mb-2">
-                        - เป็นกระบวนวิชาระดับ 300-400 โดยที่อย่างน้อย 9 หน่วยกิต ต้องเป็นกระบวนวิชาระดับ 400
+                      {u4("title9")}
                       </li>
                       <li className="mb-2">
-                        - เป็นกระบวนวิชาระดับ 700 12 หน่วยกิต
+                      {u4("title13")}
                       </li>
                     </ul>
                   </ul>
@@ -337,16 +341,14 @@ export default function Undergraduate({ }: Props) {
                 <AccordionHeader onClick={() => handleOpen(7)} className='text-lg font-kanit font-medium bg-[#F5B66A] text-white text-center justify-center h-28'>
                   วิชาเลือกเสรี <br />
                   (Free Elective Courses)<br />
-                  6 หน่วยกิต
+                  {u4("title6")}
                 </AccordionHeader>
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg'>
                   <p className='font-medium'>วิชาเลือกเสรี (Free Elective Courses)</p>
                   <p>
                     <span className="ml-[1rem]">
-                      เป็นวิชาที่หลักสูตรเปิดโอกาสให้นักศึกษาเลือกเรียน
-                      <span className='underline'>นอกเหนือไปจากวิชาเฉพาะ</span>(204XXX)
-                      โดยมีจุดมุ่งหมายเพื่อขยายความสัมพันธ์ทางวิชาการให้กว้างขวางออกไป
-                      ตลอดจนเป็นการส่งเสริมความถนัดและความสนใจของแต่ละบุคคลให้ได้มากยิ่งขึ้น
+                    {u4("title14")}
+                      <span className='underline'>{u4("title15")}</span>{u4("title16")}
                     </span>
                   </p>
                 </AccordionBody>
@@ -355,24 +357,24 @@ export default function Undergraduate({ }: Props) {
                 <AccordionHeader onClick={() => handleOpen(8)} className='text-lg font-kanit font-medium bg-[#F5B66A] text-white text-center justify-center h-28'>
                   วิชาโท <br />
                   (Minor Courses)<br />
-                  15 หน่วยกิต
+                  {u4("title17")}
                 </AccordionHeader>
                 <AccordionBody className='font-kanit bg-[#FFD8A9] mt-5 mb-3 px-4 rounded-lg'>
                   <ul className='list-disc pl-6 '>
-                    <li className='mb-2 font-medium'>ต้องการเรียนวิชาโท</li>
+                    <li className='mb-2 font-medium'>{u4("title18")}</li>
                     <ul className='list-none pl-2 '>
                       <li className="mb-2">
-                        - แผนปกติและแผนสหกิจศึกษาสามารถเลือกเรียนวิชาโทสาขาใด ๆ โดยความเห็นชอบของอาจารย์ที่ปรึกษา
+                      {u4("title19")}
                       </li>
                       <li className="mb-2">
-                        - แผนก้าวหน้าสามารถเลือกเรียนวิชาโทสาขาคณิตศาสตร์ สถิติ หรือวิทยาการข้อมูล
+                      {u4("title20")}
                       </li>
                     </ul>
                     <br />
-                    <li className='mb-2 font-medium'>ไม่ต้องการเรียนวิชาโท</li>
+                    <li className='mb-2 font-medium'>{u4("title21")}</li>
                     <ul className='list-none pl-2 '>
                       <li className="mb-2">
-                        - เลือกเรียนวิชาเอกเลือกระดับ 300 หรือ 400 เพิ่มไม่น้อยกว่า 15 หน่วยกิต
+                      {u4("title22")}
                       </li>
                     </ul>
                   </ul>
@@ -383,27 +385,27 @@ export default function Undergraduate({ }: Props) {
             </div>
             <div className="flex-row md:flex justify-between my-2">
               <div className='w-full pb-0 m-2 mx-0 md:mx-2 mb-0'>
-                <p className='text-2xl font-medium'>จำนวนหน่วยกิตรวมตลอดหลักสูตร</p>
+                <p className='text-2xl font-medium'>{u4("title23")}</p>
                 <div className='bg-[#FFD5A3] mt-5 mb-3 p-4 rounded-lg'>
                   <ul className='list-disc pl-6 '>
-                    <li className='mb-2 font-medium'>แผนปกติ</li>
+                    <li className='mb-2 font-medium'>{u4("title24")}</li>
                     <ul className='list-none pl-2 '>
                       <li className="mb-2">
-                        - ไม่น้อยกว่า 134 หน่วยกิต
+                      {u4("title25")}
                       </li>
                     </ul>
                     <br />
-                    <li className='mb-2 font-medium'>แผนสหกิจศึกษา</li>
+                    <li className='mb-2 font-medium'>{u4("title26")}</li>
                     <ul className='list-none pl-2 '>
                       <li className="mb-2">
-                        - ไม่น้อยกว่า 135 หน่วยกิต
+                      {u4("title27")}
                       </li>
                     </ul>
                     <br />
-                    <li className='mb-2 font-medium'>แผนก้าวหน้า</li>
+                    <li className='mb-2 font-medium'>{u4("title28")}</li>
                     <ul className='list-none pl-2 '>
                       <li className="mb-2">
-                        - ไม่น้อยกว่า 146 หน่วยกิต
+                      {u4("title29")}
                       </li>
                     </ul>
                   </ul>

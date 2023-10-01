@@ -4,10 +4,12 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
+import { useTranslations } from 'next-intl';
 
 type Props = {}
 
 export default function Course_2({ }: Props) {
+  const l = useTranslations("lifelong");
   return (
     <>
       <Banner
@@ -23,39 +25,39 @@ export default function Course_2({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h1 className="text-2xl font-bold">2. การวิเคราะห์ข้อมูลอัจฉริยะโดยเทคนิคการเรียนรู้ด้วยเครื่องสำหรับผู้เรียนระดับสูง โดยใช้การเขียนโปรแกรมไพธอน</h1>
+              <h1 className="text-2xl font-bold">{l("title83")}</h1>
               <br />
               <table className="w-full">
                 <tbody>
                   <tr>
                     <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
-                      ช่วงวันรับสมัคร :
+                    {l("title40")}
                     </th>
                     <td className="bg-white text-black px-1 md:px-6">
-                      วันนี้ – 30 สิงหาคม 2564
+                    {l("title69")}
                     </td>
                   </tr>
                   <tr>
                     <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
-                      ช่วงเวลาเรียน :
+                    {l("title42")}
                     </th>
                     <td className="bg-white text-black px-1 md:px-6">
-                      13-17 กันยายน เวลา 13:00-16:00 น.
+                    {l("title84")}
                     </td>
                   </tr>
                   <tr>
                     <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
-                      ช่องทางรับการสมัคร :
+                      {l("title44")}
                     </th>
                     <td className="bg-white text-black px-1 md:px-6">
                       <a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000069" className='underline'>
-                        Click Here!
+                      {l("title20")}
                       </a>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <h2 className="text-xl my-5">เนื้อหาหลักสูตร</h2>
+              <h2 className="text-xl my-5">{l("title45")}</h2>
 
               <ul className="list-disc pl-6">
                 <li className='mb-2'>Data manipulation with Python</li>

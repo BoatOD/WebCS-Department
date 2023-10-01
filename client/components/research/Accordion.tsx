@@ -12,7 +12,7 @@ const ResearchAccordion = ({ data }: { data: ResearchAccordionProps[] }) => {
             {data.map((item, index) => (
                 <Accordion.Panel key={index}>
                     <Accordion.Title className="text-black font-bold bg-[#F8A138] bg-opacity-70 hover:bg-[#F29D35] hover:bg-opacity-35">
-                        {r(item.topic)}
+                        {item.topic}
                     </Accordion.Title>
                     <Accordion.Content>
                         <div className="mb-2">

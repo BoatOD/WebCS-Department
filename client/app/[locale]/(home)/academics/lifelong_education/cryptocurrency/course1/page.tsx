@@ -4,11 +4,13 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
+import { useTranslations } from 'next-intl';
 
 
 type Props = {}
 
 export default function Course1({ }: Props) {
+  const l = useTranslations("lifelong");
   return (
     <>
       <Banner
@@ -24,39 +26,39 @@ export default function Course1({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h1 className="text-2xl font-bold">หลักสูตรที่ 1 พื้นฐานของคริปโทเคอร์เรนซี (Cryptocurrency สำหรับนักลงทุนมือใหม่)</h1>
+              <h1 className="text-2xl font-bold">{l("title144")}</h1>
               <br />
               <table className="w-full">
                 <tbody>
                   <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงวันรับสมัคร :</th>
-                    <td className="bg-white text-black px-1 md:px-6">รุ่นที่ 1 : 14 กรกฎาคม – 23 กรกฎาคม 2564</td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">{l("title40")}</th>
+                    <td className="bg-white text-black px-1 md:px-6">{l("title41")}</td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงเวลาเรียน :</th>
-                    <td className="bg-white text-black px-1 md:px-6">รุ่นที่ 1 : 31 กรกฎาคม 2564 เวลา 9.30 – 16.30 น.</td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">{l("title42")}</th>
+                    <td className="bg-white text-black px-1 md:px-6">{l("title43")}</td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่องทางรับการสมัคร :</th>
-                    <td className="bg-white text-black px-1 md:px-6"><a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000119" className='underline'>Click here!</a></td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">{l("title44")}</th>
+                    <td className="bg-white text-black px-1 md:px-6"><a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000119" className='underline'>{l("title20")}</a></td>
                   </tr>
                 </tbody>
               </table>
-              <h2 className="mt-10 mb-5 font-bold">เนื้อหาหลักสูตร</h2>
+              <h2 className="mt-10 mb-5 font-bold">{l("title45")}</h2>
 
               <ul className="list-disc pl-6 ml-5">
                 <li className="mb-2">Blockchain and Cryptocurrency</li>
                 <li className="mb-2">Mining</li>
-                <li className="mb-2">การเริ่มต้นการลงทุนด้าน Cryptocurrency</li>
-                <li className="mb-2">ผลิตภัณฑ์อื่น ๆ ที่น่าสนใจ</li>
+                <li className="mb-2">{l("title48")}</li>
+                <li className="mb-2">{l("title49")}</li>
               </ul>
               <br />
-              <h2 className="mb-5 font-bold">ผู้บรรยาย</h2>
+              <h2 className="mb-5 font-bold">{l("title50")}</h2>
               <ul className="list-disc pl-6 ml-5">
-                <li className="mb-2">รศ.ดร. เอกรัฐ บุญเชียง</li>
-                <li className="mb-2">อ.ดร. วรวิทย์ เทพแสน</li>
-                <li className="mb-2">คุณบริรัฐ คำปิงยศ</li>
-                <li className="mb-2">อ.ดร.ณพล หงสกุลวสุ</li>
+                <li className="mb-2">{l("title51")}</li>
+                <li className="mb-2">{l("title52")}</li>
+                <li className="mb-2">{l("title53")}</li>
+                <li className="mb-2">{l("title54")}</li>
               </ul>
 
             </div>

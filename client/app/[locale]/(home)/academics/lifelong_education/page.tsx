@@ -4,9 +4,11 @@ import Banner from '@/components/Banner';
 // import './intelligent.css'
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
+import { useTranslations } from 'next-intl';
 type Props = {}
 
 export default function Lifelong({ }: Props) {
+  const l = useTranslations("lifelong");
   return (
     <>
       <Banner
@@ -22,15 +24,15 @@ export default function Lifelong({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h1 className="text-2xl font-bold">หลักสูตรการศึกษาตลอดชีวิต</h1>
-              <h3 className="text-lg font-bold">ภายใต้การสนับสนุนจากวิทยาลัยการศึกษาตลอดชีวิต (Lifelong Education)</h3>
+              <h1 className="text-2xl font-bold">{l("title158")}</h1>
+              <h3 className="text-lg font-bold">{l("title146")}</h3>
               <br />
               <ol className="list-decimal pl-6">
                 <li className="mb-2">
-                  <a href="/academics/lifelong_education/intelligent" className="hover:underline">หลักสูตรการวิเคราะห์ข้อมูลอัจฉริยะ ประกอบด้วย 7 หลักสูตรย่อย</a>
+                  <a href="/academics/lifelong_education/intelligent" className="hover:underline">{l("title159")}</a>
                 </li>
                 <li className="mb-2">
-                  <a href="/academics/lifelong_education/cryptocurrency" className="hover:underline">หลักสูตรอบรมคริปโทเคอร์เรนซี(Cryptocurrency) ประกอบด้วย 7 หลักสูตรย่อย</a>
+                  <a href="/academics/lifelong_education/cryptocurrency" className="hover:underline">{l("title160")}</a>
                 </li>
               </ol>
             </div>

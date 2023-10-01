@@ -7,13 +7,16 @@ import Image from 'next/image';
 
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";
+import { useLocale,useTranslations } from 'next-intl';
 
 type Props = {}
 
 interface ResearchArticle {
     _id: string;
+    e_topic: string;
     topic: string;
     description: string;
+    e_description:string;
     researchers: {
         e_name: string;
         personal_web: string;
@@ -27,7 +30,7 @@ export default function Research({ }: Props) {
 
 
 
-
+   
     const [data, setData] = useState<ResearchArticle[]>([]);
     useEffect(() => {
         // Fetch data from the backend API when the component mounts
@@ -36,7 +39,8 @@ export default function Research({ }: Props) {
             .then((data) => setData(data))
             .catch((error) => console.error(error));
     }, []);
-
+    const r = useTranslations("Research");
+    const locale = useLocale();
     const sidebarItem: SidebarProps[] = [
         {
             content: "RESEARCH",
@@ -46,11 +50,15 @@ export default function Research({ }: Props) {
     ];
 
     for (const item of data) {
-        sidebarItem.push({
-            content: item.topic,
-            href: `#${item.r_id}`,
-            type: "singleItem",
-        });
+    
+            sidebarItem.push({
+            
+                content: item.topic,
+                href: `#${item.r_id}`,
+                type: "singleItem",
+            });
+        
+       
     }
 
     return (
@@ -70,8 +78,13 @@ export default function Research({ }: Props) {
                         <div key={item.r_id} id={`${item.r_id}`} className="mx-auto m-10 border-[#F29D35] border-l-[16px] border-1 p-5 md:mr-5">
                             <div className="md:flex">
                                 <div className="pt-1 w-full text-left break-keep">
-                                    <div className="text-2xl font-medium">{item.topic}</div>
-                                    <div className="font-[450] mt-4"> Researcher:&nbsp;
+                                    {locale === "en" ?(
+                                        <div className="text-2xl font-medium">{item.e_topic}</div>
+                                    ):(
+                                        <div className="text-2xl font-medium">{item.topic}</div>
+                                    )}
+                                    
+                                    <div className="font-[450] mt-4">{r("title1")}&nbsp;
                                         {item.researchers.length === 1 ? (
                                             <a
                                                 href={item.researchers[0].personal_web}
@@ -99,7 +112,12 @@ export default function Research({ }: Props) {
                                             </span>
                                         )}
                                     </div>
-                                    <div className="mt-4">{item.description}</div>
+                                    {locale === "en" ?(
+                                        <div className="mt-4">{item.e_description}</div>
+                                    ):(
+                                         <div className="mt-4">{item.description}</div>
+                                    )}
+                                    
                                 </div>
                                 <div className="md:shrink-0 flex justify-center items-center mt-5 md:ml-5 md:mt-0">
                                     <Image

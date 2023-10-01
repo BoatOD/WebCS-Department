@@ -4,10 +4,13 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
+import { useTranslations } from 'next-intl';
+
 
 type Props = {}
 
 export default function Cryptocurrency({ }: Props) {
+  const l = useTranslations("lifelong");
   return (
     <>
       <Banner
@@ -23,149 +26,140 @@ export default function Cryptocurrency({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h1 className="text-2xl font-bold">หลักสูตรอบรมคริปโทเคอร์เรนซี</h1>
+              <h1 className="text-2xl font-bold">{l("title0")}</h1>
               <h3 className="font-bold">
-                โดยภาควิชาวิทยาการคอมพิวเตอร์ และภาควิชาคณิตศาสตร์ คณะวิทยาศาสตร์ มหาวิทยาลัยเชียงใหม่
-                ภายใต้การสนับสนุนจากวิทยาลัยการศึกษาตลอดชีวิต
+              {l("title1")}
               </h3>
               <div className="bg-[#F2D4B0] h-full m-6 p-6 mr-16">
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                    คริปโทเคอร์เรนซี(Cryptocurrency) เป็นสินทรัพย์ดิจิทัลประเภทหนึ่งที่มีการเข้ารหัส และมีราคาซื้อขายแปรผันตามกลไกตลาด โดยคริปโทเคอร์เรนซีทำหน้าที่เป็นสื่อกลาง
-                    ในการแลกเปลี่ยนมูลค่าผ่านอินเทอร์เน็ตที่ไม่ได้อยู่ภายใต้การควบคุมหรือจัดการโดยหน่วยงานทางการเงินสากลใด ๆ หากแต่จะทำงานอยู่บนระบบที่สามารถควบคุมและ
-                    ตรวจสอบตัวมันเองได้ที่เรียกว่า บล็อกเชน (Blockchain)
+                  {l("title2")}
                   </span>
                 </p>
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                    บล็อกเชน (Blockchain) เป็นรูปแบบการเก็บข้อมูลแบบหนึ่ง ที่ทำให้ข้อมูลธุรกรรมของแต่ละคนสามารถแชร์ไปยังทุกคนได้ เป็นเสมือนห่วงโซ่ที่ทำให้บล็อก (block) ของข้อมูลเชื่อมต่อไป
-                    ยังทุกคนโดยที่ทราบว่าใครเป็นเจ้าของและมีสิทธิในข้อมูลนั้นจริง เมื่อบล็อกของข้อมูลได้ถูกบันทึกไว้ในบล็อกเชนแล้วนั้น จะเป็นเรื่องยากที่จะเข้าไปเปลี่ยนแปลงข้อมูล และเมื่อมีผู้ใดต้องการเพิ่มข้อมูล
-                    ทุกคนในเครือข่ายซึ่งมีสำเนาของบล็อกเชน สามารถใช้ขั้นตอนวิธี เพื่อตรวจสอบธุรกรรมที่เข้ามาใหม่ได้ โดยธุรกรรมใหม่นี้จะได้รับอนุญาตให้บันทึกเติมลงบนบล็อกเชนก็ต่อเมื่อเครือข่ายส่วนใหญ่
-                    เห็นด้วยว่าธุรกรรมนั้นถูกต้องเท่านั้น
+                  {l("title3")}
                   </span>
                 </p>
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                    ในปัจจุบันนั้นคริปโทเคอร์เรนซีสามารถทำการซื้อขายได้โดยใช้เงินจริง โดยมีราคาซื้อขายแปรผันตามกลไกตลาด ทำให้มีนักลงทุนหลายคนมีความสนใจในการลงทุนด้านคริปโทเคอร์เรนซี
-                    อย่างไรก็ตาม เนื่องจากราคาของคริปโทเคอร์เรนซีนั้นมีการเปลี่ยนแปลงอย่างรวดเร็ว เมื่อเทียบกับการเปลี่ยนแปลงของราคาหุ้น และเปลี่ยนแปลงตลอดเวลาไม่มีการปิดตลาด  ทำให้การลงทุน
-                    ชนิดนี้เป็นการลงทุนที่มีความเสี่ยงสูงมาก
+                  {l("title4")}
                   </span>
                 </p>
                 <p>
                   <span className="ml-[1rem]">
-                    หลักสูตรการอบรมระยะสั้นในหัวข้อคริปโทเคอร์เรนซี มีจุดประสงค์เพื่อให้ผู้เรียนเข้าใจหลักการ ความเป็นมา และทฤษฎีต่าง ๆ ที่เกี่ยวข้องกับบล๊อคเชนและคริปโทเคอร์เรนซี สามารถ
-                    ประยุกต์ใช้เทคโนโลยีในศาสตร์อื่น ๆ รวมถึงเป็นการเพิ่มทักษะทางการเงิน (financial literacy) ซึ่งเป็นทักษะสำคัญแห่งการเรียนรู้ศตวรรษที่ 21 ให้กับผู้เรียนอีกด้วย
+                  {l("title5")}
                   </span>
                 </p>
               </div>
-              <h2 className="mb-5 font-bold">หลักสูตรประกอบด้วยหน่วยย่อย 3 หน่วย ดังต่อไปนี้</h2>
+              <h2 className="mb-5 font-bold">{l("title6")}</h2>
               <ul className="list-disc pl-6 ml-5">
-                <li className="mb-2">หน่วยย่อยที่ 1 : พื้นฐานของคริปโทเคอร์เรนซี (Cryptocurrency สำหรับนักลงทุนมือใหม่)</li>
-                <li className="mb-2">หน่วยย่อยที่ 2 : การพัฒนาโปรแกรมเทรดอัตโนมัติ (Trading script) สำหรับการทำธุรกรรมด้วยคริปโทเคอร์เรนซี (Robot Trading)</li>
-                <li className="mb-2">หน่วยย่อยที่ 3 : การวิเคราะห์และจิตวิทยาการลงทุนในคริปโทเคอร์เรนซี (เคล็ดลับการลงทุนคริปโต)</li>
+                <li className="mb-2">{l("title7")}</li>
+                <li className="mb-2">{l("title8")}</li>
+                <li className="mb-2">{l("title9")}</li>
               </ul>
               <br />
 
-              <h2 className="mb-5 font-bold">ชื่อสมรรถนะ : การพัฒนาโปรแกรมเทรดอัตโนมัติและวิเคราะห์การลงทุนในคริปโทเคอร์เรนซี</h2>
+              <h2 className="mb-5 font-bold">{l("title10")}</h2>
               <ul className="list-disc pl-6 ml-5">
-                <li className="mb-2">ผู้เรียนจะได้ใบรับรองสมรรถนะเมื่อเรียนครบทั้ง 3 หน่วยย่อย และผ่านการประเมิน 70%</li>
-                <li className="mb-2">เรียนแบบบรรยายและอบรมเชิงปฏิบัติการ ผ่านระบบ Zoom</li>
+                <li className="mb-2">{l("title11")}</li>
+                <li className="mb-2">{l("title12")}</li>
               </ul>
 
               <div className="flex flex-col space-y-2 mt-7 mb-7">
                 <div className="px-8 py-0.5 bg-black w-full "></div>
               </div>
 
-              <h2 className="mb-5 text-xl font-bold">ค่าธรรมเนียมการศึกษา</h2>
+              <h2 className="mb-5 text-xl font-bold">{l("title13")}</h2>
               <table>
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
-                    <th scope="col" className="px-1 md:px-6 py-3 text-center">ชื่อหลักสูตร</th>
-                    <th scope="col" className="px-1 md:px-6 py-3 text-center">นักศึกษามหาวิทยาลัยเชียงใหม่</th>
-                    <th scope="col" className="px-1 md:px-6 py-3 text-center">บุคลากร/ศิษย์เก่ามหาวิทยาลัยเชียงใหม่และบุคคลทั่วไป</th>
-                    <th scope="col" className="px-1 md:px-6 py-3 text-center">ลิงค์รับสมัคร</th>
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">{l("title14")}</th>
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">{l("title15")}</th>
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">{l("title16")}</th>
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">{l("title17")}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-1 md:px-6 py-4">1.หลักสูตรที่ 1 : พื้นฐานของคริปโทเคอร์เรนซี (Cryptocurrency สำหรับนักลงทุนมือใหม่)</td>
-                    <td className="px-1 md:px-6 py-4 text-center">399.- บาท</td>
-                    <td className="px-1 md:px-6 py-4 text-center">599.- บาท</td>
+                    <td className="px-1 md:px-6 py-4">{l("title144")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title18")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title19")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-01' className='underline'>
-                        Click Here!
+                      {l("title20")}
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-1 md:px-6 py-4">2.หลักสูตรที่ 2 : การพัฒนาโปรแกรมเทรดอัตโนมัติ (Trading script) สำหรับการทำธุรกรรมด้วยคริปโทเคอร์เรนซี (Robot Trading)</td>
-                    <td className="px-1 md:px-6 py-4 text-center">1,900.- บาท</td>
-                    <td className="px-1 md:px-6 py-4 text-center">1,900.- บาท</td>
+                    <td className="px-1 md:px-6 py-4">{l("title21")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title22")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title22")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-02' className='underline'>
-                        Click Here!
+                      {l("title20")}
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-1 md:px-6 py-4">3.หลักสูตรที่ 3 : การวิเคราะห์และจิตวิทยาการลงทุนในคริปโทเคอร์เรนซี (เคล็ดลับการลงทุนคริปโต)</td>
-                    <td className="px-1 md:px-6 py-4 text-center">1,900.- บาท</td>
-                    <td className="px-1 md:px-6 py-4 text-center">1,900.- บาท</td>
+                    <td className="px-1 md:px-6 py-4">{l("title23")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title22")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title22")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-03' className='underline'>
-                        Click Here!
+                      {l("title20")}
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-1 md:px-6 py-4">4.หลักสูตรที่ 1+2 : เริ่มซื้อ-ขาย สำหรับนักลงทุนคริปโตมือใหม่</td>
-                    <td className="px-1 md:px-6 py-4 text-center">2,299.- บาท</td>
-                    <td className="px-1 md:px-6 py-4 text-center">2,299.- บาท<br />(จาก 2,499.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4">{l("title24")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title25")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title25")}<br />{l("title26")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-04' className='underline'>
-                        Click Here!
+                      {l("title20")}
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-1 md:px-6 py-4">5.หลักสูตรที่ 1+3 : สนามรบนักลงทุนคริปโต</td>
-                    <td className="px-1 md:px-6 py-4 text-center">2,299.- บาท</td>
-                    <td className="px-1 md:px-6 py-4 text-center">2,299.- บาท<br />(จาก 2,499.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4">{l("title27")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title25")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title25")}<br />{l("title26")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-05' className='underline'>
-                        Click Here!
+                      {l("title20")}
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-1 md:px-6 py-4">6.หลักสูตรที่ 2+3 : ติดอาวุธนักลงทุนคริปโต</td>
-                    <td className="px-1 md:px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
-                    <td className="px-1 md:px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4">{l("title28")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title29")}<br />{l("title30")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title29")}<br />{l("title30")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-06' className='underline'>
-                        Click Here!
+                      {l("title20")}
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-1 md:px-6 py-4">7.หลักสูตรที่ 1+2+3 : เส้นทางสู่การเป็นนักลงทุนคริปโตมืออาชีพ</td>
-                    <td className="px-1 md:px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
-                    <td className="px-1 md:px-6 py-4 text-center">3,899.- บาท<br />((จาก 4,399.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4">{l("title31")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title29")}<br />{l("title30")}</td>
+                    <td className="px-1 md:px-6 py-4 text-center">{l("title32")}<br />{l("title33")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-07' className='underline'>
-                        Click Here!
+                      {l("title20")}
                       </a>
                     </td>
                   </tr>
                 </tbody>
               </table>
 
-              <p className="mt-10 mb-5">หมายเหตุ :</p>
+              <p className="mt-10 mb-5">{l("title34")}</p>
               <ol className="list-disc pl-6 ml-5">
-                <li className="mb-2">ยกเว้นค่าบำรุงมหาวิทยาลัยสำหรับผู้เรียนที่เป็นนักศึกษา ผู้ปฏิบัติงานในมหาวิทยาลัย หรือศิษย์เก่าที่สำเร็จการศึกษาจากมหาวิทยาลัยเชียงใหม่)</li>
-                <li className="mb-2">ทุกหลักสูตรเรียนออนไลน์ผ่าน ZOOM</li>
-                <li className="mb-2">ผู้เรียนจะได้ใบรับรองสมรรถนะเมื่อผ่านการประเมิน 70%</li>
-                <li className="mb-2">จำนวนชั่วโมงและหัวข้อย่อยทุกหลักสูตรอาจมีการปรับเปลี่ยนตามความเหมาะสม</li>
+                <li className="mb-2">{l("title35")}</li>
+                <li className="mb-2">{l("title36")}</li>
+                <li className="mb-2">{l("title37")}</li>
+                <li className="mb-2">{l("title38")}</li>
               </ol>
 
             </div>

@@ -4,11 +4,13 @@ import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
+import { useTranslations } from 'next-intl';
 
 
 type Props = {}
 
 export default function Course2({ }: Props) {
+  const l = useTranslations("lifelong");
   return (
     <>
       <Banner
@@ -24,35 +26,35 @@ export default function Course2({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             <div className="p-5">
-              <h1 className="text-2xl font-bold">หลักสูตรที่ 2 การพัฒนาโปรแกรมเทรดอัตโนมัติ (Trading script) สำหรับการทำธุรกรรมด้วยคริปโทเคอร์เรนซี (Robot Trading)</h1>
+              <h1 className="text-2xl font-bold">{l("title55")}</h1>
               <br />
               <table className="w-full">
                 <tbody>
                   <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงวันรับสมัคร :</th>
-                    <td className="bg-white text-black px-1 md:px-6">รุ่นที่ 1 : 14 กรกฎาคม – 4 สิงหาคม 2564</td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">{l("title40")}</th>
+                    <td className="bg-white text-black px-1 md:px-6">{l("title56")}</td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่วงเวลาเรียน :</th>
-                    <td className="bg-white text-black px-1 md:px-6">รุ่นที่ 1 : 7 สิงหาคม 2564 เวลา 9.30 – 16.30 น.</td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">{l("title42")}</th>
+                    <td className="bg-white text-black px-1 md:px-6">{l("title57")}</td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">ช่องทางรับการสมัคร :</th>
-                    <td className="bg-white text-black px-1 md:px-6"><a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000120" className='underline'>Click Here!</a></td>
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">{l("title44")}</th>
+                    <td className="bg-white text-black px-1 md:px-6"><a href="https://www.lifelong.cmu.ac.th/courseleid.php?id=000120" className='underline'>{l("title20")}</a></td>
                   </tr>
                 </tbody>
               </table>
-              <h2 className="mt-10 mb-5 font-bold">เนื้อหาหลักสูตร</h2>
+              <h2 className="mt-10 mb-5 font-bold">{l("title45")}</h2>
 
               <ul className="list-disc pl-6 ml-5">
-                <li className="mb-2">การทำงานของบล็อกเชนสำหรับเก็บข้อมูลคริปโทเคอร์เรนซี</li>
-                <li className="mb-2">การเขียนโปรแกรมสคริปต์สำหรับเทรดคริปโทเคอร์เรนซี</li>
+                <li className="mb-2">{l("title58")}</li>
+                <li className="mb-2">{l("title59")}</li>
               </ul>
               <br />
-              <h2 className="mb-5 font-bold">ผู้บรรยาย</h2>
+              <h2 className="mb-5 font-bold">{l("title50")}</h2>
               <ul className="list-disc pl-6 ml-5">
-                <li className="mb-2">คุณโดม เจริญยศ</li>
-                <li className="mb-2">รศ.ดร. เอกรัฐ บุญเชียง</li>
+                <li className="mb-2">{l("title60")}</li>
+                <li className="mb-2">{l("title51")}</li>
               </ul>
 
             </div>

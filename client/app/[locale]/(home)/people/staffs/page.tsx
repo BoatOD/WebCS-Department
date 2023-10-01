@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";
+import { useLocale } from 'next-intl';
 
 
 type Props = {}
@@ -48,7 +49,7 @@ export default function Staffs({ }: Props) {
 
 
   const [data, setData] = useState<Lecturer[]>([]);
-
+  const locale = useLocale();
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
     fetch("https://cs-project-ime1.vercel.app/api/staffs")
@@ -75,7 +76,7 @@ export default function Staffs({ }: Props) {
             {data.map((item) => (
               <div key={item._id} className="max-w-md mx-auto  overflow-hidden md:max-w-2xl m-10 ">
                 <div className="md:flex">
-                  <div className="md:shrink-0">
+                  <div className="md:shrink-0 md:justify-center sm:mr-5">
                     <Image
                       src={`/personal/staff${item.picture}`}
                       width="0"
@@ -85,12 +86,24 @@ export default function Staffs({ }: Props) {
                       className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
                     />
                   </div>
-                  <div className=" pl-8 pr-8 pt-1 text-center md:text-left">
-                    <p className="block mt-1 text-sm md:text-xl leading-tight font-semibold text-slate-700 ">
+                  <div className=" pt-1 md:text-left">
+                    {locale === "en" ?(
+                      <p className="block mt-1 text-sm md:text-lg leading-tight font-semibold text-slate-700 ">
+                      {item.e_title}{item.e_name} </p>
+                    ):(
+                      <p className="block mt-1 text-sm md:text-lg leading-tight font-semibold text-slate-700 ">
                       {item.title}{item.name} </p>
-                    <p className="block mt-1 text-sm md:text-xl leading-tight font-semibold text-slate-700 pb-2">
+                    )}
+                    {locale === "en" ?(
+                       <p className="block mt-1 text-sm md:text-lg leading-tight font-semibold text-slate-700 pb-2">
+                       {item.e_position.join(' ')} </p>
+                    ):(
+                      <p className="block mt-1 text-sm md:text-lg leading-tight font-semibold text-slate-700 pb-2">
                       {item.position.join(' ')} </p>
-                    <ul className='list-none text-slate-600 mt-3 mb-4 text-xs md:text-base font-normal'>
+                    )}
+                    
+                   
+                    <ul className='list-none text-slate-600 mt-3 mb-4 text-base font-normal'>
                       {item.tel.map((tel, index) => (
                         <li key={`tel-${index}`}>Tel: {tel}</li>
                       ))}
