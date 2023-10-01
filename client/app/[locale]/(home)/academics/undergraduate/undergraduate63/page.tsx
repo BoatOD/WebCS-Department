@@ -1238,7 +1238,8 @@ export default function Study_Plans({ }: Props) {
                                                 ******
                                             </th>
                                             <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                                {u("title73")}
+                                                <p>Major Elective Courses at level 300 or 400</p>
+                                                <p>วิชาเอกเลือกระดับ 300 หรือ 400</p>
                                             </td>
                                             <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                                 {u("title68")}
@@ -1599,7 +1600,8 @@ export default function Study_Plans({ }: Props) {
                                             ******
                                         </th>
                                         <td className="p-1 md:p-4 text-left border-solid border-[#EFB770] border-1 w-3/5">
-                                            {u("title73")}
+                                            <p>Major Elective Courses at level 300 or 400</p>
+                                            <p>วิชาเอกเลือกระดับ 300 หรือ 400</p>
                                         </td>
                                         <td className="px-2 text-center border-solid border-[#EFB770] border-1 w-1/5">
                                             {u("title77")}

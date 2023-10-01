@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link'
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 type Params = {
   params: {
@@ -118,13 +118,20 @@ const NewsDetail = ({ params: { id } }: Params) => {
       month: 'long',
       day: 'numeric',
     };
-    return date.toLocaleDateString(undefined, options);
+    if(locale === "en") {
+      return date.toLocaleDateString(undefined, options);
+    } 
+     else{
+      return date.toLocaleDateString('th-TH', options);
+    }
+    // return date.toLocaleDateString(undefined, options);
     // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai language
   }
 
   const itemIndex = 0;
   const item: NewsEvent = data[itemIndex];
-
+  const ne = useTranslations("news&eventhome");
+  const locale = useLocale();
   return (
     // <div className="flex justify-center items-center h-screen">
 
@@ -134,10 +141,10 @@ const NewsDetail = ({ params: { id } }: Params) => {
         <div className="px-8 py-0.5 bg-black w-full "></div>
       </div>
       <div className="flex flex-row space-y-2 mt-2 mx-10 mb-16 justify-between">
-        <h1 className='text-[#EB8E1B] text-5xl font-medium text-left'>NEWS</h1>
+        <h1 className='text-[#EB8E1B] text-5xl font-medium text-left'>{ne("title0")}</h1>
         <div className='text-right flex items-center'>
-          <Link href='/news_events/news' className="mr-2 border-r-2 border-black pr-2">All news stories</Link>
-          <Link href='/news_events/events'>Events</Link>
+          <Link href='/news_events/news' className="mr-2 border-r-2 border-black pr-2">{ne("title4")}</Link>
+          <Link href='/news_events/events'>{ne("title1")}</Link>
         </div>
 
       </div>
@@ -167,9 +174,13 @@ const NewsDetail = ({ params: { id } }: Params) => {
             ) : (
               item ? (
                 <div>
-                  <h1 className='text-5xl font-medium text-left p-5 break-words leading-relaxed sm:leading-tight'>{item.topic}</h1>
+                  {locale === "en" ? (
+                    <h1 className='text-5xl font-medium text-left p-5 break-words leading-relaxed sm:leading-tight'>{item.e_topic}</h1>
 
-                  <p className='p-5 pb-1 text-lg font-medium'>By Computer Science Department</p>
+                  ) : (
+                    <h1 className='text-5xl font-medium text-left p-5 break-words leading-relaxed sm:leading-tight'>{item.topic}</h1>
+                  )}
+                  <p className='p-5 pb-1 text-lg font-medium'>{ne("title5")}</p>
                   <p className='pl-5 '>{item.formattedDate}</p>
 
                   <div className="border-b border-black mt-10"></div>
@@ -220,14 +231,21 @@ const NewsDetail = ({ params: { id } }: Params) => {
                     </div>
                   )}
                   <div className="p-5">
-                    <p className='break-words'>
-                      {formatTextWithLinks(item.detail)}
-                    </p>
+                    {locale === "en" ? (
+                      <p className='break-words'>
+                        {formatTextWithLinks(item.e_detail)}
+                      </p>
+                    ) : (
+                      <p className='break-words'>
+                        {formatTextWithLinks(item.detail)}
+                      </p>
+                    )}
+
                   </div>
                 </div>
 
               ) : (
-                <div>Data not found.</div>
+                <div>{ne("title5")}</div>
               )
             )}
           </div>

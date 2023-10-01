@@ -80,80 +80,80 @@ export default function Cryptocurrency({ }: Props) {
               <table>
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
-                    <th scope="col" className="px-6 py-3 text-center">ชื่อหลักสูตร</th>
-                    <th scope="col" className="px-6 py-3 text-center">นักศึกษามหาวิทยาลัยเชียงใหม่</th>
-                    <th scope="col" className="px-6 py-3 text-center">บุคลากร/ศิษย์เก่ามหาวิทยาลัยเชียงใหม่และบุคคลทั่วไป</th>
-                    <th scope="col" className="px-6 py-3 text-center">ลิงค์รับสมัคร</th>
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">ชื่อหลักสูตร</th>
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">นักศึกษามหาวิทยาลัยเชียงใหม่</th>
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">บุคลากร/ศิษย์เก่ามหาวิทยาลัยเชียงใหม่และบุคคลทั่วไป</th>
+                    <th scope="col" className="px-1 md:px-6 py-3 text-center">ลิงค์รับสมัคร</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">1.หลักสูตรที่ 1 : พื้นฐานของคริปโทเคอร์เรนซี (Cryptocurrency สำหรับนักลงทุนมือใหม่)</td>
-                    <td className="px-6 py-4 text-center">399.- บาท</td>
-                    <td className="px-6 py-4 text-center">599.- บาท</td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4">1.หลักสูตรที่ 1 : พื้นฐานของคริปโทเคอร์เรนซี (Cryptocurrency สำหรับนักลงทุนมือใหม่)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">399.- บาท</td>
+                    <td className="px-1 md:px-6 py-4 text-center">599.- บาท</td>
+                    <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-01' className='underline'>
-                        https://cmu.to/Crypto-01
+                        Click Here!
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-6 py-4">2.หลักสูตรที่ 2 : การพัฒนาโปรแกรมเทรดอัตโนมัติ (Trading script) สำหรับการทำธุรกรรมด้วยคริปโทเคอร์เรนซี (Robot Trading)</td>
-                    <td className="px-6 py-4 text-center">1,900.- บาท</td>
-                    <td className="px-6 py-4 text-center">1,900.- บาท</td>
-                    <td className="px-6 py-4 text-center">
-                    <a href='https://cmu.to/Crypto-02' className='underline'>
-                        https://cmu.to/Crypto-02
+                    <td className="px-1 md:px-6 py-4">2.หลักสูตรที่ 2 : การพัฒนาโปรแกรมเทรดอัตโนมัติ (Trading script) สำหรับการทำธุรกรรมด้วยคริปโทเคอร์เรนซี (Robot Trading)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">1,900.- บาท</td>
+                    <td className="px-1 md:px-6 py-4 text-center">1,900.- บาท</td>
+                    <td className="px-1 md:px-6 py-4 text-center">
+                      <a href='https://cmu.to/Crypto-02' className='underline'>
+                        Click Here!
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">3.หลักสูตรที่ 3 : การวิเคราะห์และจิตวิทยาการลงทุนในคริปโทเคอร์เรนซี (เคล็ดลับการลงทุนคริปโต)</td>
-                    <td className="px-6 py-4 text-center">1,900.- บาท</td>
-                    <td className="px-6 py-4 text-center">1,900.- บาท</td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4">3.หลักสูตรที่ 3 : การวิเคราะห์และจิตวิทยาการลงทุนในคริปโทเคอร์เรนซี (เคล็ดลับการลงทุนคริปโต)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">1,900.- บาท</td>
+                    <td className="px-1 md:px-6 py-4 text-center">1,900.- บาท</td>
+                    <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-03' className='underline'>
-                        https://cmu.to/Crypto-03
+                        Click Here!
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-6 py-4">4.หลักสูตรที่ 1+2 : เริ่มซื้อ-ขาย สำหรับนักลงทุนคริปโตมือใหม่</td>
-                    <td className="px-6 py-4 text-center">2,299.- บาท</td>
-                    <td className="px-6 py-4 text-center">2,299.- บาท<br />(จาก 2,499.- บาท)</td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4">4.หลักสูตรที่ 1+2 : เริ่มซื้อ-ขาย สำหรับนักลงทุนคริปโตมือใหม่</td>
+                    <td className="px-1 md:px-6 py-4 text-center">2,299.- บาท</td>
+                    <td className="px-1 md:px-6 py-4 text-center">2,299.- บาท<br />(จาก 2,499.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-04' className='underline'>
-                        https://cmu.to/Crypto-04
+                        Click Here!
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">5.หลักสูตรที่ 1+3 : สนามรบนักลงทุนคริปโต</td>
-                    <td className="px-6 py-4 text-center">2,299.- บาท</td>
-                    <td className="px-6 py-4 text-center">2,299.- บาท<br />(จาก 2,499.- บาท)</td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4">5.หลักสูตรที่ 1+3 : สนามรบนักลงทุนคริปโต</td>
+                    <td className="px-1 md:px-6 py-4 text-center">2,299.- บาท</td>
+                    <td className="px-1 md:px-6 py-4 text-center">2,299.- บาท<br />(จาก 2,499.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-05' className='underline'>
-                        https://cmu.to/Crypto-05
+                        Click Here!
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
-                    <td className="px-6 py-4">6.หลักสูตรที่ 2+3 : ติดอาวุธนักลงทุนคริปโต</td>
-                    <td className="px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
-                    <td className="px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4">6.หลักสูตรที่ 2+3 : ติดอาวุธนักลงทุนคริปโต</td>
+                    <td className="px-1 md:px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-06' className='underline'>
-                        https://cmu.to/Crypto-06
+                        Click Here!
                       </a>
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
-                    <td className="px-6 py-4">7.หลักสูตรที่ 1+2+3 : เส้นทางสู่การเป็นนักลงทุนคริปโตมืออาชีพ</td>
-                    <td className="px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
-                    <td className="px-6 py-4 text-center">3,899.- บาท<br />((จาก 4,399.- บาท)</td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="px-1 md:px-6 py-4">7.หลักสูตรที่ 1+2+3 : เส้นทางสู่การเป็นนักลงทุนคริปโตมืออาชีพ</td>
+                    <td className="px-1 md:px-6 py-4 text-center">3,400.- บาท<br />(จาก 3,800.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">3,899.- บาท<br />((จาก 4,399.- บาท)</td>
+                    <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-07' className='underline'>
-                        https://cmu.to/Crypto-07
+                        Click Here!
                       </a>
                     </td>
                   </tr>

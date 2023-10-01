@@ -4,6 +4,7 @@ import Banner from '@/components/Banner';
 import { sidebarItem } from '@/app/[locale]/(home)/news_events/sidebarData';
 import Sidebar1 from '@/components/Sidebar1';
 import Link from 'next/link'
+import { useLocale } from 'next-intl';
 
 interface NewsEvent {
   _id: string;
@@ -52,7 +53,7 @@ export default function Events() {
       .catch((error) => console.error(error));
   }, []);
 
-
+  const locale = useLocale();
   // Function to format a Date object
   function formatDate(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
@@ -60,8 +61,12 @@ export default function Events() {
       month: 'short',
       day: 'numeric',
     };
-    return date.toLocaleDateString(undefined, options);
-    // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai language
+    if(locale === "en") {
+      return date.toLocaleDateString(undefined, options);
+    } 
+     else{
+      return date.toLocaleDateString('th-TH', options);
+    }
   }
 
 
@@ -78,7 +83,7 @@ export default function Events() {
   // Generate an array of page numbers based on the number of pages
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
-
+  
   return (
     <>
       <Banner
@@ -96,7 +101,16 @@ export default function Events() {
             <div key={item.b_id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
               <div className="flex bg-[#FFCB8A] rounded-2xl">
                 <div className="md:shrink-0 m-5 bg-[#FFE8CC] h-16 md:h-32 w-20 md:w-32 rounded-2xl flex flex-col items-center justify-center">
-                  <div className="text-xs md:text-sm uppercase">{item.date.toLocaleDateString(undefined, { weekday: 'short' })}</div>
+                {locale === "en" ? (
+                      <div className="text-lg mt-4 font-medium text-left">
+                        <div className="text-xs md:text-sm uppercase">{item.date.toLocaleDateString(undefined, { weekday: 'short' })}</div>
+                      </div>
+                    ) : (
+                      <div className="text-lg mt-4 font-medium text-left">
+                        <div className="text-xs md:text-sm uppercase">{item.date.toLocaleDateString('th-TH', { weekday: 'long' })}</div>
+                      </div>
+                    )}
+                  
                   <div className='text-[#F29D35] text-2xl md:text-5xl'>{item.date.toLocaleDateString(undefined, { day: 'numeric' })}</div>
                 </div>
                 <div className="md:flex-1 pt-1 mt-3 text-center w-full h-full overflow-hidden mr-3 md:mr-0">
@@ -106,14 +120,27 @@ export default function Events() {
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-left">
-                      {item.location} {/* Display the location */}
-                    </span>
+                    {locale === "en" ? (
+                      <span className="text-left">
+                        {item.e_location} {/* Display the location */}
+                      </span>
+                    ) : (
+                      <span className="text-left">
+                        {item.location} {/* Display the location */}
+                      </span>
+                    )}
                   </div>
                   <Link href={{ pathname: `/news_events/events/${item.b_id}` }} className="hover:underline">
-                    <div className="text-lg mt-4 font-medium text-left">
-                      {item.topic}
-                    </div>
+                    {locale === "en" ? (
+                      <div className="text-lg mt-4 font-medium text-left">
+                        {item.e_topic}
+                      </div>
+                    ) : (
+                      <div className="text-lg mt-4 font-medium text-left">
+                        {item.topic}
+                      </div>
+                    )}
+
                   </Link>
                 </div>
               </div>

@@ -22,7 +22,7 @@ export default function contact({ }: Props) {
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-20pc"></div>
           </div>
-          
+
           <div className="p-1 pt-3 ">
             <div className="p-5">
               <h2 id="analysis" className="text-2xl font-bold">ที่อยู่</h2>
@@ -47,62 +47,62 @@ export default function contact({ }: Props) {
               <h2 id="analysis" className="text-2xl font-bold">Social Media</h2>
               <br></br>
               <ul className="dark:text-white font-medium mb-4">
-              <li>
-                <a
-                  href="https://www.facebook.com/compscicmu/"
-                  className="hover:underline flex items-center"
-                >
-                  <span className="flex items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 425 512"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      stroke="black"
-                      strokeWidth="30"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-6 h-6 mr-2" 
-                    >
-                      <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z"/>
-                    </svg>
-                    Computer Science CMU
-                  </span>
-                </a>
-              </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/compscicmu/"
+                    className="hover:underline flex items-center"
+                  >
+                    <span className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 425 512"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="30"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-6 h-6 mr-2"
+                      >
+                        <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z" />
+                      </svg>
+                      Computer Science CMU
+                    </span>
+                  </a>
+                </li>
 
-              <li>
-                <a
-                  href="https://www.facebook.com/cscmuhomecoming/"
-                  className="hover:underline flex items-center"
-                >
-                  <span className="flex items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 425 512"
-                      width="24"
-                      height="24"
-                      fill="none"
-                      stroke="black"
-                      strokeWidth="30"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-6 h-6 mr-2" 
-                    >
-                      <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z"/>
-                    </svg>
-                    Facebook Page ศิษย์เก่า
-                  </span>
-                </a>
-              </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/cscmuhomecoming/"
+                    className="hover:underline flex items-center"
+                  >
+                    <span className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 425 512"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="30"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-6 h-6 mr-2"
+                      >
+                        <path d="M212 50.5q43.5 0 81.75 16.5t66.75 45 45 66.5T422 260t-16.5 81.75-45 66.75-66.75 45T212 470t-81.5-16.5-66.5-45-45-66.75T2.5 260 19 178.5 64 112t66.5-45T212 50.5zm79 91.5h-44.5q-13 0-24 4.5t-19.25 12-12.75 17-4.5 19V221h-39.5v52H186v105h52.5V273h39v-52h-39v-13.5q0-6 4.75-9.5t8.25-3.5H291V142z" />
+                      </svg>
+                      Facebook Page ศิษย์เก่า
+                    </span>
+                  </a>
+                </li>
 
-              <li>
-                  <span className="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 mr-2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                  </svg>
+                <li>
+                  <span className="flex items-center mb-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 mr-2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
                     Location
                   </span>
                   <iframe
@@ -115,7 +115,7 @@ export default function contact({ }: Props) {
                 </li>
 
 
-              </ul>  
+              </ul>
             </div>
           </div>
         </div>

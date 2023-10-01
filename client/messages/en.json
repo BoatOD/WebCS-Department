@@ -1,17 +1,39 @@
 {
-  "content":{
-    "content0":"The Computer Science Department at CMU offers a rigorous and practical undergraduate program focused on real-world problem solving.",
-    "content1":"Join us to advance computer knowledge and innovation through our Master's program in computer science. Gain the skills to tackle complex tech challenges and collaborate on diverse projects with experts.",
-    "content2":"Computer science research is the focus. Graduates of CMU who earned doctoral degrees make contributions to the field through creative research. Their writing should be published internationally."
+  "content": {
+    "content0": "The Computer Science Department at CMU offers a rigorous and practical undergraduate program focused on real-world problem solving.",
+    "content1": "Join us to advance computer knowledge and innovation through our Master's program in computer science. Gain the skills to tackle complex tech challenges and collaborate on diverse projects with experts.",
+    "content2": "Computer science research is the focus. Graduates of CMU who earned doctoral degrees make contributions to the field through creative research. Their writing should be published internationally."
+  },
+  "news&eventhome": {
+    "title0": "NEWS",
+    "title1": "EVENTS",
+    "title2": "more news",
+    "title3": "more events",
+    "title4":"All news stories",
+    "title5":"By Computer Science Department",
+    "title6":"Data not found.",
+    "title7":"Events",
+    "title8":"Add to your calendar"
+  },
+  "newstitle": {
+    "title0": "Open short training courses “Data Analysis and Data Visualization with Power BI” 2nd Edition",
+    "title1": "Department of Computer Science Welcoming Prof. Hideya Ochiai from Tokyo University Japan              Published on September 18, 2023",
+    "title2": "Department of Computer Science Congratulations to Mr. Taned Singlor, master's degree student."
+  },
+  "newscontent": {
+    "content0": " 🎊Batch 2 training is now open. Come study a lot!!! 🎊.",
+    "content1": "On the occasion of visiting the department Also came to meet the teachers. and students of the department who had participated in research during the past summer On Monday, September 18, 2023",
+    "content2": "The Department of Computer Science is delighted to announce that Mr. Taned Singlor, currently one of our Master’s students, was invited to present his research at the prestigious Asian-Pacific Regional IAU Meeting 2023 (APRIM 2023). The event was held from August 7 to 11 in Koriyama, Fukushima, Japan."
+  },
+  "eventscontent": {
+    "content0": "Open for applications for those interested in taking the course “Basic AI Creation with RapidMiner and Excel, high school edition."
   },
   "AcademicHome": {
     "title": "Academics",
     "UNDERGRADUATE": "UNDERGRADUATE",
     "MASTER": "MASTER",
     "DOCTORAL": "DOCTORAL"
-   
   },
-  
   "NEWSHOME": {
     "title": "NEWS"
   },
@@ -90,16 +112,16 @@
     "News": "News",
     "Events": "Events",
     "PEOPLE": "PEOPLE",
-    "Lecturers":"Lecturers",
-    "Staffs":"Staffs",
-    "ABOUT":"ABOUT",
-    "Vision":"Vision",
-    "Departmental History":"Departmental History",
-    "Contact":"Contact"
+    "Lecturers": "Lecturers",
+    "Staffs": "Staffs",
+    "ABOUT": "ABOUT",
+    "Vision": "Vision",
+    "Departmental History": "Departmental History",
+    "Contact": "Contact"
   },
   "ElectiveCourses": {
     "title0": "Free Elective Courses (6 Credits)",
-    "title1":"Free Elective Courses is the curriculum gives pupils the option to study this topic. Additionally to certain disciplines (204XXX), with the intention of greatly extending academic interactions. Additionally, each person's skills and interests are promoted even further.",
+    "title1": "Free Elective Courses is the curriculum gives pupils the option to study this topic. Additionally to certain disciplines (204XXX), with the intention of greatly extending academic interactions. Additionally, each person's skills and interests are promoted even further.",
     "title2": "GE Electives Courses (24 Credits)",
     "title3": "The following courses are available for study in all three groups for an extra 6 credits.",
     "title4": "Learner Person",
@@ -113,43 +135,43 @@
     "title12": "Honors Plan (27 Credits)",
     "title13": "- The course is between 300 and 400 level, and at least 9 credits must be in a 400 level course.",
     "title14": "- It is a 12-credit course at the 700 level.",
-    "title15":"Major Elective Courses"
+    "title15": "Major Elective Courses"
   },
-  "PlanSpecific":{
-    "title0":"แผนปกติ (Regular Plan) 3 Credits",
-    "title1":"แผนสหกิจศึกษา (Co-operative Education Plan) 7 Credits",
-    "title2":"แผนก้าวหน้า (Honors Plan) 3 Credits"
+  "PlanSpecific": {
+    "title0": "แผนปกติ (Regular Plan) 3 Credits",
+    "title1": "แผนสหกิจศึกษา (Co-operative Education Plan) 7 Credits",
+    "title2": "แผนก้าวหน้า (Honors Plan) 3 Credits"
   },
-  "CoreCourses":{
-    "title":"วิชาแกน (Core Courses) 24 Credits"
+  "CoreCourses": {
+    "title": "วิชาแกน (Core Courses) 24 Credits"
   },
-  "RequireCourses":{
-    "title0":"วิชาบังคับ (Required Courses) 24 Credits",
-    "title1":"กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้เรียนรู้ (Learner Person) 15 Credits",
-    "title2":"กลุ่มวิชาด้านการพัฒนาทักษะการเป็นพลเมืองที่เข้มแข็ง (Active Citizen) 6 Credits"
+  "RequireCourses": {
+    "title0": "วิชาบังคับ (Required Courses) 24 Credits",
+    "title1": "กลุ่มวิชาด้านการพัฒนาทักษะการเป็นผู้เรียนรู้ (Learner Person) 15 Credits",
+    "title2": "กลุ่มวิชาด้านการพัฒนาทักษะการเป็นพลเมืองที่เข้มแข็ง (Active Citizen) 6 Credits"
   },
-  "Minor":{
-    "title0":"Minor Courses 15 Credits",
-    "title1":"Would like to study for a minor",
-    "title2":"- The regular plan and the co-operative education plan  in any academic minor program offered by any department in the University, with approval of the academic advisor.",
-    "title3":"- Honors Plan are required to take one of the following academic minor programs: Mathematics, Statistics or Data Sciences.",
-    "title4":"For students who do not wish to take an academic minor",
-    "title5":"- Students are required to take a minimum of 15 credits of Computer Science courses at 300 or 400 level.",
-    "title6":"List of available minor subjects"
+  "Minor": {
+    "title0": "Minor Courses 15 Credits",
+    "title1": "Would like to study for a minor",
+    "title2": "- The regular plan and the co-operative education plan  in any academic minor program offered by any department in the University, with approval of the academic advisor.",
+    "title3": "- Honors Plan are required to take one of the following academic minor programs: Mathematics, Statistics or Data Sciences.",
+    "title4": "For students who do not wish to take an academic minor",
+    "title5": "- Students are required to take a minimum of 15 credits of Computer Science courses at 300 or 400 level.",
+    "title6": "List of available minor subjects"
   },
-  "Research":{
-    "title0":"Description: ",
-    "title1":"Researcher: ",
-    "Augmented / Virtual reality":"Augmented/Virtual reality",
-    "Bioinformatics":"Bioinformatics",
-    "Blockchain":"Blockchain",
-    "Computational Astronomy":"Computational Astronomy",
-    "Computer Vision":"Computer Vision",
-    "Health informatics":"Health informatics",
-    "Human Computer Interaction":"Human Computer Interaction",
-    "Machine learning":"Machine learning",
-    "Medical informatics":"Medical informatics",
-    "Next generation computer network":"Next generation computer network"
+  "Research": {
+    "title0": "Description: ",
+    "title1": "Researcher: ",
+    "Augmented / Virtual reality": "Augmented/Virtual reality",
+    "Bioinformatics": "Bioinformatics",
+    "Blockchain": "Blockchain",
+    "Computational Astronomy": "Computational Astronomy",
+    "Computer Vision": "Computer Vision",
+    "Health informatics": "Health informatics",
+    "Human Computer Interaction": "Human Computer Interaction",
+    "Machine learning": "Machine learning",
+    "Medical informatics": "Medical informatics",
+    "Next generation computer network": "Next generation computer network"
   },
   "Undergraduate63":{
     "title0":"UNDERGRADUATE PROGRAMS (63)",
@@ -239,5 +261,4 @@
     "title84":"System of Fundamental Structure"
   }
   
-
 }

@@ -25,29 +25,29 @@ export default function Course_3({ }: Props) {
             <div className="p-5">
               <h1 className="text-2xl font-bold">3. การวิเคราะห์ข้อมูลและการแสดงมโนภาพข้อมูลสำหรับผู้เรียนระดับต้นด้วย Google Data Studio</h1>
               <br />
-              <table  className="w-full">
+              <table className="w-full">
                 <tbody>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
                       ช่วงวันรับสมัคร :
                     </th>
-                    <td className="bg-white text-black px-6">
+                    <td className="bg-white text-black px-1 md:px-6">
                       1 กันยายน – 20 ตุลาคม 2564
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
                       ช่วงเวลาเรียน :
                     </th>
-                    <td className="bg-white text-black px-6">
+                    <td className="bg-white text-black px-1 md:px-6">
                       1-5 พฤศจิกายน 2564 เวลา 9:00-12:00 น.
                     </td>
                   </tr>
                   <tr>
-                    <th scope="row" className="px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
                       ช่องทางรับการสมัคร :
                     </th>
-                    <td className="bg-white text-black px-6">
+                    <td className="bg-white text-black px-1 md:px-6">
                       *โปรดติดตามประกาศอีกครั้ง เริ่มรับสมัคร 1 กันยายน
                     </td>
                   </tr>
@@ -72,7 +72,7 @@ export default function Course_3({ }: Props) {
                 </ul>
                 <li className='mb-2'>Problem-based learning</li>
               </ul>
-              
+
             </div>
           </div>
         </div>

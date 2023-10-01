@@ -1,10 +1,12 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+import Image from "next/image";
 import Link from 'next/link'
 
 import OutlookCalendarInvite from '@/components/calendar/OutlookCalendarInvite';
 import ICal from '@/components/calendar/ical';
 import GoogleCalendar from '@/components/calendar/GoogleCalendar';
+import { useLocale, useTranslations } from 'next-intl';
 type Params = {
   params: {
     id: string
@@ -111,16 +113,23 @@ const EventsDetail = ({ params: { id } }: Params) => {
     return formattedLines;
   }
 
-
+  const locale = useLocale();
   function formatDate(date: Date): string {
+
     const options: Intl.DateTimeFormatOptions = {
       weekday: 'long',
       year: 'numeric',
       month: 'short',
       day: 'numeric',
     };
-    return date.toLocaleDateString(undefined, options);
-    // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai language
+    if (locale === "en") {
+      return date.toLocaleDateString(undefined, options);
+    }
+    else {
+      return date.toLocaleDateString('th-TH', options);
+    }
+    // return date.toLocaleDateString(undefined, options);
+    // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai languag
   }
 
   const itemIndex = 0;
@@ -176,6 +185,7 @@ const EventsDetail = ({ params: { id } }: Params) => {
 
 
 
+  const ne = useTranslations("news&eventhome");
   return (
     // <div className="flex justify-center items-center h-screen">
 
@@ -185,10 +195,10 @@ const EventsDetail = ({ params: { id } }: Params) => {
         <div className="px-8 py-0.5 bg-black w-full "></div>
       </div>
       <div className="flex flex-row space-y-2 mt-2 mx-10 mb-16 justify-between">
-        <h1 className='text-[#EB8E1B] text-5xl font-medium text-left'>EVENTS</h1>
+        <h1 className='text-[#EB8E1B] text-5xl font-medium text-left'>{ne("title1")}</h1>
         <div className='text-right flex items-center'>
-          <Link href='/news_events/news' className="mr-2 border-r-2 border-black pr-2">All news stories</Link>
-          <Link href='/news_events/events'>Events</Link>
+          <Link href='/news_events/news' className="mr-2 border-r-2 border-black pr-2">{ne("title4")}</Link>
+          <Link href='/news_events/events'>{ne("title7")}</Link>
         </div>
 
       </div>
@@ -212,13 +222,26 @@ const EventsDetail = ({ params: { id } }: Params) => {
             ) : (
               item ? (
                 <div>
-                  <h1 className='text-5xl font-medium text-left p-5 break-words'>{item.topic}</h1>
+                  {locale === "en" ? (
+                    <h1 className='text-5xl font-medium text-left p-5 break-words'>{item.e_topic}</h1>
 
+
+                  ) : (
+                    <h1 className='text-5xl font-medium text-left p-5 break-words'>{item.topic}</h1>
+
+                  )}
                   <p className='p-5 pb-1 text-lg font-medium'>{item.formattedDate}</p>
-                  <p className='pl-5'>{item.location}</p>
+                  {locale === "en" ? (
+                     <p className='pl-5'>{item.e_location}</p>
+
+
+                  ) : (
+                    <p className='pl-5'>{item.location}</p>
+
+                  )}
 
                   <div className="border-b border-black mt-5"></div>
-                  <p className='p-5 pb-1 text-lg font-medium'>Add to your calendar</p>
+                  <p className='p-5 pb-1 text-lg font-medium'>{ne("title8")}</p>
                   <div className="flex space-x-4 pl-5 pb-1 text-lg font-medium">
                     <div>
                       <GoogleCalendar eventDetails={googleEventDetails} />
@@ -233,16 +256,69 @@ const EventsDetail = ({ params: { id } }: Params) => {
                     </div>
                   </div>
 
+                  {item.picture.length === 1 ? (
+                    <div className="text-center items-center p-5">
+                      <div className="flex justify-center items-center">
+                        <Image
+                          src={`/blog${item.picture[0]}` ?? "#"}
+                          width="600"
+                          height="0"
+                          alt="news-image"
+                          className="h-auto object-cover"
+                        />
+                      </div>
+                    </div>
+                  ) : item.picture.length === 2 ? (
+                    <div className="flex justify-center">
+                      {item.picture.map((pic, index) => (
+                        <div key={index} className="text-center items-center p-5 px-2">
+                          <div className="flex justify-center items-center">
+                            <Image
+                              src={`/blog${pic}` ?? "#"}
+                              width="300" // You can adjust the width as needed
+                              height="0"
+                              alt={`news-image-${index}`}
+                              className="h-auto object-cover"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex flex-wrap pl-5 py-5">
+                      {item.picture.map((pic, index) => (
+                        <div key={index} className="w-1/3 p-1">
+                          <div className="text-center items-center">
+                            <Image
+                              src={`/blog${pic}` ?? "#"}
+                              width="300" // You can adjust the width as needed
+                              height="0"
+                              alt={`news-image-${index}`}
+                              className="h-auto object-cover"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
 
                   <div className="p-5">
-                    <p className='break-words'>
+                  {locale === "en" ? (
+                     <p className='break-words'>
+                     {formatTextWithLinks(item.e_detail)}
+                   </p>
+                    ) : (
+                      <p className='break-words'>
                       {formatTextWithLinks(item.detail)}
                     </p>
+                    )}
+                    
                   </div>
                 </div>
 
               ) : (
-                <div>Data not found.</div>
+                <div>{ne("title6")}</div>
               )
             )}
           </div>

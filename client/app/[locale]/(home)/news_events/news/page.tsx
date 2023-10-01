@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { sidebarItem } from '@/app/[locale]/(home)/news_events/sidebarData';
 import Sidebar1 from '@/components/Sidebar1';
 import Link from 'next/link'
+import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
+
 
 interface NewsEvent {
   _id: string;
@@ -24,9 +27,6 @@ interface NewsEvent {
   undertaker: string;
   formattedDate: string; // Add formattedDate property
 }
-
-
-
 
 export default function News() {
   const [data, setData] = useState<NewsEvent[]>([]);
@@ -56,6 +56,7 @@ export default function News() {
       .catch((error) => console.error(error));
   }, []);
 
+  const locale = useLocale();
   // Function to format a Date object
   function formatDate(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
@@ -63,8 +64,12 @@ export default function News() {
       month: 'long',
       day: 'numeric',
     };
-    return date.toLocaleDateString(undefined, options);
-    // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai language
+    if(locale === "en") {
+      return date.toLocaleDateString(undefined, options);
+    } 
+     else{
+      return date.toLocaleDateString('th-TH', options);
+    }
   }
 
 
@@ -81,6 +86,7 @@ export default function News() {
   // Generate an array of page numbers based on the number of pages
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+  
 
   return (
     <>
@@ -130,9 +136,19 @@ export default function News() {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                       </svg>
                     </div>
-                    <div className="text-lg mt-4 font-medium">{item.topic}</div>
+                    {locale === "en" ? (
+                      <div className="text-lg mt-4 font-medium">{item.e_topic}</div>
+                    ) : (
+                      <div className="text-lg mt-4 font-medium">{item.topic}</div>
+                    )}
                   </Link>
-                  <div className="mt-4 break-words">{item.detail.split('\n')[0]}</div>
+                  {locale === "en" ? (
+                    <div className="mt-4 break-words">{item.e_detail.split('\n')[0]}</div>
+                  ) : (
+                    <div className="mt-4 break-words">{item.detail.split('\n')[0]}</div>
+                  )}
+
+
                 </div>
               </div>
               <div className="border-b border-black mt-10"></div>

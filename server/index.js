@@ -253,6 +253,8 @@ app.get("/api/research", async (req, res) => {
               personal_web: "$researcher_data.personal_web", // Include 'personal_web' field from people
             },
           },
+          r_id: { $first: "$r_id" },
+          picture: { $first: "$picture" },
         },
       },
       {
