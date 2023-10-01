@@ -15,20 +15,6 @@ const CardForAcademic = ({ posts }: { posts: CardOfEventProps[] }) => {
       {posts.map((item, index) => (
         <Link key={index} href={item.href ?? "#"}>
           <div className="p-1 snap-center">
-<<<<<<< HEAD
-            <div className="max-w-full  shadow-lg  ">
-              <Image
-                src={item.image ?? "#"}
-                width="0"
-                height="0"
-                sizes="100vw"
-                alt="academic-image"
-                className="w-auto h-auto object-scale-down hidden md:flex justify-center"
-              />
-              <div className="px-6 py-4  bg-white border  hover:bg-gray-100" style={{ minHeight: `${maxHeight}px` }}>
-                <div className="font-bold text-xl mb-2">{a(item.title)}</div>
-                <div className="text-gray-700 text-base">{c(`content${index}`)}</div>
-=======
             <div className="max-w-full shadow-lg">
               <div className="relative">
                 <Image
@@ -46,7 +32,6 @@ const CardForAcademic = ({ posts }: { posts: CardOfEventProps[] }) => {
               <div className="px-6 py-4 bg-white border hover:bg-gray-100" style={{ minHeight: `${maxHeight}px` }}>
                 <div className="font-bold text-xl mb-2 md:hidden">{a(item.title)}</div>
                 <div className="text-gray-700 text-base break-words">{c(`content${index}`)}</div>
->>>>>>> 796ac69d76b09aeff3dccd7be4f2dac20d1aee13
               </div>
             </div>
           </div>
