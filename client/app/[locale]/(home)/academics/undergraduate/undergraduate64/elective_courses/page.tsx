@@ -57,7 +57,7 @@ export default function Elective({ }: Props) {
               <div className="bg-[#FCDCB4] h-full mt-6 mb-6 p-6">
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                  {e("title1")}
+                    {e("title1")}
                   </span>
                 </p>
               </div>
