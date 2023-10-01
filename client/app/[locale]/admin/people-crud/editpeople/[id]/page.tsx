@@ -101,9 +101,9 @@ const Page = ({ params }: { params: { id: string } }) => {
     },
   });
   const isFormFieldInvalid = (name: string) =>
-    !!(formik.touched[name] && formik.errors[name]);
+    !!(formik.touched[name as keyof typeof formik.touched] && formik.errors[name as keyof typeof formik.errors]);
 
-  const convertToBase64 = (file) => {
+  const convertToBase64 = (file: File) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
@@ -116,10 +116,10 @@ const Page = ({ params }: { params: { id: string } }) => {
     });
   };
 
-  const handleImage = async (e, setFieldValue) => {
-    const file = e.target.files[0];
+  const handleImage = async (e: React.ChangeEvent<HTMLInputElement>, setFieldValue: Function) => {
+    const file = e.target.files && e.target.files[0];
     //check the size of image
-    if (file?.size / 1024 / 1024 < 2) {
+    if (file && file?.size / 1024 / 1024 < 2) {
       const base64 = await convertToBase64(file);
       setFieldValue("picture", base64);
     } else {
@@ -127,9 +127,9 @@ const Page = ({ params }: { params: { id: string } }) => {
     }
   };
 
-  const [selectedType, setSelectedType] = useState(new Set([]));
+  const [selectedType, setSelectedType] = useState<Set<string>>(new Set());
 
-  const handleSelectionChange = (e) => {
+  const handleSelectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedType(new Set([e.target.value]));
   };
 
