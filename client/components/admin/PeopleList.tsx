@@ -2,15 +2,19 @@ import React from "react";
 import { PeopleProps } from "@/types/people";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { Avatar } from "@nextui-org/react";
+import { Avatar, Button } from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
 
 // ({ data }: { data: PeopleProps[] })
 export default function PeopleList({ data }: { data: PeopleProps[] }) {
+  console.log(data)
   return (
-    <div>
-      {data.map((item) => (
-        <div
+   <>
+   <div>
+      {data.map((item) => {
+        // console.log(item.position)
+        return <div
           key={item._id}
           className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10"
         >
@@ -42,25 +46,27 @@ export default function PeopleList({ data }: { data: PeopleProps[] }) {
 
             <div className="pt-1 md:text-left ">
               <div className="flex">
-                <button>edit</button>
+                <Button as={Link} href={`/admin/people-crud/editpeople/${item._id}`} color="default">Edit</Button>
                 <button className="ml-5 bg-slate-300 rounded-sm border-spacing-2">
                   delete
                 </button>
               </div>
-
-              <a
+                <div> 
+                  <a
                 href={item.personal_web}
                 className="block mt-1  md:text-left text-lg leading-tight font-semibold text-slate-700 "
               >
                 {item.affiliation} <br /> {item.title}
                 {item.name} <br />
-                {item.position.map((position, index) => (
-                  <span key={`position-${index}`}>
+                {item.position.map((position, index) => {
+                  return <span key={`position-${index}`}>
                     {position}
                     {index < item.position.length - 1 && <br />}
                   </span>
-                ))}
+
               </a>
+              </div>
+             
               <ul className="list-none text-left text-base text-slate-600 mt-3 mb-3 font-normal">
                 <li>
                   {item.e_affiliation} <br /> {item.e_title} &nbsp;
@@ -98,7 +104,7 @@ export default function PeopleList({ data }: { data: PeopleProps[] }) {
             </div>
           </div>
         </div>
-      ))}
-    </div>
+    
+    </>
   );
 }

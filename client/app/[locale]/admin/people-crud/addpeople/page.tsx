@@ -1,172 +1,288 @@
 "use client";
+import {
+  Input,
+  Button,
+  useDisclosure,
+  Select,
+  SelectItem,
+} from "@nextui-org/react";
 import { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import CreateModal from "@/components/admin/CreateMoal";
+import axios from "axios";
 
 export default function PeopleForm() {
-  const [submitMessage, setSubmitMessage] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [formData, setFormData] = useState({
-    title: "",
-    e_title: "",
-    name: "",
-    e_name: "",
-    tel: "",
-    email: "",
-    position: "",
-    e_position: "",
-    affiliation: "",
-    e_affiliation: "",
-    picture: "",
-    job_type: "",
-    e_id: "",
-    personal_web: "",
-    research_interest: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("http://localhost:8080/people", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitMessage("Data sent successfully");
-        setIsSuccess(true);
-        // Optionally, you can redirect the user to a success page or handle other actions here.
-      } else {
-        setSubmitMessage("Error sending data");
-        setIsSuccess(false);
-      }
+  const [tel, setTel] = useState<any>([]);
+  const [email, setEmail] = useState<any>([]);
+  const [position, setPosition] = useState<any>([]);
+  const [e_position, setE_position] = useState<any>([]);
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      e_title: "",
+      name: "",
+      e_name: "",
+      affiliation: "",
+      e_affiliation: "",
+      picture: null,
+      job_type: "",
+      personal_web: "",
+      research_interest: "",
+    },
+    validationSchema: Yup.object({
+      title: Yup.string().required("Required"),
+      e_title: Yup.string().required("Required"),
+      name: Yup.string().required("Required"),
+      e_name: Yup.string().required("Required"),
+      affiliation: Yup.string().required("Required"),
+      e_affiliation: Yup.string().required("Required"),
+      job_type: Yup.string().required("Required"),
+      personal_web: Yup.string().required("Required"),
+      research_interest: Yup.string().required("Required"),
+    }),
+    onSubmit: async (values) => {
+      const data = { ...values, tel: [ ...tel ], email: [ ...email ], position: [ ... position], e_position: [ ...e_position ] }
+      try {
+        const res = await axios.post(
+            `http://localhost:8080/people`,
+            data
+        )
+        console.log(res.data)
+        formik.resetForm();
+        setTel([])
+        setEmail([])
+        setPosition([])
+        setE_position([])
+        alert("success")
     } catch (error) {
-      console.error("Error:", error);
-      setSubmitMessage("An error occurred while sending data");
-      setIsSuccess(false);
+      console.log(error)
+      alert("failed")
+    }
+    },
+  });
+  const isFormFieldInvalid = (name: string) =>
+    !!(formik.touched[name] && formik.errors[name]);
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const handleImage = async (e, setFieldValue) => {
+    const file = e.target.files[0];
+    //check the size of image
+    if (file?.size / 1024 / 1024 < 2) {
+      const base64 = await convertToBase64(file);
+      setFieldValue("picture", base64);
+    } else {
+      alert("Image size must be of 2MB or less");
     }
   };
 
+  const [selectedType, setSelectedType] = useState(new Set([]));
+
+  const handleSelectionChange = (e) => {
+    setSelectedType(new Set([e.target.value]));
+  };
+
+  const formatArray = (arr: Array<string>) => {
+    return arr.join(" , ");
+  };
+
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        {/* Add input fields for each data field */}
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={formData.title}
-          onChange={handleChange}
+    <form>
+      <div className="grid grid-cols-4 gap-3">
+        <div className="h-unit-10 min-h-unit-10">
+          <Input
+            type="text"
+            label="คำนำหน้า"
+            isInvalid={isFormFieldInvalid("title")}
+            errorMessage={isFormFieldInvalid("title") && formik.errors.title}
+            className="max-w-xs"
+            value={formik.values.title}
+            onChange={(e) => {
+              formik.setFieldValue("title", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="คำนำหน้าภาษาอังกฤษ"
+            isInvalid={isFormFieldInvalid("e_title")}
+            errorMessage={
+              isFormFieldInvalid("e_title") && formik.errors.e_title
+            }
+            className="max-w-xs"
+            value={formik.values.e_title}
+            onChange={(e) => {
+              formik.setFieldValue("e_title", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="ชื่อ"
+            isInvalid={isFormFieldInvalid("name")}
+            errorMessage={isFormFieldInvalid("name") && formik.errors.name}
+            className="max-w-xs"
+            value={formik.values.name}
+            onChange={(e) => {
+              formik.setFieldValue("name", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="ชื่อภาษาอังกฤษ"
+            isInvalid={isFormFieldInvalid("e_name")}
+            errorMessage={isFormFieldInvalid("e_name") && formik.errors.e_name}
+            className="max-w-xs"
+            value={formik.values.e_name}
+            onChange={(e) => {
+              formik.setFieldValue("e_name", e.target.value);
+            }}
+          />
+        </div>
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <p className="text-lg font-semibold mt-5">เบอร์โทร</p>
+        <p className="text-base font-base mt-5">{formatArray(tel)}</p>
+        <CreateModal text="เบอร์โทร" data={tel} setData={setTel} />
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <p className="text-lg font-semibold mt-5">อีเมล</p>
+        <p className="text-base font-base mt-5">{formatArray(email)}</p>
+        <CreateModal text="อีเมล" data={email} setData={setEmail} />
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <p className="text-lg font-semibold mt-5">ตำแหน่ง</p>
+        <p className="text-base font-base mt-5">{formatArray(position)}</p>
+        <CreateModal text="ตำแหน่ง" data={position} setData={setPosition} />
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <p className="text-lg font-semibold mt-5">ตำแหน่งภาษาอังกฤษ</p>
+        <p className="text-base font-base mt-5">{formatArray(e_position)}</p>
+        <CreateModal
+          text="ตำแหน่งภาษาอังกฤษ"
+          data={e_position}
+          setData={setE_position}
         />
-        <input
-          type="text"
-          name="e_title"
-          placeholder="E_Title"
-          value={formData.e_title}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="e_name"
-          placeholder="E_Name"
-          value={formData.e_name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="tel"
-          placeholder="Tel"
-          value={formData.tel}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="position"
-          placeholder="Position"
-          value={formData.position}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="e_position"
-          placeholder="E_Position"
-          value={formData.e_position}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="affiliation"
-          placeholder="Affiliation"
-          value={formData.affiliation}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="e_affiliation"
-          placeholder="E_Affiliation"
-          value={formData.e_affiliation}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="picture"
-          placeholder="Picture"
-          value={formData.picture}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="job_type"
-          placeholder="Job_Type"
-          value={formData.job_type}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="e_id"
-          placeholder="E_ID"
-          value={formData.e_id}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="personal_web"
-          placeholder="Personal_Web"
-          value={formData.personal_web}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="research_interest"
-          placeholder="Research_Interest"
-          value={formData.research_interest}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {submitMessage && (
-        <div className={isSuccess ? "success" : "error"}>{submitMessage}</div>
-      )}
-    </div>
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <div>
+          <Input
+            type="text"
+            label="ตำแหน่งทางวิชาการ"
+            isInvalid={isFormFieldInvalid("affiliation")}
+            errorMessage={
+              isFormFieldInvalid("affiliation") && formik.errors.affiliation
+            }
+            className="max-w-xs"
+            value={formik.values.affiliation}
+            onChange={(e) => {
+              formik.setFieldValue("affiliation", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="ตำแหน่งทางวิชาการภาษาอังกฤษ"
+            isInvalid={isFormFieldInvalid("e_affiliation")}
+            errorMessage={
+              isFormFieldInvalid("e_affiliation") && formik.errors.e_affiliation
+            }
+            className="max-w-xs"
+            value={formik.values.e_affiliation}
+            onChange={(e) => {
+              formik.setFieldValue("e_affiliation", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <input
+            type="file"
+            className="max-w-xs"
+            onChange={(e) => {
+              handleImage(e, formik.setFieldValue);
+            }}
+          />
+        </div>
+        <div>
+          <Select
+            labelPlacement="outside"
+            label="ประเภท"
+            placeholder="เลือกประเภท"
+            className="max-w-xs"
+            selectedKeys={formik.values.job_type}
+            selectionMode="single"
+            isInvalid={isFormFieldInvalid("job_type")}
+            errorMessage={
+              isFormFieldInvalid("job_type") && formik.errors.job_type
+            }
+            onChange={(e) => {
+              formik.setFieldValue("job_type", e.target.value);
+            }}
+          >
+            <SelectItem key="L" value="L">
+              Lecturer
+            </SelectItem>
+            <SelectItem key="S" value="S">
+              Staff
+            </SelectItem>
+          </Select>
+        </div>
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <div>
+          <Input
+            type="text"
+            label="เว็บไซต์"
+            isInvalid={isFormFieldInvalid("personal_web")}
+            errorMessage={
+              isFormFieldInvalid("personal_web") && formik.errors.personal_web
+            }
+            className="max-w-xs"
+            value={formik.values.personal_web}
+            onChange={(e) => {
+              formik.setFieldValue("personal_web", e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <Input
+            type="text"
+            label="ความสนใจ"
+            isInvalid={isFormFieldInvalid("research_interest")}
+            errorMessage={
+              isFormFieldInvalid("research_interest") &&
+              formik.errors.research_interest
+            }
+            className="max-w-xs"
+            value={formik.values.research_interest}
+            onChange={(e) => {
+              formik.setFieldValue("research_interest", e.target.value);
+            }}
+          />
+        </div>
+      </div>
+      <div className="mt-5">
+        <Button onPress={() => formik.submitForm()} color="success">
+          บันทึก
+        </Button>
+      </div>
+    </form>
   );
 }

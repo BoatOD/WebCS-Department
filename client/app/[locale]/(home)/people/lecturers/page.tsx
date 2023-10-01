@@ -1,6 +1,6 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import Banner from '@/components/Banner';
+"use client";
+import React, { useEffect, useState } from "react";
+import Banner from "@/components/Banner";
 import Image from "next/image";
 
 import { SidebarProps } from "@/types/sidebar";
@@ -8,7 +8,7 @@ import Sidebar1 from "@/components/Sidebar1";
 
 type Props = {};
 
-export default function Lecturer({ }: Props) {
+export default function Lecturer({}: Props) {
   const sidebarItem: SidebarProps[] = [
     {
       content: "PEOPLE",
@@ -47,7 +47,12 @@ export default function Lecturer({ }: Props) {
   }
 
   const [data, setData] = useState<Lecturer[]>([]);
+  const [count, setCount] = useState(0);
+  function CountNumbersBasedOnCondition() {
+    setCount(count + 1);
+  }
 
+  
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
@@ -73,7 +78,11 @@ export default function Lecturer({ }: Props) {
 
           <div className="p-1 pt-3 ">
             {data.map((item) => (
-              <div key={item._id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
+              <div
+                key={item._id}
+                className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10"
+              >
+                <div></div>
                 <div className="md:flex">
                   <div className="md:shrink-0 md:justify-center sm:mr-5">
                     <Image
@@ -91,25 +100,24 @@ export default function Lecturer({ }: Props) {
                       className="block mt-1  md:text-left text-lg leading-tight font-semibold text-slate-700 "
                     >
                       {item.affiliation} <br /> {item.title}
-                      {item.name} <br /> 
+                      {item.name} <br />
                       {item.position.map((position, index) => (
                         <span key={`position-${index}`}>
                           {position}
                           {index < item.position.length - 1 && <br />}
                         </span>
                       ))}
-
                     </a>
                     <ul className="list-none text-left text-base text-slate-600 mt-3 mb-3 font-normal">
-                      <li >
+                      <li>
                         {item.e_affiliation} <br /> {item.e_title} &nbsp;
                         {item.e_name}
-                      </li> 
+                      </li>
                       {item.tel.map((tel, index) => (
                         <li key={`tel-${index}`}>Tel: {tel}</li>
                       ))}
                       {item.email.length > 0 && (
-                        <li >
+                        <li>
                           Email:{" "}
                           {item.email.map((email, index) => (
                             <span key={`email-${index}`}>
@@ -119,14 +127,15 @@ export default function Lecturer({ }: Props) {
                           ))}
                         </li>
                       )}
-                      <li >Research Interests: {item.research_interest}</li>
+                      <li>Research Interests: {item.research_interest}</li>
                     </ul>
                     {item.personal_web === "" ? (
                       <></>
                     ) : (
                       <>
                         <a
-                          href={item.personal_web} target='_blank'
+                          href={item.personal_web}
+                          target="_blank"
                           className="inline-block mt-1 text-base leading-tight font-semibold text-slate-600 underline underline-offset-2   hover:text-slate-500"
                         >
                           Personal Website
