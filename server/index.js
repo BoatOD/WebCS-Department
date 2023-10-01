@@ -246,6 +246,7 @@ app.get("/api/research", async (req, res) => {
           _id: "$_id", // Group by the original '_id' field of the 'research' collection
           topic: { $first: "$topic" }, // Preserve the 'topic' field
           description: { $first: "$description" }, // Include 'description' field from research
+          e_description: { $first: "$e_description" },
           researchers: {
             $push: {
               e_name: "$researcher_data.e_name", // Include 'e_name' field from people

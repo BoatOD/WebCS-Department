@@ -20,7 +20,6 @@ import {
   Menu,
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { navItems } from "@/utils/navbar";
 import LocaleSwitcher from "./LocaleSwitcher";
