@@ -252,6 +252,8 @@ app.get("/api/research", async (req, res) => {
               personal_web: "$researcher_data.personal_web", // Include 'personal_web' field from people
             },
           },
+          r_id: { $first: "$r_id" },
+          picture: { $first: "$picture" },
         },
       },
       {
@@ -392,7 +394,7 @@ app.post("/faqs", (req, res) => {
   console.log(answer, question, f_id, type);
 });
 
-app.get("/api/people", async (req, res)=>{
+app.get("/api/people", async (req, res) => {
   try {
     // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
