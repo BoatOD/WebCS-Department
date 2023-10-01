@@ -86,16 +86,16 @@ export default function Events() {
       const data = { ...values }
       try {
         const res = await axios.post(
-            `http://localhost:8080/blog`,
-            data
+          `http://localhost:8080/blog`,
+          data
         )
         console.log(res.data)
         formik.resetForm();
         alert("success")
-    } catch (error) {
-      console.log(error)
-      alert("failed")
-    }
+      } catch (error) {
+        console.log(error)
+        alert("failed")
+      }
     },
   });
 
@@ -157,7 +157,7 @@ export default function Events() {
     setEdit(!edit);
   };
 
-  const convertToBase64 = (file) => {
+  const convertToBase64 = (file: File) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
@@ -170,20 +170,22 @@ export default function Events() {
     });
   };
 
-  const handleImage = async (e, setFieldValue) => {
+  const handleImage = async (e: React.ChangeEvent<HTMLInputElement>, setFieldValue: Function) => {
     const selectFile = e.target.files;
-    const selectFileArray = Array.from(selectFile);
-    const imagesArray = selectFileArray.map((file: any) => {
-      return URL.createObjectURL(file)
-    })
-    setSelectedImages(imagesArray);
-    const file = e.target.files[0];
-    //check the size of image
-    if (file?.size / 1024 / 1024 < 2) {
-      const base64 = await convertToBase64(file);
-      setFieldValue("picture", base64);
-    } else {
-      alert("Image size must be of 2MB or less");
+    if (selectFile) {
+      const selectFileArray = Array.from(selectFile);
+      const imagesArray = selectFileArray.map((file: any) => {
+        return URL.createObjectURL(file)
+      })
+      setSelectedImages(imagesArray);
+      const file = selectFile[0];
+      //check the size of image
+      if (file?.size / 1024 / 1024 < 2) {
+        const base64 = await convertToBase64(file);
+        setFieldValue("picture", base64);
+      } else {
+        alert("Image size must be of 2MB or less");
+      }
     }
   };
 
