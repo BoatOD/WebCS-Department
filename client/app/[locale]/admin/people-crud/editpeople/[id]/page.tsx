@@ -210,21 +210,12 @@ const Page = ({ params }: { params: { id: string } }) => {
       </div>
       <div className="grid grid-cols-4 gap-3">
         <p className="text-lg font-semibold mt-5">ตำแหน่ง</p>
-        <p className="text-base font-base mt-5">
-          {Array.isArray(position) && position.length > 0
-            ? formatArray(position)
-            : position}
-        </p>
+        <p className="text-base font-base mt-5">{formatArray(position)}</p>
         <CreateModal text="ตำแหน่ง" data={position} setData={setPosition} />
       </div>
       <div className="grid grid-cols-4 gap-3">
         <p className="text-lg font-semibold mt-5">ตำแหน่งภาษาอังกฤษ</p>
-        <p className="text-base font-base mt-5">
-          {Array.isArray(e_position) && e_position.length > 0
-            ? formatArray(e_position)
-            : e_position}
-        </p>
-        {/* <p className="text-base font-base mt-5">{formatArray(e_position)}</p> */}
+        <p className="text-base font-base mt-5">{formatArray(e_position)}</p>
         <CreateModal
           text="ตำแหน่งภาษาอังกฤษ"
           data={e_position}
