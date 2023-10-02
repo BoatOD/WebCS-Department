@@ -82,6 +82,9 @@ export default function Study_Plans({ }: Props) {
                                                 (Array.isArray(courses.cu_no) && courses.cu_no.some((cu) => cu === 1 || cu === 2 || cu === 3)) &&
                                                 contains3InHundredsPlace
                                             );
+                                        }).sort((a, b) => {
+                                            // Compare the code values as numbers in ascending order
+                                            return parseInt(a.code, 10) - parseInt(b.code, 10);
                                         })
                                         .map((courses, index) => (
                                             <tr
