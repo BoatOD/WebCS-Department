@@ -78,7 +78,7 @@ export default function Staffs({ }: Props) {
                 <div className="md:flex">
                   <div className="md:shrink-0 md:justify-center sm:mr-5">
                     <Image
-                      src={`/personal/staff${item.picture}`}
+                      src={`${item.picture}`}
                       width="0"
                       height="0"
                       sizes="100vm"

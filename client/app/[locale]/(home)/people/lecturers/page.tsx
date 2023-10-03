@@ -86,7 +86,7 @@ export default function Lecturer({}: Props) {
                 <div className="md:flex">
                   <div className="md:shrink-0 md:justify-center sm:mr-5">
                     <Image
-                      src={`/personal/lecturers${item.picture}`}
+                      src={`${item.picture}`}
                       width="0"
                       height="0"
                       sizes="100vm"
