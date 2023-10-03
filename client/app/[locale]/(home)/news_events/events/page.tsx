@@ -98,7 +98,7 @@ export default function Events() {
             <div className="px-8 py-0.5 bg-black w-full "></div>
           </div>
           {displayedItems.map((item) => (
-            <div key={item.b_id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
+            <div key={item._id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
               <div className="flex bg-[#FFCB8A] rounded-2xl">
                 <div className="md:shrink-0 m-5 bg-[#FFE8CC] h-16 md:h-32 w-20 md:w-32 rounded-2xl flex flex-col items-center justify-center">
                 {locale === "en" ? (
@@ -130,7 +130,7 @@ export default function Events() {
                       </span>
                     )}
                   </div>
-                  <Link href={{ pathname: `/news_events/events/${item.b_id}` }} className="hover:underline">
+                  <Link href={{ pathname: `/news_events/events/${item._id}` }} className="hover:underline">
                     {locale === "en" ? (
                       <div className="text-lg mt-4 font-medium text-left">
                         {item.e_topic}

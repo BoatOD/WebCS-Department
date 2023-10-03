@@ -44,7 +44,7 @@ const EventsDetail = ({ params: { id } }: Params) => {
       .then((response) => response.json())
       .then((data) => {
         // Find the item with the matching b_id
-        const foundItem = data.find((item: NewsEvent) => item.b_id === parseInt(idToFetch));
+        const foundItem = data.find((item: NewsEvent) => item._id === idToFetch);
 
         if (foundItem) {
           // If the item is found, you can format its date and set it to your state

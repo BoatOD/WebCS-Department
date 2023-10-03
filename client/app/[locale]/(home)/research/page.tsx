@@ -54,7 +54,7 @@ export default function Research({ }: Props) {
             sidebarItem.push({
             
                 content: item.topic,
-                href: `#${item.r_id}`,
+                href: `#${item._id}`,
                 type: "singleItem",
             });
         
@@ -75,7 +75,7 @@ export default function Research({ }: Props) {
                         <div className="px-8 py-0.5 bg-black w-20pc"></div>
                     </div>
                     {data.map((item) => (
-                        <div key={item.r_id} id={`${item.r_id}`} className="mx-auto m-10 border-[#F29D35] border-l-[16px] border-1 p-5 md:mr-5">
+                        <div key={item._id} id={`${item._id}`} className="mx-auto m-10 border-[#F29D35] border-l-[16px] border-1 p-5 md:mr-5">
                             <div className="md:flex">
                                 <div className="pt-1 w-full text-left break-keep">
                                     {locale === "en" ?(
