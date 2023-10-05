@@ -20,8 +20,8 @@ app.get("/api/lecturers", async (req, res) => {
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const lecturerCollection = db.collection("people");
-    const lecturers = await lecturerCollection
+    const collection = db.collection("people");
+    const lecturers = await collection
       .find({ job_type: "L" })
       .toArray();
 
@@ -38,8 +38,8 @@ app.get("/api/staffs", async (req, res) => {
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const staffsCollection = db.collection("people");
-    const staffs = await staffsCollection.find({ job_type: "S" }).toArray();
+    const collection = db.collection("people");
+    const staffs = await collection.find({ job_type: "S" }).toArray();
 
     res.json(staffs);
   } catch (error) {
@@ -54,8 +54,8 @@ app.get("/api/curriculum", async (req, res) => {
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const staffCollection = db.collection("curriculum");
-    const curriculum = await staffCollection.find({}).toArray();
+    const collection = db.collection("curriculum");
+    const curriculum = await collection.find({}).toArray();
 
     res.json(curriculum);
   } catch (error) {
@@ -70,8 +70,8 @@ app.get("/api/courses", async (req, res) => {
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const staffCollection = db.collection("courses");
-    const courses = await staffCollection.find({}).toArray();
+    const collection = db.collection("courses");
+    const courses = await collection.find({}).toArray();
 
     res.json(courses);
   } catch (error) {
@@ -86,8 +86,8 @@ app.get("/api/undergraduate", async (req, res) => {
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const staffCollection = db.collection("undergraduate");
-    const undergraduate = await staffCollection.find({}).toArray();
+    const collection = db.collection("undergraduate");
+    const undergraduate = await collection.find({}).toArray();
 
     res.json(undergraduate);
   } catch (error) {
@@ -102,10 +102,58 @@ app.get("/api/news_events", async (req, res) => {
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const staffCollection = db.collection("blog");
-    const news_events = await staffCollection.find({}).toArray();
+    const collection = db.collection("blog");
+    const news_events = await collection.find({}).toArray();
 
     res.json(news_events);
+  } catch (error) {
+    console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/non_degree", async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const collection = db.collection("nondegree");
+    const non_degree = await collection.find({}).toArray();
+
+    res.json(non_degree);
+  } catch (error) {
+    console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/lifelong_intelligent", async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const collection = db.collection("lifelong");
+    const lifelong_intelligent = await collection.find({cu_no: 7}).toArray();
+
+    res.json(lifelong_intelligent);
+  } catch (error) {
+    console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/lifelong_cryptocurrency", async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const collection = db.collection("lifelong");
+    const lifelong_cryptocurrency = await collection.find({cu_no: 8}).toArray();
+
+    res.json(lifelong_cryptocurrency);
   } catch (error) {
     console.error("Error fetching data from MongoDB Atlas:", error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -208,9 +256,8 @@ app.get("/api/study_plan", async (req, res) => {
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const researchCollection = db.collection("undergraduate");
-    const research = await researchCollection.find({}).toArray();
-    const result = await researchCollection
+    const collection = db.collection("undergraduate");
+    const result = await collection
       .aggregate(aggregationPipeline)
       .toArray();
 
@@ -270,9 +317,8 @@ app.get("/api/research", async (req, res) => {
     const db = await connectToDatabase();
 
     // Access a collection and retrieve data
-    const researchCollection = db.collection("research");
-    const research = await researchCollection.find({}).toArray();
-    const result = await researchCollection
+    const collection = db.collection("research");
+    const result = await collection
       .aggregate(aggregationPipeline)
       .toArray();
 
