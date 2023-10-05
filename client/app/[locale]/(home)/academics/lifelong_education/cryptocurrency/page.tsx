@@ -1,16 +1,42 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 
 type Props = {}
 
+interface LifelongCrypto {
+  _id: string;
+  cu_no: number;
+  reg_link: string;
+  application_period: string;
+  studying_time: string;
+  name: string;
+  e_application_period: string;
+  e_name: string;
+  e_studying_time: string;
+  detail: string;
+  app_fee_other: number;
+  app_fee_student: number;
+  lecturer: string[];
+}
+
 export default function Cryptocurrency({ }: Props) {
   const l = useTranslations("lifelong");
+  const locale = useLocale();
+  const [data, setData] = useState<LifelongCrypto[]>([]);
+  useEffect(() => {
+    // Fetch data from the backend API when the component mounts
+    fetch("https://cs-project-ime1.vercel.app/api/lifelong_cryptocurrency", { cache: 'force-cache' })
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <>
       <Banner
@@ -28,27 +54,27 @@ export default function Cryptocurrency({ }: Props) {
             <div className="p-5">
               <h1 className="text-2xl font-bold">{l("title0")}</h1>
               <h3 className="font-bold">
-              {l("title1")}
+                {l("title1")}
               </h3>
               <div className="bg-[#F2D4B0] h-full m-6 p-6 mr-16">
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                  {l("title2")}
+                    {l("title2")}
                   </span>
                 </p>
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                  {l("title3")}
+                    {l("title3")}
                   </span>
                 </p>
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                  {l("title4")}
+                    {l("title4")}
                   </span>
                 </p>
                 <p>
                   <span className="ml-[1rem]">
-                  {l("title5")}
+                    {l("title5")}
                   </span>
                 </p>
               </div>
@@ -81,13 +107,35 @@ export default function Cryptocurrency({ }: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white border-b text-black">
+                  {data.map((item, index) => (
+                    <tr
+                      key={item._id}
+                      className={`bg-${index % 2 === 0 ? 'white' : '[#F6BA70]'} border-b text-black`}
+                    >
+                      <td className="px-1 md:px-6 py-4">
+                        {locale === "en" ? item.e_name : item.name}
+                      </td>
+                      <td className="px-1 md:px-6 py-4 text-center">
+                        {locale === "en" ? `${item.app_fee_student}.- baht` : `${item.app_fee_student}.- บาท`}
+                      </td>
+                      <td className="px-1 md:px-6 py-4 text-center">
+                        {locale === "en" ? `${item.app_fee_other}.- baht` : `${item.app_fee_other}.- บาท`}
+                      </td>
+                      <td className="px-1 md:px-6 py-4 text-center">
+                        <a href={`${item.reg_link}`} className='underline' target='_blank'>
+                          {l("title20")}
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+
+                  {/* <tr className="bg-white border-b text-black">
                     <td className="px-1 md:px-6 py-4">{l("title144")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">{l("title18")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">{l("title19")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-01' className='underline'>
-                      {l("title20")}
+                        {l("title20")}
                       </a>
                     </td>
                   </tr>
@@ -97,7 +145,7 @@ export default function Cryptocurrency({ }: Props) {
                     <td className="px-1 md:px-6 py-4 text-center">{l("title22")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-02' className='underline'>
-                      {l("title20")}
+                        {l("title20")}
                       </a>
                     </td>
                   </tr>
@@ -107,7 +155,7 @@ export default function Cryptocurrency({ }: Props) {
                     <td className="px-1 md:px-6 py-4 text-center">{l("title22")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-03' className='underline'>
-                      {l("title20")}
+                        {l("title20")}
                       </a>
                     </td>
                   </tr>
@@ -117,7 +165,7 @@ export default function Cryptocurrency({ }: Props) {
                     <td className="px-1 md:px-6 py-4 text-center">{l("title25")}<br />{l("title26")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-04' className='underline'>
-                      {l("title20")}
+                        {l("title20")}
                       </a>
                     </td>
                   </tr>
@@ -127,7 +175,7 @@ export default function Cryptocurrency({ }: Props) {
                     <td className="px-1 md:px-6 py-4 text-center">{l("title25")}<br />{l("title26")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-05' className='underline'>
-                      {l("title20")}
+                        {l("title20")}
                       </a>
                     </td>
                   </tr>
@@ -137,7 +185,7 @@ export default function Cryptocurrency({ }: Props) {
                     <td className="px-1 md:px-6 py-4 text-center">{l("title29")}<br />{l("title30")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-06' className='underline'>
-                      {l("title20")}
+                        {l("title20")}
                       </a>
                     </td>
                   </tr>
@@ -147,10 +195,10 @@ export default function Cryptocurrency({ }: Props) {
                     <td className="px-1 md:px-6 py-4 text-center">{l("title32")}<br />{l("title33")}</td>
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/Crypto-07' className='underline'>
-                      {l("title20")}
+                        {l("title20")}
                       </a>
                     </td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
 
