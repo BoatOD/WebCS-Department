@@ -1,15 +1,24 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
 
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";
-import { useTranslations } from 'next-intl';
-
+import { useTranslations, useLocale } from 'next-intl';
 type Props = {}
+
+interface NonDegree {
+  _id: string;
+  cu_no: number;
+  detail: string;
+  e_detail: string;
+  e_process: string;
+  process: string;
+}
 
 export default function Nondegree({ }: Props) {
   const n = useTranslations("nondegree");
+  const locale = useLocale();
   const sidebarItem: SidebarProps[] = [
     {
       content: "NON DEGREE",
@@ -52,6 +61,16 @@ export default function Nondegree({ }: Props) {
       type: "singleItem",
     },
   ];
+
+  const [data, setData] = useState<NonDegree[]>([]);
+  useEffect(() => {
+    // Fetch data from the backend API when the component mounts
+    fetch("https://cs-project-ime1.vercel.app/api/non_degree")
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <>
       <Banner
@@ -82,10 +101,10 @@ export default function Nondegree({ }: Props) {
               <br />
               <ol className="list-disc pl-6">
                 <li className="mb-2">
-                {n("title3")}
+                  {n("title3")}
                 </li>
                 <li className="mb-2">
-                {n("title4")}
+                  {n("title4")}
                 </li>
               </ol>
               <div className="flex flex-col space-y-1 mt-7">
@@ -109,72 +128,31 @@ export default function Nondegree({ }: Props) {
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
                     <th scope="col" className="p-1 md:p-4 text-center">
-                    {n("title10")}
+                      {n("title10")}
                     </th>
                     <th scope="col" className="p-1 md:p-4 text-center">
-                    {n("title11")}
+                      {n("title11")}
                     </th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  <tr className="bg-white border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title64")}
-                    </th>
-                    <td className="p-1 md:p-4">
-                    {n("title12")}
-                    </td>
-                  </tr>
-                  <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title13")}
-                    </th>
-                    <td className="p-1 md:p-4">
-                    {n("title14")}
-                    </td>
-                  </tr>
-                  <tr className="bg-white border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title15")}
-                    </th>
-                    <td className="p-1 md:p-4">
-                    {n("title16")}
-                    </td>
-                  </tr>
-                  <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title17")}
-                    </th>
-                    <td className="p-1 md:p-4">
-                    {n("title18")}
-                    </td>
-                  </tr>
-                  <tr className="bg-white border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title19")}
-                    </th>
-                    <td className="p-1 md:p-4">
-                    {n("title20")}
-                    </td>
-                  </tr>
-                  <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title21")}
-                    </th>
-                    <td className="p-1 md:p-4">
-                    {n("title22")}
-                    </td>
-                  </tr>
-                  <tr className="bg-white border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title23")}
-                    </th>
-                    <td className="p-1 md:p-4">
-                    {n("title24")}
-                    </td>
-                  </tr>
+                  {data.map((item, index) => (
+                    <tr
+                      key={item._id}
+                      className={`bg-${index % 2 === 0 ? 'white' : '[#F6BA70]'} border-b text-black`}
+                    >
+                      <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
+                        {locale === "en" ? item.e_process : item.process}
+                      </th>
+                      <td className="p-1 md:p-4">
+                        {locale === "en" ? item.e_detail : item.detail}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
+
               <div className="flex flex-col space-y-1 mt-7">
                 <div className="px-8 py-0.5 bg-black w-20px"></div>
               </div>
@@ -200,42 +178,42 @@ export default function Nondegree({ }: Props) {
                 <tbody>
                   <tr className="bg-[#F6BA70] border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title33")}
+                      {n("title33")}
                     </th>
                     <td className="p-1 md:p-4">
-                    {n("title34")}
+                      {n("title34")}
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title35")}
+                      {n("title35")}
                     </th>
                     <td className="p-1 md:p-4">
-                    {n("title36")}
+                      {n("title36")}
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title37")}
+                      {n("title37")}
                     </th>
                     <td className="p-1 md:p-4">
-                    {n("title38")}
+                      {n("title38")}
                     </td>
                   </tr>
                   <tr className="bg-white border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title39")}
+                      {n("title39")}
                     </th>
                     <td className="p-1 md:p-4">
-                    {n("title40")}
+                      {n("title40")}
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title41")}
+                      {n("title41")}
                     </th>
                     <td className="p-1 md:p-4">
-                    {n("title42")}
+                      {n("title42")}
                     </td>
                   </tr>
                 </tbody>
@@ -247,10 +225,10 @@ export default function Nondegree({ }: Props) {
                 <tbody>
                   <tr className="bg-white border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title44")}
+                      {n("title44")}
                     </th>
                     <td className="p-1 md:p-4">
-                    {n("title45")}
+                      {n("title45")}
                     </td>
                   </tr>
                 </tbody>
@@ -265,20 +243,20 @@ export default function Nondegree({ }: Props) {
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
                     <th scope="col" className="p-1 md:p-4 text-center">
-                    {n("title47")}
+                      {n("title47")}
                     </th>
                     <th scope="col" className="p-1 md:p-4 text-center">
-                    {n("title48")}
+                      {n("title48")}
                     </th>
                     <th scope="col" className="p-1 md:p-4 text-center">
-                    {n("title49")}
+                      {n("title49")}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-white border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title50")}
+                      {n("title50")}
                     </th>
                     <td className="p-1 md:p-4 text-center">
                       204728 Data Manipulation
@@ -289,7 +267,7 @@ export default function Nondegree({ }: Props) {
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
                     <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                    {n("title53")}
+                      {n("title53")}
                     </th>
                     <td className="p-1 md:p-4 text-center">
                       204725 Data Analytics with Machine Learning
@@ -306,13 +284,13 @@ export default function Nondegree({ }: Props) {
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
                     <th scope="col" className="p-1 md:p-4 text-center">
-                    {n("title55")}
+                      {n("title55")}
                     </th>
                     <th scope="col" className="p-1 md:p-4 text-center">
-                    {n("title56")}
+                      {n("title56")}
                     </th>
                     <th scope="col" className="p-1 md:p-4 text-center">
-                    {n("title57")}
+                      {n("title57")}
                     </th>
                   </tr>
                 </thead>
@@ -322,10 +300,10 @@ export default function Nondegree({ }: Props) {
                       CS725 (204725)
                     </th>
                     <td className="p-1 md:p-4">
-                    {n("title59")}
+                      {n("title59")}
                     </td>
                     <td className="p-1 md:p-4">
-                    {n("title60")}
+                      {n("title60")}
                     </td>
                   </tr>
                   <tr className="bg-[#F6BA70] border-b text-black">
@@ -333,10 +311,10 @@ export default function Nondegree({ }: Props) {
                       CS728 (204728)
                     </th>
                     <td className="p-1 md:p-4">
-                    {n("title62")}
+                      {n("title62")}
                     </td>
                     <td className="p-1 md:p-4">
-                    {n("title63")}
+                      {n("title63")}
                     </td>
                   </tr>
                 </tbody>
@@ -351,7 +329,7 @@ export default function Nondegree({ }: Props) {
             <Sidebar1 sidebarItem={sidebarItem}></Sidebar1>
           </div>
         </div>
-      </div>
+      </div >
     </>
   )
 }
