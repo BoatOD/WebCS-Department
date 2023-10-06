@@ -68,27 +68,7 @@ export default function PeopleList({ data }: { data: PeopleProps[] }) {
                   {item.e_id}
                 </div>
                 <div className="md:shrink-0 md:justify-center sm:mr-5">
-                  {item.job_type === "L" && item.picture.length < 30 && item.picture != null ? (
                     <Image
-                      src={`/personal/lecturers${item.picture}`}
-                      width="0"
-                      height="0"
-                      sizes="100vm"
-                      alt=""
-                      className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
-                    />
-                  ) : item.job_type === "S" && item.picture.length < 30 && item.picture != null ? (
-                    <Image
-                      src={`/personal/staff${item.picture}`}
-                      width="0"
-                      height="0"
-                      sizes="100vm"
-                      alt=""
-                      className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
-                    />
-                  ) : (
-                    <img
-                      
                       src={`${item.picture}`} 
                       width="0"
                       height="0"
@@ -96,7 +76,6 @@ export default function PeopleList({ data }: { data: PeopleProps[] }) {
                       alt=""
                       className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
                     />
-                  )}
                 </div>
 
                 <div className="pt-1 md:text-left ">
