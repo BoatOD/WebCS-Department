@@ -367,6 +367,22 @@ app.get("/api/peopleadmin", async (req, res) => {
   }
 });
 
+app.get("/api/news_eventsadmin", async (req, res) => {
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+
+    // Access a collection and retrieve data
+    const collection = db.collection("blog");
+    const news_events = await collection.find({}).sort({date:-1}).toArray();
+
+    res.json(news_events);
+  } catch (error) {
+    console.error("Error fetching data from MongoDB Atlas:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 app.post("/blog", async (req, res) => {
   console.log("req.body:", req.body);
   try {

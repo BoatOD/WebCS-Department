@@ -65,7 +65,7 @@ export default function News() {
       day: 'numeric',
     };
     if(locale === "en") {
-      return date.toLocaleDateString(undefined, options);
+      return date.toLocaleDateString('en-US', options);
     } 
      else{
       return date.toLocaleDateString('th-TH', options);

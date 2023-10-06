@@ -1,69 +1,80 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import Banner from '@/components/Banner';
-import Image from 'next/image';
-import { sidebarItem } from '@/app/[locale]/(home)/news_events/sidebarData';
-import Sidebar1 from '@/components/Sidebar1';
-import Link from 'next/link'
-
-interface NewsEvent {
-  _id: string;
-  b_id: number;
-  topic: string;
-  e_topic: string;
-  detail: string;
-  e_detail: string;
-  date: Date;
-  location: string;
-  e_location: string;
-  category: string;
-  nflag: boolean;
-  picture: string[];
-  eflag: boolean;
-  status: string;
-  undertaker: string;
-  formattedDate: string; // Add formattedDate property
-}
+import { BlogProps } from '@/types/blog';
+import NewEvent from '@/components/admin/News'
+import { useFormik } from 'formik';
+import * as Yup from "yup";
+import axios from 'axios';
+import { Select, SelectItem } from '@nextui-org/react';
 
 export default function News() {
-  const [data, setData] = useState<NewsEvent[]>([]);
+  const [data, setData] = useState<BlogProps[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; // Number of items to display per page
+  const itemsPerPage = 3;
   const [edit, setEdit] = useState(false);
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [date, setDate] = useState(Date);
 
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      e_title: "",
+      detail: "",
+      e_detail: "",
+      date: "",
+      location: "",
+      e_location: "",
+      category: "",
+      nflag: "",
+      eflag: "",
+      status: "",
+      undertaker: "",
+      picture: null,
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Required"),
+      e_name: Yup.string().required("Required"),
+
+      job_type: Yup.string().required("Required"),
+    }),
+    onSubmit: async (values) => {
+      const data = { ...values };
+      try {
+        const res = await axios.post(`http://localhost:8080/people`, data);
+        console.log(res.data);
+        formik.resetForm();
+        setSelectedImages([]);
+        alert("success");
+      } catch (error) {
+        console.log(error);
+        alert("failed");
+      }
+    },
+  });
+
   useEffect(() => {
-    // Fetch data from the backend API when the component mounts
-    fetch('https://cs-project-ime1.vercel.app/api/news_events')
+    fetch('http://localhost:8080/api/news_eventsadmin')
       .then((response) => response.json())
       .then((data) => {
-        // Convert date strings to Date objects and format them
-        const formattedData: NewsEvent[] = data.map((item: NewsEvent) => {
+        const formattedData: BlogProps[] = data.map((item: BlogProps) => {
           const date: Date = new Date(item.date);
           const formattedDate: string = formatDate(date);
-          return { ...item, formattedDate, date };
+          return { ...item, formattedDate };
         });
-
-        // Sort the array by date in descending order
-        const sortedData = formattedData.sort((a, b) => b.date.getTime() - a.date.getTime());
-
-        setData(sortedData);
+        const passEvents = formattedData.filter((item) => item.status === 'pass');
+        setData(passEvents);
       })
       .catch((error) => console.error(error));
   }, []);
 
-  // Function to format a Date object
   function formatDate(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
     };
-    return date.toLocaleDateString(undefined, options);
-    // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai language
+    return date.toLocaleDateString('en-US', options);
   }
-
 
   // Calculate the range of items to display for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -97,6 +108,35 @@ export default function News() {
     console.log(event.target.value)
   }
 
+  const isFormFieldInvalid = (name: string) =>
+    !!(formik.touched[name as keyof typeof formik.touched] && formik.errors[name as keyof typeof formik.errors]);
+
+  const handleImage = async (e: React.ChangeEvent<HTMLInputElement>, setFieldValue: Function) => {
+    const file = e.target.files;
+    let pictureArray = [];
+    for(let i in file){
+      if (i && i?.size / 1024 / 1024 < 2) {
+        const base64 = await convertToBase64(i);
+        setFieldValue("picture", base64);
+      } else {
+        alert("Image size must be of 2MB or less");
+      }
+    }
+  };
+
+  const convertToBase64 = (file: File) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
   return (
     <>
       <div className="flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] justify-center">
@@ -106,53 +146,13 @@ export default function News() {
           </div>
           <div className='flex w-full justify-center mt-10'>
             <button
-              className={edit ? "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full hidden" : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"}
+              className={edit ? "hidden" : "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full"}
               onClick={changeEdit}
             >Create News</button>
           </div>
           <div className={edit ? "hidden" : ""}>
-            {displayedItems.map((item) => (
-              <div key={item.b_id} className="max-w-md mx-auto overflow-hidden md:max-w-2xl m-10">
-                <div className="md:flex">
-                  <div className="md:shrink-0 sm:mr-5">
-                    <Image
-                      src={`/blog${item.picture[0]}`}
-                      width="250"
-                      height="0"
-                      sizes="100vm"
-                      alt=""
-                      className="object-cover h-52 ml-auto mr-auto md:flex"
-                    />
-                  </div>
-                  <div className="pt-1 mt-2 text-center w-full h-48 overflow-hidden md:text-left">
-                    <Link href={{
-                      pathname: `/admin/blog/news-edit/${item.b_id}`,
-                      // query: { id: item._id, topic: item.topic, detail: item.detail },
-                    }}
-                      className="hover:underline">
-                      <div className="font-medium flex justify-between">
-                        <span className="text-left">
-                          {item.formattedDate} {/* Display the formatted date */}
-                        </span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6 text-right"
-                        >
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                        </svg>
-                      </div>
-                      <div className="text-lg mt-4 font-medium">{item.topic}</div>
-                    </Link>
-                    <div className="mt-4 break-words">{item.detail.split('\n')[0]}</div>
-                  </div>
-                </div>
-                <div className="border-b border-black mt-10"></div>
-              </div>
-            ))}
+            {/* Show Blog */}
+            <NewEvent data={displayedItems}></NewEvent>
             {/* Pagination */}
             <div className="flex justify-end"> {/* Flex container with justify-end */}
               <nav aria-label="Page navigation example">
@@ -169,7 +169,6 @@ export default function News() {
                       </button>
                     </li>
                   )}
-
                   {/* Page Numbers */}
                   {pageNumbers.map((page) => (
                     <li key={page} aria-current="page">
@@ -181,7 +180,6 @@ export default function News() {
                       </button>
                     </li>
                   ))}
-
                   {/* Next Page */}
                   {currentPage < totalPages && (
                     <li>
@@ -198,10 +196,8 @@ export default function News() {
               </nav>
             </div>
           </div>
-          <div className={edit ? "flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] justify-center" : "flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] hidden"}>
+          <div className={edit ? "flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] justify-center" : "hidden"}>
             <form className='w-full'>
-              <input type="text" name="b_id" id="b_id" value="" hidden />
-              <input type="text" name="status" id="status" value="pass" hidden />
               <div className="space-y-12 w-full">
                 <div className="border-b border-gray-900/10 pb-12 w-full">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 w-full">
@@ -235,6 +231,28 @@ export default function News() {
                         />
                       </div>
                     </div>
+                    <Select
+                      labelPlacement="outside"
+                      label="ประเภท"
+                      placeholder="เลือกประเภท"
+                      className="max-w-xs"
+                      selectedKeys={formik.values.status}
+                      selectionMode="single"
+                      isInvalid={isFormFieldInvalid("status")}
+                      errorMessage={
+                        isFormFieldInvalid("status") && formik.errors.status
+                      }
+                      onChange={(e) => {
+                        formik.setFieldValue("status", e.target.value);
+                      }}
+                    >
+                      <SelectItem key="L" value="L">
+                        Pass
+                      </SelectItem>
+                      <SelectItem key="S" value="S">
+                        Coming
+                      </SelectItem>
+                    </Select>
                     <div className="sm:col-span-4">
                       <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
                         Undertaker
@@ -344,7 +362,7 @@ export default function News() {
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={onSelectFile} />
+                            <input type="file" className="sr-only" multiple onChange={(e) => {handleImage(e, formik.setFieldValue);}} />
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>
