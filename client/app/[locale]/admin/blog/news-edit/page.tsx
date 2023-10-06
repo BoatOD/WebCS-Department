@@ -5,7 +5,7 @@ import NewEvent from '@/components/admin/News'
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import axios from 'axios';
-import { Select, SelectItem } from '@nextui-org/react';
+import { Button, Input, Select, SelectItem } from '@nextui-org/react';
 
 export default function News() {
   const [data, setData] = useState<BlogProps[]>([]);
@@ -29,7 +29,7 @@ export default function News() {
       eflag: "",
       status: "",
       undertaker: "",
-      picture: null,
+      picture: [],
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Required"),
@@ -39,16 +39,17 @@ export default function News() {
     }),
     onSubmit: async (values) => {
       const data = { ...values };
-      try {
-        const res = await axios.post(`http://localhost:8080/people`, data);
-        console.log(res.data);
-        formik.resetForm();
-        setSelectedImages([]);
-        alert("success");
-      } catch (error) {
-        console.log(error);
-        alert("failed");
-      }
+      console.log(data.picture);
+      // try {
+      //   const res = await axios.post(`http://localhost:8080/people`, data);
+      //   console.log(res.data);
+      //   formik.resetForm();
+      //   setSelectedImages([]);
+      //   alert("success");
+      // } catch (error) {
+      //   console.log(error);
+      //   alert("failed");
+      // }
     },
   });
 
@@ -112,16 +113,22 @@ export default function News() {
     !!(formik.touched[name as keyof typeof formik.touched] && formik.errors[name as keyof typeof formik.errors]);
 
   const handleImage = async (e: React.ChangeEvent<HTMLInputElement>, setFieldValue: Function) => {
-    // const file = e.target.files;
-    // let pictureArray = [];
-    // for(let i in file){
-    //   if (i && i?.size / 1024 / 1024 < 2) {
-    //     const base64 = await convertToBase64(i);
-    //     setFieldValue("picture", base64);
-    //   } else {
-    //     alert("Image size must be of 2MB or less");
-    //   }
-    // }
+    const fileList = e.target.files;
+    // console.log(fileList);
+    let pictureArray = [];
+    if (fileList){
+      for (let i = 0; i < fileList.length; i++) {
+        console.log(fileList[i]);
+        if (fileList[i].size / 1024 / 1024 < 2) {
+          const base64 = await convertToBase64(fileList[i]);
+          pictureArray[i] = base64;
+
+        } else {
+          alert("Image size must be of 2MB or less");
+        }
+      }
+      setFieldValue("picture", pictureArray);
+    }
   };
 
   const convertToBase64 = (file: File) => {
@@ -202,17 +209,19 @@ export default function News() {
                 <div className="border-b border-gray-900/10 pb-12 w-full">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 w-full">
                     <div className="sm:col-span-4">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label htmlFor="topic" className="block text-sm font-medium leading-6 text-gray-900">
                         Topic
                       </label>
                       <div className="mt-2">
-                        <input
+                        <Input
                           type="text"
-                          name="first-name"
-                          id="first-name"
-                          autoComplete="given-name"
-                          value=""
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          label="Topic"
+                          isInvalid={isFormFieldInvalid("topic")}
+                          errorMessage={isFormFieldInvalid("topic") && formik.errors.title}
+                          value={formik.values.title}
+                          onChange={(e) => {
+                            formik.setFieldValue("topic", e.target.value);
+                          }}
                         />
                       </div>
                     </div>
@@ -362,7 +371,7 @@ export default function News() {
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
-                            <input type="file" className="sr-only" multiple onChange={(e) => {handleImage(e, formik.setFieldValue);}} />
+                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={(e) => { handleImage(e, formik.setFieldValue); }} />
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>
@@ -377,12 +386,9 @@ export default function News() {
                 <button type="button" className="text-sm font-semibold leading-6 text-gray-900" onClick={changeEdit}>
                   Cancel
                 </button>
-                <button
-                  type="submit"
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                >
+                <Button onPress={() => formik.submitForm()} color="success">
                   Save
-                </button>
+                </Button>
               </div>
             </form>
           </div>

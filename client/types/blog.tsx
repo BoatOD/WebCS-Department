@@ -8,9 +8,7 @@ export type BlogProps = {
     location: string;
     e_location: string;
     category: string;
-    nflag: boolean;
     picture: string[];
-    eflag: boolean;
     status: string;
     undertaker: string;
     formattedDate: string;
