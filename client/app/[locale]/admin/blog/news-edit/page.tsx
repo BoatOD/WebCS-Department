@@ -112,16 +112,16 @@ export default function News() {
     !!(formik.touched[name as keyof typeof formik.touched] && formik.errors[name as keyof typeof formik.errors]);
 
   const handleImage = async (e: React.ChangeEvent<HTMLInputElement>, setFieldValue: Function) => {
-    const file = e.target.files;
-    let pictureArray = [];
-    for(let i in file){
-      if (i && i?.size / 1024 / 1024 < 2) {
-        const base64 = await convertToBase64(i);
-        setFieldValue("picture", base64);
-      } else {
-        alert("Image size must be of 2MB or less");
-      }
-    }
+    // const file = e.target.files;
+    // let pictureArray = [];
+    // for(let i in file){
+    //   if (i && i?.size / 1024 / 1024 < 2) {
+    //     const base64 = await convertToBase64(i);
+    //     setFieldValue("picture", base64);
+    //   } else {
+    //     alert("Image size must be of 2MB or less");
+    //   }
+    // }
   };
 
   const convertToBase64 = (file: File) => {
