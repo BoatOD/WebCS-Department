@@ -16,6 +16,21 @@ interface NonDegree {
   process: string;
 }
 
+interface Courses {
+  _id: string;
+  code: string;
+  credit: string;
+  cu_no: number[];
+  e_name: string;
+  e_overview: string;
+  e_type: string;
+  name: string;
+  overview: string;
+  prereg: string;
+  type: string;
+  sup_type: string;
+}
+
 export default function Nondegree({ }: Props) {
   const n = useTranslations("nondegree");
   const locale = useLocale();
@@ -63,11 +78,18 @@ export default function Nondegree({ }: Props) {
   ];
 
   const [data, setData] = useState<NonDegree[]>([]);
+  const [coursesData, setCoursesData] = useState<Courses[]>([]);
   useEffect(() => {
-    // Fetch data from the backend API when the component mounts
+    // Fetch data from the backend API when the component mounts for "non_degree"
     fetch("https://cs-project-ime1.vercel.app/api/non_degree")
       .then((response) => response.json())
       .then((data) => setData(data))
+      .catch((error) => console.error(error));
+
+    // Fetch data from the backend API when the component mounts for "courses"
+    fetch("https://cs-project-ime1.vercel.app/api/courses")
+      .then((response) => response.json())
+      .then((coursesData) => setCoursesData(coursesData))
       .catch((error) => console.error(error));
   }, []);
 
@@ -254,28 +276,22 @@ export default function Nondegree({ }: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                      {n("title50")}
-                    </th>
-                    <td className="p-1 md:p-4 text-center">
-                      204728 Data Manipulation
-                    </td>
-                    <td className="p-1 md:p-4 text-center">
-                      3
-                    </td>
-                  </tr>
-                  <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                      {n("title53")}
-                    </th>
-                    <td className="p-1 md:p-4 text-center">
-                      204725 Data Analytics with Machine Learning
-                    </td>
-                    <td className="p-1 md:p-4 text-center">
-                      3
-                    </td>
-                  </tr>
+                  {coursesData
+                    .filter((item) => item.cu_no.includes(6))
+                    .sort((a, b) => b.code.localeCompare(a.code))
+                    .map((item, index) => (
+                      <tr key={item._id} className={`bg-${index % 2 === 0 ? 'white' : '[#F6BA70]'} border-b text-black`}>
+                        <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
+                          {index === 0 ? n("title50") : index === 1 ? n("title53") : ""}
+                        </th>
+                        <td className="p-1 md:p-4 text-center">
+                          {item.code} {locale == "en" ? item.e_name : item.name}
+                        </td>
+                        <td className="p-1 md:p-4 text-center">
+                          {item.credit.split("(")[0]}
+                        </td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
               <br />
@@ -295,28 +311,21 @@ export default function Nondegree({ }: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                      CS725 (204725)
-                    </th>
-                    <td className="p-1 md:p-4">
-                      {n("title59")}
-                    </td>
-                    <td className="p-1 md:p-4">
-                      {n("title60")}
-                    </td>
-                  </tr>
-                  <tr className="bg-[#F6BA70] border-b text-black">
-                    <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
-                      CS728 (204728)
-                    </th>
-                    <td className="p-1 md:p-4">
-                      {n("title62")}
-                    </td>
-                    <td className="p-1 md:p-4">
-                      {n("title63")}
-                    </td>
-                  </tr>
+                  {coursesData
+                    .filter((item) => item.cu_no.includes(6))
+                    .map((item, index) => (
+                      <tr key={item._id} className={`bg-${index % 2 === 0 ? 'white' : '[#F6BA70]'} border-b text-black`}>
+                        <th scope="row" className="p-1 md:p-4 font-medium whitespace-nowrap text-center">
+                          {`CS${item.code.slice(3)}`} ({item.code})
+                        </th>
+                        <td className="p-1 md:p-4 text-center">
+                          {locale == "en" ? item.e_name : `${item.name} (${item.e_name})`}
+                        </td>
+                        <td className="p-1 md:p-4 text-center">
+                          {locale == "en" ? item.e_overview : item.overview}
+                        </td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
 
