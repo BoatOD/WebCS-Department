@@ -11,7 +11,7 @@ export const navItemsAdmin: navbar[] = [
       },
       {
         title: "Add",
-        href: "/admin/people-crud/addpeople",
+        href: "/admin/people-crud/people",
       },
       
     ],

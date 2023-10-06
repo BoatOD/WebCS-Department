@@ -461,29 +461,10 @@ app.post("/people", async (req, res) => {
       e_affiliation,
       picture,
       job_type,
-      // e_id,
+      e_id = 5000,
       personal_web,
       research_interest,
     } = req.body;
-
-    console.log(
-      title,
-      e_title,
-      name,
-      e_name,
-      tel,
-      email,
-      position,
-      e_position,
-      affiliation,
-      e_affiliation,
-      picture,
-      job_type,
-      // e_id,
-      personal_web,
-      research_interest
-    );
-
     const db = await connectToDatabase();
     const people = await db.collection("people").insertOne({
       title,
@@ -498,7 +479,7 @@ app.post("/people", async (req, res) => {
       e_affiliation,
       picture,
       job_type,
-      e_id: 1,
+      e_id: Math.floor(Math.random() * 100),
       personal_web,
       research_interest,
     });
@@ -557,8 +538,49 @@ app.get("/api/people/:id", async (req, res) => {
 app.post("/api/people/update/:id", async (req, res) => {
   const { id } = req.params;
   const body = req.body;
-  console.log(body);
-  console.log("Ken");
+
+  let tel;
+  let email;
+  let position;
+  let e_position;
+  if (req.body.tel.lastIndexOf(",") > 0) {
+    tel = req.body.tel.split(",");
+    tel = tel.filter((element) => element !== "");
+  } else {
+    let tel1 = [];
+    tel = req.body.tel;
+    tel1.push(tel);
+    tel = tel1;
+  }
+  if (req.body.email.lastIndexOf(",") > 0) {
+    email = req.body.email.split(",");
+    email = email.filter((element) => element !== "");
+  } else {
+    let email1 = [];
+    email = req.body.email;
+    email1.push(email);
+    email = email1;
+  }
+  if (req.body.position.lastIndexOf(",") > 0) {
+    position = req.body.position.split(",");
+    position = position.filter((element) => element !== "");
+  } else {
+    let position1 = [];
+    position = req.body.position;
+    position1.push(position);
+    position = position1;
+  }
+
+  if (req.body.e_position.lastIndexOf(",") > 0) {
+    e_position = req.body.e_position.split(",");
+    e_position = e_position.filter((element) => element !== "");
+  } else {
+    let e_position1 = [];
+    e_position = req.body.e_position;
+    e_position1.push(e_position);
+    e_position = e_position1;
+  }
+
   try {
     // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
@@ -578,10 +600,10 @@ app.post("/api/people/update/:id", async (req, res) => {
           job_type: body.job_type,
           personal_web: body.personal_web,
           research_interest: body.research_interest,
-          tel: body.tel,
-          email: body.email,
-          position: body.position,
-          e_position: body.e_position,
+          tel: tel,
+          email: email,
+          position: position,
+          e_position: e_position,
         },
       }
     );
@@ -609,6 +631,96 @@ app.post("/api/people/delete/:id", async (req, res) => {
     return res.json({ success: true });
   } catch (error) {
     console.error("Error updating document:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+//add people version update
+app.post("/api/peopleadd", async (req, res) => {
+  console.log("req.body:", req.body);
+  console.log("ken123456");
+  let tel;
+  let email;
+  let position;
+  let e_position;
+  let e_id;
+  if (req.body.tel.lastIndexOf(",") > 0) {
+    tel = req.body.tel.split(",");
+    tel = tel.filter((element) => element !== "");
+  } else {
+    let tel1 = [];
+    tel = req.body.tel;
+    tel1.push(tel);
+    tel = tel1;
+  }
+  if (req.body.email.lastIndexOf(",") > 0) {
+    email = req.body.email.split(",");
+    email = email.filter((element) => element !== "");
+  } else {
+    let email1 = [];
+    email = req.body.email;
+    email1.push(email);
+    email = email1;
+  }
+  if (req.body.position.lastIndexOf(",") > 0) {
+    position = req.body.position.split(",");
+    position = position.filter((element) => element !== "");
+  } else {
+    let position1 = [];
+    position = req.body.position;
+    position1.push(position);
+    position = position1;
+  }
+
+  if (req.body.e_position.lastIndexOf(",") > 0) {
+    e_position = req.body.e_position.split(",");
+    e_position = e_position.filter((element) => element !== "");
+  } else {
+    let e_position1 = [];
+    e_position = req.body.e_position;
+    e_position1.push(e_position);
+    e_position = e_position1;
+  }
+  const db = await connectToDatabase();
+  const dbfindmax = db.collection("people");
+  e_id = await dbfindmax.findOne({}, { sort: { e_id: -1 } });
+  e_id = JSON.stringify(e_id.e_id);
+  e_id = parseInt(e_id) + 1;
+  console.log(typeof e_id, e_id);
+
+  try {
+    let {
+      title,
+      e_title,
+      name,
+      e_name,
+      affiliation,
+      e_affiliation,
+      picture,
+      job_type,
+      personal_web,
+      research_interest,
+    } = req.body;
+    const people = await db.collection("people").insertOne({
+      title,
+      e_title,
+      name,
+      e_name,
+      tel,
+      email,
+      position,
+      e_position,
+      affiliation,
+      e_affiliation,
+      picture,
+      job_type,
+      e_id: e_id,
+      personal_web,
+      research_interest,
+    });
+    res.json(people);
+  } catch (error) {
+    console.error("Error:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

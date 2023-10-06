@@ -33,9 +33,9 @@ export default function PeopleForm() {
     validationSchema: Yup.object({
       name: Yup.string().required("Required"),
       e_name: Yup.string().required("Required"),
-
       job_type: Yup.string().required("Required"),
     }),
+    
     onSubmit: async (values) => {
       const data = {
         ...values,

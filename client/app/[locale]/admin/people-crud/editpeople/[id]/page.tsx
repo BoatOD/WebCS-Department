@@ -18,7 +18,7 @@ import CreateModal from "@/components/admin/CreateMoal";
 type Props = {};
 
 const Page = ({ params }: { params: { id: string } }) => {
-  const [tel, setTel] = useState<any>([]);
+  const [tel, setTel] = useState<arr>([]);
   const [email, setEmail] = useState<any>([]);
   const [position, setPosition] = useState<any>([]);
   const [e_position, setE_position] = useState<any>([]);
@@ -62,17 +62,7 @@ const Page = ({ params }: { params: { id: string } }) => {
       personal_web: "",
       research_interest: "",
     },
-    validationSchema: Yup.object({
-      title: Yup.string().required("Required"),
-      e_title: Yup.string().required("Required"),
-      name: Yup.string().required("Required"),
-      e_name: Yup.string().required("Required"),
-      affiliation: Yup.string().required("Required"),
-      e_affiliation: Yup.string().required("Required"),
-      job_type: Yup.string().required("Required"),
-      personal_web: Yup.string().required("Required"),
-      research_interest: Yup.string().required("Required"),
-    }),
+
     onSubmit: async (values) => {
       const data = {
         ...values,

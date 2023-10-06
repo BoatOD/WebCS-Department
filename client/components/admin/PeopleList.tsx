@@ -82,7 +82,7 @@ export default function PeopleList({ data }: { data: PeopleProps[] }) {
                   <div className="flex">
                     <Button
                       as={Link}
-                      href={`/admin/people-crud/editpeople/${item._id}`}
+                      href={`/admin/people-crud/edit/${item._id}`}
                       color="default"
                     >
                       Edit
