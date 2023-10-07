@@ -222,6 +222,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
           `http://localhost:8080/api/newsup/${idToFetch}`,
           data
         );
+        window.location.href="http://localhost:3000/admin/blog/news-edit"
       } catch (error) {
         alert(error);
       }
