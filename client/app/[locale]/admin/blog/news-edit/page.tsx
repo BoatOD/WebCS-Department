@@ -67,12 +67,12 @@ export default function News() {
   const handleImage = async (e: React.ChangeEvent<HTMLInputElement>, setFieldValue: Function) => {
     const fileList = e.target.files;
     // console.log(fileList);
-    let pictureArray = [];
+    let pictureArray: string[] = [];
     if (fileList) {
       for (let i = 0; i < fileList.length; i++) {
         console.log(fileList[i]);
         if (fileList[i].size / 1024 / 1024 < 2) {
-          const base64 = await convertToBase64(fileList[i]);
+          const base64 = await convertToBase64(fileList[i]) as string;
           pictureArray[i] = base64;
           setFieldValue(`picture${i}`, pictureArray);
           setSelectedImages(pictureArray);
