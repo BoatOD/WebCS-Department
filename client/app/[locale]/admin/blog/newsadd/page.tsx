@@ -17,7 +17,7 @@ export default function Page({}: Props) {
   };
 
   const cancel = async () => {
-    window.location.href = "http://localhost:3000/admin/blog"
+    window.location.href = "http://localhost:3000/admin/blog/news-edit"
   };
   const handleImage = async (
     e: React.ChangeEvent<HTMLInputElement>,

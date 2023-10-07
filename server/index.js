@@ -812,6 +812,22 @@ app.get("/api/viewedit/:id", async (req, res) => {
   }
 });
 
+
+app.post("/api/news/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log("ken");
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+    const update1 = db.collection("blog");
+
+    const result = await update1.deleteOne({ _id: new ObjectId(id) });
+    return res.json({ success: true });
+  } catch (error) {
+    console.error("Error updating document:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 app.listen(PORT, () => {
   console.log(`Connect to DB & Server started on port ${PORT}`);
 });

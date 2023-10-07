@@ -2,6 +2,7 @@ export type PeoplePropsadmin = {
   _id: string;
   picture: string;
   affiliation: string;
+  e_affiliation: string;
   title: string;
   name: string;
   e_title: string;
