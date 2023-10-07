@@ -1,5 +1,5 @@
 import React from "react";
-import { PeopleProps } from "@/types/people";
+
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Avatar, Button } from "@nextui-org/react";
@@ -7,32 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import { useFormik } from "formik";
+import { PeoplePropsadmin } from "@/types/peopleadmin";
 
-export default function PeopleList({ data }: { data: PeopleProps[] }) {
-  // const onDelete = async (_id: string) => {
-  //   try {
-  //     const res = await axios.post(
-  //       `http://localhost:8080/api/people/delete/${params._id}`,
-  //       _id
-  //     );
-  //     console.log(res.data);
-  //     alert("success");
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert("failed");
-  //   }
-  // };
-  // const UserDelete = async (id: any) => {
-  //   console.log(id);
-
-  //   try {
-  //     alert("success");
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert("failed");
-  //   }
-  // };
-
+export default function PeopleList({ data }: { data: PeoplePropsadmin[] }) {
   const UserDelete = async (id: any) => {
     console.log(id);
 
@@ -68,14 +45,14 @@ export default function PeopleList({ data }: { data: PeopleProps[] }) {
                   {item.e_id}
                 </div>
                 <div className="md:shrink-0 md:justify-center sm:mr-5">
-                    <Image
-                      src={`${item.picture}`} 
-                      width="0"
-                      height="0"
-                      sizes="100vm"
-                      alt=""
-                      className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
-                    />
+                  <Image
+                    src={`${item.picture}`}
+                    width="0"
+                    height="0"
+                    sizes="100vm"
+                    alt=""
+                    className="w-48 h-full object-cover  md:flex justify-center ml-auto mr-auto"
+                  />
                 </div>
 
                 <div className="pt-1 md:text-left ">
