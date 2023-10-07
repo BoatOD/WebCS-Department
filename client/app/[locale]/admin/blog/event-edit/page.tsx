@@ -1,10 +1,10 @@
-'use client'
-import React, { useEffect, useState } from 'react';
-import { BlogProps } from '@/types/blog';
-import NewEvent from '@/components/admin/News'
-import { useFormik } from 'formik';
-import axios from 'axios';
-import { Button, Textarea } from '@nextui-org/react';
+"use client";
+import React, { useEffect, useState } from "react";
+import { BlogProps } from "@/types/blog";
+import NewEvent from "@/components/admin/News";
+import { useFormik } from "formik";
+import axios from "axios";
+import { Button, Textarea } from "@nextui-org/react";
 
 export default function News() {
   const [data, setData] = useState<BlogProps[]>([]);
@@ -15,7 +15,7 @@ export default function News() {
   const [date, setDate] = useState(Date);
 
   useEffect(() => {
-    fetch('https://cs-project-ime1.vercel.app/api/news_eventsadmin')
+    fetch("https://cs-project-ime1.vercel.app/api/news_eventsadmin")
       .then((response) => response.json())
       .then((data) => {
         const formattedData: BlogProps[] = data.map((item: BlogProps) => {
@@ -23,7 +23,7 @@ export default function News() {
           const formattedDate: string = formatDate(date);
           return { ...item, formattedDate };
         });
-        const passEvents = formattedData.filter((item) => item.status === 'pass');
+        const passEvents = formattedData.filter((item) => item.status === 'coming');
         setData(passEvents);
       })
       .catch((error) => console.error(error));
@@ -31,11 +31,11 @@ export default function News() {
 
   function formatDate(date: Date): string {
     const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     };
-    return date.toLocaleDateString('en-US', options);
+    return date.toLocaleDateString("en-US", options);
   }
 
   // Calculate the range of items to display for the current page
@@ -50,45 +50,36 @@ export default function News() {
 
   // Generate an array of page numbers based on the number of pages
   const totalPages = Math.ceil(data.length / itemsPerPage);
-  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+  const pageNumbers = Array.from(
+    { length: totalPages },
+    (_, index) => index + 1
+  );
 
   const changeEdit = () => {
     setEdit(!edit);
   };
 
-  const onSelectFile = (event: any) => {
-    const selectFile = event.target.files;
-    const selectFileArray = Array.from(selectFile);
-    const imagesArray = selectFileArray.map((file: any) => {
-      return URL.createObjectURL(file)
-    })
-    setSelectedImages(imagesArray);
-  }
-
   const onDate = (event: any) => {
     setDate(event.target.value)
-    formik.setFieldValue("date", date);
-    // console.log(event.target.value)
+    console.log(event.target.value)
   }
 
-  const handleImage = async (
-    e: React.ChangeEvent<HTMLInputElement>,
-    setFieldValue: Function
-  ) => {
+  const handleImage = async (e: React.ChangeEvent<HTMLInputElement>, setFieldValue: Function) => {
     const fileList = e.target.files;
     // console.log(fileList);
-    let pictureArray = [];
+    let pictureArray: string[] = [];
     if (fileList) {
       for (let i = 0; i < fileList.length; i++) {
         console.log(fileList[i]);
         if (fileList[i].size / 1024 / 1024 < 2) {
-          const base64 = await convertToBase64(fileList[i]);
+          const base64 = await convertToBase64(fileList[i]) as string;
           pictureArray[i] = base64;
+          setSelectedImages(pictureArray);
         } else {
-          alert("Image size must be of 2MB or less");
+          alert("ขนาดรูปภาพต้องไม่เกิน 1 Mb");
         }
       }
-      setFieldValue("picture", pictureArray);
+      setFieldValue(`picture`, pictureArray);
     }
   };
 
@@ -105,6 +96,11 @@ export default function News() {
     });
   };
 
+  const deletePicture = (key: any) => {
+    setSelectedImages(selectedImages.filter((e) => e !== key))
+    formik.setFieldValue("picture", selectedImages.filter((e) => e !== key));
+  }
+
   const formik = useFormik({
     initialValues: {
       topic: "",
@@ -119,19 +115,19 @@ export default function News() {
       picture: [],
     },
     onSubmit: async (values) => {
-      console.log(values);
+      // console.log(values);
 
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
       try {
-        alert("success");
+        
         const data = values;
         console.log(data);
         const res = await axios.post(
           `https://cs-project-ime1.vercel.app/api/create-news`,
           data
         );
+        alert("success");
         formik.resetForm();
-        // setEdit(!edit);
         location.reload();
         // window.location.href = "https://cs-project-taupe.vercel.app/admin/people-crud";
       } catch (error) {
@@ -147,17 +143,25 @@ export default function News() {
           <div className="flex flex-col space-y-2 mt-20">
             <div className="px-8 py-0.5 bg-black w-full "></div>
           </div>
-          <div className='flex w-full justify-center mt-10'>
+          <div className="flex w-full justify-center mt-10">
             <button
-              className={edit ? "hidden" : "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full"}
+              className={
+                edit
+                  ? "hidden"
+                  : "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full"
+              }
               onClick={changeEdit}
-            >Create News</button>
+            >
+              Create News
+            </button>
           </div>
           <div className={edit ? "hidden" : ""}>
             {/* Show Blog */}
             <NewEvent data={displayedItems}></NewEvent>
             {/* Pagination */}
-            <div className="flex justify-end"> {/* Flex container with justify-end */}
+            <div className="flex justify-end">
+              {" "}
+              {/* Flex container with justify-end */}
               <nav aria-label="Page navigation example">
                 <ul className="list-style-none flex">
                   {/* Previous Page */}
@@ -176,7 +180,10 @@ export default function News() {
                   {pageNumbers.map((page) => (
                     <li key={page} aria-current="page">
                       <button
-                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white ${currentPage === page ? 'bg-neutral-100 dark:bg-neutral-700 dark:text-white' : ''}`}
+                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white ${currentPage === page
+                          ? "bg-neutral-100 dark:bg-neutral-700 dark:text-white"
+                          : ""
+                          }`}
                         onClick={() => handlePageChange(page)}
                       >
                         {page}
@@ -200,32 +207,32 @@ export default function News() {
             </div>
           </div>
           <div className={edit ? "flex flex-col md:flex-row mx-auto w-full max-w-screen-xl px-[1rem] gap-[3rem] justify-center" : "hidden"}>
-            <form className='w-full' onSubmit={formik.handleSubmit}>
+            <form className='w-full'>
               <div className="space-y-12 w-full">
                 <div className="border-b border-gray-900/10 pb-12 w-full">
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 w-full">
 
                     <div className="justify-center mt-5">
-                      <label className="">ชื่อหัวข้อ</label>
+                      <label className="">หัวข้อ</label>
                       <input
                         type="text"
                         name="topic"
                         id="topic"
                         className="w-[345px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="ใส่ชื่อหัวข้อ"
+                        placeholder="ใส่หัวข้อ"
                         onChange={(e) => formik.setFieldValue("topic", e.target.value)}
                         value={formik.values.topic}
                       />
                     </div>
 
                     <div className="justify-center mt-5">
-                      <label className="">ชื่อหัวข้อ ภาษาอังกฤษ</label>
+                      <label className="">หัวข้อ ภาษาอังกฤษ</label>
                       <input
                         type="text"
                         name="e_topic"
                         id="e_topic"
                         className="w-[345px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="ใส่ชื่อหัวข้อ ภาษาอังกฤษ"
+                        placeholder="ใส่หัวข้อ ภาษาอังกฤษ"
                         onChange={(e) => formik.setFieldValue("e_topic", e.target.value)}
                         value={formik.values.e_topic}
                       />
@@ -237,7 +244,7 @@ export default function News() {
                         labelPlacement="outside"
                         placeholder="ใส่รายละเอียด"
                         className="radius-none"
-                        minRows={15}
+                        minRows={17}
                         onChange={(e) => formik.setFieldValue("detail", e.target.value)}
                         value={formik.values.detail}
                       />
@@ -249,7 +256,7 @@ export default function News() {
                         labelPlacement="outside"
                         placeholder="ใส่รายละเอียด ภาษาอังกฤษ"
                         className="radius-none"
-                        minRows={15}
+                        minRows={17}
                         onChange={(e) => formik.setFieldValue("e_detail", e.target.value)}
                         value={formik.values.e_detail}
                       />
@@ -262,7 +269,7 @@ export default function News() {
                         name="location"
                         id="location"
                         className="w-[345px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="สถานที่จัดกิจกรรม"
+                        placeholder="ใส่สถานที่จัดกิจกรรม"
                         onChange={(e) => formik.setFieldValue("location", e.target.value)}
                         value={formik.values.location}
                       />
@@ -275,7 +282,7 @@ export default function News() {
                         name="e_location"
                         id="e_location"
                         className="w-[345px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="สถานที่จัดกิจกรรม ภาษาอังกฤษ"
+                        placeholder="ใส่สถานที่จัดกิจกรรม ภาษาอังกฤษ"
                         onChange={(e) =>
                           formik.setFieldValue("e_location", e.target.value)
                         }
@@ -328,34 +335,38 @@ export default function News() {
                         id="category"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       >
-                        <option selected>ประเภทของข่าว</option>
+                        <option selected>ประเภท</option>
                         <option value="announcement"> announcement</option>
                         <option value="training course">training course</option>
                         <option value="congratulation"> congratulation</option>
                         <option value="event">event</option>
                       </select>
                     </div>
+
                     <div className="col-span-full">
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        อัพโหลดรูป
+                      <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
+                        อัพโหลดรูปภาพ
                       </label>
                       <div className="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                        <div className='flex flex-wrap images'>
+                        <div className="flex flex-wrap images">
                           {selectedImages &&
                             selectedImages.map((image, index) => {
                               return (
-                                <div key={image} className='image mr-3'>
-                                  <img src={image} className='max-h-72 mb-3 rounded-md' />
+                                <div key={image} className="image mr-3">
+                                  <img
+                                    src={image}
+                                    className="max-h-72 mb-3 rounded-md"
+                                  />
                                   <button
                                     type="button"
                                     className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
                                     onClick={() => {
-                                      setSelectedImages(selectedImages.filter((e) => e !== image))
+                                      deletePicture(image)
                                     }}>
-                                    Delete Image
+                                    ลบรูปภาพ
                                   </button>
                                 </div>
-                              )
+                              );
                             })}
                         </div>
                       </div>
@@ -365,22 +376,11 @@ export default function News() {
                             htmlFor="file-upload"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
-                            <span>Upload a Picture</span>
-                            <input
-                              id="file-upload"
-                              name="file-upload"
-                              type="file"
-                              className="sr-only"
-                              multiple
-                              onChange={(e) => {
-                                handleImage(e, formik.setFieldValue);
-                              }}
-                            />
+                            <span>อัพโหลดรูปภาพ</span>
+                            <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple onChange={(e) => { handleImage(e, formik.setFieldValue); }} />
                           </label>
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
+                        <p className="text-xs leading-5 text-gray-600">PNG, JPG ไม่เกิน 1 MB</p>
                       </div>
                     </div>
                   </div>
@@ -397,7 +397,6 @@ export default function News() {
             </form>
           </div>
         </div>
-
       </div>
     </>
   );

@@ -74,13 +74,12 @@ export default function News() {
         if (fileList[i].size / 1024 / 1024 < 2) {
           const base64 = await convertToBase64(fileList[i]) as string;
           pictureArray[i] = base64;
-          setFieldValue(`picture${i}`, pictureArray);
           setSelectedImages(pictureArray);
         } else {
           alert("ขนาดรูปภาพต้องไม่เกิน 1 Mb");
         }
       }
-
+      setFieldValue(`picture`, pictureArray);
     }
   };
 
@@ -120,15 +119,15 @@ export default function News() {
 
       // alert(JSON.stringify(values, null, 2));
       try {
-        alert("success");
+        
         const data = values;
         console.log(data);
         const res = await axios.post(
           `https://cs-project-ime1.vercel.app/api/create-news`,
           data
         );
+        alert("success");
         formik.resetForm();
-        // setEdit(!edit);
         location.reload();
         // window.location.href = "https://cs-project-taupe.vercel.app/admin/people-crud";
       } catch (error) {

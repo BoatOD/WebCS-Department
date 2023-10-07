@@ -17,14 +17,14 @@ export default function BlogList({ data }: { data: BlogProps[] }) {
       day: "numeric",
     };
     if (locale === "en") {
-      return date.toLocaleDateString(undefined, options);
+      return date.toLocaleDateString("en-US", options);
     } else {
       return date.toLocaleDateString("th-TH", options);
     }
   }
 
   const UserDelete = async (id: any) => {
-    console.log(id);
+    // console.log(id);
 
     try {
       const res = await axios.post(
@@ -42,10 +42,12 @@ export default function BlogList({ data }: { data: BlogProps[] }) {
       alert("Failed");
     }
   };
+
   return (
     <>
       <div>
         {data.map((item) => {
+          // console.log(item.picture[0].length)
           return (
             <div
               key={item._id}
@@ -54,7 +56,7 @@ export default function BlogList({ data }: { data: BlogProps[] }) {
               <div className="md:flex">
                 <div className="md:shrink-0 sm:mr-5">
                   <Image
-                    src={`/blog${item.picture[0]}`}
+                    src={item.picture[0].length < 100 ? `/blog${item.picture[0]}` : `${item.picture[0]}`}
                     width="250"
                     height="0"
                     sizes="100vm"

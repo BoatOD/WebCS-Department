@@ -260,7 +260,7 @@ const EventsDetail = ({ params: { id } }: Params) => {
                     <div className="text-center items-center p-5">
                       <div className="flex justify-center items-center">
                         <Image
-                          src={`/blog${item.picture[0]}` ?? "#"}
+                          src={item.picture[0].length < 100 ? `/blog${item.picture[0]}` : `${item.picture[0]}`}
                           width="600"
                           height="0"
                           alt="news-image"

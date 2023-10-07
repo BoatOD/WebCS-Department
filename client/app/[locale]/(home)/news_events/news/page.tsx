@@ -107,7 +107,7 @@ export default function News() {
               <div className="md:flex">
                 <div className="md:shrink-0 sm:mr-5">
                   <Image
-                    src={`/blog${item.picture[0]}`}
+                    src={item.picture[0].length < 100 ? `/blog${item.picture[0]}` : `${item.picture[0]}`}
                     width="250"
                     height="0"
                     sizes="100vm"
