@@ -23,7 +23,8 @@ export default function News() {
           const formattedDate: string = formatDate(date);
           return { ...item, formattedDate };
         });
-        setData(formattedData);
+        const passEvents = formattedData.filter((item) => item.status === 'pass');
+        setData(passEvents);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -88,7 +89,6 @@ export default function News() {
         }
       }
       setFieldValue("picture", pictureArray);
-      setSelectedImages(pictureArray);
     }
   };
 
@@ -105,11 +105,6 @@ export default function News() {
     });
   };
 
-  const deletePicture = (key: any) => {
-    setSelectedImages(selectedImages.filter((e) => e !== key))
-    formik.setFieldValue("picture", selectedImages.filter((e) => e !== key));
-  }
-
   const formik = useFormik({
     initialValues: {
       topic: "",
@@ -124,9 +119,9 @@ export default function News() {
       picture: [],
     },
     onSubmit: async (values) => {
-      // console.log(values);
+      console.log(values);
 
-      // alert(JSON.stringify(values, null, 2));
+      alert(JSON.stringify(values, null, 2));
       try {
         alert("success");
         const data = values;
@@ -355,9 +350,9 @@ export default function News() {
                                     type="button"
                                     className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
                                     onClick={() => {
-                                      deletePicture(image)
+                                      setSelectedImages(selectedImages.filter((e) => e !== image))
                                     }}>
-                                    ลบรูปภาพ
+                                    Delete Image
                                   </button>
                                 </div>
                               )
@@ -370,7 +365,7 @@ export default function News() {
                             htmlFor="file-upload"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
-                            <span>อัพโหลดรูป</span>
+                            <span>Upload a Picture</span>
                             <input
                               id="file-upload"
                               name="file-upload"
@@ -384,7 +379,7 @@ export default function News() {
                           </label>
                         </div>
                         <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG ไม่เกิน 1 MB
+                          PNG, JPG, GIF up to 10MB
                         </p>
                       </div>
                     </div>

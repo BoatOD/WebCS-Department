@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useFormik } from "formik";
 import axios from "axios";
 import { Button } from "@nextui-org/react";
-import { BlogProps } from '@/types/blog';
 
 type Params = {
   params: {
@@ -12,8 +11,27 @@ type Params = {
   };
 };
 
+interface NewsEvent {
+  _id: string;
+  b_id: number;
+  topic: string;
+  e_topic: string;
+  detail: string;
+  e_detail: string;
+  date: Date;
+  location: string;
+  e_location: string;
+  category: string;
+  nflag: boolean;
+  picture: string[];
+  eflag: boolean;
+  status: string;
+  undertaker: string;
+  formattedDate: string; // Add formattedDate property
+}
+
 const ProductDetail = ({ params: { id } }: Params) => {
-  const [data, setData] = useState<BlogProps[]>([]);
+  const [data, setData] = useState<NewsEvent[]>([]);
   const [loading, setLoading] = useState(true); // Initialize loading state as true
   const [edit, setEdit] = useState(false);
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
@@ -23,23 +41,27 @@ const ProductDetail = ({ params: { id } }: Params) => {
   useEffect(() => {
     // Define the id you want to retrieve
     const idToFetch = id;
+
     // Fetch data from the backend API when the component mounts
     fetch("https://cs-project-ime1.vercel.app/api/news_eventsadmin")
       .then((response) => response.json())
       .then((data) => {
         // Find the item with the matching b_id
         const foundItem = data.find(
-          (item: BlogProps) => item._id === idToFetch
+          (item: NewsEvent) => item._id === idToFetch
         );
 
         if (foundItem) {
           // If the item is found, you can format its date and set it to your state
           const date: Date = new Date(foundItem.date);
           const formattedDate: string = formatDate(date);
-          const formattedItem = { ...foundItem, formattedDate};
+          const formattedItem = { ...foundItem, formattedDate, date };
           const formattedDate2: string = formatDate2(date);
+
+          // var Datetest = formattedDate.replace(/ /g, "-")
           setDate(formattedDate2);
-          setData([formattedItem]);
+
+          setData([formattedItem]); // Place the item in an array as setData expects an array
         } else {
           // Handle the case where no item with the specified _id is found
           console.error(`Item with _id ${idToFetch} not found.`);
@@ -52,7 +74,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
 
   const fetchblog = async () => {
     try {
-      const res = await axios.get<BlogProps>(
+      const res = await axios.get<NewsEvent>(
         `http://localhost:8080/api/viewedit/${idToFetch}`
       );
 
@@ -65,6 +87,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
 
         const formattedDate2: string = formatDate2(date);
         data["formattedDate"] = formattedDate2;
+        // var Datetest = formattedDate.replace(/ /g, "-")
       }
 
       formik.setValues({
@@ -139,7 +162,8 @@ const ProductDetail = ({ params: { id } }: Params) => {
       month: "long",
       day: "numeric",
     };
-    return date.toLocaleDateString('en-US', options);
+    return date.toLocaleDateString(undefined, options);
+    // return date.toLocaleDateString('th-TH', options); // 'th-TH' is the locale for Thai language
   }
 
   function formatDate2(date = new Date()) {
@@ -153,7 +177,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
   }
 
   const itemIndex = 0;
-  const item: BlogProps = data[itemIndex];
+  const item: NewsEvent = data[itemIndex];
 
   const changeEdit = () => {
     setEdit(!edit);
@@ -173,47 +197,6 @@ const ProductDetail = ({ params: { id } }: Params) => {
     formik.setFieldValue("date", date);
     console.log(event.target.value);
   };
-  
-  const deletePicture = (key: any) => {
-    setSelectedImages(selectedImages.filter((e) => e !== key))
-    formik.setFieldValue("picture", selectedImages.filter((e) => e !== key));
-  }
-
-  const handleImage = async (
-    e: React.ChangeEvent<HTMLInputElement>,
-    setFieldValue: Function
-  ) => {
-    const fileList = e.target.files;
-    // console.log(fileList);
-    let pictureArray = [];
-    if (fileList) {
-      for (let i = 0; i < fileList.length; i++) {
-        console.log(fileList[i]);
-        if (fileList[i].size / 1024 / 1024 < 2) {
-          const base64 = await convertToBase64(fileList[i]);
-          pictureArray[i] = base64;
-        } else {
-          alert("Image size must be of 2MB or less");
-        }
-      }
-      setFieldValue("picture", pictureArray);
-      setSelectedImages(pictureArray);
-    }
-  };
-
-  const convertToBase64 = (file: File) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
   const formik = useFormik({
     initialValues: {
       topic: "",
@@ -232,11 +215,13 @@ const ProductDetail = ({ params: { id } }: Params) => {
 
       alert(JSON.stringify(values, null, 2));
       try {
+        alert("success");
         const data = values;
         console.log(data);
-        const res = await axios.post(`http://localhost:8080/api/newsup/${idToFetch}`,data);
-        alert("success");
-        location.reload();
+        const res = await axios.post(
+          `http://localhost:8080/api/newsup/${idToFetch}`,
+          data
+        );
       } catch (error) {
         alert(error);
       }
@@ -246,7 +231,6 @@ const ProductDetail = ({ params: { id } }: Params) => {
   useEffect(() => {
     fetchblog();
   }, []);
-
   return (
     <>
       <div className="flex w-full justify-center mt-10">
@@ -375,6 +359,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
       >
         {item ? (
           <form className="w-full">
+            <input type="text" name="b_id" id="b_id" value={item.b_id} hidden />
             <input
               type="text"
               name="status"
@@ -424,6 +409,24 @@ const ProductDetail = ({ params: { id } }: Params) => {
                       />
                     </div>
                   </div>
+                  {/* <div className="sm:col-span-4">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Undertaker
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        type="text"
+                        name="first-name"
+                        id="first-name"
+                        autoComplete="given-name"
+                        value={item.undertaker}
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                  </div> */}
                   <div className="sm:col-span-4">
                     <label
                       htmlFor="first-name"
@@ -509,54 +512,96 @@ const ProductDetail = ({ params: { id } }: Params) => {
                   </div>
 
                   <div className="col-span-full">
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        อัพโหลดรูป
-                      </label>
-                      <div className="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                        <div className='flex flex-wrap images'>
-                          {selectedImages &&
-                            selectedImages.map((image, index) => {
-                              return (
-                                <div key={image} className='image mr-3'>
-                                  <img src={image} className='max-h-72 mb-3 rounded-md' />
-                                  <button
-                                    type="button"
-                                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
-                                    onClick={() => {
-                                      deletePicture(image)
-                                    }}>
-                                    ลบรูปภาพ
-                                  </button>
-                                </div>
-                              )
-                            })}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600 justify-center">
-                          <label
-                            htmlFor="file-upload"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>อัพโหลดรูป</span>
-                            <input
-                              id="file-upload"
-                              name="file-upload"
-                              type="file"
-                              className="sr-only"
-                              multiple
-                              onChange={(e) => {
-                                handleImage(e, formik.setFieldValue);
-                              }}
-                            />
-                          </label>
-                        </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG ไม่เกิน 1 MB
-                        </p>
-                      </div>
+                    <label
+                      htmlFor="cover-photo"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Photo
+                    </label>
+                    <div className="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {item.picture.length === 0 ? (
+                        <>
+                          <div className="flex flex-wrap images">
+                            {selectedImages &&
+                              selectedImages.map((image, index) => {
+                                return (
+                                  <div key={image} className="image mr-3">
+                                    <img
+                                      src={image}
+                                      className="max-h-72 mb-3 rounded-md"
+                                    />
+                                    <button
+                                      type="button"
+                                      className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
+                                      onClick={() => {
+                                        setSelectedImages(
+                                          selectedImages.filter(
+                                            (e) => e !== image
+                                          )
+                                        );
+                                      }}
+                                    >
+                                      Delete Image
+                                    </button>
+                                  </div>
+                                );
+                              })}
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="flex flex-wrap images">
+                            {selectedImages &&
+                              selectedImages.map((image, index) => {
+                                return (
+                                  <div key={image} className="image mr-3">
+                                    <img
+                                      src={image}
+                                      className="max-h-72 mb-3 rounded-md"
+                                    />
+                                    <button
+                                      type="button"
+                                      className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
+                                      onClick={() => {
+                                        setSelectedImages(
+                                          selectedImages.filter(
+                                            (e) => e !== image
+                                          )
+                                        );
+                                      }}
+                                    >
+                                      Delete Image
+                                    </button>
+                                  </div>
+                                );
+                              })}
+                          </div>
+                        </>
+                      )}
                     </div>
-
+                    <div className="text-center">
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600 justify-center">
+                        <label
+                          htmlFor="file-upload"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="file-upload"
+                            name="file-upload"
+                            type="file"
+                            className="sr-only"
+                            multiple
+                            onChange={onSelectFile}
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        PNG, JPG, GIF up to 10MB
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -736,9 +736,9 @@ app.post("/api/create-news", async (req, res) => {
       e_location,
       category,
       status,
-
       picture,
     } = req.body;
+
     const blog = await db.collection("blog").insertOne({
       topic,
       e_topic,
@@ -751,6 +751,7 @@ app.post("/api/create-news", async (req, res) => {
       date,
       picture,
     });
+    
     res.json(blog);
   } catch (error) {
     console.error("Error:", error);
@@ -765,6 +766,7 @@ app.post("/api/newsup/:id", async (req, res) => {
     // Connect to MongoDB Atlas using the function from dbconnect.js
     const db = await connectToDatabase();
     const update1 = db.collection("blog");
+    const date = new Date(req.body.date);
 
     const result = await update1.updateOne(
       { _id: new ObjectId(id) },
@@ -776,6 +778,7 @@ app.post("/api/newsup/:id", async (req, res) => {
           e_detail: body.e_detail,
           location: body.location,
           e_location: body.e_location,
+          date: date,
         },
       }
     );

@@ -128,6 +128,7 @@ export default function Page({}: Props) {
               value={formik.values.detail}
             />
           </div>
+
           <div className="justify-center mt-5 w-1/4">
             <Textarea
               label="Detail (Eng)"
@@ -139,6 +140,7 @@ export default function Page({}: Props) {
               value={formik.values.e_detail}
             />
           </div>
+
           <div className="justify-center mt-5">
             <label className="">location</label>
             <input
@@ -151,6 +153,7 @@ export default function Page({}: Props) {
               value={formik.values.location}
             />
           </div>
+
           <div className="justify-center mt-5">
             <label className="">location(Eng)</label>
             <input
@@ -165,6 +168,7 @@ export default function Page({}: Props) {
               value={formik.values.e_location}
             />
           </div>
+
           <div className="justify-center mt-5 w-1/4">
             <label
               placeholder="ตำแหน่งทางวิชาการ (ภาษาไทย)"
@@ -195,6 +199,7 @@ export default function Page({}: Props) {
               <option value="coming">ยังมาไม่ถึง</option>
             </select>
           </div>
+
           <div className="justify-center mt-5 w-1/4">
             <label
               placeholder="ตำแหน่งทางวิชาการ (ภาษาไทย)"
@@ -216,6 +221,7 @@ export default function Page({}: Props) {
               <option value="event">event</option>
             </select>
           </div>
+          
           <div className="justify-center mt-5 w-1/4">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               อัพโหลดรูป

@@ -32,7 +32,7 @@ export default function Page() {
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
-    fetch('https://cs-project-ime1.vercel.app/api/news_events')
+    fetch('https://cs-project-ime1.vercel.app/api/news_eventsadmin')
       .then((response) => response.json())
       .then((data) => {
         // Convert date strings to Date objects and format them

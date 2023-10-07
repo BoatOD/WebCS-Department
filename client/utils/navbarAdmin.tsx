@@ -26,7 +26,7 @@ export const navItemsAdmin: navbar[] = [
       },
       {
         title: "Event",
-        href: "/admin/blog/events-edit",
+        href: "/admin/blog/event-edit",
       },
     ],
   },
