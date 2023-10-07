@@ -725,7 +725,7 @@ app.post("/api/create-news", async (req, res) => {
   console.log("connect success");
   const db = await connectToDatabase();
   const date = new Date(req.body.date);
-  console.log(date);
+  console.log(req.body.date);
   try {
     let {
       topic,
@@ -779,6 +779,9 @@ app.post("/api/newsup/:id", async (req, res) => {
           location: body.location,
           e_location: body.e_location,
           date: date,
+          picture: body.picture,
+          category: body.category,
+          status: body.status
         },
       }
     );

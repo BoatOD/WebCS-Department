@@ -36,9 +36,10 @@ const ProductDetail = ({ params: { id } }: Params) => {
           // If the item is found, you can format its date and set it to your state
           const date: Date = new Date(foundItem.date);
           const formattedDate: string = formatDate(date);
-          const formattedItem = { ...foundItem, formattedDate};
+          const formattedItem = { ...foundItem, formattedDate };
           const formattedDate2: string = formatDate2(date);
           setDate(formattedDate2);
+          setSelectedImages(formattedItem.picture)
           setData([formattedItem]);
         } else {
           // Handle the case where no item with the specified _id is found
@@ -170,10 +171,10 @@ const ProductDetail = ({ params: { id } }: Params) => {
 
   const onDate = (event: any) => {
     setDate(event.target.value);
-    formik.setFieldValue("date", date);
+    formik.setFieldValue("date", event.target.value);
     console.log(event.target.value);
   };
-  
+
   const deletePicture = (key: any) => {
     setSelectedImages(selectedImages.filter((e) => e !== key))
     formik.setFieldValue("picture", selectedImages.filter((e) => e !== key));
@@ -234,7 +235,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
       try {
         const data = values;
         console.log(data);
-        const res = await axios.post(`https://cs-project-ime1.vercel.app/api/newsup/${idToFetch}`,data);
+        const res = await axios.post(`https://cs-project-ime1.vercel.app/api/newsup/${idToFetch}`, data);
         alert("success");
         location.reload();
       } catch (error) {
@@ -310,7 +311,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
                   <div className="text-center items-center p-5">
                     <div className="flex justify-center items-center">
                       <Image
-                        src={`/blog${item.picture[0]}` ?? "#"}
+                        src={item.picture[0].length < 100 ? `/blog${item.picture[0]}` : `${item.picture[0]}`}
                         width="600"
                         height="0"
                         alt="news-image"
@@ -327,7 +328,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
                       >
                         <div className="flex justify-center items-center">
                           <Image
-                            src={`/blog${pic}` ?? "#"}
+                            src={item.picture[0].length < 100 ? `/blog${pic}` : `${pic}`}
                             width="300" // You can adjust the width as needed
                             height="0"
                             alt={`news-image-${index}`}
@@ -343,7 +344,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
                       <div key={index} className="w-1/3 p-1">
                         <div className="text-center items-center">
                           <Image
-                            src={`/blog${pic}` ?? "#"}
+                            src={item.picture[0].length < 100 ? `/blog${pic}` : `${pic}`}
                             width="300" // You can adjust the width as needed
                             height="0"
                             alt={`news-image-${index}`}
@@ -489,6 +490,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
                       />
                     </div>
                   </div>
+
                   <div className="col-span-full">
                     <label
                       htmlFor="about"
@@ -509,53 +511,96 @@ const ProductDetail = ({ params: { id } }: Params) => {
                   </div>
 
                   <div className="col-span-full">
-                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        อัพโหลดรูป
-                      </label>
-                      <div className="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                        <div className='flex flex-wrap images'>
-                          {selectedImages &&
-                            selectedImages.map((image, index) => {
-                              return (
-                                <div key={image} className='image mr-3'>
-                                  <img src={image} className='max-h-72 mb-3 rounded-md' />
-                                  <button
-                                    type="button"
-                                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
-                                    onClick={() => {
-                                      deletePicture(image)
-                                    }}>
-                                    ลบรูปภาพ
-                                  </button>
-                                </div>
-                              )
-                            })}
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600 justify-center">
-                          <label
-                            htmlFor="file-upload"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                          >
-                            <span>อัพโหลดรูป</span>
-                            <input
-                              id="file-upload"
-                              name="file-upload"
-                              type="file"
-                              className="sr-only"
-                              multiple
-                              onChange={(e) => {
-                                handleImage(e, formik.setFieldValue);
-                              }}
-                            />
-                          </label>
-                        </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG ไม่เกิน 1 MB
-                        </p>
+                    <label
+                      placeholder="ตำแหน่งทางวิชาการ (ภาษาไทย)"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      สถานะ
+                    </label>
+
+                    <select
+                      name="status"
+                      onChange={formik.handleChange}
+                      value={formik.values.status}
+                      id="status"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                      <option selected>เลือกสถานะ</option>
+                      <option value="pass"> ผ่านไปแล้ว</option>
+                      <option value="coming">ยังมาไม่ถึง</option>
+                    </select>
+                  </div>
+
+                  <div className="col-span-full">
+                    <label
+                      placeholder="ตำแหน่งทางวิชาการ (ภาษาไทย)"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      หมวด
+                    </label>
+                    <select
+                      name="category"
+                      onChange={formik.handleChange}
+                      value={formik.values.category}
+                      id="category"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                      <option selected>ประเภท</option>
+                      <option value="announcement"> announcement</option>
+                      <option value="training course">training course</option>
+                      <option value="congratulation"> congratulation</option>
+                      <option value="event">event</option>
+                    </select>
+                  </div>
+                  
+                  <div className="col-span-full">
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      อัพโหลดรูป
+                    </label>
+                    <div className="mt-2 flex flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className='flex flex-wrap images'>
+                        {selectedImages &&
+                          selectedImages.map((image, index) => {
+                            return (
+                              <div key={image} className='image mr-3'>
+                                <img src={image.length < 100 ? `/blog${image}` : `${image}`} className='max-h-72 mb-3 rounded-md' />
+                                <button
+                                  type="button"
+                                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 mb-3"
+                                  onClick={() => {
+                                    deletePicture(image)
+                                  }}>
+                                  ลบรูปภาพ
+                                </button>
+                              </div>
+                            )
+                          })}
                       </div>
                     </div>
+                    <div className="text-center">
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600 justify-center">
+                        <label
+                          htmlFor="file-upload"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>อัพโหลดรูป</span>
+                          <input
+                            id="file-upload"
+                            name="file-upload"
+                            type="file"
+                            className="sr-only"
+                            multiple
+                            onChange={(e) => {
+                              handleImage(e, formik.setFieldValue);
+                            }}
+                          />
+                        </label>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        PNG, JPG ไม่เกิน 1 MB
+                      </p>
+                    </div>
+                  </div>
 
                 </div>
               </div>

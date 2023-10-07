@@ -61,6 +61,7 @@ export default function News() {
 
   const onDate = (event: any) => {
     setDate(event.target.value)
+    formik.setFieldValue("date", event.target.value)
     console.log(event.target.value)
   }
 
@@ -297,7 +298,7 @@ export default function News() {
                       >
                         วัน/เดือน/ปี ที่จัดกิจจกรรม
                       </label>
-                      <input type="date" onChange={onDate} value={date} />
+                      <input type="date" name="date" id="date" onChange={onDate} value={formik.values.date} />
                     </div>
 
                     <div className="justify-center mt-5 w-1/4">

@@ -203,7 +203,7 @@ const NewsDetail = ({ params: { id } }: Params) => {
                         <div key={index} className="text-center items-center p-5 px-2">
                           <div className="flex justify-center items-center">
                             <Image
-                              src={`/blog${pic}` ?? "#"}
+                              src={item.picture[0].length < 100 ? `/blog${pic}` : `${pic}`}
                               width="300" // You can adjust the width as needed
                               height="0"
                               alt={`news-image-${index}`}
@@ -219,7 +219,7 @@ const NewsDetail = ({ params: { id } }: Params) => {
                         <div key={index} className="w-1/3 p-1">
                           <div className="text-center items-center">
                             <Image
-                              src={`/blog${pic}` ?? "#"}
+                              src={item.picture[0].length < 100 ? `/blog${pic}` : `${pic}`}
                               width="300" // You can adjust the width as needed
                               height="0"
                               alt={`news-image-${index}`}
