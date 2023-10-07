@@ -55,7 +55,7 @@ export default function Course_2({ }: Props) {
             {data
               .filter((item) => item.e_name === "Intelligent data analysis by machine learning techniques for advanced learners. Python programming (Python) is used.")
               .map((item) => (
-                <div className="p-5">
+                <div className="p-5" key={item._id}>
                   <h1 className="text-2xl font-bold">2. {locale === "en" ? item.e_name : item.name}</h1>
                   <br />
                   <table className="w-full">

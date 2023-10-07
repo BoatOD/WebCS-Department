@@ -55,7 +55,7 @@ export default function Course_4({ }: Props) {
             {data
               .filter((item) => item.name === "การวิเคราะห์ข้อมูลพื้นฐานด้วยเทคนิคการเรียนรู้ของเครื่องสำหรับงานประยุกต์ด้านชีวสารสนเทศศาสตร์")
               .map((item) => (
-                <div className="p-5">
+                <div className="p-5" key={item._id}>
                   <h1 className="text-2xl font-bold">4. {locale === "en" ? item.e_name : item.name}</h1>
                   <br />
                   <table className="w-full">

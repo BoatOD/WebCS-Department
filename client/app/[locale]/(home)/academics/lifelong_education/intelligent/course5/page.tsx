@@ -55,7 +55,7 @@ export default function Course_5({ }: Props) {
             {data
               .filter((item) => item.e_name === "Intelligent data analysis for intermediate learners utilizing machine learning techniques and Orange data mining toolbox MODULE 1 : Data analysis applications using Data Mining Tools.")
               .map((item) => (
-                <div className="p-5">
+                <div className="p-5" key={item._id}>
                   <h1 className="text-2xl font-bold">5. {locale === "en" ? item.e_name : item.name}</h1>
                   <br />
                   <table className="w-full">

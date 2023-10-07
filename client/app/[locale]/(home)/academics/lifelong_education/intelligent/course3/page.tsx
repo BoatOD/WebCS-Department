@@ -55,7 +55,7 @@ export default function Course_3({ }: Props) {
             {data
               .filter((item) => item.e_name === "Data analysis and visualization for beginners with Google Data Studio.")
               .map((item) => (
-                <div className="p-5">
+                <div className="p-5" key={item._id}>
                   <h1 className="text-2xl font-bold">3. {locale === "en" ? item.e_name : item.name}</h1>
                   <br />
                   <table className="w-full">
