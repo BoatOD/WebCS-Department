@@ -1,15 +1,45 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 type Props = {}
 
+interface LifelongIntelligent {
+  _id: string;
+  app_fee: number;
+  cu_no: number;
+  reg_link: string;
+  university_fee: number;
+  application_period: string;
+  studying_time: string;
+  name: string;
+  e_application_period: string;
+  e_name: string;
+  e_studying_time: string;
+  detail: {
+    [key: string]: any[];
+  };
+  e_detail: {
+    [key: string]: any[];
+  };
+}
+
+
 export default function Intelligent({ }: Props) {
   const l = useTranslations("lifelong");
+  const locale = useLocale();
+  const [data, setData] = useState<LifelongIntelligent[]>([]);
+  useEffect(() => {
+    // Fetch data from the backend API when the component mounts
+    fetch("https://cs-project-ime1.vercel.app/api/lifelong_intelligent", { cache: 'force-cache' })
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <>
       <Banner
@@ -30,17 +60,17 @@ export default function Intelligent({ }: Props) {
               <div className="bg-[#F2D4B0] h-full m-6 p-6 mr-16">
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                  {l("title147")}
+                    {l("title147")}
                   </span>
                 </p>
                 <p className='mb-2'>
                   <span className="ml-[1rem]">
-                  {l("title148")}
+                    {l("title148")}
                   </span>
                 </p>
                 <p>
                   <span className="ml-[1rem]">
-                  {l("title149")}
+                    {l("title149")}
                   </span>
                 </p>
               </div>
@@ -50,21 +80,48 @@ export default function Intelligent({ }: Props) {
                 <thead className="text-lg text-black uppercase bg-[#F29D35]">
                   <tr>
                     <th scope="col" className="px-1 md:px-6 py-3 text-center">
-                    {l("title14")}
+                      {l("title14")}
                     </th>
                     <th scope="col" className="px-1 md:px-6 py-3 text-center">
-                    {l("title13")}
+                      {l("title13")}
                     </th>
                     <th scope="col" className="px-1 md:px-6 py-3 text-center">
-                    {l("title151")}
+                      {l("title151")}
                     </th>
                     <th scope="col" className="px-1 md:px-6 py-3 text-center">
-                    {l("title152")}
+                      {l("title152")}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white border-b text-black">
+                  {data.map((item, index) => (
+                    <tr
+                      key={item._id}
+                      className={`bg-${index % 2 === 0 ? 'white' : '[#F6BA70]'} border-b text-black`}
+                    >
+                      <td className="px-1 md:px-6 py-4">
+                        {index + 1}. {locale === "en" ? item.e_name : item.name}
+                      </td>
+                      <td className="px-1 md:px-6 py-4 text-center">
+                        {item.app_fee === -1 ? l("title154") : (locale === "en" ? `${item.app_fee}.- baht` : `${item.app_fee}.- บาท`)}
+                      </td>
+                      <td className="px-1 md:px-6 py-4 text-center">
+                        {locale === "en" ? `${item.university_fee}.- baht` : `${item.university_fee}.- บาท`}
+                      </td>
+                      <td className="px-1 md:px-6 py-4 text-center">
+                        {item.reg_link === "Coming soon" ? (
+                          <>
+                            {l("title154")}
+                          </>
+                        ) : (
+                          <a href={item.reg_link} className='underline' target='_blank'>
+                            {l("title20")}
+                          </a>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                  {/* <tr className="bg-white border-b text-black">
                     <td className="px-1 md:px-6 py-4">
                     {l("title68")}
                     </td>
@@ -189,7 +246,7 @@ export default function Intelligent({ }: Props) {
                     <td className="px-1 md:px-6 py-4 text-center">
                       <a href='https://cmu.to/000267' className='underline'>https://cmu.to/000267</a>
                     </td>
-                  </tr>
+                  </tr> */}
 
                 </tbody>
               </table>

@@ -1,15 +1,43 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
 
 import Sidebar1 from "@/components/Sidebar1";
 import { sidebarItem } from '@/app/[locale]/(home)/academics/lifelong_education/sidebarData'
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 type Props = {}
+interface LifelongIntelligent {
+  _id: string;
+  app_fee: number;
+  cu_no: number;
+  reg_link: string;
+  university_fee: number;
+  application_period: string;
+  studying_time: string[];
+  name: string;
+  e_application_period: string;
+  e_name: string;
+  e_studying_time: string[];
+  detail: {
+    [key: string]: any[];
+  };
+  e_detail: {
+    [key: string]: any[];
+  };
+}
 
 export default function Course_7({ }: Props) {
   const l = useTranslations("lifelong");
+  const locale = useLocale();
+  const [data, setData] = useState<LifelongIntelligent[]>([]);
+  useEffect(() => {
+    // Fetch data from the backend API when the component mounts
+    fetch("https://cs-project-ime1.vercel.app/api/lifelong_intelligent", { cache: 'force-cache' })
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <>
       <Banner
@@ -24,46 +52,82 @@ export default function Course_7({ }: Props) {
             <div className="px-8 py-0.5 bg-black w-full "></div>
           </div>
           <div className="p-1 pt-3 ">
-            <div className="p-5">
-              <h1 className="text-2xl font-bold">{l("title139")}</h1>
-              <br />
-              <table className="w-full">
-                <tbody>
-                  <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
-                    {l("title40")}
-                    </th>
-                    <td className="bg-white text-black px-1 md:px-6">
-                    {l("title86")}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
-                    {l("title42")}
-                    </th>
-                    <td className="bg-white text-black px-1 md:px-6">
-                    {l("title87")}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
-                    {l("title44")}
-                    </th>
-                    <td className="bg-white text-black px-1 md:px-6">
-                    {l("title143")}
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
-                    {l("title44")}
-                    </th>
-                    <td className="bg-white text-black px-1 md:px-6">
-                    {l("title88")}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            {data
+              .filter((item) => item.e_name === "Intelligent data analysis for intermediate learners utilizing machine learning techniques and Orange data mining toolbox MODULE1 and MODULE2.")
+              .map((item) => (
+                <div className="p-5">
+                  <h1 className="text-2xl font-bold">7. {locale === "en" ? item.e_name : item.name}</h1>
+                  <br />
+                  <table className="w-full">
+                    <tbody>
+                      <tr>
+                        <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                          {l("title40")}
+                        </th>
+                        <td className="bg-white text-black px-1 md:px-6">
+                          {locale === "en" ? item.e_application_period : item.application_period}
+                        </td>
+                      </tr>
+                      {locale === "en"
+                        ? item.e_studying_time.map((time, index) => (
+                          <tr key={index}>
+                            <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                              {l(`title${162 + index}`)}
+                            </th>
+                            <td className="bg-white text-black px-1 md:px-6">
+                              {time}
+                            </td>
+                          </tr>
+                        ))
+                        : item.studying_time.map((time, index) => (
+                          <tr key={index}>
+                            <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                              {l(`title${162 + index}`)}
+                            </th>
+                            <td className="bg-white text-black px-1 md:px-6">
+                              {time}
+                            </td>
+                          </tr>
+                        ))}
+                      <tr>
+                        <th scope="row" className="px-1 md:px-6 py-4 whitespace-nowrap text-center bg-[#F29D35] font-bold">
+                          {l("title44")}
+                        </th>
+                        <td className="bg-white text-black px-1 md:px-6">
+                          {item.reg_link === "Coming soon" ? (
+                            <>
+                              {l("title154")}
+                            </>
+                          ) : (
+                            <a href={item.reg_link} className='underline' target='_blank'>
+                              {l("title20")}
+                            </a>
+                          )}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  {item.detail && (
+                    <ul className="list-disc pl-6">
+                      {Object.keys(item.detail).map((key) => (
+                        <li key={key} className="mb-2">
+                          {key}
+                          {Array.isArray(item.detail[key]) && item.detail[key].length > 0 && (
+                            <ul className="list-disc pl-6">
+                              {item.detail[key].map((item) => (
+                                <li key={item} className="mb-2">
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                </div>
+              ))}
           </div>
         </div>
         <div className="w-full md:w-1/3 order-first md:order-last ">
