@@ -78,7 +78,7 @@ export default function page({}: Props) {
               placeholder="country"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              ตำแหน่ง (ภาษาไทย) (หากมีหลายตำแหน่งให้คั่นด้วย " , " )
+              ตำแหน่ง (ภาษาไทย) (หากมีหลายตำแหน่งให้คั่นด้วย &quot; , &quot; )
             </label>
             <input
               type="text"
@@ -96,7 +96,7 @@ export default function page({}: Props) {
               placeholder="country"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              ตำแหน่ง (Eng) (หากมีหลายตำแหน่งให้คั่นด้วย " , " )
+              ตำแหน่ง (Eng) (หากมีหลายตำแหน่งให้คั่นด้วย &quot; , &quot; )
             </label>
             <input
               type="text"
@@ -252,7 +252,7 @@ export default function page({}: Props) {
               placeholder="country"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              เบอร์โทรศัพท์ (หากมีหลายเบอร์ให้คั่นด้วย " , " )
+              เบอร์โทรศัพท์ (หากมีหลายเบอร์ให้คั่นด้วย &quot; , &quot; )
             </label>
             <input
               onChange={formik.handleChange}
@@ -270,7 +270,7 @@ export default function page({}: Props) {
               placeholder="country"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Email (หากมีหลาย email ให้คั่นด้วย " , " )
+              Email (หากมีหลาย email ให้คั่นด้วย &quot; , &quot; )
             </label>
             <input
               type="text"
