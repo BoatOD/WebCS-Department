@@ -7,7 +7,7 @@ import React from "react";
 
 type Props = {};
 
-export default function page({}: Props) {
+export default function Page({}: Props) {
   const convertToBase64 = (file: any) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
