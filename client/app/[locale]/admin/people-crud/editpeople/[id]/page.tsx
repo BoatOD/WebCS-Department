@@ -18,7 +18,7 @@ import CreateModal from "@/components/admin/CreateMoal";
 type Props = {};
 
 const Page = ({ params }: { params: { id: string } }) => {
-  const [tel, setTel] = useState<arr>([]);
+  const [tel, setTel] = useState<any>([]);
   const [email, setEmail] = useState<any>([]);
   const [position, setPosition] = useState<any>([]);
   const [e_position, setE_position] = useState<any>([]);
