@@ -45,7 +45,7 @@ export default function PeopleForm() {
         e_position: [...e_position],
       };
       try {
-        const res = await axios.post(`http://localhost:8080/people`, data);
+        const res = await axios.post(`https://cs-project-ime1.vercel.app/people`, data);
         console.log(res.data);
         formik.resetForm();
         setTel([]);

@@ -17,7 +17,7 @@ export default function Page({}: Props) {
   };
 
   const cancel = async () => {
-    window.location.href = "http://localhost:3000/admin/blog/news-edit"
+    window.location.href = "https://cs-project-taupe.vercel.app/admin/blog/news-edit"
   };
   const handleImage = async (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -75,11 +75,11 @@ export default function Page({}: Props) {
         const data = values;
         console.log(data);
         const res = await axios.post(
-          `http://localhost:8080/api/create-news`,
+          `https://cs-project-ime1.vercel.app/api/create-news`,
           data
         );
         formik.resetForm();
-        // window.location.href = "http://localhost:3000/admin/people-crud";
+        // window.location.href = "https://cs-project-taupe.vercel.app/admin/people-crud";
       } catch (error) {
         alert(error);
       }

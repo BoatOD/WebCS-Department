@@ -127,13 +127,13 @@ export default function News() {
         const data = values;
         console.log(data);
         const res = await axios.post(
-          `http://localhost:8080/api/create-news`,
+          `https://cs-project-ime1.vercel.app/api/create-news`,
           data
         );
         formik.resetForm();
         // setEdit(!edit);
         location.reload();
-        // window.location.href = "http://localhost:3000/admin/people-crud";
+        // window.location.href = "https://cs-project-taupe.vercel.app/admin/people-crud";
       } catch (error) {
         alert(error);
       }

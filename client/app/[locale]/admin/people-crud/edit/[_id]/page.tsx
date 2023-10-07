@@ -12,7 +12,7 @@ export default function Page({ params }: { params: { _id: string } }) {
   const fetchPeople = async () => {
     try {
       const res = await axios.get<PeoplePropsadmin>(
-        `http://localhost:8080/api/people/${params._id}`
+        `https://cs-project-ime1.vercel.app/api/people/${params._id}`
       );
       const data = res.data;
       formik.setValues({
@@ -85,11 +85,11 @@ export default function Page({ params }: { params: { _id: string } }) {
         const data = values;
         console.log(data);
         const res = await axios.post(
-          `http://localhost:8080/api/people/update/${params._id}`,
+          `https://cs-project-ime1.vercel.app/api/people/update/${params._id}`,
           data
         );
         formik.resetForm();
-        window.location.href = "http://localhost:3000/admin/people-crud";
+        window.location.href = "https://cs-project-taupe.vercel.app/admin/people-crud";
       } catch (error) {
         alert(error);
       }

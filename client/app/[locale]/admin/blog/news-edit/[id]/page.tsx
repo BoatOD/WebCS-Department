@@ -53,7 +53,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
   const fetchblog = async () => {
     try {
       const res = await axios.get<BlogProps>(
-        `http://localhost:8080/api/viewedit/${idToFetch}`
+        `https://cs-project-ime1.vercel.app/api/viewedit/${idToFetch}`
       );
 
       const data = res.data;
@@ -234,7 +234,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
       try {
         const data = values;
         console.log(data);
-        const res = await axios.post(`http://localhost:8080/api/newsup/${idToFetch}`,data);
+        const res = await axios.post(`https://cs-project-ime1.vercel.app/api/newsup/${idToFetch}`,data);
         alert("success");
         location.reload();
       } catch (error) {
