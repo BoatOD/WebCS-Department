@@ -54,7 +54,7 @@ export default function News() {
   });
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/news_eventsadmin')
+    fetch('https://cs-project-ime1.vercel.app/api/news_eventsadmin')
       .then((response) => response.json())
       .then((data) => {
         const formattedData: BlogProps[] = data.map((item: BlogProps) => {
