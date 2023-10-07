@@ -8,8 +8,9 @@ import Link from "next/link";
 import axios from "axios";
 import { useFormik } from "formik";
 import { PeoplePropsadmin } from "@/types/peopleadmin";
+import { PeopleProps } from "@/types/people";
 
-export default function PeopleList({ data }: { data: PeoplePropsadmin[] }) {
+export default function PeopleList({ data }: { data: PeopleProps[] }) {
   const UserDelete = async (id: any) => {
     console.log(id);
 
