@@ -185,12 +185,12 @@ const ProductDetail = ({ params: { id } }: Params) => {
   ) => {
     const fileList = e.target.files;
     // console.log(fileList);
-    let pictureArray = [];
+    let pictureArray: string[] = [];
     if (fileList) {
       for (let i = 0; i < fileList.length; i++) {
         console.log(fileList[i]);
         if (fileList[i].size / 1024 / 1024 < 2) {
-          const base64 = await convertToBase64(fileList[i]);
+          const base64 = await convertToBase64(fileList[i]) as string;
           pictureArray[i] = base64;
         } else {
           alert("Image size must be of 2MB or less");
