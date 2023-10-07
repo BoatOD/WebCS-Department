@@ -1,5 +1,6 @@
 "use client";
-import { PeopleProps } from "@/types/people";
+
+import { PeoplePropsadmin } from "@/types/peopleadmin";
 import { Button } from "@nextui-org/react";
 import axios from "axios";
 import { useFormik } from "formik";
@@ -10,7 +11,7 @@ type Props = {};
 export default function Page({ params }: { params: { _id: string } }) {
   const fetchPeople = async () => {
     try {
-      const res = await axios.get<PeopleProps>(
+      const res = await axios.get<PeoplePropsadmin>(
         `http://localhost:8080/api/people/${params._id}`
       );
       const data = res.data;
