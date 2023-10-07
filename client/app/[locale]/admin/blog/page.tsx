@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import Image from 'next/image';
+import { Button } from '@nextui-org/react';
+import { TrashIcon } from '@heroicons/react/24/outline';
 
 interface NewsEvent {
   _id: string;

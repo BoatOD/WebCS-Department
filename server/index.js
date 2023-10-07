@@ -11,7 +11,7 @@ app.use(cors());
 const connectToDatabase = require("./dbconnect");
 
 const bodyparser = require("body-parser");
-const { ObjectId } = require("mongodb");
+const { ObjectId, Timestamp } = require("mongodb");
 app.use(bodyparser.json({ limit: "50mb" }));
 
 app.get("/api/lecturers", async (req, res) => {
@@ -21,9 +21,7 @@ app.get("/api/lecturers", async (req, res) => {
 
     // Access a collection and retrieve data
     const collection = db.collection("people");
-    const lecturers = await collection
-      .find({ job_type: "L" })
-      .toArray();
+    const lecturers = await collection.find({ job_type: "L" }).toArray();
 
     res.json(lecturers);
   } catch (error) {
@@ -135,7 +133,7 @@ app.get("/api/lifelong_intelligent", async (req, res) => {
 
     // Access a collection and retrieve data
     const collection = db.collection("lifelong");
-    const lifelong_intelligent = await collection.find({cu_no: 7}).toArray();
+    const lifelong_intelligent = await collection.find({ cu_no: 7 }).toArray();
 
     res.json(lifelong_intelligent);
   } catch (error) {
@@ -151,7 +149,9 @@ app.get("/api/lifelong_cryptocurrency", async (req, res) => {
 
     // Access a collection and retrieve data
     const collection = db.collection("lifelong");
-    const lifelong_cryptocurrency = await collection.find({cu_no: 8}).toArray();
+    const lifelong_cryptocurrency = await collection
+      .find({ cu_no: 8 })
+      .toArray();
 
     res.json(lifelong_cryptocurrency);
   } catch (error) {
@@ -257,9 +257,7 @@ app.get("/api/study_plan", async (req, res) => {
 
     // Access a collection and retrieve data
     const collection = db.collection("undergraduate");
-    const result = await collection
-      .aggregate(aggregationPipeline)
-      .toArray();
+    const result = await collection.aggregate(aggregationPipeline).toArray();
 
     res.json(result);
   } catch (error) {
@@ -318,9 +316,7 @@ app.get("/api/research", async (req, res) => {
 
     // Access a collection and retrieve data
     const collection = db.collection("research");
-    const result = await collection
-      .aggregate(aggregationPipeline)
-      .toArray();
+    const result = await collection.aggregate(aggregationPipeline).toArray();
 
     res.json(result);
   } catch (error) {
@@ -358,7 +354,7 @@ app.get("/api/peopleadmin", async (req, res) => {
 
     // Access a collection and retrieve data
     const peopleCollection = db.collection("people");
-    const people = await peopleCollection.find({}).toArray();
+    const people = await peopleCollection.find({}).sort({ e_id: 1 }).toArray();
 
     res.json(people);
   } catch (error) {
@@ -374,7 +370,7 @@ app.get("/api/news_eventsadmin", async (req, res) => {
 
     // Access a collection and retrieve data
     const collection = db.collection("blog");
-    const news_events = await collection.find({}).sort({date:-1}).toArray();
+    const news_events = await collection.find({}).sort({ date: -1 }).toArray();
 
     res.json(news_events);
   } catch (error) {
@@ -721,6 +717,94 @@ app.post("/api/peopleadd", async (req, res) => {
     res.json(people);
   } catch (error) {
     console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.post("/api/create-news", async (req, res) => {
+  console.log("connect success");
+  const db = await connectToDatabase();
+  const date = new Date(req.body.date);
+  console.log(date);
+  try {
+    let {
+      topic,
+      e_topic,
+      detail,
+      e_detail,
+      location,
+      e_location,
+      category,
+      status,
+
+      picture,
+    } = req.body;
+    const blog = await db.collection("blog").insertOne({
+      topic,
+      e_topic,
+      detail,
+      e_detail,
+      location,
+      e_location,
+      category,
+      status,
+      date,
+      picture,
+    });
+    res.json(blog);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.post("/api/newsup/:id", async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  try {
+    // Connect to MongoDB Atlas using the function from dbconnect.js
+    const db = await connectToDatabase();
+    const update1 = db.collection("blog");
+
+    const result = await update1.updateOne(
+      { _id: new ObjectId(id) },
+      {
+        $set: {
+          topic: body.topic,
+          e_topic: body.e_topic,
+          detail: body.detail,
+          e_detail: body.e_detail,
+          location: body.location,
+          e_location: body.e_location,
+        },
+      }
+    );
+
+    if (result.modifiedCount === 1) {
+      return res.json({ success: true });
+    } else {
+      return res.status(404).json({ error: "Document not found" });
+    }
+  } catch (error) {
+    console.error("Error updating document:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/viewedit/:id", async (req, res) => {
+  // console.log("connect view");
+  const { id } = req.params;
+  try {
+    const db = await connectToDatabase();
+
+    const blogCollection = db.collection("blog");
+    const blog = await blogCollection.findOne({
+      _id: new ObjectId(id),
+    });
+
+    res.json(blog);
+  } catch (error) {
+    console.error("Error fetching data from MongoDB Atlas:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

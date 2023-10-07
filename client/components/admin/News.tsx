@@ -3,6 +3,8 @@ import { BlogProps } from "@/types/blog";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from 'next-intl';
+import { TrashIcon } from "@heroicons/react/24/outline";
+import { Button } from "@nextui-org/react";
 
 export default function BlogList({ data }: { data: BlogProps[] }) {
     const locale = useLocale();
@@ -43,10 +45,15 @@ export default function BlogList({ data }: { data: BlogProps[] }) {
                                         // query: { id: item._id, topic: item.topic, detail: item.detail },
                                     }}
                                         className="hover:underline">
-                                        <div className="font-medium flex justify-between">
-                                            <span className="text-left">
-                                                {item.formattedDate} {/* Display the formatted date */}
-                                            </span>
+                                        <div className="font-medium flex justify-between items-center">
+                                            <div className="">
+                                                <span className="text-left">
+                                                    {item.formattedDate} {/* Display the formatted date */}
+                                                </span>
+                                                <Button isIconOnly color="danger" size="sm" >
+                                                    <TrashIcon className="w-5 h-5" />
+                                                </Button>
+                                            </div>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"

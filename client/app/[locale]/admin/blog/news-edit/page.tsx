@@ -39,7 +39,7 @@ export default function News() {
     }),
     onSubmit: async (values) => {
       const data = { ...values };
-      console.log(data.picture);
+      console.log(values);
       // try {
       //   const res = await axios.post(`http://localhost:8080/people`, data);
       //   console.log(res.data);
@@ -118,16 +118,17 @@ export default function News() {
     let pictureArray = [];
     if (fileList){
       for (let i = 0; i < fileList.length; i++) {
-        console.log(fileList[i]);
+        // console.log(fileList[i]);
         if (fileList[i].size / 1024 / 1024 < 2) {
           const base64 = await convertToBase64(fileList[i]);
           pictureArray[i] = base64;
+          setFieldValue(`picture${i}`, pictureArray);
 
         } else {
           alert("Image size must be of 2MB or less");
         }
       }
-      setFieldValue("picture", pictureArray);
+      
     }
   };
 

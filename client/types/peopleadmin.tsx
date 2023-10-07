@@ -1,5 +1,4 @@
-export type PeopleProps = {
-  [x: string]: any;
+export type PeoplePropsadmin = {
   _id: string;
   picture: string;
   affiliation: string;
@@ -7,10 +6,10 @@ export type PeopleProps = {
   name: string;
   e_title: string;
   e_name: string;
-  tel: string[];
-  email: string[];
-  position: string[];
-  e_position: string[];
+  tel: string;
+  email: string;
+  position: string;
+  e_position: string;
   job_type: string;
   e_id: string;
   personal_web: string;

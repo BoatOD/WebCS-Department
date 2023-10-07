@@ -3,13 +3,13 @@
 import NavbarAdmin from "@/components/admin/NavbarAdmin";
 import PeopleList from "@/components/admin/PeopleList";
 import RemovePeople from "@/components/admin/RemovePeople";
-import { PeopleProps } from "@/types/people";
+import { PeoplePropsadmin } from "@/types/peopleadmin";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { HiPencilAlt } from "react-icons/hi";
 
 export default function Page() {
-  const [data, setData] = useState<PeopleProps[]>([]);
+  const [data, setData] = useState<PeoplePropsadmin[]>([]);
 
   useEffect(() => {
     // Fetch data from the backend API when the component mounts
