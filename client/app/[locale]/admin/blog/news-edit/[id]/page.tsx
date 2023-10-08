@@ -307,7 +307,16 @@ const ProductDetail = ({ params: { id } }: Params) => {
 
                 <div className="border-b border-black mt-10"></div>
 
-                {item.picture.length === 1 ? (
+                {item.picture.length === 0 ? (
+                  <Image
+                    src="/#"
+                    width="250"
+                    height="0"
+                    sizes="100vm"
+                    alt=""
+                    className="object-cover h-52 ml-auto mr-auto md:flex"
+                  />
+                ) : item.picture.length === 1 ? (
                   <div className="text-center items-center p-5">
                     <div className="flex justify-center items-center">
                       <Image
@@ -328,7 +337,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
                       >
                         <div className="flex justify-center items-center">
                           <Image
-                            src={item.picture[0].length < 100 ? `/blog${pic}` : `${pic}`}
+                            src={item.picture[index].length < 100 ? `/blog${pic}` : `${pic}`}
                             width="300" // You can adjust the width as needed
                             height="0"
                             alt={`news-image-${index}`}
@@ -344,7 +353,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
                       <div key={index} className="w-1/3 p-1">
                         <div className="text-center items-center">
                           <Image
-                            src={item.picture[0].length < 100 ? `/blog${pic}` : `${pic}`}
+                            src={item.picture[index].length < 100 ? `/blog${pic}` : `${pic}`}
                             width="300" // You can adjust the width as needed
                             height="0"
                             alt={`news-image-${index}`}
@@ -552,7 +561,7 @@ const ProductDetail = ({ params: { id } }: Params) => {
                       <option value="event">event</option>
                     </select>
                   </div>
-                  
+
                   <div className="col-span-full">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                       อัพโหลดรูป

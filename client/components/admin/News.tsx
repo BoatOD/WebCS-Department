@@ -23,6 +23,8 @@ export default function BlogList({ data }: { data: BlogProps[] }) {
     }
   }
 
+  console.log(data)
+
   const UserDelete = async (id: any) => {
     // console.log(id);
 
@@ -55,14 +57,26 @@ export default function BlogList({ data }: { data: BlogProps[] }) {
             >
               <div className="md:flex">
                 <div className="md:shrink-0 sm:mr-5">
-                  <Image
-                    src={item.picture[0].length < 100 ? `/blog${item.picture[0]}` : `${item.picture[0]}`}
+
+                  {item.picture.length === 0 ? (
+                    <Image 
+                    src="/#"
                     width="250"
                     height="0"
                     sizes="100vm"
                     alt=""
                     className="object-cover h-52 ml-auto mr-auto md:flex"
                   />
+                  ) : (
+                  <Image 
+                    src={item.picture[0].length < 100 ? `/blog${item.picture[0]}` : `${item.picture[0]}`}
+                    width="250"
+                    height="0"
+                    sizes="100vm"
+                    alt=""
+                    className="object-cover h-52 ml-auto mr-auto md:flex"
+                  />)}
+                  
                 </div>
                 <div className="pt-1 mt-2 text-center w-full h-48 overflow-hidden md:text-left">
                   <Link

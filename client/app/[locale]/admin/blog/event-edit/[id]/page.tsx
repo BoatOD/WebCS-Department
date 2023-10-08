@@ -307,7 +307,16 @@ const ProductDetail = ({ params: { id } }: Params) => {
 
                 <div className="border-b border-black mt-10"></div>
 
-                {item.picture.length === 1 ? (
+                {item.picture.length === 0 ? (
+                  <Image
+                    src="/#"
+                    width="250"
+                    height="0"
+                    sizes="100vm"
+                    alt=""
+                    className="object-cover h-52 ml-auto mr-auto md:flex"
+                  />
+                ) : item.picture.length === 1 ? (
                   <div className="text-center items-center p-5">
                     <div className="flex justify-center items-center">
                       <Image
