@@ -1,5 +1,3 @@
-// components/OutlookCalendarInvite.tsx
-
 import React from 'react';
 
 interface OutlookCalendarInviteProps {

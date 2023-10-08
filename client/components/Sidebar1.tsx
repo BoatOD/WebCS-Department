@@ -1,6 +1,5 @@
 "use client";
 import { useCallback } from "react";
-// import { sidebarItem } from "@/utils/sidebar";
 import { CustomFlowbiteTheme, Sidebar } from "flowbite-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { SidebarProps } from "@/types/sidebar";

@@ -6,7 +6,6 @@ import { sidebarItem } from '@/app/[locale]/(home)/news_events/sidebarData';
 import Sidebar1 from '@/components/Sidebar1';
 import Link from 'next/link'
 import { useLocale } from 'next-intl';
-import { useTranslations } from 'next-intl';
 
 
 interface NewsEvent {
@@ -118,7 +117,6 @@ export default function News() {
                 <div className="pt-1 mt-2 w-full h-48 overflow-hidden text-left">
                   <Link href={{
                     pathname: `/news_events/news/${item._id}`,
-                    // query: { id: item._id, topic: item.topic, detail: item.detail },
                   }}
                     className="hover:underline">
                     <div className="font-medium flex justify-between">

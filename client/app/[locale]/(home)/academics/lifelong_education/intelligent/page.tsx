@@ -26,6 +26,7 @@ interface LifelongIntelligent {
   e_detail: {
     [key: string]: any[];
   };
+  c_no: number[];
 }
 
 
@@ -94,33 +95,35 @@ export default function Intelligent({ }: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((item, index) => (
-                    <tr
-                      key={item._id}
-                      className={`bg-${index % 2 === 0 ? 'white' : '[#F6BA70]'} border-b text-black`}
-                    >
-                      <td className="px-1 md:px-6 py-4">
-                        {index + 1}. {locale === "en" ? item.e_name : item.name}
-                      </td>
-                      <td className="px-1 md:px-6 py-4 text-center">
-                        {item.app_fee === -1 ? l("title154") : (locale === "en" ? `${item.app_fee}.- baht` : `${item.app_fee}.- บาท`)}
-                      </td>
-                      <td className="px-1 md:px-6 py-4 text-center">
-                        {locale === "en" ? `${item.university_fee}.- baht` : `${item.university_fee}.- บาท`}
-                      </td>
-                      <td className="px-1 md:px-6 py-4 text-center">
-                        {item.reg_link === "Coming soon" ? (
-                          <>
-                            {l("title154")}
-                          </>
-                        ) : (
-                          <a href={item.reg_link} className='underline' target='_blank'>
-                            {l("title20")}
-                          </a>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
+                  {data
+                    .sort((a, b) => a.c_no[0] - b.c_no[0])
+                    .map((item, index) => (
+                      <tr
+                        key={item._id}
+                        className={`bg-${index % 2 === 0 ? 'white' : '[#F6BA70]'} border-b text-black`}
+                      >
+                        <td className="px-1 md:px-6 py-4">
+                          {index + 1}. {locale === "en" ? item.e_name : item.name}
+                        </td>
+                        <td className="px-1 md:px-6 py-4 text-center">
+                          {item.app_fee === -1 ? l("title154") : (locale === "en" ? `${item.app_fee}.- baht` : `${item.app_fee}.- บาท`)}
+                        </td>
+                        <td className="px-1 md:px-6 py-4 text-center">
+                          {locale === "en" ? `${item.university_fee}.- baht` : `${item.university_fee}.- บาท`}
+                        </td>
+                        <td className="px-1 md:px-6 py-4 text-center">
+                          {item.reg_link === "Coming soon" ? (
+                            <>
+                              {l("title154")}
+                            </>
+                          ) : (
+                            <a href={item.reg_link} className='underline' target='_blank'>
+                              {l("title20")}
+                            </a>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
                   {/* <tr className="bg-white border-b text-black">
                     <td className="px-1 md:px-6 py-4">
                     {l("title68")}

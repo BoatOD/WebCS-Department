@@ -1,13 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import Banner from '@/components/Banner';
-
-import { ResearchAccordionProps } from "@/types/accordion";
 import Image from 'next/image';
 
 import { SidebarProps } from "@/types/sidebar";
 import Sidebar1 from "@/components/Sidebar1";
-import { useLocale,useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 type Props = {}
 
@@ -16,7 +14,7 @@ interface ResearchArticle {
     e_topic: string;
     topic: string;
     description: string;
-    e_description:string;
+    e_description: string;
     researchers: {
         e_name: string;
         personal_web: string;
@@ -27,10 +25,6 @@ interface ResearchArticle {
 
 export default function Research({ }: Props) {
 
-
-
-
-   
     const [data, setData] = useState<ResearchArticle[]>([]);
     useEffect(() => {
         // Fetch data from the backend API when the component mounts
@@ -50,15 +44,15 @@ export default function Research({ }: Props) {
     ];
 
     for (const item of data) {
-    
-            sidebarItem.push({
-            
-                content: item.topic,
-                href: `#${item._id}`,
-                type: "singleItem",
-            });
-        
-       
+
+        sidebarItem.push({
+
+            content: item.topic,
+            href: `#${item._id}`,
+            type: "singleItem",
+        });
+
+
     }
 
     return (
@@ -78,12 +72,12 @@ export default function Research({ }: Props) {
                         <div key={item._id} id={`${item._id}`} className="mx-auto m-10 border-[#F29D35] border-l-[16px] border-1 p-5 md:mr-5">
                             <div className="md:flex">
                                 <div className="pt-1 w-full text-left break-keep">
-                                    {locale === "en" ?(
+                                    {locale === "en" ? (
                                         <div className="text-2xl font-medium">{item.e_topic}</div>
-                                    ):(
+                                    ) : (
                                         <div className="text-2xl font-medium">{item.topic}</div>
                                     )}
-                                    
+
                                     <div className="font-[450] mt-4">{r("title1")}&nbsp;
                                         {item.researchers.length === 1 ? (
                                             <a
@@ -112,12 +106,12 @@ export default function Research({ }: Props) {
                                             </span>
                                         )}
                                     </div>
-                                    {locale === "en" ?(
+                                    {locale === "en" ? (
                                         <div className="mt-4">{item.e_description}</div>
-                                    ):(
-                                         <div className="mt-4">{item.description}</div>
+                                    ) : (
+                                        <div className="mt-4">{item.description}</div>
                                     )}
-                                    
+
                                 </div>
                                 <div className="md:shrink-0 flex justify-center items-center mt-5 md:ml-5 md:mt-0">
                                     <Image

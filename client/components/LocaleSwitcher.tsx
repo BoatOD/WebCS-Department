@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLocale } from "next-intl";
 
 export default function LocaleSwitcher() {
-  const locales = useLocale();
-
   const pathName = usePathname();
   const i18n = {
     locales: ["en", "th"],

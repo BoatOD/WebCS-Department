@@ -1,5 +1,3 @@
-// components/GoogleCalendar.tsx
-
 import React from 'react';
 
 type GoogleCalendarProps = {

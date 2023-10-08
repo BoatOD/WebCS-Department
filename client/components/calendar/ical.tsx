@@ -1,5 +1,3 @@
-// components/ical.tsx
-
 import React from 'react';
 
 interface ICalProps {

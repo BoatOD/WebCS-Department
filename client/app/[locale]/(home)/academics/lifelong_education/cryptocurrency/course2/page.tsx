@@ -20,17 +20,16 @@ interface LifelongCrypto {
   e_name: string;
   e_studying_time: string;
   detail: {
-    "การทำงานของบล็อกเชนสำหรับเก็บข้อมูลคริปโทเคอร์เรนซี": string[];
-    "การเขียนโปรแกรมสคริปต์สำหรับเทรดคริปโทเคอร์เรนซี": string[];
+    [key: string]: any[];
   };
   e_detail: {
-    "How does blockchain work for storing cryptocurrency data?": string[];
-    "Programming scripts for trading cryptocurrencies": string[];
+    [key: string]: any[];
   };
   app_fee_other: number;
   app_fee_student: number;
   lecturer: string[];
   e_lecturer: string[];
+  c_no: number[];
 }
 
 export default function Course2({ }: Props) {
@@ -61,7 +60,7 @@ export default function Course2({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             {data
-              .filter((item) => item.e_name === "Course 2 : Development of an automatic trading program (Trading script) for transactions with cryptocurrencies (Robot Trading)")
+              .filter((item) => item.c_no.length === 1 && item.c_no[0] === 202)
               .map((item) => (
                 <div key={item._id} className="p-5">
                   <h1 className="text-2xl font-bold">{locale === "en" ? item.e_name : item.name}</h1>
