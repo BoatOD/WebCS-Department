@@ -61,7 +61,7 @@ const NewsAndEvent = (props: Props) => {
 
         title: item.e_topic, // Use the 'topic' property for the title
         content: item.e_detail.split('\n')[0], // Use the 'detail' property for the content
-        href: `/news_events/news/${item.b_id}`, // Construct the 'href' based on 'b_id'
+        href: `/news_events/news/${item._id}`, // Construct the 'href' based on 'b_id'
         images: item.picture[0], // Use the first picture from 'picture' array (you may need to add additional checks if 'picture' can be empty)
       };
     }
@@ -70,7 +70,7 @@ const NewsAndEvent = (props: Props) => {
 
         title: item.topic, // Use the 'topic' property for the title
         content: item.detail.split('\n')[0], // Use the 'detail' property for the content
-        href: `/news_events/news/${item.b_id}`, // Construct the 'href' based on 'b_id'
+        href: `/news_events/news/${item._id}`, // Construct the 'href' based on 'b_id'
         images: item.picture[0], // Use the first picture from 'picture' array (you may need to add additional checks if 'picture' can be empty)
       };
     }
@@ -93,14 +93,14 @@ const NewsAndEvent = (props: Props) => {
         return {
           title: formattedDateEn, // Use the 'topic' property for the title
           content: item.e_topic, // Use the 'detail' property for the content
-          href: `/news_events/events/${item.b_id}`, // Construct the 'href' based on 'b_id'
+          href: `/news_events/events/${item._id}`, // Construct the 'href' based on 'b_id'
         };
       }
       else {
         return {
           title: formattedDateTh, // Use the 'topic' property for the title
           content: item.topic, // Use the 'detail' property for the content
-          href: `/news_events/events/${item.b_id}`, // Construct the 'href' based on 'b_id'
+          href: `/news_events/events/${item._id}`, // Construct the 'href' based on 'b_id'
         };
       }
       
