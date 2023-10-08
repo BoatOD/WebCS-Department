@@ -1,9 +1,7 @@
 import React from "react";
 import { CardOfEventProps } from "@/types/cardofevent";
-import { useLocale } from "next-intl";
 
 const CardForEvents = ({ posts }: { posts: CardOfEventProps[] }) => {
-  const locale = useLocale();
   return (
     <>
       {posts.map((item, index) => (

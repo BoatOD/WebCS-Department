@@ -1,14 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 
 import React from "react"; // Import React for StrictMode
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "th" }];

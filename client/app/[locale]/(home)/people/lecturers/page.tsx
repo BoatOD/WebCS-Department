@@ -47,10 +47,6 @@ export default function Lecturer({}: Props) {
   }
 
   const [data, setData] = useState<Lecturer[]>([]);
-  const [count, setCount] = useState(0);
-  function CountNumbersBasedOnCondition() {
-    setCount(count + 1);
-  }
 
   
 

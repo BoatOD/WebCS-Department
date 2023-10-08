@@ -187,9 +187,6 @@ const EventsDetail = ({ params: { id } }: Params) => {
 
   const ne = useTranslations("news&eventhome");
   return (
-    // <div className="flex justify-center items-center h-screen">
-
-    // </div>
     <>
       <div className="flex flex-col space-y-2 mt-2 mx-10">
         <div className="px-8 py-0.5 bg-black w-full "></div>
