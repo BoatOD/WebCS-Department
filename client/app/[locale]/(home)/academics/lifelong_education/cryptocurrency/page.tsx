@@ -23,6 +23,7 @@ interface LifelongCrypto {
   app_fee_other: number;
   app_fee_student: number;
   lecturer: string[];
+  c_no: number[];
 }
 
 export default function Cryptocurrency({ }: Props) {
@@ -36,6 +37,22 @@ export default function Cryptocurrency({ }: Props) {
       .then((data) => setData(data))
       .catch((error) => console.error(error));
   }, []);
+
+  // Custom comparator function to sort by 'c_no' as per your requirement
+  const customComparator = (a: LifelongCrypto, b: LifelongCrypto) => {
+    const compareLength = (arr: number[]) => arr.length;
+    const lengthA = compareLength(a.c_no);
+    const lengthB = compareLength(b.c_no);
+
+    if (lengthA !== lengthB) {
+      return lengthA - lengthB;
+    }
+
+    return a.c_no.toString() < b.c_no.toString() ? -1 : 1;
+  };
+
+  // Sorting the 'data' array using the custom comparator function
+  const sortedData = data.sort(customComparator);
 
   return (
     <>
@@ -107,7 +124,7 @@ export default function Cryptocurrency({ }: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((item, index) => (
+                  {sortedData.map((item, index) => (
                     <tr
                       key={item._id}
                       className={`bg-${index % 2 === 0 ? 'white' : '[#F6BA70]'} border-b text-black`}

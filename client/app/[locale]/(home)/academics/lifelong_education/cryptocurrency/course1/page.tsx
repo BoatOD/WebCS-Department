@@ -20,22 +20,17 @@ interface LifelongCrypto {
   e_name: string;
   e_studying_time: string;
   detail: {
-    "Blockchain and Cryptocurrency": string[];
-    "Mining": string[];
-    "การเริ่มต้นการลงทุนด้าน Cryptocurrency": string[];
-    "ผลิตภัณฑ์อื่น ๆ ที่น่าสนใจ": string[];
+    [key: string]: any[];
   };
   e_detail: {
-    "Blockchain and Cryptocurrency": string[];
-    "Mining": string[];
-    "Getting Started with Cryptocurrency Investing": string[];
-    "Other interesting products": string[];
+    [key: string]: any[];
   };
   c_id: number;
   app_fee_other: number;
   app_fee_student: number;
   lecturer: string[];
   e_lecturer: string[];
+  c_no: number[];
 }
 
 
@@ -68,7 +63,7 @@ export default function Course1({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             {data
-              .filter((item) => item.e_name === "Course 1 : Basics of Cryptocurrency (Cryptocurrency for new investors)")
+              .filter((item) => item.c_no.length === 1 && item.c_no[0] === 201)
               .map((item) => (
                 <div key={item._id} className="p-5">
                   <h1 className="text-2xl font-bold">{locale === "en" ? item.e_name : item.name}</h1>
