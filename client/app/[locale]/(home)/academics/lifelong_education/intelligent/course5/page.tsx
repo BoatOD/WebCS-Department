@@ -25,6 +25,7 @@ interface LifelongIntelligent {
   e_detail: {
     [key: string]: any[];
   };
+  c_no: number[];
 }
 
 export default function Course_5({ }: Props) {
@@ -53,10 +54,10 @@ export default function Course_5({ }: Props) {
           </div>
           <div className="p-1 pt-3 ">
             {data
-              .filter((item) => item.e_name === "Intelligent data analysis for intermediate learners utilizing machine learning techniques and Orange data mining toolbox MODULE 1 : Data analysis applications using Data Mining Tools.")
+              .filter((item) => item.c_no.length === 1 && item.c_no[0] === 105)
               .map((item) => (
                 <div className="p-5" key={item._id}>
-                  <h1 className="text-2xl font-bold">5. {locale === "en" ? item.e_name : item.name}</h1>
+                  <h1 className="text-2xl font-bold">{item.c_no[0].toString().slice(-1)}. {locale === "en" ? item.e_name : item.name}</h1>
                   <br />
                   <table className="w-full">
                     <tbody>
